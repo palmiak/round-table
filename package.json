@@ -1,0 +1,26 @@
+{
+  "name": "@example/basics",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^1.2.4",
+    "canvas-confetti": "^1.5.1",
+    "eslint": "^8.23.1",
+    "eslint-config-google": "^0.14.0",
+    "normalize.css": "^8.0.1",
+    "open-props": "^1.4.14",
+    "plop": "^3.1.1",
+    "prettier": "^2.7.1",
+    "prettier-plugin-astro": "^0.5.4",
+    "reveal.js": "^4.3.1",
+    "splitting": "^1.0.6"
+  }
+}

@@ -1,0 +1,17 @@
+:root {
+  --conference-hue: 280;
+  --r-heading-font: 'Google Sans', sans-serif;
+  --r-main-font: 'Google Sans', sans-serif;
+  --r-main-font-size: 36px;
+  --r-code-font: 'JetBrains Mono', monospace;
+  --r-link-color: hsl(var(--conference-hue) 66% 50%);
+  --r-link-color-dark: hsl(var(--conference-hue) 66% 50%);
+  --r-link-color-hover: hsl(var(--conference-hue) 66% 83%);
+  --r-selection-background-color: hsl(var(--conference-hue) 66% 40%);
+  --color-one: #ea4335;
+  --color-two: #4285f4;
+  --color-three: #34a853;
+  --color-four: #fbbc05;
+  --speed: 0.65s;
+  --code-size: 0.8rem;
+}

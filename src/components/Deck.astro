@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import "reveal.js/dist/reveal.css";
+import "reveal.js/dist/theme/black.css";
+import "reveal.js/plugin/highlight/monokai.css";
+
+const { slides, title } = Astro.props
+---
+
+<Layout title={title}>
+  <main class="reveal deck">
+    <div class="slides">
+      <section data-markdown data-seperator-notes="Note:">
+        <textarea data-template>
+          {slides.rawContent()}
+        </textarea>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  import Reveal from 'reveal.js'
+  import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js'
+  import RevealHighlight from 'reveal.js/plugin/highlight/highlight.esm.js'
+  import Splitting from 'splitting'
+
+  const DECKS = document.querySelectorAll('.deck')
+  DECKS.forEach(DECK => {
+    let newDeck = new Reveal(DECK, {
+      plugins: [Markdown, RevealHighlight],
+      hash: true,
+    })
+    newDeck.initialize()
+  })
+</script>
