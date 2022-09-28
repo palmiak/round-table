@@ -1,6 +1,7 @@
 ---
-import Deck from '../../components/Deck.astro';
+import MarkdownDeck from '../../components/MarkdownDeck.astro';
 import * as slides from './slides.md'
 import "./tpac.css"
+
 ---
-<Deck title="TPAC 2022 - CSS Anchoring" slides={slides}></Deck>
+<MarkdownDeck title="TPAC 2022 - CSS Anchoring" slides={[slides]}></MarkdownDeck>

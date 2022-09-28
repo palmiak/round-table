@@ -5,19 +5,29 @@ import "reveal.js/dist/theme/black.css";
 import "reveal.js/plugin/highlight/monokai.css";
 
 const { slides, title } = Astro.props
+
+let content = ``
+
+slides.forEach(slide => {
+  content += `${slide.rawContent()}<br>`
+})
 ---
 
 <Layout title={title}>
-  <main class="reveal deck">
+  <main class="reveal deck markdown-deck">
     <div class="slides">
       <section data-markdown data-seperator-notes="Note:">
         <textarea data-template>
-          {slides.rawContent()}
+          {content}
         </textarea>
       </section>
     </div>
   </main>
 </Layout>
+
+<style>
+  @import "open-props/style";
+</style>
 
 <script>
   import Reveal from 'reveal.js'
@@ -25,7 +35,7 @@ const { slides, title } = Astro.props
   import RevealHighlight from 'reveal.js/plugin/highlight/highlight.esm.js'
   import Splitting from 'splitting'
 
-  const DECKS = document.querySelectorAll('.deck')
+  const DECKS = document.querySelectorAll('.markdown-deck')
   DECKS.forEach(DECK => {
     let newDeck = new Reveal(DECK, {
       plugins: [Markdown, RevealHighlight],

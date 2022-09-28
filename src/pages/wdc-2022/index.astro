@@ -1,6 +1,9 @@
 ---
-import Deck from '../../components/Deck.astro';
-import * as slides from './slides.md'
+import MarkdownDeck from '../../components/MarkdownDeck.astro';
 import "./wdc.css"
+import * as intro from './intro.md'
+import * as advisory from '../../shared/advisory.md'
+import '../../shared/advisory.css'
+import * as popups from './popups.md'
 ---
-<Deck title="WDC 2022" slides={slides}></Deck>
+<MarkdownDeck slides={[advisory, intro, popups]} title="WDC 2022" />

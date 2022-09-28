@@ -75,6 +75,10 @@
   object-fit: cover;
 }
 
+.reveal :is(img, video) {
+  object-fit: cover;
+}
+
 .split-screen {
   display: grid !important;
   grid-template-columns: var(--col-one, 50%) var(--col-two, 50%);
@@ -83,6 +87,17 @@
 .reveal .code-grid-with-header {
   display: grid !important;
   grid-template: auto 1fr / 1fr 1fr;
+  gap: 0 1rem;
+}
+
+.reveal .code-grid-with-header [src] {
+  margin: 0;
+  max-height: 100%;
+  width: 100%;
+}
+
+.code-grid-with-header > p {
+  margin: 0;
 }
 
 .reveal .code-grid-with-header > :first-child {
@@ -95,6 +110,12 @@
 
 .reveal :is(.split-screen, .code-grid-with-header) pre {
   font-size: var(--code-size, 0.875rem);
+  margin-bottom: 0;
+  overflow: visible;
+}
+
+.reveal :is(.split-screen, .code-grid-with-header) pre code {
+  overflow: visible;
 }
 
 .image-collage {
@@ -130,4 +151,81 @@
 
 ul {
   padding: 0;
+}
+
+.tweet-deck {
+  display: inline-grid !important;
+  grid-template-columns: 35% 35%;
+  place-items: center;
+  align-content: center;
+  justify-content: center;
+  align-items: start;
+  gap: 0.5rem;
+}
+
+.tweet-deck > div {
+  display: grid;
+  align-items: start;
+}
+
+.tweet-deck img {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.tweet-deck > img:first-of-type {
+  grid-column: 1 / -1;
+  width: 50%;
+}
+
+.stats-holder {
+  position: relative;
+}
+
+.stats-holder [src] {
+  margin: 0;
+}
+
+.stats-holder .take {
+  translate: -10% -25%;
+  scale: 1.1;
+}
+
+.reveal .stats-holder .stats {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  width: 30%;
+  rotate: 10deg;
+  scale: 1.1;
+  box-shadow: var(--shadow-4);
+}
+
+.reveal .stats-holder .code {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 65%;
+}
+
+.reveal .stats-holder.floating .take {
+  position: absolute;
+  right: 8%;
+  top: 5%;
+  rotate:  15deg;
+  scale: 0.75;
+  translate: 25% 0;
+}
+
+.stats-holder.floating .code {
+  width: 60%;
+  right: 65%;
+  top: -5%;
+}
+
+.reveal sub {
+  font-size: small;
+  opacity: 0.75;
 }
