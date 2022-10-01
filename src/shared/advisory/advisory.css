@@ -5,6 +5,7 @@
   font-family:  'Google Sans', sans-serif;
   font-weight: bold;
   text-transform: uppercase;
+  /* width: 80vw; */
 }
 .content-warning div {
   font-size: var(--fs, 1rem);

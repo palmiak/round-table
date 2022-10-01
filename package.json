@@ -10,6 +10,9 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "scripts": {
+    "init": "mkcert -install && mkcert localhost"
+  },
   "dependencies": {
     "@astrojs/mdx": "^0.11.2",
     "astro": "^1.2.4",

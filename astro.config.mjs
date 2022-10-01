@@ -1,8 +1,19 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro/config'
 
-import mdx from "@astrojs/mdx";
+const cert = './localhost.pem'
+const key = './localhost-key.pem'
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [mdx()]
-});
+  server: {
+    host: true,
+    port: 1987,
+  },
+  vite: {
+    server: {
+      https: {
+        key,
+        cert
+      }
+    }
+  }
+})

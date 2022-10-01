@@ -1,0 +1,34 @@
+---
+import Logo from './Logo.svg?raw'
+---
+
+<Fragment set:html={Logo} />
+
+<style is:global>
+  .deck__logo {
+    --base-coat: hsl(0 0% 100%);
+    position: fixed;
+    width: 6vmin;
+    top: 2vmin;
+    left: 2vmin;
+    z-index: 999;
+  }
+  .deck__logo-eye {
+    animation: blink 8s infinite linear;
+    will-change: scale;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  @keyframes blink {
+    0%, 46%, 48%, 50%, 100% {
+      scale: 1 1;
+    }
+    47%, 49% {
+      scale: 1 0.01;
+    }
+  }
+  .reveal.has-light-background ~ .deck__logo {
+    --base-coat: hsl(0 0% 0%);
+  }
+</style>

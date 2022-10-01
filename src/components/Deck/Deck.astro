@@ -1,8 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
+import DeckLogo from '../Logo/Logo.astro'
 import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/black.css";
 import "reveal.js/plugin/highlight/monokai.css";
+import './deck.css'
 
 const { slides, title } = Astro.props
 
@@ -23,11 +25,12 @@ slides.forEach(slide => {
       </section>
     </div>
   </main>
+  <DeckLogo />
 </Layout>
 
-<style>
+<!-- <style>
   @import "open-props/style";
-</style>
+</style> -->
 
 <script>
   import Reveal from 'reveal.js'
