@@ -1,0 +1,29 @@
+@import "normalize.css";
+@import "open-props/style";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Google Sans", sans-serif;
+  color: var(--gray-0);
+}
+
+svg {
+  width: 25vmin;
+  aspect-ratio: 1;
+  overflow: visible !important;
+  position: absolute;
+  top: calc(var(--y) * 1px);
+  left: calc(var(--x) * 1px);
+  transform: translate(-50%, -50%);
+}

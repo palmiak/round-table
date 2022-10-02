@@ -546,6 +546,18 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
+"@svgdotjs/svg.filter.js@^3.0.8":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@svgdotjs/svg.filter.js/-/svg.filter.js-3.0.8.tgz#998cb2481a871fa70d7dbaa891c886b335c562d7"
+  integrity sha512-YshF2YDaeRA2StyzAs5nUPrev7npQ38oWD0eTRwnsciSL2KrRPMoUw8BzjIXItb3+dccKGTX3IQOd2NFzmHkog==
+  dependencies:
+    "@svgdotjs/svg.js" "^3.1.1"
+
+"@svgdotjs/svg.js@^3.1.1", "@svgdotjs/svg.js@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@svgdotjs/svg.js/-/svg.js-3.1.2.tgz#acd62ebc5a6ef5b3a70e4a3912ce643a150c56e7"
+  integrity sha512-0ZCWTiuRjCXT2SUoVDiu+8DLuRQlkxZbO680Y2QkV7jNsULzJajrx6A3MxA/IBQg6UGV5csgPZ8w7U57hZSK+A==
+
 "@types/acorn@^4.0.0":
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/@types/acorn/-/acorn-4.0.6.tgz#d61ca5480300ac41a7d973dd5b84d0a591154a22"
@@ -2117,6 +2129,11 @@ gray-matter@^4.0.3:
     kind-of "^6.0.2"
     section-matter "^1.0.0"
     strip-bom-string "^1.0.0"
+
+gsap@^3.11.2:
+  version "3.11.2"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.11.2.tgz#e2d6e7b0f2bcdf16a0690ad1ca44d764775b4bec"
+  integrity sha512-y1NSjM2i2yCjLtoNuoyIhhh9kmYOpFEU9su1EbHuZGN3OWr8M6NIjNHBurSWu/blbHAPQqGm7mUIokSxqTTp2Q==
 
 handlebars@^4.4.3:
   version "4.7.7"

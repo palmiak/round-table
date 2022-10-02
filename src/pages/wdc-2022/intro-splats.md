@@ -1,18 +1,9 @@
-<!-- .slide: data-background-color="hsl(210 80% 20%)" -->
-
-## Demo of a circle
-
+<!-- .slide: data-background-color="hsl(210 80% 20%)" data-background-iframe="/demos/wdc-splats/circle" data-background-interactive -->
 ---
-
-## Demo of more circles
-
+<!-- .slide: data-background-color="hsl(210 80% 20%)" data-background-iframe="/demos/wdc-splats/circles" data-background-interactive -->
 ---
-
-## Apply a filter
-
+<!-- .slide: data-background-color="hsl(210 80% 20%)" data-background-iframe="/demos/wdc-splats/filter" data-background-interactive -->
 ---
-
-## Now you've got splats
-
+<!-- .slide: data-background-color="hsl(210 80% 20%)" data-background-iframe="/demos/wdc-splats/animate" data-background-interactive -->
 ---
 <!-- End section -->

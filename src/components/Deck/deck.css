@@ -1,3 +1,63 @@
+@import '../../../public/shared/css/icons.css';
+
 iframe {
   border: 0;
+}
+
+.support-grid {
+  display: inline-grid;
+  gap: 1rem 2rem;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: 1fr 1fr;
+}
+
+.support-grid:has(span:nth-of-type(10)) {
+  grid-template-columns: repeat(5, 80px);
+}
+
+.browser-logo {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  aspect-ratio: 1;
+}
+
+.support-grid {
+  font-size: 36px;
+  color: hsl(10 100% 50%);
+}
+
+.support-grid span[class*=material] {
+  font-size: 48px;
+}
+
+.browser-version[data-supported] {
+  color: hsl(130 100% 50%);
+}
+
+.browser-logo[data-browser=chrome] {
+  background-image: url('/shared/icons/chrome.svg');
+}
+.browser-logo[data-browser=canary] {
+  background-image: url('/shared/icons/canary.svg');
+}
+.browser-logo[data-browser=firefox] {
+  background-image: url('/shared/icons/firefox.svg');
+}
+.browser-logo[data-browser=safari] {
+  background-image: url('/shared/icons/safari.svg');
+}
+.browser-logo[data-browser=edge] {
+  background-image: url('/shared/icons/edge.svg');
+}
+
+
+/* Code styling */
+.reveal pre {
+  display: inline-block;
+  width: auto;
+}
+
+.reveal pre code {
+  padding: 0.5rem;
 }
