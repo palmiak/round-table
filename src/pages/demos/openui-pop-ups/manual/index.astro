@@ -1,0 +1,33 @@
+---
+import './style.css';
+---
+
+<html>
+  <head>
+    <title>First Pop-up</title>
+  </head>
+  <body>
+    <main>
+      <button class="blue button fill elevated" popupshowtarget="window">
+        Show Prompt
+      </button>
+      <div popup="manual" defaultopen id="window">
+        <div class="window">
+          <div class="title-bar">
+            <div class="title-bar-text">Manual Pop-up</div>
+            <div class="title-bar-controls">
+              <button aria-label="Close" popuphidetarget="window"></button>
+            </div>
+          </div>
+          <div class="window-body">
+            <p>
+              The only way to remove me is via a trigger element, or with
+              JavaScript.
+            </p>
+            <button popuphidetarget="window">Close</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

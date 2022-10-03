@@ -1,0 +1,39 @@
+@import "normalize.css";
+@import "open-props/style";
+@import "open-props/normalize";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: var(--surface-1);
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  list-style-type: none;
+}
+
+li {
+  width: 10vmin;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--blue-2);
+  padding: 0;
+  transition: background 0.2s;
+}
+
+li:hover {
+  background: var(--pink-6);
+}
+
+li:hover + li,
+li:has(+ li:hover) {
+  background: var(--pink-3);
+}

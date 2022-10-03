@@ -1,0 +1,113 @@
+@layer normalize, open-props, mdl, base, demo;
+
+
+
+@import "normalize.css" layer(normalize);
+@import "open-props/style" layer(open-props);
+@import "open-props/normalize" layer(open-props);
+
+@import url("../../../../../public/shared/css/mdl.css") layer(mdl);
+@import url("../../../../../public/shared/css/icons.css") layer(mdl);
+
+@layer base {
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: "Google Sans", sans-serif, system-ui;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+
+@layer demo {
+  [popup] {
+    padding: var(--size-4);
+  }
+  [popup]:open::backdrop {
+    background: hsl(0 0% 10% / 0.5);
+    backdrop-filter: blur(2px);
+  }
+}
+
+@layer base {
+  :where([popup]) {
+    margin: auto;
+    border-width: initial;
+    border-style: solid;
+  }
+  body {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  article {
+    padding-bottom: var(--size-4);
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  article {
+    margin: 0 var(--size-4);
+    padding-bottom: var(--size-4);
+  }
+
+  article > p + p {
+    margin-top: var(--size-4);
+  }
+
+  main > header {
+    margin-bottom: var(--size-4);
+    max-width: 100vw;
+  }
+
+  main {
+    max-width: var(--size-content-3);
+  }
+
+  header {
+    min-height: var(--size-content-1);
+    background: var(--surface-2);
+    display: grid;
+    padding: var(--size-4);
+    place-items: center;
+    width: 100vw;
+    position: relative;
+    top: 0;
+    left: 50%;
+    margin-left: -50vw;
+    min-height: 50vmin;
+    max-height: 500px;
+  }
+
+  h1 {
+    position: sticky;
+    top: 0;
+  }
+}
+
+@layer button {
+  .button.fab {
+    position: fixed;
+    z-index: 99999;
+    bottom: var(--size-4);
+    right: var(--size-4);
+  }
+
+  .fab svg {
+    fill: var(--md-sys-color-on-primary-container);
+  }
+}

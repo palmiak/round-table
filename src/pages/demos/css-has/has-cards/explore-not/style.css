@@ -1,0 +1,84 @@
+@import "normalize.css";
+@import "open-props/style";
+@import "open-props/colors-hsl";
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+body {
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
+	font-family:  'Google Sans', sans-serif, system-ui;
+}
+
+.card {
+	--color: var(--green-3-hsl);
+	border-radius: var(--radius-2);
+	background: var(--gray-0);
+	box-shadow: var(--shadow-4);
+	color: var(--gray-9);
+	list-style-type: none;
+	display: grid;
+	overflow: hidden;
+	width: 360px;
+	position: relative;
+}
+
+.card ::selection {
+	background-color:  hsl(var(--color) / 25%);
+}
+.card__content {
+	padding: var(--size-fluid-2);
+	display: grid;
+	grid-gap: var(--size-2);
+}
+
+.card__blurb {
+	margin: 0;
+}
+
+.card__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	aspect-ratio: 2 / 1;
+}
+
+.card:not(:has(.card__blurb)):not(:has(.card__author)) {
+	--text: var(--gray-0);
+	aspect-ratio: 3 / 4;
+}
+.card:not(:has(.card__blurb)):not(:has(.card__author)) .card__image {
+	height: 100%;
+}
+.card:not(:has(.card__blurb)):not(:has(.card__author)) .card__content {
+	align-items: end;
+	height: 100%;
+	background: linear-gradient(0deg, hsl(0 0% 0% / 0.75) 50%, transparent 80%);
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: var(--font-size-4);
+	font-weight: var(--font-weight-1);
+}
+
+.card__title a {
+	line-height: 1;
+	margin: 0;
+	margin-block: var(--size-fluid-1);
+	color: var(--text, var(--gray-9));
+	padding: 0;
+	margin: 0;
+	text-decoration-color: hsl(var(--color) / 100%);
+	text-decoration-thickness: 4px;
+}
+
+.card__author {
+	opacity: 0.5;
+}

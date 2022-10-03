@@ -1,0 +1,57 @@
+@import "normalize.css";
+@import "open-props/style";
+@import "open-props/colors-hsl";
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+body {
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
+	font-family:  'Google Sans', sans-serif, system-ui;
+}
+
+.card {
+	--color: var(--indigo-3-hsl);
+	border-radius: var(--radius-2);
+	background: var(--gray-0);
+	padding: var(--size-fluid-3);
+	box-shadow: var(--shadow-4);
+	color: var(--gray-9);
+	list-style-type: none;
+	display: grid;
+	grid-gap: var(--size-fluid-1);
+	overflow: hidden;
+	border-left: var(--size-2) solid hsl(var(--color));
+}
+
+.card ::selection {
+	background-color:  hsl(var(--color) / 25%);
+}
+
+.card__blurb {
+	margin: 0;
+}
+
+.card__title {
+	line-height: 1;
+	margin: 0;
+	margin-bottom: var(--size-fluid-1);
+}
+
+.card__author {
+	text-align: right;
+	opacity: 0.5;
+}
+
+.card a {
+	color: var(--gray-9);
+	padding: 0;
+	margin: 0;
+	text-decoration-color: hsl(var(--color) / 100%);
+	text-decoration-thickness: 4px;
+}

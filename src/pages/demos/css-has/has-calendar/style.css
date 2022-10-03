@@ -1,0 +1,329 @@
+@import "normalize.css" layer(normalize);
+@import "open-props/style";
+
+:root {
+  --primary: 320 100% 50% / 1;
+  --in-range: 320 100% 50% / 0.5;
+  --previous: 320 100% 50% / 0.25;
+  --potential: 0 0% 86% / 1;
+  --dark: 0 0% 15%;
+  --light: 0 0% 100%;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  /* transition: background 0.2s, color 0.2s, opacity 0.2s; */
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family:  'Google Sans', sans-serif, system-ui;
+  background: var(--gray-0);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.calendar__cell {
+  border: calc(var(--dash, 0) * 4px) dashed hsl(var(--primary));
+  background-color: hsl(var(--bbg));
+  opacity: var(--alpha, 1);
+  border-radius: var(--radius);
+  
+}
+
+.calendar__title {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.calendar__cell:has([for*="-09-"], [for*="-11-"]) {
+  --alpha: 0.5;
+}
+
+.calendar__heading,
+.calendar__cell {
+  display: grid;
+  width: 48px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  place-items: center;
+  position: relative;
+}
+
+label {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background: hsl(var(--bg));
+  position: absolute;
+  border-radius: var(--radius, 0 0 0 0);
+  cursor: pointer;
+}
+
+tbody {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+tr {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+
+/* By default, hide all the "to" radio */
+[id*=to], [for*=to] {
+  display: none;
+}
+
+.calendar:has([id*=from]:checked) tr:has([id*=from]:checked) ~ tr :is([id*=to], [for*=to]),
+.calendar:has([id*=from]:checked) tr:has([id*=from]:checked) .calendar__cell:has([id*=from]:checked) ~ .calendar__cell :is([id*=to], [for*=to]) {
+  display: inline-block;
+}
+
+.calendar:has([id*=to]:checked)
+tr:has([id*=to]:checked)
+.calendar__cell:has([id*=to]:checked) ~
+.calendar__cell :is([id*=from]),
+.calendar:has([id*=to]:checked)
+.calendar__cell:has([id*=to]:checked) :is([id*=from]),
+.calendar:has([id*=to]:checked)
+tr:has([id*=to]:checked) ~ tr .calendar__cell :is([id*=from])
+{
+  display: none;
+}
+
+
+.calendar__number {
+  color: hsl(var(--color, 0 0% 10%));
+  display: inline-block;
+  font-weight: bold;
+  z-index: 4;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* HOVER MADNESS - THESE ARE WILD AND CAN LIKELY BE EASIER... */
+
+/* Hover logic for picking "to" */
+/* All the pre-selection hovering stuff */
+/* Pick all succeeding rows up to hover */
+:root:has([id*=from]:checked):not(:has([id*=to]:checked)):has(.calendar__cell:hover)
+tr:has([id*=from]:checked) ~
+tr:not(:hover):has(~ tr:hover) .calendar__cell,
+/* Pick all succeeding cells where a later row is hovered */
+:root:has([id*=from]:checked):not(:has([id*=to]:checked)):has(.calendar__cell:hover)
+tr:has([id*=from]:checked):has(~ tr:hover)
+.calendar__cell:has(:checked) ~ .calendar__cell,
+/* Pick all preceeding cells before the hover but after the "from" */
+:root:has([id*=from]:checked):not(:has([id*=to]:checked)):has(.calendar__cell:hover)
+.calendar__cell:has(:checked) ~ .calendar__cell:has(~ .calendar__cell:hover),
+/* Pick all cells up to the hover in other rows */
+:root:has([id*=from]:checked):not(:has([id*=to]:checked)):has(.calendar__cell:hover)
+tr:has(:checked) ~ tr:has(:hover)
+.calendar__cell:has(~ .calendar__cell:hover) {
+  --bbg: var(--potential);
+  --alpha: 1;
+  /* --color: 10 0% 100%; */
+}
+
+/* When you have a "to" and "from" but you hover something before "to" */
+/* Updating "from" */
+/* All the cells succeeding the :hover in the :hovered row */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has(~ tr .calendar__cell > [id*=from]:checked):hover
+.calendar__cell:hover ~ .calendar__cell,
+/* All cells on succeeding rows that don't contain the "from" */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:hover ~ tr:has(~ tr [id*=from]:checked)
+.calendar__cell,
+/* All cells preceding the "from" on the checked row */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:hover:has([id*=from]:checked)
+.calendar__cell:hover:has(~ .calendar__cell > [id*=from]:checked) ~
+.calendar__cell:has(~ .calendar__cell > [id*=from]:checked),
+/* Also need to select cells preceding the "from" on the checked row when another is hovered... */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:hover ~ tr:has([id*=from]:checked)
+.calendar__cell:has(~ .calendar__cell > [id*=from]:checked)
+{
+  --bbg: var(--potential);
+  --alpha: 1;
+  --color: var(--dark);
+}
+
+/* Highlight the "from" cell too */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:hover ~ tr:has([id*=from]:checked)
+.calendar__cell:has([id*=from]:checked),
+/* Including if it's a same row hover */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:hover:has([id*=from]:checked)
+.calendar__cell:hover:has(~ .calendar__cell > [id*=from]:checked) ~
+.calendar__cell:has([id*=from]:checked),
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=from]:checked):has([id*=to]:checked)
+.calendar__cell:has([id*=from]:checked) ~ .calendar__cell:hover ~ .calendar__cell:has([id*=to]:checked),
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=from]:checked) ~ tr:hover:has([id*=to]:checked)
+.calendar__cell:hover ~ .calendar__cell:has([id*=to]:checked),
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=from]:checked) ~ tr:hover ~ tr:has(:checked)
+.calendar__cell:has([id*=to]:checked),
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=from]:checked):not(:has([id*=to]:checked)):not(:has(.calendar__cell:hover ~
+.calendar__cell > :checked)):not(:has(.calendar__cell > :checked:hover)):hover ~
+tr:has([id*=to]:checked)
+.calendar__cell:has(:checked),
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=to]:checked):has(~ tr:hover)
+.calendar__cell:has([id*=to]:checked),
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=to]:checked):hover .calendar__cell:has([id*=to]:checked):not(:hover)
+{
+  --bbg: var(--previous);
+  --dash: 1;
+  --color: var(--dark);
+}
+
+
+/* THESE ARE THE HORRIBLE RULES FOR INTERIM SELECTION. NO ONE WANTS TO LOOK AT THIS... */
+/* Highlight any cells past the hovered on the "from" row where there's no "from" */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=from]:checked):not(:has([id*=to]:checked)):hover
+.calendar__cell:has(:checked) ~ .calendar__cell:hover ~ .calendar__cell
+,
+/* Highlight the following rows that don't have a :checked */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=from]:checked):not(:has([id*=to]:checked)):not(:has(.calendar__cell:hover ~
+.calendar__cell > :checked)):not(:has(.calendar__cell > :checked:hover)):hover ~
+tr:not(:has(:checked)):has(~ tr [id*=to]:checked)
+.calendar__cell
+,
+/* Highlight the cells on the row with "to" up to "to" */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=from]:checked):not(:has([id*=to]:checked)):not(:has(.calendar__cell:hover ~
+.calendar__cell > :checked)):not(:has(.calendar__cell > :checked:hover)):hover ~
+tr:has([id*=to]:checked)
+.calendar__cell:has(~ .calendar__cell > :checked),
+/* Now for when a cell is hovered in a row that succeeds the "from" but doesn't have "to" */
+/* First, the hovered row */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=from]:checked) ~ tr:not(:has(:checked)):has(~ tr [id*=to]:checked):hover
+.calendar__cell:hover ~ .calendar__cell
+,
+/* Now you need all intermediary rows where there isn't a checked */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=from]:checked) ~ tr:hover ~ tr:not(:has(:checked)):has(~ tr [id*=to]:checked)
+.calendar__cell
+,
+/* Highlight the cells in the row with the "to" finally */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=from]:checked) ~ tr:hover ~ tr:has(:checked)
+.calendar__cell:has(~ .calendar__cell > [id*=to]:checked),
+/* Now for when we :hover the "to" row */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=from]:checked) ~ tr:hover:has([id*=to]:checked)
+.calendar__cell:hover ~ .calendar__cell:has(~ .calendar__cell > [id*=to]:checked)
+,
+/* Lastly, hovering a row where "to" and "from" are :checked */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=from]:checked):has([id*=to]:checked)
+.calendar__cell:has([id*=from]:checked) ~ .calendar__cell:hover ~ .calendar__cell:has(~ .calendar__cell > [id*=to]:checked)
+{
+  --bbg: var(--in-range);
+  --color: var(--dark);
+  --alpha: 0.25;
+}
+
+/* TODO:: Let's push the envelope by hiding all "from" that precede :checked "from", etc. */
+/* All the selected range goes here */
+/* Cells that succeed the "from" point  and not the "to" point. Don't ask how that last line works... */
+:root:has([id*=from]:checked):has([id*=to]:checked)
+tr:has([id*=from]:checked)
+.calendar__cell:has([id*=from]:checked) ~
+.calendar__cell:has( ~ .calendar__cell > :checked):not(:hover),
+/* Select all cells that come before the selected "to" in that row */
+:root:has([id*=from]:checked):has([id*=to]:checked)
+tr:has([id*=from]:checked) ~ tr:has(:checked)
+.calendar__cell:has(~ .calendar__cell > :checked):not(:hover),
+/* All rows inbetween are those that don't have checked but do have a succeeding checked */
+:root:has([id*=from]:checked):has([id*=to]:checked)
+tr:has([id*=from]:checked) ~ tr:not(:has(:checked)):has(~ tr .calendar__cell > :checked)
+.calendar__cell:not(:hover),
+/* The last piece is all cells that come after the "from" where a succeeding row has the checked */
+:root:has([id*=from]:checked):has([id*=to]:checked)
+tr:has([id*=from]:checked):has(~ tr .calendar__cell > :checked)
+.calendar__cell:has([id*=from]:checked) ~ .calendar__cell:not(:hover)
+{
+  --bbg: var(--in-range);
+  --alpha: 1;
+  --color: var(--light);
+}
+/* When you have a "to" and "from" but you hover something before "to" */
+/* Updating "to" */
+/* All the cells on rows between checked "to" and :hover */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=to]:checked) ~ tr:not(:hover):has(~ tr:hover)
+.calendar__cell,
+/* All the cells on the hover row after the "to" */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=to]:checked):hover
+.calendar__cell:has([id*=to]:checked) ~ .calendar__cell:not(:hover):has(~ .calendar__cell:hover),
+/* All cells preceding the :hover on a non-selected row */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=to]:checked) ~ tr:hover
+.calendar__cell:not(:hover):has(~ .calendar__cell:hover),
+/* All cells after the "to" when a succeeding row is hovered */
+:root:has([id*=from]:checked):has([id*=to]:checked):has(.calendar__cell:hover)
+tr:has([id*=to]:checked):has(~ tr:hover)
+.calendar__cell:has([id*=to]:checked) ~ .calendar__cell {
+  --bbg: var(--potential);
+  --alpha: 1;
+  --color: var(--dark);
+}
+
+/* Raise the "to" label once a "from" has been checked */
+/* At this point you can display:none all of the "from" also */
+.calendar__cell:has([id*=from]:checked) ~ .calendar__cell [for*=to],
+tr:has([id*=from]:checked) ~ tr .calendar__cell [for*=to] {
+  z-index: 3;
+}
+
+.calendar__cell:hover {
+  --bbg: var(--primary);
+  --alpha: 1;
+  --color: 0 0% 100%;
+}
+
+/* When a cell has checked content */
+.calendar__cell:has(:checked) {
+  --bbg: var(--primary);
+  --alpha: 1;
+  --color: 0 0% 100%;
+}
+
+/* Border radius for the different edges based on opener or closer */
+.calendar__cell:has([id*=from]:checked) {
+  --radius: 50% 0 0 50%;
+}
+.calendar__cell:has([id*=to]:checked) {
+  --radius: 0 50% 50% 0;
+}

@@ -1,0 +1,154 @@
+@import "normalize.css";
+@import "open-props/style";
+@import "open-props/normalize";
+@import "prismjs/plugins/toolbar/prism-toolbar.min.css";
+@import "prism-themes/themes/prism-night-owl.css";
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: var(--size-2) var(--size-4);
+  align-items: center;
+  justify-content: center;
+  align-content: start;
+}
+
+dt {
+  margin: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  align-content: center;
+  font-family:  'Google Sans', sans-serif, system-ui;
+  padding: var(--size-4);
+  gap: var(--size-4);
+}
+
+.code-toolbar {
+  max-width: 100%;
+}
+
+.configurator {
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+pre {
+  margin: 0 !important;
+  max-height: 50vmin;
+  max-width: calc(100vw - (2 * var(--size-4)));
+}
+
+.copy-to-clipboard-button {
+  color: var(--gray-0) !important;
+  font-size: var(--font-size-fluid-0);
+}
+
+div.code-toolbar > .toolbar {
+  opacity: 1;
+  right: var(--size-4);
+  top: var(--size-4);
+}
+
+.blocks {
+  display: grid;
+  grid-template-columns: repeat(var(--blocks, 0), auto);
+}
+
+.block {
+  width: 44px;
+  aspect-ratio: 1;
+  background: var(--blue-1);
+  display: grid;
+  place-items: center;
+  z-index: var(--index);
+  position: relative;
+}
+
+.block__item {
+  width: 50%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--bg), var(--gray-0);
+  transition: all 0.1s ease;
+  overflow: hidden;
+}
+
+.blocks:not(.blocks--hover) .block__item {
+  transform: translateY(calc((var(--lerp, 0) * var(--translation, 200)) * -1%)) scale(calc(1 + (var(--lerp, 0) * 1)));
+}
+
+.blocks--hover .block .block__item {
+  transform: translateY(calc(var(--active-lerp, 0) * -200%)) scale(calc(1 + (var(--active-lerp, 0) * 1)));
+}
+
+.blocks--hover .block:hover {
+  z-index: var(--blocks);
+  background: red;
+}
+
+.blocks--hover .block:after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 0) scaleY(var(--show, 0));
+  transform-origin: 50% 100%;
+  width: 100%;
+  aspect-ratio: 1 / 2;
+  background: purple;
+  z-index: -1;
+  transition: transform 0.1s;
+}
+
+.blocks--hover:hover {
+  --show: 1;
+}
+
+/*.blocks--hover .block:hover {
+  --active-lerp: var(--lerp-0);
+  z-index: 4;
+}
+
+.blocks--hover .block:has(+ .block:hover),
+.blocks--hover .block:hover + .block {
+  --active-lerp: var(--lerp-1);
+  z-index: 3;
+}
+
+.blocks--hover .block:has(+ .block:not(:hover) + .block:hover),
+.blocks--hover .block:hover + .block:not(:hover) + .block {
+  --active-lerp: var(--lerp-2);
+  z-index: 2;
+}
+
+.blocks--hover .block:has(+ .block:not(:hover) + .block:not(:hover) + .block:hover),
+.blocks--hover .block:hover + .block:not(:hover) + .block:not(:hover) + .block {
+  --active-lerp: var(--lerp-3);
+  z-index: 1;
+}*/
+
+.block__item:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75%;
+  aspect-ratio: 1;
+  border-left: 0.2vmin solid hsl(0 0% 100% / 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}

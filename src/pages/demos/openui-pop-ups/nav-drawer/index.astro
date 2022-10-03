@@ -1,0 +1,29 @@
+---
+import './style.css';
+---
+
+<html>
+  <head>
+    <title>First Pop-up</title>
+  </head>
+  <body>
+    <header class="top-app-bar center-aligned">
+      <span class="title">Pop-up API</span>
+      <div class="actions">
+        <button class="icon button">
+          <i class="material-icons">search</i>
+        </button>
+        <button class="icon leading" popuptoggletarget="menu">
+          <i class="material-icons">menu</i>
+        </button>
+      </div>
+    </header>
+    <div popup id="menu" role="menu">
+      <nav>
+        <a href="#" autofocus>Explainer</a>
+        <a href="#">CodePen Collection</a>
+        <a href="#">Article</a>
+      </nav>
+    </div>
+  </body>
+</html>

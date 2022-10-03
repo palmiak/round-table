@@ -1,0 +1,84 @@
+@layer normalize, open-props, mdl, base, demo;
+
+
+
+@import "normalize.css" layer(normalize);
+@import "open-props/style" layer(open-props);
+@import "open-props/normalize" layer(open-props);
+
+@import url("../../../../../public/shared/css/mdl.css") layer(mdl);
+@import url("../../../../../public/shared/css/icons.css") layer(mdl);
+
+@layer base {
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: "Google Sans", sans-serif, system-ui;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+
+@layer demo {
+  [popup] {
+    display: block;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-1);
+    padding: var(--size-4);
+  }
+
+  [popup]:open {
+    transform: translateY(-100%) scale(1.5);
+    box-shadow: var(--shadow-4);
+  }
+
+  .button {
+    transform: translateY(200%);
+  }
+
+  [popup]::backdrop {
+    opacity: 0;
+    transition: opacity 0.2s;
+    background: url(/shared/images/cloud.svg) -100vw 0 / 100vw
+        100vh,
+      url(/shared/images/cloud.svg) -300vw 25vh / 100vw 100vh,
+      url(/shared/images/cloud-2.svg) -500vw 50vh / 100vw 100vh,
+      url(/shared/images/cloud.svg) -150vw 75vh / 100vw 100vh,
+      url(/shared/images/cloud-2.svg) -250vw 100vh / 100vw 100vh,
+      hsl(207 91% 64% / 0.25);
+    animation: sail 60s infinite linear;
+  }
+
+  @keyframes sail {
+    to {
+      background-position: 100vw 0, 300vw 25vh, 500vw 50vh, 150vw 75vh,
+        250vw 100vh;
+    }
+  }
+
+  [popup]:open::backdrop {
+    opacity: 1;
+  }
+}
+
+@layer base {
+  :where([popup]) {
+    margin: auto;
+    border-width: initial;
+    border-style: solid;
+  }
+  body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    overflow: auto;
+  }
+}

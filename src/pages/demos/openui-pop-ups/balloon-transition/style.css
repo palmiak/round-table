@@ -1,0 +1,174 @@
+@layer normalize, open-props, mdl, base, demo;
+
+
+
+@import "normalize.css" layer(normalize);
+@import "open-props/style" layer(open-props);
+@import "open-props/normalize" layer(open-props);
+
+@import url("../../../../../public/shared/css/mdl.css") layer(mdl);
+@import url("../../../../../public/shared/css/icons.css") layer(mdl);
+
+@layer base {
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: "Google Sans", sans-serif, system-ui;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+
+@layer demo {
+  [popup] {
+    padding: var(--size-4);
+    width: var(--size);
+  }
+  [popup] {
+    transform:
+      translate(-50%, -50%)
+      translateY(calc((1 - var(--open, 0)) * 100vh))
+      scale(var(--open, 0));
+    box-shadow: var(--shadow-5);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    transition: transform 0.5s;
+  }
+
+  [popup]:open {
+    --open: 1;
+  }
+
+  [popup]::backdrop {
+    background: hsl(0 10% 10%/ 0.35);
+    opacity: 0;
+    transition: all 1s;
+    backdrop-filter: blur(2px);
+  }
+
+  [popup]:open::backdrop {
+    opacity: 1;
+    transition: all 1s;
+  }
+}
+
+@layer base {
+  :root {
+    --primary-color: hsl(320 100% 50% / 0.75);
+    --shine: hsl(0 0% 100% / 0.35);
+    --speed: 1s;
+    --size: clamp(200px, 10vw, 10rem);
+  }
+
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: "Google Sans", sans-serif, system-ui;
+    align-content: center;
+  }
+
+  :where([popup]) {
+    margin: auto;
+    border-width: initial;
+    border-style: solid;
+  }
+  code {
+    background: var(--gray-2);
+    color: var(--md-sys-color-primary);
+    font-weight: var(--font-weight-9);
+  }
+
+  article {
+    padding: var(--size-4);
+    max-inline-size: var(--size-content-2);
+  }
+
+  article p {
+    margin-bottom: var(--size-4);
+  }
+}
+
+@layer balloon {
+  .balloon {
+    overflow: visible;
+    /*width: var(--size);*/
+    aspect-ratio: 0.8 / 1;
+    height: auto;
+    background: var(--primary-color);
+    border-radius: 50% 50% 50% 50% / 45% 45% 55% 55%;
+    /*animation: float calc(var(--d, 1) * 1s) calc(var(--delay, 0) * -1s) infinite linear both;*/
+  }
+
+  .balloon:before {
+    content: "";
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    background: blue;
+    top: 8%;
+    left: 16%;
+    border-radius: 50%;
+    transform: rotate(40deg);
+    background: var(--shine);
+  }
+
+  .balloon__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    gap: var(--size-4);
+    font-weight: var(--font-weight-6);
+  }
+
+  .balloon__handle {
+    --chord: hsl(45, 100%, 40%);
+    width: 2%;
+    height: 60%;
+    background: var(--chord);
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
+  }
+  .balloon__handle:before,
+  .balloon__handle:after {
+    content: "";
+    position: absolute;
+    height: 5%;
+    transform: translate(-50%, 0);
+    border-radius: 25% / 50%;
+    left: 50%;
+  }
+
+  .balloon__handle:before {
+    top: 0;
+    background: var(--chord);
+    width: 500%;
+  }
+
+  .balloon__handle:after {
+    top: 5%;
+    background: var(--primary-color);
+    width: 700%;
+  }
+}

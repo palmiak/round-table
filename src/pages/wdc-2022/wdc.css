@@ -1,12 +1,13 @@
 :root {
-  --conference-hue: 320;
+  --conference-hue: 299;
   --r-heading-font: 'Google Sans', sans-serif;
   --r-main-font: 'Google Sans', sans-serif;
   --r-main-font-size: 36px;
   --r-code-font: 'JetBrains Mono', monospace;
-  --r-link-color: hsl(var(--conference-hue) 66% 50%);
-  --r-link-color-dark: hsl(var(--conference-hue) 66% 50%);
-  --r-link-color-hover: hsl(var(--conference-hue) 66% 83%);
+  --r-block-margin: 26px;
+  --r-link-color: hsl(var(--conference-hue) 100% 50%);
+  --r-link-color-dark: hsl(var(--conference-hue) 100% 50%);
+  --r-link-color-hover: hsl(var(--conference-hue) 100% 83%);
   --r-selection-background-color: hsl(var(--conference-hue) 66% 40%);
   --color-one: #ea4335;
   --color-two: #4285f4;
