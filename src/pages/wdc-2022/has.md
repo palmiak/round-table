@@ -152,7 +152,9 @@
 ---
 <!-- .slide: data-background-color="hsl(210 80% 80%)" data-background-iframe="/demos/css-has/has-cards/explore-feature-not" data-background-interactive -->
 ---
-```css[]
+## Loads of use cases
+
+```css []
 /* Full width card when containing feature */
 .card:has(.card__feature) { grid-column: 1 / -1; }
 /* Non icon links */
@@ -180,7 +182,6 @@ main:has(todo-list) { ... }
     title="Enter valid email address"
     placeholder="Enter valid email address"
   />
-  <div class="form-group__error">Enter a valid email address</div>
 </div>
 ```
 ---
@@ -588,10 +589,6 @@ body {
 ```
 
 <sub>h/t Bence Szabó for this one 🙏</sub>
----
-## GIF OF CALENDAR?
----
-## MINESWEEPER
 ---
 ## But, really? How much wood could a woodchuck chuck if a woodchuck could chuck wood?
 ---

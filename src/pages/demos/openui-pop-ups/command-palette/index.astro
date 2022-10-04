@@ -1,0 +1,42 @@
+---
+import './style.css';
+---
+
+<html>
+  <head>
+    <title>First Pop-up</title>
+  </head>
+  <body>
+    <div id="spotlight" popup>
+      <input
+        autocomplete="off"
+        role="combobox"
+        spellcheck="false"
+        aria-expanded="false"
+        aria-controls="spotlight-options"
+        aria-activedescendant=""
+        autofocus
+        id="spotlight-search"
+        type="text"
+        placeholder="Pop-up search..."
+      />
+      <input
+        aria-hidden="true"
+        type="text"
+        disabled
+        readonly
+        class="spotlight-under-text"
+      />
+      <div popup defaultopen id="spotlight-options" role="listbox">
+        <!-- "Options" get injected here -->
+      </div>
+    </div>
+    <h1>
+      <span>Open this pop-up with</span>
+      <kbd>cmd + j</kbd>
+    </h1>
+    <script>
+      import "./script.js";
+    </script>
+  </body>
+</html>

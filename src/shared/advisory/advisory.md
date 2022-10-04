@@ -5,4 +5,4 @@
   <div>Creative Content</div>
 </div>
 ---
-<!-- End Slide -->
+<!-- End Deck -->

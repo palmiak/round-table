@@ -1,0 +1,161 @@
+@layer normalize, open-props, mdl, base, demo;
+
+
+
+@import "normalize.css" layer(normalize);
+@import "open-props/style" layer(open-props);
+@import "open-props/normalize" layer(open-props);
+
+@import url("../../../../../public/shared/css/mdl.css") layer(mdl);
+@import url("../../../../../public/shared/css/icons.css") layer(mdl);
+
+@layer base {
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: "Google Sans", sans-serif, system-ui;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+@layer demo {
+  .dvd__scale {
+    position: fixed;
+    top: 0;
+    left: 0;
+    animation: dvd-scale calc(var(--duration) * 1s) calc(var(--delay) * -1s)
+      infinite linear alternate;
+    /*
+    For debugging the corner
+    animation-duration: 4s;
+    animation-delay: 0s;
+  */
+  }
+
+  .dvd__slide {
+    animation: dvd-slide calc(var(--duration) * 1s) calc(var(--delay) * -1s)
+      infinite linear alternate;
+    /*
+    For debugging the corner
+    animation-duration: 4s;
+    animation-delay: 0s;
+  */
+  }
+
+  #screensaver::backdrop {
+    background: hsl(0 0% 20% / 0.5);
+    backdrop-filter: blur(2px);
+  }
+
+  .dvd svg {
+    fill: hsl(var(--hue, 0) 80% 50%);
+    stroke: none;
+    width: clamp(2rem, 20vmin, 10rem);
+  }
+
+  @keyframes dvd-scale {
+    to {
+      transform: translateY(calc(100vh - 100%));
+    }
+  }
+
+  @keyframes dvd-slide {
+    to {
+      transform: translateX(calc(100vw - 100%));
+    }
+  }
+}
+
+@layer base {
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+
+  body {
+    display: block;
+    min-height: 100vh;
+    font-family: "Google Sans", sans-serif, system-ui;
+    overflow: auto;
+  }
+
+  :where([popup]) {
+    margin: auto;
+    border-width: 0;
+    border-style: none;
+    background: transparent;
+  }
+
+  h1 {
+    margin: 0;
+    color: var(--gray-0);
+  }
+
+  header {
+    height: 35vmin;
+    min-height: 200px;
+    background: var(--gradient-16);
+    display: grid;
+    place-items: center;
+    padding: var(--size-4);
+    background: var(--gradient-26);
+  }
+
+  h1 {
+    color: var(--gray-0);
+    background-attachment: fixed;
+    font-size: var(--font-size-fluid-3);
+  }
+
+  main {
+    margin: 0 auto;
+  }
+
+  article {
+    padding: var(--size-4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  article > * + * {
+    margin-top: var(--size-4);
+  }
+
+  /* Inactivity ring */
+  .inactivity-ring {
+    fill: none;
+    position: fixed;
+    top: var(--size-4);
+    right: var(--size-4);
+    color: var(--gray-0);
+    width: 40px;
+    aspect-ratio: 1;
+    stroke-dasharray: 130;
+    stroke-dashoffset: 130;
+    transform: rotate(-90deg);
+  }
+
+  .inactivity-ring circle {
+    stroke: currentColor;
+  }
+
+  .timing .inactivity-ring {
+    animation: load calc(var(--threshold) * 1ms) linear;
+  }
+
+  @keyframes load {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+---
+import './style.css';
+---
+
+<html>
+  <head>
+    <title>First Pop-up</title>
+  </head>
+  <body>
+    <main>
+      <p>
+        Floating action buttons as pop-ups. A button with
+        <code>popup=manual</code> and <code>defaultopen</code> as the container
+        button.
+      </p>
+      <ul>
+        <li>Menu is opened with <code>popuptoggletarget</code>.</li>
+        <li>
+          Use <code>autofocus</code> to focus the first menu item on open.
+        </li>
+        <li>Use <code>:has()</code> to twist the icon on open.</li>
+      </ul>
+    </main>
+    <button
+      class="fab secondary"
+      popup="manual"
+      defaultopen
+      popuptoggletarget="menu"
+    >
+      <i class="material-icons">add</i>
+    </button>
+    <div id="menu" class="fab__menu" popup="auto" style="--count: 3">
+      <ul class="fab__menu-items">
+        <li class="fab__menu-item">
+          <button
+            autofocus
+            class="fab"
+            style="--index: 0"
+            popuphidetarget="menu"
+          >
+            <i class="material-icons">chat</i>
+          </button>
+        </li>
+        <li class="fab__menu-item">
+          <button
+            autofocus
+            class="fab"
+            style="--index: 1"
+            popuphidetarget="menu"
+          >
+            <i class="material-icons">photo_camera</i>
+          </button>
+        </li>
+        <li class="fab__menu-item">
+          <button
+            autofocus
+            class="fab"
+            style="--index: 2"
+            popuphidetarget="menu"
+          >
+            <i class="material-icons">pin_drop</i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

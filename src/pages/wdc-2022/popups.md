@@ -1,4 +1,4 @@
-<!-- .slide: data-background-color="hsl(210 80% 20%)" -->
+.slide: data-background-color="hsl(210 80% 20%)" -->
 
 ## Open UI Pop-up
 
@@ -323,18 +323,173 @@ POPUP.addEventListener("click", () => {
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/nav-drawer" -->
 ---
+```css []
+[popup] {
+  left: 100%;
+  width: var(--nav-width);
+  transition: transform 0.2s;
+  transform: translateX(calc(var(--open, 0) * -100%));
+}
+
+[popup]::backdrop {
+  transition: opacity 0.2s;
+  opacity: var(--open, 0);
+}
+
+[popup]:open,
+[popup]:open::backdrop {
+  --open: 1;
+}
+body:has([popup]:open) {
+  transform: translateX(calc(var(--nav-width) * -1));
+}
+```
+---
 ### Custom Cursor
+---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/custom-cursor" -->
+---
+<div>
+
+```html []
+<canvas
+  id="custom-cursor"
+  class="custom-cursor"
+  popup="manual"
+  defaultOpen
+></canvas>
+```
+
+</div>
+
+```js []
+document.body.addEventListener("show", (e) => {
+  if (canvas.matches(":open") && e.target !== canvas) {
+    canvas.hidePopUp();
+    requestAnimationFrame(() => {
+      canvas.showPopUp();
+    });
+  }
+});
+```
 ---
 ### Toasts
 ---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/toasts" -->
+---
+```html []
+<div popup="manual" class="toasts">
+  <ul class="toasts__drawer">
+    <!-- Show pop-up and add to drawer when needed -->
+  </ul>
+</div>
+```
+---
 ### Command Palette
+---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/command-palette" -->
+---
+```html []
+<div id="spotlight" popup>
+  <input
+    autocomplete="off"
+    role="combobox"
+    spellcheck="false"
+    aria-expanded="false"
+    aria-controls="spotlight-options"
+    aria-activedescendant=""
+    autofocus
+    id="spotlight-search"
+    type="text"
+    placeholder="Pop-up search..."
+  />
+  <div popup defaultopen id="spotlight-options" role="listbox">
+    <!-- "Options" get injected here -->
+  </div>
+</div>
+```
+---
+```js []
+/* Show the pop-up then you get light dismiss etc. for free! */
+const handleActivation = (e) => {
+  if (e.keyCode === CMD && !STATE.cmd) STATE.cmd = true;
+  if (e.keyCode === MOD && STATE.cmd && !STATE.mod) STATE.mod = true;
+
+  if (STATE.cmd && STATE.mod && !POPUP.matches(":open")) {
+    STATE.cmd = STATE.mod = false;
+    POPUP.showPopUp();
+    OPTIONS.showPopUp();
+  }
+};
+```
 ---
 ### Screensaver
 ---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/screensaver" -->
+---
+```html []
+<div id="screensaver" popup>
+  <div class="dvd">
+    <div class="dvd__scale">
+      <div class="dvd__slide">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="8 44 178 104">
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+```
+---
 ### Floating Actions
+---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/floating-action" -->
+---
+<!-- .slide: style="--code-size: 0.325em;" -->
+```html []
+<button
+  class="fab secondary"
+  popup="manual"
+  defaultopen
+  popuptoggletarget="menu"
+>
+  <i class="material-icons">add</i>
+</button>
+<div id="menu" class="fab__menu" popup="auto" style="--count: 3">
+  <ul class="fab__menu-items">
+    <li class="fab__menu-item">
+      <button
+        autofocus
+        class="fab"
+        style="--index: 0"
+        popuphidetarget="menu"
+      >
+        <i class="material-icons">chat</i>
+      </button>
+    </li>
+    <li class="fab__menu-item">
+      <button
+        class="fab"
+        style="--index: 1"
+        popuphidetarget="menu"
+      >
+        <i class="material-icons">photo_camera</i>
+      </button>
+    </li>
+    <li class="fab__menu-item">
+      <button
+        class="fab"
+        style="--index: 2"
+        popuphidetarget="menu"
+      >
+        <i class="material-icons">pin_drop</i>
+      </button>
+    </li>
+  </ul>
+</div>
+```
 ---
 ### Webcam
 ---
 ### Portals
 ---
-<!-- End Section -->
+<!-- End Section

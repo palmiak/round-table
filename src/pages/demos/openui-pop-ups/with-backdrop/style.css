@@ -103,7 +103,7 @@
   .button.fab {
     position: fixed;
     z-index: 99999;
-    bottom: var(--size-4);
+    bottom: var(--size-11);
     right: var(--size-4);
   }
 

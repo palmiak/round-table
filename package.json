@@ -24,6 +24,7 @@
     "gsap": "^3.11.2",
     "normalize.css": "^8.0.1",
     "open-props": "^1.4.14",
+    "p5": "^1.4.2",
     "plop": "^3.1.1",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.4",
