@@ -161,7 +161,7 @@
 }
 ```
 ---
-<!-- .slide: data-background-color="var(--white)" data-background-iframe="/demos/css-has/has-cards/explore-feature-not" data-background-interactive -->
+<!-- .slide: data-background-color="var(--grey)" data-background-iframe="/demos/css-has/has-cards/explore-feature-not" data-background-interactive -->
 ---
 <!-- .slide: data-background-color="var(--black)" -->
 ## use cases for days
@@ -259,6 +259,7 @@ input::placeholder {
 }
 ```
 --- -->
+<!-- .slide: data-background-color="var(--citric)" -->
 <div>
 
 ```html []
@@ -295,11 +296,11 @@ input::placeholder {
 }
 ```
 ---
-<!-- .slide: data-background-iframe="/demos/css-has/has-forms/with-whimsy" data-background-interactive -->
+<!-- .slide: data-background-color="var(--black)" data-background-iframe="/demos/css-has/has-forms/with-whimsy" data-background-interactive -->
 ---
-## Responding to State
----
-```js []
+<!-- ## Responding to State
+--- -->
+<!-- ```js []
 const BUTTON = document.querySelector('.nav-control')
 
 const TOGGLE = () => {
@@ -311,10 +312,10 @@ const TOGGLE = () => {
 
 BUTTON.addEventListener('click', TOGGLE)
 ```
----
-<!-- .slide: data-background-iframe="/demos/css-has/has-nav" data-background-interactive -->
----
-```css []
+--- -->
+<!-- slide: data-background-iframe="/demos/css-has/has-nav" data-background-interactive -->
+<!-- --- -->
+<!-- ```css []
 :root {
   --nav-width: 240px;
 }
@@ -327,7 +328,8 @@ body {
   --open: 1;
 }
 ```
----
+--- -->
+<!-- .slide: data-background-color="var(--cinnabar)" -->
 ```css []
 :root {
   --dark-mode: 0;
@@ -349,16 +351,11 @@ h1 {
 ---
 <!-- .slide: data-background-iframe="/demos/css-has/has-dark-mode" data-background-interactive -->
 ---
-## Interaction
----
+<!-- ## Interaction
+--- -->
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/css-has/has-interaction/has-hover" data-background-interactive -->
 ---
-```css []
-li:hover {
-  background: var(--pink-6);
-}
-```
----
+<!-- .slide: data-background-color="var(--blueberry)" -->
 ```css []
 li:hover {
   background: var(--pink-6);
@@ -373,8 +370,9 @@ li:has(+ li:hover) {
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/css-has/has-interaction/has-previous" data-background-interactive -->
 ---
-<!-- .slide: data-background-iframe="/demos/css-has/has-interaction/has-lerp" data-background-interactive -->
----
+<!-- slide: data-background-iframe="/demos/css-has/has-interaction/has-lerp" data-background-interactive
+--- -->
+<!-- .slide: data-background-color="var(--selective)" -->
 ```css []
 :root {
   --lerp-0: 1;
@@ -410,23 +408,29 @@ li:has(+ li:hover) {
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/css-has/has-calendar" data-background-interactive -->
 ---
+<!-- .slide: data-background-color="var(--chateau)" -->
 ```html []
-<td class="calendar__cell">
-  <span class="calendar__number">30</span>
-  <input type="radio" class="sr-only" name="from" id="from-09-30" />
-  <input type="radio" class="sr-only" name="to" id="to-09-30" />
-  <label for="from-09-30">from 09-30</label>
-  <label for="to-09-30">to 09-30</label>
-</td>
-<td class="calendar__cell">
-  <span class="calendar__number">1</span>
-  <input type="radio" class="sr-only" name="from" id="from-10-01" />
-  <input type="radio" class="sr-only" name="to" id="to-10-01" />
-  <label for="from-10-01">from 10-01</label>
-  <label for="to-10-01">to 10-01</label>
-</td>
+<table>
+  <tr>
+    <td class="calendar__cell">
+      <span class="calendar__number">30</span>
+      <input type="radio" class="sr-only" name="from" id="from-09-30" />
+      <input type="radio" class="sr-only" name="to" id="to-09-30" />
+      <label for="from-09-30">from 09-30</label>
+      <label for="to-09-30">to 09-30</label>
+    </td>
+    <td class="calendar__cell">
+      <span class="calendar__number">1</span>
+      <input type="radio" class="sr-only" name="from" id="from-10-01" />
+      <input type="radio" class="sr-only" name="to" id="to-10-01" />
+      <label for="from-10-01">from 10-01</label>
+      <label for="to-10-01">to 10-01</label>
+    </td>
+  </tr>
+</table>
 ```
 ---
+<!-- .slide: data-background-color="var(--fuschia)" -->
 ```css []
 .calendar__cell:has(:checked) {
   --background: var(--primary);
@@ -450,10 +454,11 @@ tr:has([id*=from]:checked):has(~ tr .calendar__cell > :checked)
 }
 ```
 ---
-## Games
----
+<!-- ## Games
+--- -->
 <!-- .slide: data-background-color="#060d13" data-background-iframe="/demos/css-has/has-tic-tac-toe" data-background-interactive -->
 ---
+<!-- .slide: data-background-color="var(--blueberry)" -->
 ```html []
 <form class="game">
   <div class="board">
@@ -474,6 +479,7 @@ tr:has([id*=from]:checked):has(~ tr .calendar__cell > :checked)
 </form>
 ```
 ---
+<!-- .slide: data-background-color="var(--selective)" -->
 ```css []
 [for*="x"] {
   z-index: calc(1 + var(--turn));
@@ -499,6 +505,7 @@ tr:has([id*=from]:checked):has(~ tr .calendar__cell > :checked)
 }
 ```
 ---
+<!-- .slide: data-background-color="var(--chateau)" -->
 ```html [4,5]
 <form class="game">
   <div class="board">
@@ -519,6 +526,7 @@ tr:has([id*=from]:checked):has(~ tr .calendar__cell > :checked)
 </form>
 ```
 ---
+<!-- .slide: data-background-color="var(--cinnabar)" -->
 ```css []
 /* You can :has a :has */
 :root:has(#x-0:checked):has(#x-1:checked):has(#x-2:checked),
@@ -534,6 +542,7 @@ tr:has([id*=from]:checked):has(~ tr .calendar__cell > :checked)
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/css-has/has-connect-4" data-background-interactive -->
 ---
+<!-- .slide: data-background-color="var(--selective)" -->
 ```html [|3,4,18,19]
 <div class="board__column">
   <div class="board__cell move-6" style="--row: 1;">
@@ -560,6 +569,7 @@ tr:has([id*=from]:checked):has(~ tr .calendar__cell > :checked)
 </div>
 ```
 ---
+<!-- .slide: data-background-color="var(--cinnabar)" -->
 ```css []
 /* Horizontal */
 .board__column:has([data-row=p-1]:checked) +
@@ -577,6 +587,7 @@ tr:has([id*=from]:checked):has(~ tr .calendar__cell > :checked)
 }
 ```
 ---
+<!-- .slide: data-background-color="var(--blueberry)" -->
 ```css []
 /* The "Magic" bullet for turn switching */
 /* Creates a width to reveal the other label */
@@ -610,10 +621,12 @@ body {
 
 <sub>h/t Bence Szabó for this one 🙏</sub>
 ---
+<!-- .slide: class="title-slide title-slide--bottom" data-background-color="var(--fuschia)" -->
 ## But, really? How much wood could a woodchuck chuck if a woodchuck could chuck wood?
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/css-has/has-woodchuck" data-background-interactive -->
 ---
+<!-- .slide: data-background-color="var(--spearmint)" -->
 ```js []
 const PARTICLES = [
   {
@@ -639,7 +652,7 @@ const PARTICLES = [
 ]
 ```
 ---
-```js []
+<!-- ```js []
 const EMOJIS = document.querySelector('.emojis')
 const PROCESS_AUDIO = e => {
   const TRANSCRIPT = e.results[e.results.length - 1][0].transcript
@@ -671,7 +684,8 @@ const PROCESS_AUDIO = e => {
 }
 
 ```
----
+--- -->
+<!-- .slide: data-background-color="var(--blueberry)" -->
 ```css []
 .wood:has(+ .chuck) {
   animation: chucked 1s forwards;

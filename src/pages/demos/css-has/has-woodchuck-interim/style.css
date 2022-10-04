@@ -1,6 +1,11 @@
 @import "open-props/style";
 @import "open-props/normalize";
 
+@font-face {
+  font-family: Impact;
+  src: url(/shared/fonts/impact.ttf);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -19,11 +24,11 @@ body {
 
 main {
   max-inline-size: var(--size-content-2);
-  font-family: 'Google Sans', sans-serif;
-  font-size: var(--font-size-fluid-1);
+  font-family: 'Impact', sans-serif;
+  font-size: var(--font-size-6);
   font-weight: var(--font-weight-9);
-
-}
+  text-transform: uppercase;
+} 
 
 .recording-status {
   /* display:none; */

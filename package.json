@@ -24,6 +24,7 @@
     "eslint": "^8.23.1",
     "eslint-config-google": "^0.14.0",
     "gsap": "^3.11.2",
+    "highlight.js": "^11.6.0",
     "normalize.css": "^8.0.1",
     "open-props": "^1.4.14",
     "p5": "^1.4.2",
