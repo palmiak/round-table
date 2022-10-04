@@ -155,6 +155,7 @@ Element.requestFullscreen();
 }
 ```
 ---
+<!-- .slide: class="title-slide" -->
 ## Types
 ---
 ## Auto (Default)
@@ -489,6 +490,20 @@ const handleActivation = (e) => {
 ```
 ---
 ### Webcam
+---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/webcam-throw" -->
+---
+```js []
+CONTAINER.addEventListener('show', () => {
+  MENU_POP.hidePopUp()
+  createCapture()
+})
+CONTAINER.addEventListener('hide', () => {
+  capture.remove()
+  screenCast.clear()
+  screenCast.remove()
+})
+```
 ---
 ### Portals
 ---

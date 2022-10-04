@@ -106,3 +106,10 @@ iframe.demo-embed {
   font-size: small;
   opacity:  0.75;
 }
+
+
+.title-slide :is(h1, h2, h3) {
+  text-align: left;
+  max-width: 80%;
+  margin: 0 auto;
+}
