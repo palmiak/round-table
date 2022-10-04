@@ -180,3 +180,43 @@ iframe.demo-embed {
   opacity: 0.2;
   letter-spacing: -0.25rem;
 }
+
+.reveal .bullets {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: inline-grid;
+  gap: 2rem;
+  text-align: center;
+  font-weight: 900;
+  font-size: 3rem;
+}
+
+.reveal .bullets li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.bullets li:nth-of-type(odd) {
+  transform: translateX(15%);
+}
+
+.bullets li:nth-of-type(even) {
+  transform: translateX(-15%);
+}
+
+.bullets li:nth-of-type(1) {
+  background: var(--cinnabar);
+}
+
+.bullets li:nth-of-type(2) {
+  background: var(--selective);
+}
+
+.bullets li:nth-of-type(3) {
+  background: var(--spearmint);
+}
+
+.bullets li:nth-of-type(4) {
+  background: var(--blueberry);
+}

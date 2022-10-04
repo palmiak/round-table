@@ -17,11 +17,7 @@
   </span>
 </div>
 ---
-<!-- .slide: data-background-color="var(--spearmint)" -->
-# 👨‍👩
----
-<!-- .slide: data-background-color="var(--blueberry)" -->
-<h1 class="family" style="font-size:10rem;">👨‍👩‍👧‍👦</h1>
+<!-- .slide:  data-background-color="var(--fuschia)" data-background-video="/shared/video/family.mp4" data-background-video-loop="true" data-background-size="contain" data-background-video-muted="true" -->
 ---
 <!-- .slide: data-background-color="var(--white)" -->
 ```css []
@@ -200,7 +196,7 @@ main:has(todo-list) { ... }
 </div>
 ```
 ---
-<!-- .slide: data-background-iframe="/demos/css-has/has-forms/no-style" data-background-interactive -->
+<!-- .slide: data-background-iframe="/demos/css-has/has-forms/no-style" data-background-interactive data-background-color="var(--black)" -->
 ---
 <!-- .slide: style="--code-size: 0.4em" data-background-color="var(--spearmint)"-->
 ```css []

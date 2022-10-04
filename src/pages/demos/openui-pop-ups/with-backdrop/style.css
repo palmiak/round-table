@@ -1,7 +1,5 @@
 @layer normalize, open-props, mdl, base, demo;
 
-
-
 @import "normalize.css" layer(normalize);
 @import "open-props/style" layer(open-props);
 @import "open-props/normalize" layer(open-props);
@@ -31,9 +29,23 @@
   [popup] {
     padding: var(--size-4);
   }
-  [popup]:open::backdrop {
+  [popup]::backdrop {
     background: hsl(0 0% 10% / 0.5);
+    opacity: 0;
     backdrop-filter: blur(2px);
+    transition: opacity 0.5s;
+  }
+  [popup] {
+    transform:
+      translateY(calc((1 - var(--open, 0)) * 100vh))
+      scale(var(--open, 0));
+    transition: transform 0.5s;
+  }
+  [popup]:open {
+    --open: 1;
+  }
+  [popup]:open::backdrop {
+    opacity: 1;
   }
 }
 

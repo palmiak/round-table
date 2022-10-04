@@ -1,9 +1,9 @@
-<!-- .slide: data-background-color="hsl(210 80% 20%)" -->
+<!-- .slide: class="title-slide title-slide--top" data-background-color="var(--fuschia)" -->
 
 ## Open UI Pop-up
 
 ---
-<!-- .slide: data-background-color="hsl(210 80% 20%)" -->
+<!-- .slide: data-background-color="var(--white)" -->
 <div class="support-grid">
   <span class="browser-logo" data-browser="canary"></span>
   <span class="browser-logo" data-browser="chrome"></span>
@@ -23,17 +23,10 @@
 ---
 <!-- .slide: data-background-video="/shared/video/pop-up-stack.mp4" data-background-video-loop="true" data-background-video-muted="true" data-background-video-size="cover" -->
 ---
-<!-- .slide: class="title-slide" -->
-## The goal of the Open UI initiative is to make it easier for developers to make great user experiences.
+<!-- .slide: class="title-slide title-slide--bottom" data-background-color="var(--black)" -->
+## The goal of the <span style="color: var(--citric);">Open UI</span> initiative is to make it <span style="color: var(--blueberry)">easier</span> for developers to make <span style="color: var(--fuschia);">great user experiences</span>
 ---
-<div>
-
-```css []
-.pop-up {
-  z-index: 9999999;
-}
-```
-</div>
+<!-- .slide: data-background-color="var(--citric)" -->
 
 ```js []
 const PopUp = ({ children }) => {
@@ -45,30 +38,36 @@ const PopUp = ({ children }) => {
 }
 ```
 ---
-```js []
+<!-- .slide: class="title-slide title-slide--bottom" data-background-image="/shared/images/king.jpg" data-background-opacity="0.4" -->
+## What's the top layer? A place outside of the <span style="background-color: var(--cinnabar);">document</span> flow. A place where <span style="background-color: var(--chateau);">z-index</span> has no effect. Where every element has a styleable <span style="background-color: var(--selective);">::backdrop</span>.
+<!-- --- -->
+<!-- slide: data-background-color="var(--cinnabar)" -->
+<!-- ```js []
 // Current ways to get into the "Top Layer"
 Dialog.showModal();
 Element.requestFullscreen();
 ```
----
-<!-- .slide: class="title-slide title-slide--bottom" data-background-image="/shared/images/king.jpg" data-background-opacity="0.25" -->
-## What's the top layer? A place outside of the `document` flow. A place where `z-index` has no effect. Where every element has a styleable `::backdrop`.
----
-```html []
+--- -->
+<!-- ```html []
 <div id="my-first-popup" popup>PopUp Content!</div>
 <button popuptoggletarget="my-first-popup">Toggle Pop-Up</button>
 ```
 
 <iframe src="/demos/openui-pop-ups/first" class="demo-embed"></iframe>
----
-- Hidden by default
-- No JavaScript
-- No `z-index` fighting
-- Light dismiss out of the box
+--- -->
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/with-backdrop" -->
 ---
-```html []
+<!-- .slide: data-background-color="var(--white)" -->
+<ul class="bullets">
+  <li>Hidden by default</li>
+  <li>No JavaScript</li>
+  <li>No z-index fighting</li>
+  <li>Light dismiss</li>
+</ul>
+---
+<!-- .slide: data-background-color="var(--fuschia)" -->
+```html [8,9,11]
 <html>
   <head>
     <title>First Pop-up</title>
@@ -76,7 +75,7 @@ Element.requestFullscreen();
   <body>
     <main>
       <!-- Throw all your z-index at me! -->
-      <button popuptoggletarget="my-first-pop-up" class="button fab ripple">
+      <button popuptoggletarget="my-first-pop-up">
       </button>
       <!-- Don't care where this is to be honest -->
       <div id="my-first-pop-up" popup>Pop-up content!</div>
@@ -91,28 +90,7 @@ Element.requestFullscreen();
 </html>
 ```
 ---
-<!-- .slide: class="title-slide title-slide--top" -->
-## Better DX leads to less opportunity for poor UX
----
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/ascension" -->
----
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/balloon-transition" -->
----
-```html [|3,8]
-<div id="code-pop-up" class="balloon" popup>
-  <div class="balloon__content">
-    <button class="button ripple" popuphidetarget="code-pop-up">
-      Hide Code
-    </button>
-  </div>
-</div>
-<button class="button ripple" popupshowtarget="code-pop-up">
-  Reveal Code
-</button>
-```
-
-<div>
-  
+<!-- .slide: data-background-color="var(--chateau)" -->
 ```css [|9]
 [popup] {
   transform:
@@ -126,12 +104,31 @@ Element.requestFullscreen();
   --open: 1;
 }
 ```
-
-</div>
 ---
+<!-- .slide: class="title-slide title-slide--top" data-background-color="var(--black)" -->
+## <span style="color: var(--fuschia)">Better developer experience</span> leads to less opportunity for poor <span style="color: var(--citric)">user experience</span>
+---
+<!-- slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/ascension" -->
+<!-- --- -->
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/balloon-animation" -->
 ---
-```css []
+<!-- .slide: data-background-color="var(--blueberry)" -->
+```html [|3,8]
+<div id="code-pop-up" class="balloon" popup>
+  <div class="balloon__content">
+    <button class="button ripple" popuphidetarget="code-pop-up">
+      Hide Code
+    </button>
+  </div>
+</div>
+<button class="button ripple" popupshowtarget="code-pop-up">
+  Reveal Code
+</button>
+```
+---
+<!-- slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/balloon-animation" -->
+<!-- --- -->
+<!-- ```css []
 @media (prefers-reduced-motion: no-preference) {
   [popup] {
     animation: exit-animation 250ms ease-out both;
@@ -153,8 +150,8 @@ Element.requestFullscreen();
     }
   }
 }
-```
----
+``` -->
+<!-- --- -->
 <!-- .slide: class="title-slide" -->
 ## Types
 ---
