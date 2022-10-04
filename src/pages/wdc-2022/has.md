@@ -1,6 +1,7 @@
-<!--  -->
+.slide: class="title-slide" data-background-color="var(--citric)"  -->
 ## CSS :has
 ---
+<!-- .slide: data-background-color="var(--black)" -->
 <div class="support-grid">
   <span class="browser-logo" data-browser="chrome"></span>
   <span class="browser-logo" data-browser="edge"></span>
@@ -16,14 +17,18 @@
   </span>
 </div>
 ---
+<!-- .slide: data-background-color="var(--spearmint)" -->
 # 👨‍👩
 ---
+<!-- .slide: data-background-color="var(--blueberry)" -->
 <h1 class="family" style="font-size:10rem;">👨‍👩‍👧‍👦</h1>
 ---
+<!-- .slide: data-background-color="var(--white)" -->
 ```css []
 <target>:has(<condition>) { <styles> }
 ```
 ---
+<!-- .slide: data-background-color="var(--blueberry)" -->
 <div>
 
 ```css []
@@ -55,12 +60,14 @@
 <div class="aunt"></div>
 ```
 ---
-## Break the mental model <span class="flipper">🛹</span>
+<!-- .slide: class="title-slide" data-background-color="var(--fuschia)" -->
+## Break the mental model <span class="flipper-wrapper"><span class="flipper">🛹</span></span>
 ---
-### Layout
----
+<!-- ### Layout
+--- -->
+
 <!-- .slide: data-background-color="hsl(210 80% 20%)"-->
-```html []
+<!-- ```html []
 <div class="card">
   <h2 class="card__title">
     <a href="#">Some Awesome Article</a>
@@ -69,9 +76,10 @@
   <small class="card__author">Chrome DevRel</small>
 </div>
 ```
-<iframe class="demo-embed" src="/demos/css-has/has-cards/basic"></iframe>
----
-```html [2]
+<iframe class="demo-embed" src="/demos/css-has/has-cards/basic"></iframe> -->
+
+<!-- --- -->
+<!-- ```html [2]
 <div class="card">
   <img class="card__image" src="laptop.png">
   <h2 class="card__title">
@@ -86,11 +94,11 @@
   --color: var(--cyan-3-hsl);
   grid-template-columns: 120px 1fr;
 }
-```
----
-<!-- .slide: data-background-color="hsl(210 80% 20%)" data-background-iframe="/demos/css-has/has-cards/with-image" data-background-interactive -->
----
-```html []
+``` -->
+<!-- --- -->
+<!-- slide: data-background-color="hsl(210 80% 20%)" data-background-iframe="/demos/css-has/has-cards/with-image" data-background-interactive -->
+<!-- --- -->
+<!-- ```html []
 <div class="card">
   <img class="card__image" src="forest.png">
   <div class="card__content">
@@ -101,10 +109,11 @@
     <small class="card__author">Chrome DevRel</small>
   </div>
 </div>
-```
+``` -->
+<!-- --- -->
+<!-- .slide: data-background-color="var(--selective)" data-background-iframe="/demos/css-has/has-cards/explore" data-background-interactive -->
 ---
-<!-- .slide: data-background-color="hsl(210 80% 20%)" data-background-iframe="/demos/css-has/has-cards/explore" data-background-interactive -->
----
+<!-- .slide: data-background-color="var(--spearmint)" -->
 ```html [|7,8]
 <div class="card">
   <img class="card__image" src="forest.png">
@@ -118,6 +127,7 @@
 </div>
 ```
 ---
+<!-- .slide: data-background-color="var(--blueberry)" -->
 ```css
 .card:not(:has(.card__blurb)):not(:has(.card__author)) {
   aspect-ratio: 3 / 4;
@@ -132,10 +142,11 @@
 }
 ```
 ---
-<!-- .slide: data-background-color="hsl(210 80% 20%)" data-background-iframe="/demos/css-has/has-cards/explore-not" data-background-interactive -->
+<!-- .slide: data-background-color="var(--fuschia)" data-background-iframe="/demos/css-has/has-cards/explore-not" data-background-interactive -->
 ---
-<!-- .slide: data-background-color="hsl(210 80% 80%)" data-background-iframe="/demos/css-has/has-cards/explore-feature" data-background-interactive -->
+<!-- .slide: data-background-color="var(--chateau)" data-background-iframe="/demos/css-has/has-cards/explore-feature" data-background-interactive -->
 ---
+<!-- .slide: data-background-color="var(--citric)" -->
 ```css
 .card {
   box-shadow: var(--shadow-elevation-low);
@@ -150,11 +161,14 @@
 }
 ```
 ---
-<!-- .slide: data-background-color="hsl(210 80% 80%)" data-background-iframe="/demos/css-has/has-cards/explore-feature-not" data-background-interactive -->
+<!-- .slide: data-background-color="var(--white)" data-background-iframe="/demos/css-has/has-cards/explore-feature-not" data-background-interactive -->
 ---
-## Loads of use cases
+<!-- .slide: data-background-color="var(--black)" -->
+## use cases for days
 
 ```css []
+/* Change the grid layout based on content */
+.card:has(.card__image) { grid-template-columns: 100px 1fr; }
 /* Full width card when containing feature */
 .card:has(.card__feature) { grid-column: 1 / -1; }
 /* Non icon links */
@@ -169,8 +183,9 @@ main:has(todo-list) { ... }
 
 <sub>There are a bunch of examples in ":has(): the family selector" over on [developer.chrome.com](https://developer.chrome.com/blog/has-m105).</sub>
 ---
-## Forms
----
+<!-- .slide: data-background-color="var(--selective)" -->
+<!-- ## Forms
+--- -->
 ```html []
 <div class="form-group">
   <label for="email" class="form-group__label">Email</label>
@@ -187,7 +202,7 @@ main:has(todo-list) { ... }
 ---
 <!-- .slide: data-background-iframe="/demos/css-has/has-forms/no-style" data-background-interactive -->
 ---
-<!-- .slide: style="--code-size: 0.4em"-->
+<!-- .slide: style="--code-size: 0.4em" data-background-color="var(--spearmint)"-->
 ```css []
 label {
   color: var(--color);
@@ -219,11 +234,11 @@ input::placeholder {
 }
 ```
 ---
-<!-- .slide: data-background-iframe="/demos/css-has/has-forms/color-indication" data-background-interactive -->
+<!-- .slide: data-background-color="var(--black)" data-background-iframe="/demos/css-has/has-forms/color-indication" data-background-interactive -->
 ---
-<!-- .slide: data-background-iframe="/demos/css-has/has-forms/with-error" data-background-interactive -->
----
-```html [11]
+<!-- slide: data-background-iframe="/demos/css-has/has-forms/with-error" data-background-interactive -->
+<!-- --- -->
+<!-- ```html [11]
 <div class="form-group">
   <label for="email" class="form-group__label">Email</label>
   <input
@@ -243,7 +258,7 @@ input::placeholder {
   display: block;
 }
 ```
----
+--- -->
 <div>
 
 ```html []
@@ -272,6 +287,11 @@ input::placeholder {
       transform: translateY(-50%);
     }
   }
+}
+/* Show an error message? */
+.form-group:has(:invalid:not(:focus):not(:placeholder-shown))
+.form-group__error {
+  display: block;
 }
 ```
 ---
@@ -683,4 +703,4 @@ const PROCESS_AUDIO = e => {
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/css-has/has-woodchuck-interim" data-background-interactive -->
 ---
-<!-- End Section -->
+<!-- End Section

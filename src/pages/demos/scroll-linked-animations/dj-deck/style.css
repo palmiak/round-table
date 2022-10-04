@@ -1,0 +1,192 @@
+@import "normalize.css" layer(normalize);
+@import "open-props/style" layer(open-props);
+
+* {
+  box-sizing: border-box;
+}
+:root {
+  --hue: 20;
+  --size: 50;
+  --record-shine: rgba(255,255,255,0.45);
+  --record-body: #262626;
+  --player-base: #595959;
+  --player-shine: #4d4d4d;
+  --record-base: #0d0d0d;
+  --stroke: #0d0d0d;
+  --pupil: #fff;
+  --tongue: #f00;
+  --record-label-base: #fafafa;
+  --record-label: hsl(var(--hue), 100%, 90%);
+  --knob-base: #b3b3b3;
+  --knob-top: #262626;
+  --player-accent: #f00;
+  --needle: #1a1a1a;
+  --counter: #666;
+  --arm-top: #666;
+}
+body {
+  width: 100vw;
+  background: var(--gray-8);
+  overflow-x: hidden;
+  transition: background 0.25s ease;
+}
+h1 {
+  position: absolute;
+  top: calc(50% - (var(--size) * 0.5vmin));
+  left: 50%;
+  font-size: clamp(1rem, 5vmin, 2.25rem);
+  transform: translate(-50%, -200%);
+  color: hsl(var(--hue), 60%, 60%);
+  transition: color 0.25s;
+}
+.record-player {
+  height: calc(var(--size) * 1vmin);
+  width: calc(var(--size) * 1vmin);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.frame__shine {
+  fill: var(--player-shine);
+}
+.frame__base {
+  fill: var(--player-base);
+}
+.record-base {
+  fill: var(--record-base);
+}
+.record__body {
+  fill: var(--record-body);
+}
+.record__shine {
+  stroke: var(--record-shine);
+  transform-box: fill-box;
+  transform-origin: 49.5% 50%;
+  animation: jog 0.5s infinite alternate ease;
+}
+
+@keyframes jog {
+  to {
+    transform: rotate(-4deg);
+  }
+}
+
+.record {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: spin 4s infinite linear;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+main {
+  height: 400vh;
+  view-timeline-name: --last-night-a-dj-saved-my-life;
+}
+
+.record-scroller {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: scratch both linear;
+  animation-timeline: --last-night-a-dj-saved-my-life;
+  animation-delay: cover 0%;
+  animation-end-delay: cover 200%;
+}
+
+@keyframes scratch {
+  to {
+    transform: rotate(2880deg);
+  }
+}
+
+.eyes--open {
+  transform-box: fill-box;
+  animation: blink 8s infinite linear;
+  transform-origin: 50% 50%;
+}
+
+@keyframes blink {
+  0%, 46%, 48%, 50%, 100% {
+    transform: scaleY(1);
+  }
+  47%, 49% {
+    transform: scaleY(0.01);
+  }
+}
+
+.pupil {
+  fill: var(--pupil);
+}
+.eye {
+  fill: var(--stroke);
+}
+.mouth__opening {
+  fill: var(--stroke);
+}
+.mouth__tongue {
+  fill: var(--tongue);
+}
+.face--nauseous {
+  display: none;
+}
+.face--nauseous path {
+  stroke: var(--stroke);
+}
+.face--nauseous circle {
+  fill: var(--stroke);
+}
+.record__label-base {
+  fill: var(--record-label-base);
+}
+.record__label {
+  fill: var(--record-label);
+  transition: fill 0.25s ease;
+}
+.knob__shine {
+  fill: var(--record-shine);
+}
+.knob__top {
+  fill: var(--knob-top);
+}
+.knob__base {
+  fill: var(--knob-base);
+}
+.knob__indicator {
+  fill: var(--player-accent);
+}
+.player-arm__needle {
+  fill: var(--needle);
+}
+.player-arm__counter {
+  fill: var(--counter);
+}
+.player-arm__top {
+  fill: var(--arm-top);
+}
+.volume__levels {
+  stroke: var(--stroke);
+  stroke-width: 1;
+}
+.volume__base {
+  fill: var(--stroke);
+  stroke: var(--knob-base);
+}
+.volume__slider {
+  fill: var(--knob-base);
+}
+.volume__indicator {
+  fill: var(--player-accent);
+  stroke: var(--player-accent);
+}
+.branding rect {
+  fill: var(--player-accent);
+}
+.branding path {
+  fill: var(--pupil);
+}

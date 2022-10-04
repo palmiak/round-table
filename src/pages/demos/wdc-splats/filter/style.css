@@ -1,6 +1,11 @@
 @import "normalize.css";
 @import "open-props/style";
 
+@font-face {
+  font-family: Impact;
+  src: url(/shared/fonts/impact.ttf);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -13,8 +18,10 @@ body {
 
 h1 {
   margin: 0;
-  font-family: 'Google Sans', sans-serif;
-  color: var(--gray-0);
+  font-family: 'Impact', sans-serif;
+  color: var(--gray-9);
+  text-transform: uppercase;
+  font-size: 10vmin;
 }
 
 svg {

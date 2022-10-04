@@ -13,11 +13,13 @@
     "astro": "astro",
     "init": "mkcert -install && mkcert localhost"
   },
+  "browserslist": "> 0.5%, chrome 95, last 2 versions, not dead",
   "dependencies": {
     "@astrojs/mdx": "^0.11.2",
     "@svgdotjs/svg.filter.js": "^3.0.8",
     "@svgdotjs/svg.js": "^3.1.2",
     "astro": "^1.2.4",
+    "autoprefixer": "^10.4.12",
     "canvas-confetti": "^1.5.1",
     "eslint": "^8.23.1",
     "eslint-config-google": "^0.14.0",
@@ -26,6 +28,7 @@
     "open-props": "^1.4.14",
     "p5": "^1.4.2",
     "plop": "^3.1.1",
+    "postcss-preset-env": "^7.8.2",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.4",
     "prism-themes": "^1.9.0",

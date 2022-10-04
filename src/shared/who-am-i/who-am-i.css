@@ -1,3 +1,35 @@
-.who-am-i {
-  background: red;
+.googley {
+  background: linear-gradient(90deg, var(--color-one) 0 25%, var(--color-two) 25% 50%, var(--color-three) 50% 75%, var(--color-four) 75% 100%);
+  color: transparent;
+  background-clip: text;
+  background-size:  200% 100%;
+  animation: google-slide 1s infinite linear;
+}
+
+@keyframes google-slide {
+  to {
+    background-position: 200% 0;
+  }
+}
+
+.polaroid {
+  --backdrop: hsl(74 29% 96%);
+  --dot: hsl(74 29% 82%);
+  --width: 300px;
+  --spread: 10px;
+  color: var(--dot);
+  padding: calc((var(--width) / 8.8) * 0.75);
+  padding-bottom: calc((var(--width) / 8.8) * 3.2);
+  object-fit: cover;
+  background: radial-gradient(currentColor 1px, transparent 1px), radial-gradient(currentColor 1px, transparent 1px), var(--backdrop);
+  background: hsl(0 0% 94%);
+  background-size: var(--spread) var(--spread);
+  background-position: 0 0, calc(var(--spread) * 0.5) calc(var(--spread) * 0.5);
+  aspect-ratio: 1 / 1;
+  transform: translate(0, -10%) rotate(6deg);
+  filter: saturate(0.95) sepia(30%);
+  box-shadow: 0 30px 20px -20px black;
+  position: absolute;
+  z-index: -1;
+  right: 10%;
 }

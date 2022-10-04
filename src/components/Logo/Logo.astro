@@ -1,18 +1,21 @@
 ---
 import Logo from './Logo.svg?raw'
 ---
-
-<Fragment set:html={Logo} />
+<div class="branding">
+  <Fragment set:html={Logo} />
+  <span class="branding__handle">@jh3yy</span>
+</div>
 
 <style is:global>
-  .deck__logo {
+  .branding {
     --base-coat: hsl(0 0% 100%);
     position: fixed;
     width: 6vmin;
-    top: 2vmin;
-    left: 2vmin;
+    top: 1.25vmin;
+    left: 2.5vmin;
     z-index: 999;
   }
+  
   .deck__logo-eye {
     animation: blink 8s infinite linear;
     will-change: scale;
@@ -28,7 +31,17 @@ import Logo from './Logo.svg?raw'
       scale: 1 0.01;
     }
   }
-  .reveal.has-light-background ~ .deck__logo {
+  .reveal.has-light-background ~ .branding {
     --base-coat: hsl(0 0% 0%);
   }
+
+  .branding__handle {
+    color: var(--base-coat);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    font-weight: bold;
+    transform: translate(-50%, -50%) rotate(-90deg) translateY(-100%);
+  }
+
 </style>

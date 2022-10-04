@@ -1,0 +1,106 @@
+---
+import './style.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0"
+    />
+    <title>
+      experimental-css-primitives/scroll-timeline/translate-and-calc
+    </title>
+  </head>
+  <body>
+    <header>
+      <a href="#">
+        <picture>
+          <source
+            srcset="/shared/images/bear-2022--white.svg"
+            media="(prefers-color-scheme: dark)"
+          />
+          <img
+            class="logo"
+            src="/shared/images/bear-2022--black.svg"
+            alt=""
+          />
+        </picture>
+      </a>
+      <button class="material-icons">
+        <span>shopping_cart</span>
+      </button>
+    </header>
+    <div class="search-wrapper">
+      <div class="search-bar">
+        <div class="search-controls">
+          <button class="magnifier material-icons">
+            <span>search</span>
+          </button>
+          <input type="text" placeholder="Search for anything" />
+          <button class="camera material-icons">
+            <span>photo_camera</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <main>
+      <ul>
+        <li class="skeleton">
+          <div class="skeleton__block">
+            <img
+              src="/shared/images/search-one.jpeg"
+              alt=""
+            />
+          </div>
+          <div class="skeleton__block"></div>
+          <div class="skeleton__block"></div>
+        </li>
+        <li class="skeleton">
+          <div class="skeleton__block">
+            <img
+              src="/shared/images/search-two.jpeg"
+              alt=""
+            />
+          </div>
+          <div class="skeleton__block"></div>
+          <div class="skeleton__block"></div>
+        </li>
+        <li class="skeleton">
+          <div class="skeleton__block">
+            <img
+              src="/shared/images/blue-mountain.jpeg"
+              alt=""
+            />
+          </div>
+          <div class="skeleton__block"></div>
+          <div class="skeleton__block"></div>
+        </li>
+        <li class="skeleton">
+          <div class="skeleton__block">
+            <img
+              src="/shared/images/search-four.jpg"
+              alt=""
+            />
+          </div>
+          <div class="skeleton__block"></div>
+          <div class="skeleton__block"></div>
+        </li>
+        <li class="skeleton">
+          <div class="skeleton__block">
+            <img
+              src="/shared/images/search-five.jpeg"
+              alt=""
+            />
+          </div>
+          <div class="skeleton__block"></div>
+          <div class="skeleton__block"></div>
+        </li>
+      </ul>
+    </main>
+    <script is:inline src="/shared/scripts/scroll-timeline.js"></script>
+  </body>
+</html>

@@ -1,5 +1,10 @@
 @import '../../../public/shared/css/icons.css';
 
+@font-face {
+  font-family: Impact;
+  src: url(/shared/fonts/impact.ttf);
+}
+
 iframe {
   border: 0;
 }
@@ -62,6 +67,7 @@ iframe {
   border: 4px solid hsl(207, 35%, 19%);
   width: auto;
   font-size:  var(--code-size, 0.55em);
+  background: #272822;
 }
 
 .reveal pre:before {
@@ -107,29 +113,70 @@ iframe.demo-embed {
   opacity:  0.75;
 }
 
+.flipper {
+  display: inline-block;
+  animation: flip 2s infinite;
+}
+
+@keyframes flip {
+  0%, 50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.flipper-wrapper {
+  display: inline-block;
+  animation: ollie 2s infinite;
+}
+
+@keyframes ollie {
+  0%, 50%, 100% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-100%);
+  }
+}
 
 .title-slide {
   height: 100%;
+  display: grid !important;
+  align-content: center;
 }
 
-.title-slide :is(h1, h2, h3) {
+.title-slide :is(h1, h2, h3, h4) {
   text-align: left;
   max-width: var(--width, 80%);
   margin: 0 auto;
   line-height: 1;
+  width: 100%;
 }
 
-.title-slide--right :is(h1, h2, h3) {
+.title-slide--right :is(h1, h2, h3, h4) {
   text-align: right;
 }
 
-.title-slide--bottom :is(h1, h2, h3) {
+.title-slide--bottom :is(h1, h2, h3, h4) {
   position: absolute;
   bottom: 10%;
   left: 0%;
 }
-.title-slide--top :is(h1, h2, h3) {
+.title-slide--top :is(h1, h2, h3, h4) {
   position: absolute;
   top: 10%;
   left: 0%;
+}
+
+.volume-title {
+  font-size: 10rem;
+  position: absolute;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-weight: 900;
+  bottom: 0;
+  right: 0;
+  opacity: 0.2;
+  letter-spacing: -0.25rem;
 }

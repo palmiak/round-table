@@ -1,4 +1,4 @@
-<!-- .slide: data-background-color="red" -->
+<!-- .slide: data-background-color="var(--spearmint)" -->
 <div class="content-warning">
   <div>Content</div>
   <div>Advisory</div>

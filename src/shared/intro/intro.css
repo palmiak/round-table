@@ -1,3 +1,60 @@
-.intro {
-  color: red;
+.word-waterfall {
+  --base-size: 11vmin;
+  display: grid;
+  gap: 0rem;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.fuel {
+  position: relative;
+  transform: skewY(4deg);
+}
+
+.word-waterfall:last-of-type {
+  position: absolute;
+  inset: 0;
+}
+
+.word-waterfall:last-of-type div {
+  color: var(--base);
+}
+
+.word-waterfall:last-of-type {
+  mask: linear-gradient(black var(--base-size), transparent var(--base-size));
+  mask-repeat: no-repeat;
+  mask-size: 100% 10vmin;
+  mask-position: 50% 200%;
+  animation: fuel 4s infinite linear;
+}
+
+@keyframes fuel {
+  0% {
+    mask-position: 50% -100%;
+  }
+  to {
+    mask-position: 50% 200%;
+  }
+}
+
+.word-waterfall div {
+  line-height: 0.75;
+  position: relative;
+  color: var(--alpha);
+}
+
+.word-waterfall div:nth-of-type(1) {
+  --base: hsl(322 88% 57%);
+  --alpha: hsl(322 88% 57% / 0.2);
+  font-size: var(--base-size);
+}
+.word-waterfall div:nth-of-type(2) {
+  --base: hsl(217 89% 61%);
+  --alpha: hsl(217 89% 61% / 0.2);
+  font-size: calc(var(--base-size) * 1.135);
+}
+.word-waterfall div:nth-of-type(3) {
+  --base: hsl(45 97% 50%);
+  --alpha: hsl(45 97% 50% / 0.2);
+  font-size: calc(var(--base-size) * 1.025);
 }

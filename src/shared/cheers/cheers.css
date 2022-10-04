@@ -3,3 +3,12 @@
   height: 100vh;
   object-fit: cover;
 }
+
+.reveal h2.outro-cheers {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin: 0;
+  font-size: 8vmin;
+  transform: rotate(-90deg) translate(-0%, 140%);
+}

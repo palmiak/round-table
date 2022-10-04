@@ -1,0 +1,91 @@
+---
+import './style.css';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0"
+    />
+    <title>
+      experimental-css-primitives/scroll-timeline/translate-and-calc
+    </title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <article>
+          <h1>Scrollery</h1>
+        </article>
+      </section>
+      <section>
+        <div class="sticker">
+          <article>
+            <img
+              src="/shared/images/blue-mountain.jpeg"
+              alt=""
+            />
+            <h3>Big Rock</h3>
+          </article>
+          <article>
+            <img
+              src="/shared/images/starry-reflection-at-sea.jpeg"
+              alt=""
+            />
+            <h3>Little Boat</h3>
+          </article>
+          <article>
+            <img
+              src="/shared/images/mountain-hike.jpeg"
+              alt=""
+            />
+            <h3>Big Bushes</h3>
+          </article>
+          <article>
+            <img
+              src="/shared/images/rocks-at-sunset.jpeg"
+              alt=""
+            />
+            <h3>Little Rocks</h3>
+          </article>
+        </div>
+        <div class="snapper"></div>
+        <div class="snapper"></div>
+        <div class="snapper"></div>
+      </section>
+      <section>
+        <article>
+          <img src="/shared/images/bear-2022--white.svg">
+        </article>
+      </section>
+    </main>
+    <div
+      class="scroller words chars splitting"
+      data-splitting=""
+      style="--word-total: 1; --char-total: 14"
+    >
+      <span class="word" data-word="Scroll•Scroll•" style="--word-index: 0"
+        ><span class="char" data-char="S" style="--char-index: 0">S</span
+        ><span class="char" data-char="c" style="--char-index: 1">c</span
+        ><span class="char" data-char="r" style="--char-index: 2">r</span
+        ><span class="char" data-char="o" style="--char-index: 3">o</span
+        ><span class="char" data-char="l" style="--char-index: 4">l</span
+        ><span class="char" data-char="l" style="--char-index: 5">l</span
+        ><span class="char" data-char="•" style="--char-index: 6">•</span
+        ><span class="char" data-char="S" style="--char-index: 7">S</span
+        ><span class="char" data-char="c" style="--char-index: 8">c</span
+        ><span class="char" data-char="r" style="--char-index: 9">r</span
+        ><span class="char" data-char="o" style="--char-index: 10">o</span
+        ><span class="char" data-char="l" style="--char-index: 11">l</span
+        ><span class="char" data-char="l" style="--char-index: 12">l</span
+        ><span class="char" data-char="•" style="--char-index: 13"
+          >•</span
+        ></span
+      >
+    </div>
+    <script is:inline src="/shared/scripts/scroll-timeline.js"></script>
+  </body>
+</html>

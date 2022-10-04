@@ -1,4 +1,4 @@
-.slide: data-background-color="hsl(210 80% 20%)" -->
+<!-- .slide: data-background-color="hsl(210 80% 20%)" -->
 
 ## Open UI Pop-up
 
@@ -23,6 +23,7 @@
 ---
 <!-- .slide: data-background-video="/shared/video/pop-up-stack.mp4" data-background-video-loop="true" data-background-video-muted="true" data-background-video-size="cover" -->
 ---
+<!-- .slide: class="title-slide" -->
 ## The goal of the Open UI initiative is to make it easier for developers to make great user experiences.
 ---
 <div>
@@ -44,18 +45,14 @@ const PopUp = ({ children }) => {
 }
 ```
 ---
-## How to make sure it gets placed above the rest of your content. How to make it accessible.
----
 ```js []
 // Current ways to get into the "Top Layer"
 Dialog.showModal();
 Element.requestFullscreen();
 ```
 ---
-<!-- .slide: data-background-image="/shared/images/king.jpg" data-background-opacity="0.25" -->
+<!-- .slide: class="title-slide title-slide--bottom" data-background-image="/shared/images/king.jpg" data-background-opacity="0.25" -->
 ## What's the top layer? A place outside of the `document` flow. A place where `z-index` has no effect. Where every element has a styleable `::backdrop`.
----
-## Better DX leads to less opportunity for poor UX
 ---
 ```html []
 <div id="my-first-popup" popup>PopUp Content!</div>
@@ -93,6 +90,9 @@ Element.requestFullscreen();
   </body>
 </html>
 ```
+---
+<!-- .slide: class="title-slide title-slide--top" -->
+## Better DX leads to less opportunity for poor UX
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/ascension" -->
 ---

@@ -21,7 +21,7 @@ ul {
 }
 
 .card {
-	--shadow-color: 210 40% 50%;
+	--shadow-color: 0 0% 10%;
 	--shadow-elevation-low:
     0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.34),
     0.4px 0.8px 1px -1.2px hsl(var(--shadow-color) / 0.34),
