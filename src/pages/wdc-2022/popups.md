@@ -152,20 +152,36 @@ Element.requestFullscreen();
 }
 ``` -->
 <!-- --- -->
-<!-- .slide: class="title-slide" -->
-## Types
----
-## Auto (Default)
+<!-- slide: class="title-slide title-slide--left" data-background-color="var(--cinnabar)" -->
+<!-- ## Types && Behavior
+--- -->
+<!-- .slide: data-background-color="var(--cinnabar)" -->
+## Types && Behavior
 ```html []
-<div popup popup=auto>
+<!-- Nesting support -->
+<div popup=auto>
+
+<!-- Singleton -->
+<div popup=hint>
+
+<!-- Explicit dismiss -->
+<div popup=manual>
+
+<!-- Open on render, no "hint" -->
+<div popup defaultopen>
+
+<!-- Focus management -->
+<div popup>
+  <input autofocus type="text">
+</div>
 ```
 ---
-- Nesting support via ancestral pop-ups
+<!-- - Nesting support via ancestral pop-ups
 - Dismisses pop-ups that aren't ancestral
 - Dismissing in the stack only dismisses those above
----
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/auto" -->
----
+--- -->
+<!-- slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/auto" -->
+<!-- ---
 ```html [|3]
 <div id="blue-two" class="blue" popup>
   <div class="card elevated">
@@ -183,19 +199,19 @@ Element.requestFullscreen();
     </button>
   </div>
 </div>
-```
----
-## Hint
+``` -->
+<!-- --- -->
+<!-- ## Hint
 ```html []
 <div popup=hint>
 ```
----
-- Singleton
+--- -->
+<!-- - Singleton
 - Doesn't dismiss other types
 - Can't use `defaultopen`
----
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/hint" -->
----
+--- -->
+<!-- slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/hint" -->
+<!-- ---
 ```html [|3]
 <div id="blue-pill" class="blue" popup="hint">
   <div class="card elevated">
@@ -208,18 +224,18 @@ Element.requestFullscreen();
   </div>
 </div>
 ```
----
-## Manual
+--- -->
+<!-- ## Manual
 ```html []
 <div popup=manual>
 ```
----
-- Doesn't dismiss others
+--- -->
+<!-- - Doesn't dismiss others
 - No light dismiss
 - Only closed explicitly via trigger or JavaScript
----
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/manual" -->
----
+--- -->
+<!-- slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/manual" -->
+<!-- ---
 ```html [|6,14]
 <div popup="manual" defaultopen id="window">
   <div class="window">
@@ -238,8 +254,9 @@ Element.requestFullscreen();
     </div>
   </div>
 </div>
-```
----
+``` -->
+<!-- --- -->
+<!-- .slide: data-background-color="var(--selective)" -->
 ## JS API
 ```js []
 /* Show a pop-up */
@@ -265,7 +282,7 @@ popUpElement.addEventListener('hide',event => {
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/poppers" -->
 ---
-```html []
+<!-- ```html []
 <button
   popup="manual"
   class="balloon"
@@ -300,9 +317,9 @@ POPUP.addEventListener("click", () => {
 });
 ```
 
-</div>
----
-## Accessibility && Focus
+</div> -->
+<!-- --- -->
+<!-- ## Accessibility && Focus
 ```html [|4]
 <div id="input-pop-up" popup>
   <div class="card elevated">
@@ -312,16 +329,18 @@ POPUP.addEventListener("click", () => {
   </div>
 </div>
 ```
----
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/autofocus" -->
----
+--- -->
+<!-- slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/autofocus" -->
+<!-- --- -->
+<!-- .slide: class="title-slide title-slide--top" data-background-color="var(--fuschia)"-->
 ## Breathe new life into old friends
 ---
-### Nav Drawer
+<!-- ### Nav Drawer
+--- -->
+<!-- .slide: data-background-color="var(--white)" data-background-iframe="/demos/openui-pop-ups/nav-drawer" -->
 ---
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/nav-drawer" -->
----
-```css []
+<!-- .slide: data-background-color="var(--citric)" -->
+```css [|17, 18, 19]
 [popup] {
   left: 100%;
   width: var(--nav-width);
@@ -343,11 +362,11 @@ body:has([popup]:open) {
 }
 ```
 ---
-### Custom Cursor
----
+<!-- ### Custom Cursor
+--- -->
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/custom-cursor" -->
 ---
-<div>
+<!-- <div>
 
 ```html []
 <canvas
@@ -370,23 +389,23 @@ document.body.addEventListener("show", (e) => {
   }
 });
 ```
----
-### Toasts
----
+--- -->
+<!-- ### Toasts
+--- -->
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/toasts" -->
----
+<!-- ---
 ```html []
 <div popup="manual" class="toasts">
   <ul class="toasts__drawer">
-    <!-- Show pop-up and add to drawer when needed -->
   </ul>
 </div>
-```
+``` -->
 ---
-### Command Palette
----
+<!-- ### Command Palette
+--- -->
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/command-palette" -->
 ---
+<!-- .slide: data-background-color="var(--selective)" -->
 ```html []
 <div id="spotlight" popup>
   <input
@@ -407,6 +426,7 @@ document.body.addEventListener("show", (e) => {
 </div>
 ```
 ---
+<!-- ---
 ```js []
 /* Show the pop-up then you get light dismiss etc. for free! */
 const handleActivation = (e) => {
@@ -419,12 +439,13 @@ const handleActivation = (e) => {
     OPTIONS.showPopUp();
   }
 };
-```
----
+``` -->
+<!-- ---
 ### Screensaver
+--- -->
+<!-- .slide: data-background-color="var(--white)" data-background-iframe="/demos/openui-pop-ups/screensaver" -->
 ---
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/screensaver" -->
----
+<!-- .slide: data-background-color="var(--fuschia)" -->
 ```html []
 <div id="screensaver" popup>
   <div class="dvd">
@@ -438,12 +459,12 @@ const handleActivation = (e) => {
 </div>
 ```
 ---
-### Floating Actions
----
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/floating-action" -->
----
+<!-- ### Floating Actions
+--- -->
+<!-- slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/floating-action" -->
+<!-- --- -->
 <!-- .slide: style="--code-size: 0.325em;" -->
-```html []
+<!-- ```html []
 <button
   class="fab secondary"
   popup="manual"
@@ -485,23 +506,54 @@ const handleActivation = (e) => {
   </ul>
 </div>
 ```
----
-### Webcam
----
+--- -->
+<!-- ### Webcam
+--- -->
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/webcam-throw" -->
 ---
-```js []
-CONTAINER.addEventListener('show', () => {
-  MENU_POP.hidePopUp()
-  createCapture()
-})
-CONTAINER.addEventListener('hide', () => {
-  capture.remove()
-  screenCast.clear()
-  screenCast.remove()
-})
+<!-- .slide: style="--code-size: 0.325em;" data-background-color="var(--spearmint)" -->
+```html[]
+<button
+  popup="manual"
+  defaultopen
+  popuptoggletarget="menu"
+>
+  <i class="material-icons">add</i>
+</button>
+<div id="menu" class="fab__menu" popup="auto" style="--count: 3">
+  <ul class="fab__menu-items">
+    <li class="fab__menu-item">
+      <button
+        autofocus
+        class="fab"
+        style="--index: 0"
+        popuphidetarget="menu"
+      >
+        <i class="material-icons">chat</i>
+      </button>
+    </li>
+    <li class="fab__menu-item">
+      <button
+        class="fab"
+        style="--index: 1"
+        popuphidetarget="menu"
+      >
+        <i class="material-icons">photo_camera</i>
+      </button>
+    </li>
+    <li class="fab__menu-item">
+      <button
+        class="fab"
+        style="--index: 2"
+        popuphidetarget="menu"
+      >
+        <i class="material-icons">pin_drop</i>
+      </button>
+    </li>
+  </ul>
+</div>
 ```
 ---
-### Portals
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/strange-portal" -->
 ---
 <!-- End Section

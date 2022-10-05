@@ -33,6 +33,9 @@ main {
 
 :is(h1, h2) {
   color: var(--gray-0);
+  font-family: 'Impact', sans-serif;
+  text-transform: uppercase;
+  font-size: 10rem;
 }
 
 .snapper {
@@ -136,12 +139,24 @@ article {
 }
 
 article h3 {
+  color: var(--gray-0);
   padding: var(--size-4);
-  color: var(--gray-9);
-  background: var(--gray-0);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) translate(-20vw, 22vh);
   font-size: var(--font-size-8);
+}
+
+article:nth-of-type(1) h3 {
+  background: hsl(5, 81%, 56%);
+}
+article:nth-of-type(2) h3 {
+  background: hsl(136, 53%, 43%);
+}
+article:nth-of-type(3) h3 {
+  background: hsl(45, 97%, 50%);
+}
+article:nth-of-type(4) h3 {
+  background: hsl(217, 89%, 61%);
 }

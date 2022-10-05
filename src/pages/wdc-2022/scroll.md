@@ -1,4 +1,4 @@
-<!-- .slide: class="title-slide title-slide--bottom" -->
+<!-- .slide: class="title-slide title-slide--bottom" data-background-color="var(--citric)"-->
 <!-- If you want to do everything in Canary with the polyfill -->
 <!-- open -a /Applications/Google\ Chrome\ Canary.app --args --disable-blink-features=CSSScrollTimeline,ScrollTimeline -->
 ## Scroll Linked Animations
@@ -33,6 +33,7 @@
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/image-reveals" -->
 ---
+<!-- .slide: data-background-color="var(--spearmint)" -->
 ```html []
 <html>
   <head>
@@ -54,7 +55,8 @@
 </html>
 ```
 ---
-```css []
+<!-- .slide: data-background-color="var(--blueberry)" -->
+```css [|2,3,7,8,9,10]
 li {
   view-timeline-name: curtain;
   view-timeline-axis: block;
@@ -79,7 +81,8 @@ li img {
 
 ```
 ---
-```js []
+<!-- .slide: data-background-color="var(--selective)" -->
+```js [|1-6,15,17-24]
 const TIMELINE = new ViewTimeline({
   // Thing you're tracking in the viewport
   subject: LI,
@@ -109,16 +112,15 @@ IMG.animate(
 
 ```
 ---
+## DOMs Cars
+---
 <!-- .slide: data-background-color="hsl(0 0% 0%)" data-background-iframe="/demos/scroll-linked-animations/dj-deck" -->
 ---
-## Plays nice with scroll-snap
----
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/image-reveals" -->
----
-## Parallax
+## This is a Box
 ---
 <!-- .slide: data-background-color="hsl(0 0% 0%)" data-background-iframe="/demos/scroll-linked-animations/snap-parallax" -->
 ---
+<!-- .slide: data-background-color="var(--citric)" -->
 ```html []
 <body>
   <main>
@@ -142,6 +144,7 @@ IMG.animate(
 </body>
 ```
 ---
+<!-- .slide: data-background-color="var(--cinnabar)" -->
 ```css []
 .scroller {
   animation-timeline: --main; /* scroll() (Soon) */
@@ -156,6 +159,7 @@ IMG.animate(
 }
 ```
 ---
+<!-- .slide: data-background-color="var(--chateau)" -->
 ```js []
 const TIMELINES = []
 // Each content section
@@ -187,18 +191,24 @@ BACKDROPS.forEach((backdrop, index) => {
 })
 ```
 ---
+<!-- .slide: class="title-slide title-slide--top" data-background-color="var(--black)" -->
+## Think in <span style="color: var(--fuschia)">space</span>.
+---
 <!-- .slide: data-background-color="hsl(0 0% 0%)" data-background-iframe="/demos/scroll-linked-animations/snap-directions" -->
 ---
-## Micro interactions
----
+<!-- ## Micro interactions
+--- -->
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/search-micro" -->
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/avatar-micro" -->
+---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/dynamic-island" -->
 ---
 <!-- .slide: data-background-video="/shared/video/peter.mp4" data-background-video-loop="true" data-background-video-muted="true" data-background-video-size="cover" -->
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/peters-blinds" -->
 ---
+<!-- .slide: data-background-color="var(--fuschia)" -->
 ```css []
 .blind {
   transform: translate(

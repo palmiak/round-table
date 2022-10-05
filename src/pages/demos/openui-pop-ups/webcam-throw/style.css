@@ -142,11 +142,22 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: visible;
-  box-shadow: var(--shadow-5);
   border: 0;
   background: transparent;
 }
+.container__content {
+  transform: scale(var(--open, 0));
+  transition: transform 0.2s;
+  box-shadow: var(--shadow-5);
+  transform-origin: 50% 100%;
+}
+
+.container:open {
+  --open: 1;
+}
+
 .container__screen {
+  background: var(--chrome);
   border: 4px solid var(--chrome);
 }
 .container__toolbar {
@@ -161,10 +172,11 @@ h1 {
   background-repeat: no-repeat;
   background-color: var(--chrome);
   border-radius: 16px 16px 0 0;
+  transform: translate(0, 2px);
 }
 
 .container__screen {
-  width: 25vmin;
+  width: 360px;
   aspect-ratio: 4 / 3;
 }
 

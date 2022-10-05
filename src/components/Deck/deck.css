@@ -195,6 +195,7 @@ iframe.demo-embed {
 .reveal .bullets li {
   list-style-type: none;
   display: inline-block;
+  color: white;
 }
 
 .bullets li:nth-of-type(odd) {

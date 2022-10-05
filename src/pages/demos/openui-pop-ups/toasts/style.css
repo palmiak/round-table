@@ -24,6 +24,10 @@
     position: relative;
     overflow: hidden;
   }
+
+  body > button {
+    transform: scale(1.25);
+  }
 }
 
 @layer demo {
@@ -36,7 +40,7 @@
     right: 0; */
     left: 100%;
     top: 100%;
-    transform: translate(-100%, -100%);
+    transform: translate(-250%, -250%);
     padding: var(--size-4);
     border: 0;
     overflow: auto;

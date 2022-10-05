@@ -28,6 +28,9 @@ li {
 
 h1 {
   max-inline-size: 100%;
+  font-size: 8rem;
+  font-family: 'Impact', sans-serif;
+  text-transform: uppercase;
 /*   white-space: nowrap; */
 }
 
