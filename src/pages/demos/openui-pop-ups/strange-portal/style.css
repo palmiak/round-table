@@ -10,9 +10,10 @@ body {
   display: grid;
   place-items: center;
   min-height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   background: var(--gray-0);
   color: var(--gray-8);
+  padding-top: var(--size-12);
 }
 
 h1 {

@@ -116,7 +116,7 @@ IMG.animate(
 ---
 <!-- .slide: data-background-color="hsl(0 0% 0%)" data-background-iframe="/demos/scroll-linked-animations/dj-deck" -->
 ---
-## This is a Box
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/this-is-a-box" -->
 ---
 <!-- .slide: data-background-color="hsl(0 0% 0%)" data-background-iframe="/demos/scroll-linked-animations/snap-parallax" -->
 ---
@@ -204,7 +204,7 @@ BACKDROPS.forEach((backdrop, index) => {
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/dynamic-island" -->
 ---
-<!-- .slide: data-background-video="/shared/video/peter.mp4" data-background-video-loop="true" data-background-video-muted="true" data-background-video-size="cover" -->
+<!-- .slide: data-background-video="/shared/video/peter.mp4" data-background-video-loop="true" data-background-video-muted="true" data-background-size="contain" data-background-color="var(--spearmint)"-->
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/peters-blinds" -->
 ---
@@ -233,9 +233,9 @@ BACKDROPS.forEach((backdrop, index) => {
 ---
 ## Sneaker Carousel
 ---
-## Book of Jhey
+<!-- .slide: data-background-iframe="/demos/scroll-linked-animations/scrolltrigger-book" -->
 ---
-## Prototype Book
+<!-- .slide: data-background-iframe="/demos/scroll-linked-animations/prototype-book" -->
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/chrometober-2022/index.html" -->
 ---

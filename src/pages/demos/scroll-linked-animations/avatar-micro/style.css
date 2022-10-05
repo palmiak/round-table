@@ -82,7 +82,7 @@ main {
   display: grid;
   justify-content: center;
   animation: shadow both;
-  animation-timeline: --avatar;
+  animation-timeline: --header;
   animation-delay: exit 150%;
   animation-end-delay: exit 250%;
 }

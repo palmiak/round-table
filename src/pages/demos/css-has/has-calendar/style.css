@@ -2,10 +2,10 @@
 @import "open-props/style";
 
 :root {
-  --primary: 320 100% 50% / 1;
-  --in-range: 320 100% 50% / 0.5;
-  --previous: 320 100% 50% / 0.25;
-  --potential: 0 0% 86% / 1;
+  --primary: 299 100% 69% / 1;
+  --in-range: 299 100% 69% / 0.5;
+  --previous: 299 100% 69% / 0.25;
+  --potential: 73 97% 66% / 1;
   --dark: 0 0% 15%;
   --light: 0 0% 100%;
 }
@@ -48,6 +48,8 @@ body {
 .calendar__title {
   grid-column: 1 / -1;
   text-align: center;
+  font-weight: bold;
+  font-size: var(--font-size-4);
 }
 
 .calendar__cell:has([for*="-09-"], [for*="-11-"]) {
@@ -320,10 +322,40 @@ tr:has([id*=from]:checked) ~ tr .calendar__cell [for*=to] {
   --color: 0 0% 100%;
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4);
+  justify-content: center;
+  padding: var(--size-4);
+}
+button {
+  padding: var(--size-2) var(--size-4);
+  border-radius: var(--radius-2);
+  font-weight: bold;
+}
+button[type="reset"] {
+  border: var(--size-1) solid var(--gray-6);
+  background: var(--gray-2);
+  color: var(--gray-7);
+}
+button[type="submit"] {
+  border: var(--size-1) solid var(--green-9);
+  background: var(--green-5);
+  color: var(--gray-0);
+}
+
+button[type="reset"]:hover {
+  background: var(--gray-4);
+}
+button[type="submit"]:hover {
+  background: var(--green-8);
+}
+
 /* Border radius for the different edges based on opener or closer */
-.calendar__cell:has([id*=from]:checked) {
+/* .calendar__cell:has([id*=from]:checked) {
   --radius: 50% 0 0 50%;
 }
 .calendar__cell:has([id*=to]:checked) {
   --radius: 0 50% 50% 0;
-}
+} */

@@ -22,7 +22,8 @@
     min-height: 100vh;
     font-family: "Google Sans", sans-serif, system-ui;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
+    padding-top: var(--size-12);
   }
 }
 

@@ -332,6 +332,7 @@ body {
   --text-1: var(--gray-9);
   --text-2: var(--gray-8);
 }
+/* Don't do it with a checkbox 🙏 */
 :root:has(.theme-toggle[aria-pressed=true]) {
   --dark-mode: 1;
   --text-1: var(--gray-0);

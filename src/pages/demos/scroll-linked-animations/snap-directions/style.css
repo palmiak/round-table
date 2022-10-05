@@ -132,7 +132,7 @@ article {
 }
 
 .sticker img {
-  height: 50%;
+  width: 50%;
   aspect-ratio: 4/3;
   object-fit: cover;
   transform: skewY(4deg);

@@ -146,7 +146,7 @@ iframe.demo-embed {
   align-content: center;
 }
 
-.title-slide :is(h1, h2, h3, h4) {
+.title-slide :is(h1, h2, h3, h4, h5, h6) {
   text-align: left;
   max-width: var(--width, 80%);
   margin: 0 auto;
@@ -154,16 +154,16 @@ iframe.demo-embed {
   width: 100%;
 }
 
-.title-slide--right :is(h1, h2, h3, h4) {
+.title-slide--right :is(h1, h2, h3, h4, h5, h6) {
   text-align: right;
 }
 
-.title-slide--bottom :is(h1, h2, h3, h4) {
+.title-slide--bottom :is(h1, h2, h3, h4, h5, h6) {
   position: absolute;
   bottom: 10%;
   left: 0%;
 }
-.title-slide--top :is(h1, h2, h3, h4) {
+.title-slide--top :is(h1, h2, h3, h4, h5, h6) {
   position: absolute;
   top: 10%;
   left: 0%;
