@@ -11,38 +11,35 @@ import './style.css';
   </head>
   <body>
     <main>
-      <ul class="contents">
-        <li>
-          <h2>Scroll</h2>
-        </li>
-        <li>
-          <h2>Scroll more</h2>
-        </li>
-        <li>
-          <h2>Scroll further</h2>
-        </li>
-        <li>
-          <h2>That's it!</h2>
-        </li>
-      </ul>
-      <ul class="backdrops">
-        <li>
-          <img src="/shared/images/overwatch.jpeg" width="1920" alt="">
-        </li>
-        <li>
-          <img src="/shared/images/cyber-night.jpeg" width="1920" alt="">
-        </li>
-        <li>
-          <img src="/shared/images/neon-nights.jpeg" width="1920" alt="">
-        </li>
-        <li>
-          <img src="/shared/images/night-alley.jpeg" width="1920" alt="">
-        </li>
-      </ul>  
+      <div class="track">
+        <img class="car brian" src="/shared/images/brian-o-conner.svg" alt="">
+        <div class="dom-track">
+          <img class="car dom" src="/shared/images/dom-toretto.svg" alt="">
+        </div>
+        <div class="indicators">
+          <div class="progress progress--enter">
+            <div class="progress__bar"></div>
+            <div class="progress__label">enter</div>
+          </div>
+          <div class="progress progress--exit">
+            <div class="progress__bar"></div>
+            <div class="progress__label">exit</div>
+          </div>
+          <div class="progress progress--cover">
+            <div class="progress__bar"></div>
+            <div class="progress__label">cover</div>
+          </div>
+          <div class="progress progress--contain">
+            <div class="progress__bar"></div>
+            <div class="progress__label">contain</div>
+          </div>
+          <div class="action">
+            <label for="dom">Hide Dom</label>
+            <input id="dom" checked type="checkbox">
+          </div>
+        </div>
+      </div>
     </main>
-    <div class="scroller" data-splitting="">
-      Scroll•Scroll•
-    </div>
     <script>import "./script.js"</script>
   </body>
 </html>

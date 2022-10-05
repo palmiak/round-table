@@ -14,149 +14,156 @@ body {
   place-items: center;
   height: 100vh;
   overflow: hidden;
+  background: var(--gray-4);
   font-family:  'Google Sans', sans-serif, system-ui;
 }
 
+:root {
+  --track-size: 40vw;
+  --track-translation:  10%;
+}
+
 main {
+  width: var(--track-size);
+  aspect-ratio: 4 / 3;
   overflow: auto;
+  position: relative;
+  background:
+    repeating-linear-gradient(0deg, white 0 10%, transparent 10% 15%) 50% 0 / 10px 100% no-repeat,
+    linear-gradient(var(--gray-8), var(--gray-8)) 50% 0 / calc(var(--track-size) * 0.3) 100% no-repeat,
+    linear-gradient(90deg, var(--green-8) 25%, transparent 25% 75%, var(--green-8) 75%),
+    var(--gray-6);
 }
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-li {
-  height: 100vh;
-  width: 100vw;
-  padding: 0;
-}
-
-ul.backdrops {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-}
-
-ul.contents {
-  height: 100vh;
-  scroll-snap-type: y mandatory;
-  overflow: auto;
-}
-
-/* Set up the ViewTimelines */
-.contents > li:nth-of-type(1) {
-  view-timeline-name: --one;
-}
-.contents > li:nth-of-type(2) {
-  view-timeline-name: --two;
-}
-.contents > li:nth-of-type(3) {
-  view-timeline-name: --three;
-}
-.contents > li:nth-of-type(4) {
-  view-timeline-name: --last;
-}
-
-.contents > li {
-  display: grid;
-  place-items: center;
-  scroll-snap-align: center;
-}
-
-h2 {
-  font-size: var(--font-size-fluid-3);
-  color: var(--gray-0);
-  background: hsl(0 0% 0% / 1);
-  padding: var(--size-6);
-  font-family: 'Impact', sans-serif;
-  text-transform: uppercase;
-  font-size: 8vmin;
-}
-
-img {
-  height: 100%;
+.track {
+  height: 400%;
   width: 100%;
-  object-fit: cover;
-  filter: grayscale(0.5);
+  position: relative;
 }
 
-.backdrops li {
+.road {
+  width: calc(var(--track-size) * 0.3);
+  background: repeating-linear-gradient(0deg, white 0 10%, transparent 10% 15%) 50% 0 / 10px 100% no-repeat,
+    var(--gray-8);
+  height: 100%;
   position: absolute;
-  inset: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
-.backdrops li:not(:first-of-type) img {
-  transform: translateY(100%);
+.car {
+  width: calc(var(--track-size) * 0.1);
+  object-fit: contain;
+  position: absolute;
+  left: 50%;
 }
 
-.scroller {
-  --radius: -2.25rem;
-  text-transform: uppercase;
-  color: var(--gray-0);
-  font-weight: bold;
+.brian {
+  top: 50%;
+  transform: translate(-125%, 0);
+  view-timeline-name: --brian;
+}
+
+.dom-track {
   position: fixed;
-  top: 1rem;
-  right: 2rem;
-  aspect-ratio: 1;
-  width: 6rem;
-  animation-timeline: --last;
-  animation: progress both linear;
-  animation-delay: enter -200%;
-  animation-end-delay: enter 100%;
+  width: var(--track-size);
+  aspect-ratio: 4 / 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  overflow: hidden;
 }
-@keyframes progress {
+
+:root:has(#dom:checked) .dom {
+  opacity: 0;
+}
+
+.dom {
+  bottom: 0;
+  width: calc(var(--track-size) * 0.12);
+  transform: translateX(22%) translateY(150%);
+  animation-timeline: --brian;
+  animation: family both linear;
+  animation-delay: cover 10%;
+  animation-end-delay: cover 65%;
+}
+
+@keyframes family {
   to {
-    transform: rotate(360deg);
+    transform: translateX(22%) translateY(calc(150% - (var(--track-size) * 0.75) - 150%));
   }
 }
 
-.scroller:before {
-  content: "";
-  position: absolute;
-  display: block;
-  inset: 0;
-  border-radius: 50%;
-  border: 1.5rem solid hsl(0 0% 0% / 1);
-}
-
-.scroller .char {
-  display: inline-block;
-  position: absolute;
+.indicators {
+  position: fixed;
+  width: 16vw;
+  left: 8vw;
+  display: grid;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(calc((360 / var(--char-total)) * var(--char-index) * 1deg)) translateY(var(--radius));
+  gap: 2rem;
+  transform: translate(0, -50%);
+  justify-items: center;
 }
 
-/* Do I need to build different timelines but apply to
- * different elements to get things working?
-*/
+.progress {
+  height: 2.5rem;
+  width: 100%;
+  background: var(--gray-8);
+  position: relative;
+  border-radius: var(--radius-3);
+  overflow: hidden;
+}
 
-/* .backdrops > li:nth-of-type(1) img {
-  animation: exit both;
-  animation-timeline: --one;
+.progress__bar {
+  background: var(--indigo-6);
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+.progress:nth-of-type(even) .progress__bar {
+  background: var(--orange-6);
+}
+
+.progress__label {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  font-weight: bold;
+  display: grid;
+  place-items: center;
+  font-size: 1.25rem;
+  color: var(--gray-0);
+}
+
+.progress--enter .progress__bar {
+  animation: indicate both linear;
+  animation-timeline: --brian;
+  animation-delay: enter 0%;
+  animation-end-delay: enter 100%;
+}
+.progress--exit .progress__bar {
+  animation: indicate both linear;
+  animation-timeline: --brian;
   animation-delay: exit 0%;
   animation-end-delay: exit 100%;
 }
-
-.backdrops > li:nth-of-type(2) img {
-  animation: enter both, exit both;
-  animation-timeline: --one, --two;
-  animation-delay: exit 0%, exit 0%;
-  animation-end-delay: exit 75%, exit 100%;
+.progress--cover .progress__bar {
+  animation: indicate both linear;
+  animation-timeline: --brian;
+  animation-delay: cover 0%;
+  animation-end-delay: cover 100%;
+}
+.progress--contain .progress__bar {
+  animation: indicate both linear;
+  animation-timeline: --brian;
+  animation-delay: contain 0%;
+  animation-end-delay: contain 100%;
 }
 
-
-
-@keyframes exit {
-  100% {
-    transform: translateY(-100%);
+@keyframes indicate {
+  to {
+    transform: scaleX(1);
   }
 }
-
-@keyframes enter {
-  100% {
-    transform: translateY(0%);
-  }
-} */
