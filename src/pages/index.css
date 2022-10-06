@@ -25,7 +25,16 @@ a:is(:visited) {
   color: var(--text-1);
 }
 
-a, a:is(:hover, :visited) {
+a {
+  text-decoration: underline;
+  text-decoration-color: var(--red-3);
   text-decoration-thickness: var(--size-1);
-  text-decoration-color: var(--text-2);
+}
+
+a:visited {
+  text-decoration-color: var(--red-2);
+}
+
+a:is(:hover) {
+  text-decoration-color: var(--red-8);
 }
