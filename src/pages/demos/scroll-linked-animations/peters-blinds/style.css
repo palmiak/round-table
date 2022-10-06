@@ -208,6 +208,7 @@ body {
   transform: translate3d(0, 0, 12px) scale(1);
   position: relative;
   transform-origin: 100% 0;
+  overflow: hidden;
 }
 .blind {
   width: 100%;
@@ -350,6 +351,24 @@ body {
   animation-delay: enter 0%;
   animation-end-delay: enter 50%;
   transform: translate(-50%, -50%) scale(0);
+}
+
+.phil {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  animation: at-the-window both;
+  animation-timeline: --trigger;
+  animation-delay: enter 0%;
+  animation-end-delay: enter 50%;
+  transform: translateY(100%);
+}
+
+@keyframes at-the-window {
+  to {
+    transform: translateY(0);
+  }
 }
 
 @keyframes peek {

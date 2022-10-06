@@ -230,8 +230,8 @@ BACKDROPS.forEach((backdrop, index) => {
   }
 }
 ```
----
-## Sneaker Carousel
+<!-- ---
+## Sneaker Carousel -->
 ---
 <!-- .slide: data-background-iframe="/demos/scroll-linked-animations/scrolltrigger-book" -->
 ---

@@ -29,7 +29,12 @@
 <!-- .slide: class="title-slide" data-background-color="var(--black)"-->
 ## Hoard your <span style="color: var(--citric)">inspiration</span>.<br><span style="color: var(--blueberry)">Focus</span> on <span style="color: var(--fuschia)">"What"</span> and not the "How" or "Why".
 ---
-## Collage of demos you've made
+<!-- .slide: data-background-color="var(--black)" -->
+<div class="demo-row">
+  <video autoplay controls muted loop src="/shared/video/demo-two.mp4"></video>
+  <video autoplay controls muted loop src="/shared/video/demo-one.mp4"></video>
+  <video autoplay controls muted loop src="/shared/video/demo-three.mp4"></video>
+</div>
 ---
 <!-- .slide: class="title-slide title-slide--right" .slide: data-background-color="var(--black)"-->
 ## It's a <span style="color: var(--chateau)">personal</span> journey. It's a <span style="color: var(--selective)">process</span>. Something you can <span style="color: var(--fuschia)">train over time</span>.
@@ -40,5 +45,7 @@
   <div>Advisory</div>
   <div>Experimental Content</div>
 </div>
+
+## We're Experimenting
 ---
 <!-- End Creative Intro

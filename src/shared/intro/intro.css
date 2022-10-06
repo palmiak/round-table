@@ -1,3 +1,15 @@
+.demo-row video {
+  width: 30vmin;
+  aspect-ratio: 1;
+}
+
+.demo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .word-waterfall {
   --base-size: 11vmin;
   display: grid;

@@ -432,7 +432,7 @@ li:has(+ li:hover) {
 .calendar__cell:has(:checked) {
   --background: var(--primary);
   --alpha: 1;
-  --color: 0 0% 100%;
+  --color: var(--light);
 }
 
 .calendar:has([id*=from]:checked):not(:has([id*=to]:checked)):has(.calendar__cell:hover)

@@ -34,8 +34,112 @@ main {
     linear-gradient(90deg, var(--green-8) 25%, transparent 25% 75%, var(--green-8) 75%),
     var(--gray-6);
 }
+
+.title {
+  width: var(--track-size);
+  aspect-ratio: 4 / 3;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  background: hsl(0 0% 0% / 0.75);
+}
+
+.title h1 {
+  display: grid;
+  font-family: 'Impact', sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1;
+  transform: skewX(-10deg);
+}
+
+.title h1 span {
+  clip-path: inset(0 0 0 0);
+}
+
+.title h1 span:first-of-type {
+  animation: stage-left both;
+  animation-timeline: --title;
+  animation-delay: exit 0%;
+  animation-end-delay: exit 100%;
+}
+
+.title h1 span:last-of-type {
+  animation: stage-right both;
+  animation-timeline: --title;
+  animation-delay: exit 0%;
+  animation-end-delay: exit 100%;
+}
+
+@keyframes stage-left {
+  to {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+@keyframes stage-right {
+  to {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+.title-trigger {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  view-timeline-name: --title;
+}
+
+.title {
+  animation: fade both;
+  animation-timeline: --title;
+  animation-delay: exit 0%;
+  animation-end-delay: exit 100%;
+}
+
+@keyframes fade {
+  to {
+    background: hsl(0 0% 0% / 0);
+  }
+}
+
+.surround {
+  --border: 25px;
+  width: calc(var(--track-size) + (2 * var(--border)));
+  height: calc(var(--track-size) * 0.75 + (2 * var(--border)));
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: var(--border) solid var(--gray-8);
+}
+
+.surround:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 10px 10px hsl(0 0% 0% / 0.5) inset;
+  background: linear-gradient(55deg, transparent 25%, hsl(0 0% 100% / 0.25) 65%, transparent 90%);
+}
+
+.surround:after {
+  content: "";
+  width: calc(var(--border) * 0.75);
+  aspect-ratio: 3/1;
+  background: var(--red-5);
+  position: absolute;
+  bottom: calc(var(--border) * -0.5);
+  transform: translate(-100%, 150%);
+  right: 0;
+  box-shadow: 0 0 8px 4px hsl(0 100% 50% / 0.5);
+}
+
 .track {
-  height: 400%;
+  height: 500%;
   width: 100%;
   position: relative;
 }
@@ -72,6 +176,15 @@ main {
   transform: translate(-50%, -50%);
   pointer-events: none;
   overflow: hidden;
+}
+
+.action {
+  display: flex;
+  place-items: center;
+  gap: 0.5rem;
+}
+label {
+  color: var(--gray-9);
 }
 
 :root:has(#dom:checked) .dom {
