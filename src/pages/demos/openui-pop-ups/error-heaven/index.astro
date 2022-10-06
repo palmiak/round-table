@@ -8,6 +8,25 @@ import './style.css';
   </head>
   <body>
     <main>
+      <div popup="manual" defaultopen id="pop-start">
+        <div class="window">
+          <div class="title-bar">
+            <div class="title-bar-text">Error</div>
+            <div class="title-bar-controls">
+              <button aria-label="Close" popuphidetarget="pop-start"></button>
+            </div>
+          </div>
+          <div class="window-body">
+            <div class="content">
+              <img src="/shared/images/error.png" alt="">
+              <p>
+                Error: Slide.exe has errored!
+              </p>
+            </div>
+            <button popuphidetarget="pop-start">Close</button>
+          </div>
+        </div>
+      </div>
     </main>
     <script>import "./script.js"</script>
   </body>

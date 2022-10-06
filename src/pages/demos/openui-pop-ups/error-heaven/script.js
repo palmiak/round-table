@@ -3,8 +3,12 @@ const DING = new Audio('/shared/audio/windows-xp-error-noise.mp3')
 const ERRORS = [
   'HTML.dll not found',
   '/System32/Libs/Languages/HTML not found',
-  'Tailwind class usage beneath requirement',
-  'Have you tried React?'
+  'Uncaught TypeError: cant convert null to object',
+  'Have you tried React?',
+  'Insufficient RAM, please close Slack',
+  'Maximum call stack size exceeded',
+  'Cannot get property foo of undefined',
+  'ATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory',
 ]
 
 const generateError = id => {
@@ -37,7 +41,7 @@ const generateError = id => {
   newError.showPopUp()
 }
 
-let count = 0
+let count = 1
 const showErrors = () => {
   if (count === 0) count++
   else count += 1
@@ -52,4 +56,4 @@ const showErrors = () => {
 document.body.addEventListener('hide', showErrors)
 
 // Get that ball rolling
-setTimeout(() => showErrors(), 2000)
+// showErrors()

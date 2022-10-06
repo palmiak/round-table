@@ -556,4 +556,6 @@ const handleActivation = (e) => {
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/strange-portal" -->
 ---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/error-heaven" -->
+---
 <!-- End Section

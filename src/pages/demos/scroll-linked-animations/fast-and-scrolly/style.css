@@ -49,6 +49,7 @@ main {
 }
 
 .title h1 {
+  color: var(--gray-0);
   display: grid;
   font-family: 'Impact', sans-serif;
   text-transform: uppercase;

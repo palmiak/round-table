@@ -63,14 +63,14 @@ iframe {
   width: auto;
 }
 
-.reveal pre {
+.reveal:not(.tpac-2022) pre {
   border: 4px solid hsl(207, 35%, 19%);
   width: auto;
   font-size:  var(--code-size, 0.55em);
   background: #272822;
 }
 
-.reveal pre:before {
+.reveal:not(.tpac-2022) pre:before {
   content: "";
   height: 2rem;
   width: calc(8px + 100%);

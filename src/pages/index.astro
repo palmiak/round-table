@@ -1,0 +1,26 @@
+---
+import "./index.css"
+import Layout from '../layouts/Layout.astro';
+
+const TALKS = [
+  {
+    title: "CSS Anchoring – TPAC 2022",
+    link: "/tpac-2022"
+  },
+  {
+    title: "Supercharge your skills with creative coding – WDC 2022",
+    link: "/wdc-2022"
+  }
+]
+---
+
+<Layout>
+  <h1>Jhey Presents</h1>
+  <ul>
+    {TALKS.map(({title, link}) => (
+      <li>
+        <a href={link} target="_blank" rel="noopener noreferrer">{title}</a>
+      </li>
+    ))}
+  </ul>
+</Layout>

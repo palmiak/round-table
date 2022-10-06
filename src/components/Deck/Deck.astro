@@ -7,7 +7,7 @@ import "reveal.js/plugin/highlight/monokai.css";
 import './deck.css'
 import 'highlight.js/styles/night-owl.css';
 
-const { slides, title } = Astro.props
+const { mod, slides, title } = Astro.props
 
 let content = ``
 
@@ -17,7 +17,7 @@ slides.forEach(slide => {
 ---
 
 <Layout title={title}>
-  <main class="reveal deck markdown-deck">
+  <main class={`reveal deck markdown-deck ${mod}`}>
     <div class="slides">
       <section data-markdown data-seperator-notes="Note:">
         <textarea data-template>
