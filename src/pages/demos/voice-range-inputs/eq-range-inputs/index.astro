@@ -3,10 +3,30 @@
 		<title>EQ Range Inputs</title>
 	</head>
 	<body>
-		
+		<main></main>
 	</body>
 </html>
 <script>
 	import './style.css';
 	import './_script.js';
 </script>
+<style>
+	* {
+	  box-sizing: border-box;
+	}
+	html {
+	  overflow: hidden;
+	}
+	body {
+	  min-height: 100vh;
+	  display: grid;
+	  place-items: center;
+	}
+	body > main {
+		display: grid;
+	  grid-template-columns: repeat(var(--input-count, 16), 10px);
+	  justify-content: center;
+	  gap: 0.1rem;
+		scale: 2;
+	}
+</style>

@@ -16,6 +16,7 @@ const CONFIG = {
 
 // use for visualization
 let inputs = []
+const MAIN = document.querySelector('main')
 
 const genInputs = (size) => {
   document.documentElement.style.setProperty('--input-count', size)
@@ -27,7 +28,7 @@ const genInputs = (size) => {
     INPUT.step = 1
     INPUT.value = 0
     INPUT.setAttribute('orient', 'vertical')
-    document.body.appendChild(INPUT)
+    MAIN.appendChild(INPUT)
     return INPUT
   })
 }

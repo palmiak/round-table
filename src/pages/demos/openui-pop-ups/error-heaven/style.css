@@ -78,7 +78,6 @@
     padding: var(--size-2);
     font-family: Arial;
     font-size: 12px;
-    white-space: nowrap;
   }
 
   .window-body img {
