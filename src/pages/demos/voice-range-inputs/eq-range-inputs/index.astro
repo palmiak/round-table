@@ -2,7 +2,7 @@
 	<head>
 		<title>EQ Range Inputs</title>
 	</head>
-	<body>
+	<body class='stripped'>
 		<main></main>
 	</body>
 </html>
@@ -22,11 +22,23 @@
 	  display: grid;
 	  place-items: center;
 	}
-	body > main {
+	.stripped > main {
 		display: grid;
 	  grid-template-columns: repeat(var(--input-count, 16), 10px);
 	  justify-content: center;
 	  gap: 0.1rem;
 		scale: 2;
+	}
+	.stripped input {
+	  pointer-events: none;
+	  accent-color: hsl(var(--accent, 130), 100%, 60%);
+	  transform: translateX(-50%) rotate(-90deg);
+	  width: 120px;
+	}
+	.stripped ::-webkit-slider-thumb {
+	  opacity: 0;
+	}
+	.stripped ::-moz-range-thumb {
+	  opacity: 0;
 	}
 </style>
