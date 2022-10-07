@@ -1,5 +1,4 @@
 import "../../../../../public/shared/scripts/scroll-timeline.js";
-import Splitting from 'splitting'
 
 const TRIGGERS = document.querySelectorAll('.contents li')
 const BACKDROPS = document.querySelectorAll('.backdrops li')
@@ -53,6 +52,3 @@ BACKDROPS.forEach((backdrop, index) => {
     }
   })
 })
-
-// Split the progress wheel
-Splitting()

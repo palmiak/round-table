@@ -512,7 +512,7 @@ const handleActivation = (e) => {
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/webcam-throw" -->
 ---
 <!-- .slide: style="--code-size: 0.325em;" data-background-color="var(--spearmint)" -->
-```html[]
+```html []
 <button
   popup="manual"
   defaultopen

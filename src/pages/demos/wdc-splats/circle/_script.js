@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import { SVG, Circle } from "@svgdotjs/svg.js";
+import { SVG } from "@svgdotjs/svg.js";
 const SIZE = 100
 const generateSplat = () => {
   document.body.innerHTML = "";

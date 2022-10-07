@@ -1,9 +1,11 @@
-import p5 from 'p5';
 import { gsap } from 'gsap';
-import { Draggable } from 'gsap/Draggable';
+import { Draggable } from 'gsap/dist/Draggable';
 
-gsap.registerPlugin(Draggable)
-gsap.registerPlugin(InertiaPlugin)
+
+if (gsap.registerPlugin) {
+  gsap.registerPlugin(Draggable)
+  gsap.registerPlugin(InertiaPlugin)
+}
 
 const CONTAINER = document.querySelector('.container')
 const TOOLBAR = document.querySelector('.container__toolbar')

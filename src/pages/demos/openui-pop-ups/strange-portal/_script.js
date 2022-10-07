@@ -1,9 +1,9 @@
 import gsap from 'gsap'
-import { Draggable } from 'gsap/Draggable'
+import { Draggable } from 'gsap/dist/Draggable'
 
 console.clear()
 
-gsap.registerPlugin(Draggable)
+if (gsap.registerPlugin) gsap.registerPlugin(Draggable)
 
 const PORTAL = document.querySelector('.portal')
 const PROXY = Object.assign(document.createElement('div'), {

@@ -40,6 +40,7 @@
     margin: 0;
     background: var(--text-1);
     color: var(--surface-1);
+    position: fixed;
   }
 
   main {

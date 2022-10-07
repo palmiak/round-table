@@ -1,4 +1,4 @@
-import { SVG, Circle } from '@svgdotjs/svg.js'
+import { SVG } from '@svgdotjs/svg.js'
 import '@svgdotjs/svg.filter.js'
 import gsap from "gsap";
 

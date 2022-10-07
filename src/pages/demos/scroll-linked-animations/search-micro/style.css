@@ -2,13 +2,6 @@
 @import "open-props/style" layer(open-props);
 @import "open-props/normalize" layer(open-props);
 @import url("../../../../../public/shared/css/icons.css") layer(mdl);
-@import "https://unpkg.com/normalize.css" layer(normalize);
-@import "https://unpkg.com/open-props/open-props.min.css" layer(open-props);
-@import "https://unpkg.com/open-props/normalize.min.css" layer(open-props);
-@import "https://fonts.googleapis.com/icon?family=Material+Icons" layer(material-icons);
-
-/* @import "../../../../net/material-design-lite/icons-fallback.css";
-@import "../../../../net/material-design-lite/icons.css"; */
 
 body {
   background: var(--surface-1);
