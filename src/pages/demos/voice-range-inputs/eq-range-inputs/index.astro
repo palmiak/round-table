@@ -10,7 +10,7 @@
 	import './style.css';
 	import './_script.js';
 </script>
-<style>
+<style is:inline>
 	* {
 	  box-sizing: border-box;
 	}
@@ -29,7 +29,7 @@
 	  gap: 0.1rem;
 		scale: 2;
 	}
-	.stripped input {
+	.stripped .eq-input {
 	  pointer-events: none;
 	  accent-color: hsl(var(--accent, 130), 100%, 60%);
 	  transform: translateX(-50%) rotate(-90deg);

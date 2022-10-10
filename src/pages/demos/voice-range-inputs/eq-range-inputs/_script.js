@@ -26,6 +26,7 @@ const genInputs = (size) => {
     INPUT.min = 0
     INPUT.max = 100
     INPUT.step = 1
+    INPUT.className = 'eq-input'
     INPUT.value = 0
     INPUT.setAttribute('orient', 'vertical')
     MAIN.appendChild(INPUT)
