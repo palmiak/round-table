@@ -13,7 +13,7 @@ SECTIONS.forEach(subject => {
 })
 
 BOX.animate({
-  transform: 'translate(100%, -50%)'
+  transform: 'translate(50%, -50%)'
 }, {
   fill: 'both',
   timeline: TIMELINES[1],
@@ -42,7 +42,7 @@ BOX.animate({
   }
 })
 BOX.animate({
-  transform: 'translate(100%, -50%)',
+  transform: 'translate(50%, -50%)',
   borderRadius: '50%',
 }, {
   fill: 'both',

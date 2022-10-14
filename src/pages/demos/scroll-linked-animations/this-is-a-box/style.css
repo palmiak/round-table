@@ -37,6 +37,18 @@ h1 {
   left: 50%;
 }
 
+h1 {
+  font-size: clamp(2rem, 3vw, 8rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 2.5vw, 8rem);
+}
+
+:is(h1, h2) {
+  text-align: center;
+}
+
 h1:first-of-type {
   clip-path: inset(0 100% 0 0);
   transform: translateX(-50%) translateY(calc(-12.5vmin + -150%));
