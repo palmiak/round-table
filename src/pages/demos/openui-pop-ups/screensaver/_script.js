@@ -56,11 +56,11 @@ const handleBounce = (e) => {
   if (diff <= BOUNCE_THRESHOLD) CHEER.play();
 };
 
-POPUP.addEventListener("hide", () => {
+POPUP.addEventListener("popuphide", () => {
   setSaverTimer();
 });
 
-POPUP.addEventListener("show", () => {
+POPUP.addEventListener("popupshow", () => {
   DVD.style.setProperty("--hue", randomInRange(0, 359));
   MOVERS.forEach((el) => {
     const duration = randomInRange(2, 6);

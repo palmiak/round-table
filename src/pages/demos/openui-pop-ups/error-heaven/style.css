@@ -78,6 +78,7 @@
     padding: var(--size-2);
     font-family: Arial;
     font-size: 12px;
+    min-width: 200px;
   }
 
   .window-body img {

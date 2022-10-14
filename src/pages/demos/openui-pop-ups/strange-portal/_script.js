@@ -92,7 +92,7 @@ const tearDown = () => {
   })
 }
 
-PORTAL.addEventListener('hide', tearDown)
+PORTAL.addEventListener('popuphide', tearDown)
 
 const CANVAS = document.querySelector('canvas')
 const CONTEXT = CANVAS.getContext('2d')

@@ -204,12 +204,12 @@ const handleKeyboardInteraction = (e) => {
   }
 };
 
-POPUP.addEventListener("show", onActivated);
+POPUP.addEventListener("popupshow", onActivated);
 window.addEventListener("keydown", handleKeyboardInteraction);
 window.addEventListener("keypress", handleKeyboardInteraction);
 window.addEventListener("keyup", handleKeyboardInteraction);
-OPTIONS.addEventListener("show", onOptionsOpen);
-OPTIONS.addEventListener("hide", onOptionsHide);
+OPTIONS.addEventListener("popupshow", onOptionsOpen);
+OPTIONS.addEventListener("popuphide", onOptionsHide);
 OPTIONS.addEventListener("pointermove", selectOption);
 OPTIONS.addEventListener("click", handleActionClick);
 

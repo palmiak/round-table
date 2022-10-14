@@ -8,7 +8,7 @@ const ERRORS = [
   'Insufficient RAM, please close Slack',
   'Maximum call stack size exceeded',
   'Cannot get property foo of undefined',
-  'ATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory',
+  'FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory',
 ]
 
 const generateError = id => {
@@ -46,14 +46,19 @@ const showErrors = () => {
   if (count === 0) count++
   else count += 1
   for (let i = 0; i < count; i++) {
-    DING.pause()
-    DING.currentTime = 0
-    DING.play()
-    generateError(Date.now())
+    try {
+      DING.pause()
+      DING.currentTime = 0
+      DING.play()
+    }
+    catch (err) {
+      console.info('can only play once')
+    }
+    generateError(Date.now())      
   }
 }
 
-document.body.addEventListener('hide', showErrors)
+document.body.addEventListener('popuphide', showErrors)
 
 // Get that ball rolling
 // showErrors()
