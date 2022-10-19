@@ -59,8 +59,8 @@
   [popup] {
     transform: translate(-50%, -50%);
     position: fixed;
-    top: calc(var(--y) * 1px);
-    left: calc(var(--x) * 1px);
+    top: calc(var(--y, 540) * 1px);
+    left: calc(var(--x, 960) * 1px);
     margin: 0;
     padding: 0;
     border: 0;

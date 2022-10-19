@@ -2,6 +2,7 @@
 ## I'm Jhey Tompkins
 #### Developer Relations Engineer<br>@ <span class="googley">Google</span>
 
-<img class="polaroid" src="/shared/images/bear-baby-chilling.jpg" width="300" />
+<!-- <img class="polaroid" src="/shared/images/bear-baby-chilling.jpg" width="300" /> -->
+<img class="polaroid" src="/shared/images/baby-photo--resized.jpeg" width="300" />
 ---
 <!-- End Slide -->

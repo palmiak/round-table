@@ -7,7 +7,7 @@ import "reveal.js/plugin/highlight/monokai.css";
 import './deck.css'
 import 'highlight.js/styles/night-owl.css';
 
-const { mod, slides, title } = Astro.props
+const { removeBranding, mod, slides, title } = Astro.props
 
 let content = ``
 
@@ -26,7 +26,7 @@ slides.forEach(slide => {
       </section>
     </div>
   </main>
-  <DeckLogo />
+  {!removeBranding && <DeckLogo />}
 </Layout>
 
 <!-- <style>
@@ -47,3 +47,5 @@ slides.forEach(slide => {
     newDeck.initialize()
   })
 </script>
+
+

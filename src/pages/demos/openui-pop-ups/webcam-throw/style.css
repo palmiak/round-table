@@ -33,14 +33,18 @@
     border-radius: 50%;
     top: 100%;
     left: 100%;
-    transition: transform var(--transition);
-    transform: translate(-150%, -250%) rotate(calc(var(--twist, 0) * 45deg));
+    transform: translate(-150%, -250%);
     padding: 0;
     border: 0;
     margin: 0;
     background: var(--text-1);
     color: var(--surface-1);
     position: fixed;
+  }
+
+  .fab[popup] i {
+    transition: transform var(--transition);
+    transform: rotate(calc(var(--twist, 0) * 45deg))
   }
 
   main {

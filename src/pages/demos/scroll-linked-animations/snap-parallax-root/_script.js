@@ -1,6 +1,6 @@
 import "../../../../../public/shared/scripts/scroll-timeline.js";
 
-const TRIGGERS = document.querySelectorAll('.contents li')
+const TRIGGERS = document.querySelectorAll('section')
 const BACKDROPS = document.querySelectorAll('.backdrops li')
 const SCROLLER = document.querySelector('.scroller')
 
@@ -51,21 +51,4 @@ BACKDROPS.forEach((backdrop, index) => {
       percent: CSS.percent(100),
     }
   })
-})
-
-SCROLLER.animate([
-  {
-    transform: 'rotate(360deg)'
-  }
-], {
-  fill: 'both',
-  timeline: TIMELINES[TIMELINES.length - 1],
-  delay: {
-    phase: 'enter',
-    percent: CSS.percent(-200)
-  },
-  endDelay: {
-    phase: 'enter',
-    percent: CSS.percent(100)
-  }
 })

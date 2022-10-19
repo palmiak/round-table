@@ -9,16 +9,15 @@
   max-inline-size: 100%;
 }
 
+html {
+  scroll-snap-type: y mandatory;
+}
+
 body {
   display: grid;
   place-items: center;
-  height: 100vh;
-  overflow: hidden;
-  font-family:  'Google Sans', sans-serif, system-ui;
-}
-
-main {
-  overflow: auto;
+  overflow-x: hidden;
+  font-family: 'Google Sans', sans-serif, system-ui;
 }
 
 ul {
@@ -27,7 +26,7 @@ ul {
   list-style-type: none;
 }
 
-li {
+:is(li, section) {
   height: 100vh;
   width: 100vw;
   padding: 0;
@@ -45,7 +44,7 @@ ul.contents {
   overflow: auto;
 }
 
-.contents > li {
+section {
   display: grid;
   place-items: center;
   scroll-snap-align: center;
@@ -87,6 +86,17 @@ img {
   right: 2rem;
   aspect-ratio: 1;
   width: 6rem;
+  animation: scroll-progress linear both;
+  animation-timeline: scroll(root);
+}
+
+@keyframes scroll-progress {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
 }
 
 .scroller:before {
@@ -105,35 +115,3 @@ img {
   left: 50%;
   transform: translate(-50%, -50%) rotate(calc((360 / var(--char-total)) * var(--char-index) * 1deg)) translateY(var(--radius));
 }
-
-/* Do I need to build different timelines but apply to
- * different elements to get things working?
-*/
-
-/* .backdrops > li:nth-of-type(1) img {
-  animation: exit both;
-  animation-timeline: --one;
-  animation-delay: exit 0%;
-  animation-end-delay: exit 100%;
-}
-
-.backdrops > li:nth-of-type(2) img {
-  animation: enter both, exit both;
-  animation-timeline: --one, --two;
-  animation-delay: exit 0%, exit 0%;
-  animation-end-delay: exit 75%, exit 100%;
-}
-
-
-
-@keyframes exit {
-  100% {
-    transform: translateY(-100%);
-  }
-}
-
-@keyframes enter {
-  100% {
-    transform: translateY(0%);
-  }
-} */

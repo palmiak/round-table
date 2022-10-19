@@ -1,0 +1,150 @@
+@import "normalize.css" layer(normalize);
+@import "open-props/style" layer(open-props);
+@import "open-props/normalize" layer(open-props);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--gradient-8);
+  position: relative;
+  overflow-x: hidden;
+}
+
+section {
+  scroll-snap-align: center;
+  height: 100vh;
+  width: 100vw;
+  /* display: grid;
+  place-items: center; */
+}
+
+
+html {
+  /* view-timeline-name: --main;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: grid;
+  height: 100vh; */
+  scroll-snap-type: y mandatory;
+}
+
+:is(h1, h2) {
+  color: var(--gray-0);
+  font-family: 'Impact', sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 12vmin, 10rem);
+}
+
+.snapper {
+  height: 100vh;
+  width: 100vw;
+  scroll-snap-align: start;
+}
+
+.scroller {
+  --radius: -2.25rem;
+  text-transform: uppercase;
+  color: var(--gray-9);
+  font-weight: bold;
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  aspect-ratio: 1;
+  width: 6rem;
+  animation-timeline: scroll(root);
+  animation: progress both linear;
+}
+@keyframes progress {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.scroller:before {
+  content: "";
+  position: absolute;
+  display: block;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5rem solid hsl(0 0% 100% / 1);
+}
+
+.scroller .char {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(calc((360 / var(--char-total)) * var(--char-index) * 1deg)) translateY(var(--radius));
+}
+
+section:nth-of-type(2) {
+  view-timeline-name: --horizontal;
+  height: 400vh;
+  scroll-snap-align: start;
+}
+
+section:last-of-type img {
+  width: 12vmin;
+}
+
+.sticker {
+  position: sticky;
+  font-size: 4rem;
+  width: 400vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  animation: faux-scroll both linear;
+  animation-timeline: --horizontal;
+  animation-delay: enter 100%;
+  animation-end-delay: exit 0%;
+}
+
+@keyframes faux-scroll {
+  to {
+    transform: translateX(calc(-100% + 100vw));
+  }
+}
+
+article {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.sticker img {
+  width: 50%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transform: skewY(4deg);
+}
+
+article h3 {
+  color: var(--gray-0);
+  padding: var(--size-4);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translate(-20vw, 22vh);
+  font-size: var(--font-size-8);
+}
+
+article:nth-of-type(1) h3 {
+  background: hsl(5, 81%, 56%);
+}
+article:nth-of-type(2) h3 {
+  background: hsl(136, 53%, 43%);
+}
+article:nth-of-type(3) h3 {
+  background: hsl(45, 97%, 50%);
+}
+article:nth-of-type(4) h3 {
+  background: hsl(217, 89%, 61%);
+}

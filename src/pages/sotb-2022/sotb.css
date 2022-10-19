@@ -1,0 +1,38 @@
+:root {
+  --conference-hue: 347;
+  --r-heading-font: 'Google Sans', sans-serif;
+  --r-main-font: 'Google Sans', sans-serif;
+  --r-main-font-size: 36px;
+  --r-code-font: 'JetBrains Mono', monospace;
+  --r-block-margin: 26px;
+  --r-link-color: hsl(var(--conference-hue) 100% 50%);
+  --r-link-color-dark: hsl(var(--conference-hue) 100% 50%);
+  --r-link-color-hover: hsl(var(--conference-hue) 100% 83%);
+  --r-selection-background-color: hsl(var(--conference-hue) 66% 40%);
+  --color-one: #ea4335;
+  --color-two: #4285f4;
+  --color-three: #34a853;
+  --color-four: #fbbc05;
+  --speed: 0.65s;
+  --code-size: 0.8rem;
+  --spearmint: hsl(163, 34%, 43%);
+  --citric: hsl(76, 90%, 65%);
+  --white: hsl(300, 100%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --fuschia: hsl(322, 88%, 57%);
+  --cinnabar: hsl(5, 81%, 56%);
+  --chateau: hsl(136, 53%, 43%);
+  --blueberry: hsl(217, 89%, 61%);
+  --selective: hsl(45, 97%, 50%);
+  --off-white: hsl(0 0% 90%);
+  --grey: hsl(0 0% 60%);
+  --brand: hsl(347 74% 44%);
+}
+
+.sotb-2022 .controls-arrow {
+  opacity: 0;
+}
+
+.sotb-2022 .controls-arrow:hover {
+  opacity: 1;
+}
