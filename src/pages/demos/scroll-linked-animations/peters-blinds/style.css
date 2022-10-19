@@ -36,15 +36,27 @@ h1 {
   top: 100%;
   margin: 0;
 }
+
 body {
   min-height: 100vh;
   display: grid;
   place-items: center;
   justify-content: center;
-  overflow: hidden;
   background: rgba(255, 230, 153, 0.5);
   font-family: 'Impact', sans-serif;
+  overflow-x: hidden;
+  height: 200vh;
 }
+
+main {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: sticky;
+  inset: 0;
+  transform: translateZ(0);
+}
+
 .cuboid {
   width: 100%;
   height: 100%;
@@ -244,10 +256,8 @@ body {
   transform: translate(-50%, -50%);
 }
 .peter__hat {
-  animation: drop both;
-  animation-timeline: --trigger;
-  animation-delay: enter 50%;
-  animation-end-delay: enter 100%;
+  animation: drop both linear;
+  animation-timeline: scroll(root);
   opacity: 0;
   transform: translate(-50%, -150%);
 }
@@ -346,10 +356,9 @@ body {
 /* Scroll stuff */
 /* Map this to a view-timeline */
 .peter {
-  animation: peek both;
-  animation-timeline: --trigger;
-  animation-delay: enter 0%;
-  animation-end-delay: enter 50%;
+  animation: peek both linear;
+  animation-timeline: scroll(root);
+  will-change: transform;
   transform: translate(-50%, -50%) scale(0);
 }
 
@@ -358,10 +367,8 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  animation: at-the-window both;
-  animation-timeline: --trigger;
-  animation-delay: enter 0%;
-  animation-end-delay: enter 50%;
+  animation: at-the-window both linear;
+  animation-timeline: scroll(root);
   transform: translateY(100%);
 }
 
@@ -379,10 +386,8 @@ body {
 
 .cord:not(.cord--dummy) {
   height: 50%;
-  animation: draw both;
-  animation-timeline: --trigger;
-  animation-delay: enter 0%;
-  animation-end-delay: enter 100%;
+  animation: draw both linear;
+  animation-timeline: scroll(root);
 }
 
 @keyframes draw {
@@ -396,10 +401,8 @@ body {
     0,
     calc(((-95 * (var(--index, 0))) * 0) * 1%)
   );
-  animation: slide both;
-  animation-timeline: --trigger;
-  animation-delay: enter 0%;
-  animation-end-delay: enter 100%;
+  animation: slide both linear;
+  animation-timeline: scroll(root);
 }
 
 @keyframes slide {
