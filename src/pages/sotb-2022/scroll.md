@@ -1,10 +1,13 @@
-<!-- .slide: class="title-slide title-slide--bottom" data-background-color="var(--black)"-->
-## Doom Scrolling Vid
+<!-- .slide: data-background-video="/shared/video/doom-scroll.mp4" data-background-video-loop="true" data-background-video-muted="true" data-background-video-size="cover" -->
 ---
 <!-- .slide: class="title-slide title-slide--bottom" data-background-color="var(--citric)"-->
 <!-- If you want to do everything in Canary with the polyfill -->
 <!-- open -a /Applications/Google\ Chrome\ Canary.app --args --disable-blink-features=CSSScrollTimeline,ScrollTimeline -->
 ## Scroll Linked Animations
+---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/column-parallax" -->
+---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/snap-parallax-root" -->
 ---
 <!-- .slide: data-background-color="hsl(0 0% 0%)" -->
 <div class="support-grid">
@@ -34,12 +37,8 @@
   </span>
 </div>
 ---
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/column-parallax" -->
----
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/snap-parallax-root" -->
----
-<!-- .slide: data-background-color="var(--fuschia)" -->
-```css
+<!-- .slide: data-background-color="var(--selective)" -->
+```css [|3,8,21]
 /* ViewTimeline */
 section {
   view-timeline-name: --section;
@@ -48,6 +47,7 @@ img {
   transform: translateY(100%);
   animation: parallax both linear;
   animation-timeline: --section;
+  /* Likely to change */
   animation-delay: exit 5%;
   animation-end-delay: exit 75%;
 }
@@ -67,6 +67,8 @@ img {
   }
 }
 ```
+
+<sub>You can use this with JavaScript's Web Animations API too!</sub>
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/fast-and-scrolly" -->
 ---

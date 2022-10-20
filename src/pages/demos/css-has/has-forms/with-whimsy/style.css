@@ -128,12 +128,16 @@ button {
   }
 }
 
+.form-group:has(:placeholder-shown:not(:focus)) label span {
+  animation: none;
+}
+
 .form-group:has(:placeholder-shown) {
   --color: var(--blur);
 }
 
-.form-group:has(:placeholder-shown:not(:focus)) label span {
-  animation: none;
+.form-group:has(:invalid:not(:focus):not(:placeholder-shown)) .form-group__error {
+  display: block;
 }
 
 .form-group__input {
@@ -151,9 +155,6 @@ button {
   text-align: center;
 }
 
-.form-group:has(:invalid:not(:focus):not(:placeholder-shown)) .form-group__error {
-  display: block;
-}
 
 label span {
   display: inline-block;

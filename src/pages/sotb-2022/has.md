@@ -59,7 +59,7 @@
 <!-- .slide: class="title-slide" data-background-color="var(--fuschia)" -->
 ## Break the mental model <span class="flipper-wrapper"><span class="flipper">🛹</span></span>
 ---
-<!-- .slide: data-background-color="var(--black)" -->
+<!-- .slide: data-background-color="var(--selective)" -->
 ## use cases for days
 
 ```css []
@@ -78,6 +78,11 @@ main:has(todo-list) { ... }
 ```
 
 <sub>There are a bunch of examples in [":has(): the family selector"](https://developer.chrome.com/blog/has-m105) over on [developer.chrome.com](https://developer.chrome.com/blog/has-m105).</sub>
+---
+<!-- .slide: data-background-color="var(--brand)" class="title-slide title-slide--left" -->
+## Let's play with<br>form state!
+---
+<!-- .slide: data-background-iframe="/demos/css-has/has-forms/with-whimsy" data-background-interactive -->
 ---
 <!-- .slide: data-background-color="var(--cinnabar)" -->
 ```css []
@@ -100,7 +105,7 @@ h1 {
 }
 ```
 ---
-<!-- .slide: data-background-iframe="/demos/css-has/has-dark-mode" data-background-interactive -->
+<!-- .slide: data-background-iframe="/demos/css-has/has-dark-mode-animations" data-background-interactive -->
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/css-has/has-calendar" data-background-interactive -->
 ---
@@ -248,6 +253,6 @@ const PARTICLES = [
 
 </div>
 ---
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/css-has/has-woodchuck-interim" data-background-interactive -->
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/css-has/has-woodchuck" data-background-interactive -->
 ---
 <!-- End Section

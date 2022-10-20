@@ -1,0 +1,57 @@
+---
+import './style.css';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0" />
+    <title>experimental-css-primitives/scroll-timeline/translate-and-calc</title>
+  </head>
+  <body>
+    <main>
+      <div class="track">
+        <div class="title-trigger"></div>
+        <img class="car brian" src="/shared/images/brian-o-conner.svg" alt="">
+        <div class="title">
+          <h1><span>Tokyo</span><span>Scroll</span></h1>
+        </div>
+        <div class="dom-track">
+          <img class="car dom" src="/shared/images/dom-toretto.svg" alt="">
+        </div>
+        <div class="surround"></div>
+        <div class="indicators">
+          <div class="progress progress--enter">
+            <div class="progress__bar"></div>
+            <div class="progress__label">enter</div>
+          </div>
+          <div class="progress progress--exit">
+            <div class="progress__bar"></div>
+            <div class="progress__label">exit</div>
+          </div>
+          <div class="progress progress--cover">
+            <div class="progress__bar"></div>
+            <div class="progress__label">cover</div>
+          </div>
+          <div class="progress progress--contain">
+            <div class="progress__bar"></div>
+            <div class="progress__label">contain</div>
+          </div>
+          <div class="progress progress--dom">
+            <div class="progress__bar"></div>
+            <div class="progress__label">dom toretto</div>
+          </div>
+          <div class="action">
+            <label for="dom">
+              <img src="/shared/images/dom.png" alt=""/>
+              <span class="sr-only">Show Dom</span>
+            </label>
+            <input id="dom" type="checkbox">
+          </div>
+        </div>
+      </div>
+    </main>
+    <script is:inline src="/shared/scripts/scroll-timeline.js"></script>
+  </body>
+</html>

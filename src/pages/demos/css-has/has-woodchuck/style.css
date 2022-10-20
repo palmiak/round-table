@@ -70,8 +70,10 @@ main {
 }
 
 .chuck {
-  animation: chuck 0.5s infinite; 
   transform-origin: 75% 75%;
+}
+.wood + .chuck {
+  animation: chuck 0.5s infinite; 
 }
 
 @keyframes chuck {

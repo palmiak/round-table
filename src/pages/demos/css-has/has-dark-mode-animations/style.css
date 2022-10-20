@@ -1,0 +1,464 @@
+@import "open-props/style";
+@import "open-props/normalize";
+
+:root {
+  --step: 0.25s;
+  --speed: 2s;
+  --dark-mode: 0;
+  --depth: 100vw;
+  --surface: hsl(
+    210
+    calc((17 - var(--dark-mode) * 6) * 1%)
+    calc((98 - var(--dark-mode) * 83) * 1%)
+  );
+  --color: hsl(
+    210
+    calc((9 + var(--dark-mode) * 5) * 1%)
+    calc((31 + var(--dark-mode) * 52) *1%)
+  );
+  --hover: hsl(
+    210
+    calc((16 - var(--dark-mode) * 6) * 1%)
+    calc((93 - var(--dark-mode) * 60) * 1%)
+  );
+  --text-1: var(--gray-9);
+  --text-2: var(--gray-8);
+  --rotation: 0deg;
+  --perspective: 100vmin;
+}
+
+* {
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+body {
+  background: #bfbfbf;
+  min-height: 100vh;
+  perspective: var(--perspective);
+  font-family: var(--font-sans);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  transition: color calc(var(--speed) * 0.1) calc(var(--speed) * 0.5);
+}
+
+:where(body, h1, p) {
+  transition: color calc(var(--speed) * 0.1) calc(var(--speed) * 0.5);
+}
+
+h1 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+h1 span {
+  display: block;
+  text-align: left;
+}
+
+h1 span:first-of-type {
+  font-size: var(--font-size-fluid-1);
+  font-weight: var(--font-weight-6);
+}
+h1 span:last-of-type {
+  font-size: var(--font-size-fluid-3);
+  font-weight: var(--font-weight-9);
+}
+
+main {
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  opacity: calc(var(--content-appear) + var(--content));
+  transition: var(--fade-transition);
+}
+:where(main) {
+  max-inline-size: var(--size-content-3);
+}
+
+:where(p) {
+  line-height: 1;
+}
+
+:where(svg, p) {
+  color: var(--text-1);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+button {
+  --size: calc(1 * 48px);
+  --distance: calc(1 - var(--dark-mode, 0));
+  --position: calc((40 + (var(--dark-mode, 0) * 70)) * 1%);
+  --ray-position: calc(var(--dark-mode, 0) * 150%) 0;
+  --step: 0.25s;
+  --bg: var(--surface);
+  aspect-ratio: 1;
+  position: fixed;
+  z-index: 2;
+  top: 1rem;
+  right: 1rem;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  width: var(--size);
+  aspect-ratio: 1;
+  padding: 2px;
+  border-radius: calc(var(--size) * 0.2);
+  border: 1px solid hsl(0 0% 50%);
+  overflow: hidden;
+  transition: transform var(--step) var(--ease-elastic-5), box-shadow var(--step) var(--ease-elastic-5), background var(--step);
+  transform: translateY(var(--elevate, 0)) scale(var(--scale, 1));
+}
+
+button:focus-visible {
+  outline-color: hsl(0 0% 50%);
+  transition: transform var(--step) var(--ease-elastic-5),
+    box-shadow var(--step) var(--ease-elastic-5),
+    background var(--step);
+}
+
+button:hover {
+  background: var(--hover);
+}
+
+button:active {
+  --shadow: 0;
+  --elevate: 5%;
+  --scale: 0.9;
+  --shadow-x: 0;
+  --shadow-y: 0;
+}
+
+[aria-pressed="true"],
+[aria-pressed="true"]:is(:hover, :active) {
+  --shadow: 0;
+  --elevate: 5%;
+  --scale: 0.9;
+  --shadow-x: 0;
+  --shadow-y: 0;
+}
+
+button span {
+  display: inline-block;
+}
+
+.sun-and-moon {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.body {
+  height: 40%;
+  aspect-ratio: 1;
+  background: var(--color);
+  border-radius: 50%;
+  mask: radial-gradient(circle at right center, transparent 25%, #000 25.5%) var(--position, 40% 50%) / 200% 200% no-repeat;
+  -webkit-mask: radial-gradient(circle at right center, transparent 25%, #000 25.5%) var(--position, 40% 50%) / 200% 200% no-repeat;
+  transition: all var(--step);
+  transform: rotate(-45deg) scale(calc(1.5 - (var(--distance, 1) * 0.5)));
+}
+
+.star {
+  width: 10%;
+  aspect-ratio: 1;
+  background: var(--color);
+  border-radius: 50%;
+  position: absolute;
+  top: 20%;
+  left: 55%;
+  transition: transform var(--step) var(--ease-elastic-5);
+  transform: translate(-50%, -50%) translate(calc(var(--index) * 250%), calc(var(--index) * 220%)) scale(calc((1 + (var(--index) * 1)) * (1 - var(--distance, 1))));
+}
+
+.rays {
+  position: absolute;
+  inset: 0;
+  transition: all var(--step);
+  transform: rotate(-45deg);
+  -webkit-mask: linear-gradient(90deg, #000 50%, transparent 75%) var(--ray-position, 0 0) / 200% 200% no-repeat;
+  mask: linear-gradient(90deg, #000 50%, transparent 75%) var(--ray-position, 0 0) / 200% 200% no-repeat;
+}
+
+.ray {
+  width: 10%;
+  aspect-ratio: 1;
+  background: var(--color);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: transform var(--step) calc((var(--step) * 0.5) + ((var(--entry) * var(--step)) * 0.25)) var(--ease-elastic-5);
+  transform: translate(-50%, -50%)
+    rotate(calc((360 / 8) * var(--index) * 1deg))
+    translateX(calc(var(--distance, 1) * 350%));
+}
+
+[aria-pressed="true"] .ray {
+  transition: transform 0s var(--step);
+}
+
+[aria-pressed="true"] .star {
+  transition: transform var(--step) calc(var(--step) + (var(--index) * var(--step))) var(--ease-elastic-5);
+}
+
+header {
+  display: grid;
+  gap: 0.25rem;
+  grid-auto-flow: column;
+  margin-bottom: var(--size-10);
+  width: 100%;
+}
+
+p + p {
+  margin-top: var(--size-4);
+}
+
+.deep-fake {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.content-wrapper {
+  overflow: auto;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+:is(.cuboid-wrapper, .cuboid) {
+  --rotation: 0deg;
+}
+
+[type="checkbox"] {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 20;
+}
+
+.visual-swing {
+  position: fixed;
+  inset: 0;
+}
+.dark-side {
+  height: 100%;
+  width: 100%;
+  color: #f00;
+  position: fixed;
+  inset: 0;
+  transform: translateZ(calc(var(--depth) * -0.5));
+}
+
+.cuboid__side:nth-of-type(4) {
+  --brightness: 1;
+  background: hsl(0 50% 40%);
+  filter: none;
+}
+
+.brand-logo {
+  position: absolute;
+  width: 20%;
+  height: auto;
+  bottom: 5%;
+  left: 5%;
+}
+
+.cuboid-wrapper {
+  transform: rotateY(var(--rotation, -90deg));
+  transition: transform calc(var(--speed) * 0.25) calc(var(--speed) * 0.25);
+}
+
+.cuboid {
+  transform: rotateY(var(--rotation, -90deg));
+  transition: transform calc(var(--speed) * 0.25) calc(var(--speed) * 0.5);  
+}
+
+@keyframes fade-in-out {
+  0%, 10%, 90%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+@keyframes drop {
+  25%, 75% {
+    transform: translateZ(-400vmin);
+  }
+}
+
+@keyframes drop-back {
+  25%, 75% {
+    transform: translateZ(-400vmin);
+  }
+}
+
+@keyframes fade-in-out-back {
+  0%, 10%, 90%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+/* :has stuff versus class stuff... */
+[data-has-a-dark-side=true] .toggle path:nth-of-type(1) {
+  display: block;
+}
+
+[data-has-a-dark-side=true] .toggle path:nth-of-type(2) {
+  display: none;
+}
+
+[data-has-a-dark-side=true] {
+  --dark-mode: 1;
+  --text-1: var(--gray-0);
+  --text-2: var(--gray-1);
+}
+
+[data-has-a-dark-side=true] :is(.cuboid-wrapper, .cuboid) {
+  --rotation: 90deg;
+}
+
+[data-has-a-dark-side=true] .deep-fake {
+  animation: drop var(--speed) both, fade-in-out var(--speed) both;
+}
+
+[data-has-a-dark-side=true] .dark-side {
+  animation: drop var(--speed) both;
+}
+
+[data-has-a-dark-side=false] .dark-side {
+  animation: drop-back var(--speed) both;
+}
+
+[data-has-a-dark-side=false] .deep-fake {
+  animation: drop-back var(--speed) both, fade-in-out-back var(--speed) both;
+}
+
+@supports(selector(:has(*))) {
+  :root:has([aria-pressed=true]) .toggle path:nth-of-type(1) {
+    display: block;
+  }
+
+  :root:has([aria-pressed=true]) .toggle path:nth-of-type(2) {
+    display: none;
+  }
+
+  :root:has([aria-pressed=true]) .dark-side {
+    animation: drop var(--speed) both;
+  }
+
+  :root:has([aria-pressed=true]) .deep-fake {
+    animation: drop var(--speed) both, fade-in-out var(--speed) both;
+  }
+
+  :root:has([aria-pressed=true]) :is(.cuboid-wrapper, .cuboid) {
+    --rotation: 90deg;
+  }
+
+  :root:has([aria-pressed=false]) .dark-side {
+    animation: drop-back var(--speed) both;
+  }
+
+  :root:has([aria-pressed=false]) .deep-fake {
+    animation: drop-back var(--speed) both, fade-in-out-back var(--speed) both;
+  }
+
+  :root:has([aria-pressed="true"]) {
+    --dark-mode: 1;
+    --text-1: var(--gray-0);
+    --text-2: var(--gray-1);
+  }
+}
+
+/* Cuboid stuffz */
+.cuboid-wrapper {
+  height: 100%;
+  width: 100%;
+}
+.cuboid {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.cuboid span {
+  color: #000;
+  font-size: 25vmin;
+}
+.cuboid__side {
+  background: currentColor;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  filter: brightness(var(--brightness, 1));
+}
+/* T, R, B, L, F, B */
+.cuboid__side:nth-of-type(1) {
+  --brightness: 0.8;
+  top: 0;
+  height: var(--depth, 50vmin);
+  transform: translateY(-50%) rotateX(-90deg);
+}
+.cuboid__side:nth-of-type(2) {
+  --brightness: 0.6;
+  top: 50%;
+  right: 0;
+  width: var(--depth, 50vmin);
+  transform: translate(50%, -50%) rotateY(90deg);
+}
+.cuboid__side:nth-of-type(3) {
+  --brightness: 1.3;
+  bottom: 0;
+  height: var(--depth, 50vmin);
+  transform: translateY(50%) rotateX(90deg);
+}
+.cuboid__side:nth-of-type(4) {
+  --brightness: 0.6;
+  top: 50%;
+  width: var(--depth, 50vmin);
+  transform: translate(-50%, -50%) rotateY(90deg);
+}
+.cuboid__side:nth-of-type(5) {
+  --brightness: 0.75;
+  transform: translateZ(calc(var(--depth, 50vmin) / -2));
+}
+.cuboid__side:nth-of-type(6) {
+  --brightness: 1;
+  transform: translateZ(calc(var(--depth, 50vmin) / 2)) rotateY(180deg);
+}
+
+
+.cuboid__side:nth-of-type(6) {
+  background-color: var(--gray-1);
+}
+
+.cuboid__side:nth-of-type(5) {
+  background-color: var(--gray-9);
+}
