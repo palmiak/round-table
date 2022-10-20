@@ -7,7 +7,7 @@
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/column-parallax" -->
 ---
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/snap-parallax-root" -->
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/snap-directions-root" -->
 ---
 <!-- .slide: data-background-color="hsl(0 0% 0%)" -->
 <div class="support-grid">
@@ -38,17 +38,18 @@
 </div>
 ---
 <!-- .slide: data-background-color="var(--selective)" -->
-```css [|3,8,21]
+```css [|3,4,9,22|10,11,12]
 /* ViewTimeline */
 section {
   view-timeline-name: --section;
+  view-timeline-axis: block;
 }
 img {
   transform: translateY(100%);
   animation: parallax both linear;
   animation-timeline: --section;
   /* Likely to change */
-  animation-delay: exit 5%;
+  animation-delay: cover 95%;
   animation-end-delay: exit 75%;
 }
 @keyframes parallax {
@@ -70,12 +71,12 @@ img {
 
 <sub>You can use this with JavaScript's Web Animations API too!</sub>
 ---
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/fast-and-scrolly" -->
----
 <!-- .slide: class="title-slide title-slide--left" data-background-color="var(--blueberry)" -->
 ## Let's Make an<br>Image reveal!
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/image-reveals" -->
+---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/tokyo-scroll" -->
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/this-is-a-box" -->
 ---
