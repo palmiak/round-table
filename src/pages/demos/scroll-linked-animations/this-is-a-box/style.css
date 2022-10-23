@@ -62,7 +62,7 @@ h1:last-of-type {
 .box {
   width: 25vmin;
   aspect-ratio: 1;
-  background: var(--red-8);
+  background: var(--red-6);
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;

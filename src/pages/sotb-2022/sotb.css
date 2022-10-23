@@ -28,11 +28,3 @@
   --grey: hsl(0 0% 60%);
   --brand: hsl(347 74% 44%);
 }
-
-.sotb-2022 .controls-arrow {
-  opacity: 0;
-}
-
-.sotb-2022 .controls-arrow:hover {
-  opacity: 1;
-}

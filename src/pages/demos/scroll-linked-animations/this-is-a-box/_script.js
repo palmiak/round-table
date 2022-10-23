@@ -28,7 +28,7 @@ BOX.animate({
 })
 BOX.animate({
   transform: 'translate(-150%, -50%)',
-  backgroundColor: 'purple',
+  backgroundColor: 'hsl(210 80% 50%)',
 }, {
   fill: 'both',
   timeline: TIMELINES[2],
