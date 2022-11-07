@@ -34,7 +34,7 @@
     box-sizing: border-box;
   }
 
-  :where([popup]) {
+  :where([popover]) {
     margin: auto;
     border-width: initial;
     border-style: solid;
@@ -50,10 +50,10 @@
 }
 
 @layer demo {
-  [popup] {
+  [popover] {
     padding: var(--size-4);
   }
-  [popup] {
+  [popover] {
     background: none;
     border: 0;
     padding: 0;

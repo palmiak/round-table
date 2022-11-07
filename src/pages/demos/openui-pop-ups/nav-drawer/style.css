@@ -33,7 +33,7 @@
     --nav-width: 240px;
   }
 
-  [popup] {
+  [popover] {
     top: 0;
     left: 100%;
     margin: 0;
@@ -46,14 +46,14 @@
     background: var(--md-sys-color-surface);
   }
 
-  [popup]::backdrop {
+  [popover]::backdrop {
     transition: opacity 0.2s;
     background: hsl(0 0% 10% / 0.25);
     opacity: var(--open, 0);
   }
 
-  [popup]:open,
-  [popup]:open::backdrop {
+  [popover]:open,
+  [popover]:open::backdrop {
     --open: 1;
   }
 
@@ -80,7 +80,7 @@
     background: var(--gray-2);
   }
 
-  body:has([popup]:open) {
+  body:has([popover]:open) {
     transform: translateX(calc(var(--nav-width) * -1));
   }
 
@@ -100,7 +100,7 @@
     display: block;
   }
 
-  :where([popup]) {
+  :where([popover]) {
     margin: auto;
     border-width: initial;
     border-style: solid;

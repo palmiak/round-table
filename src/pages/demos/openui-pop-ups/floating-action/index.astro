@@ -10,11 +10,11 @@ import './style.css';
     <main>
       <p>
         Floating action buttons as pop-ups. A button with
-        <code>popup=manual</code> and <code>defaultopen</code> as the container
+        <code>popover=manual</code> and <code>defaultopen</code> as the container
         button.
       </p>
       <ul>
-        <li>Menu is opened with <code>popuptoggletarget</code>.</li>
+        <li>Menu is opened with <code>popovertoggletarget</code>.</li>
         <li>
           Use <code>autofocus</code> to focus the first menu item on open.
         </li>
@@ -23,20 +23,20 @@ import './style.css';
     </main>
     <button
       class="fab secondary"
-      popup="manual"
+      popover="manual"
       defaultopen
-      popuptoggletarget="menu"
+      popovertoggletarget="menu"
     >
       <i class="material-icons">add</i>
     </button>
-    <div id="menu" class="fab__menu" popup="auto" style="--count: 3">
+    <div id="menu" class="fab__menu" popover="auto" style="--count: 3">
       <ul class="fab__menu-items">
         <li class="fab__menu-item">
           <button
             autofocus
             class="fab"
             style="--index: 0"
-            popuphidetarget="menu"
+            popoverhidetarget="menu"
           >
             <i class="material-icons">chat</i>
           </button>
@@ -46,7 +46,7 @@ import './style.css';
             autofocus
             class="fab"
             style="--index: 1"
-            popuphidetarget="menu"
+            popoverhidetarget="menu"
           >
             <i class="material-icons">photo_camera</i>
           </button>
@@ -56,7 +56,7 @@ import './style.css';
             autofocus
             class="fab"
             style="--index: 2"
-            popuphidetarget="menu"
+            popoverhidetarget="menu"
           >
             <i class="material-icons">pin_drop</i>
           </button>

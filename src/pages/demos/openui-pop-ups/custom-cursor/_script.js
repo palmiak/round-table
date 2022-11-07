@@ -59,11 +59,11 @@ const setUp = () => {
   canvas.height = window.innerHeight;
   document.body.addEventListener("pointermove", createBlock);
   // Listen for any pop-ups that are opened and make sure the canvas sits higher
-  document.body.addEventListener("popupshow", (e) => {
+  document.body.addEventListener("popovershow", (e) => {
     if (canvas.matches(":open") && e.target !== canvas) {
-      canvas.hidePopUp();
+      canvas.hidePopover();
       requestAnimationFrame(() => {
-        canvas.showPopUp();
+        canvas.showPopover();
       });
     }
   });

@@ -212,7 +212,7 @@
     box-sizing: border-box;
   }
 
-  :where([popup]) {
+  :where([popover]) {
     margin: auto;
     border-width: initial;
     border-style: solid;

@@ -32,7 +32,7 @@ const setSaverTimer = () => {
   if (!POPUP.matches(":open")) {
     screensaverTimeout = setTimeout(() => {
       document.body.classList.remove("timing");
-      POPUP.showPopUp();
+      POPUP.showPopover();
     }, SCREENSAVER_THRESHOLD);
     requestAnimationFrame(() => {
       document.body.classList.add("timing");
@@ -56,11 +56,11 @@ const handleBounce = (e) => {
   if (diff <= BOUNCE_THRESHOLD) CHEER.play();
 };
 
-POPUP.addEventListener("popuphide", () => {
+POPUP.addEventListener("popoverhide", () => {
   setSaverTimer();
 });
 
-POPUP.addEventListener("popupshow", () => {
+POPUP.addEventListener("popovershow", () => {
   DVD.style.setProperty("--hue", randomInRange(0, 359));
   MOVERS.forEach((el) => {
     const duration = randomInRange(2, 6);

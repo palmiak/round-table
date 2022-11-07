@@ -34,11 +34,11 @@ const draggable = new Draggable(CONTAINER, {
 
 
 const MENU_POP = document.querySelector('#menu')
-CONTAINER.addEventListener('popupshow', () => {
-  MENU_POP.hidePopUp()
+CONTAINER.addEventListener('popovershow', () => {
+  MENU_POP.hidePopover()
   createCapture()
 })
-CONTAINER.addEventListener('popuphide', () => {
+CONTAINER.addEventListener('popoverhide', () => {
   capture.remove()
   screenCast.clear()
   screenCast.remove()

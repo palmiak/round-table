@@ -33,7 +33,7 @@
 }
 
 @layer demo {
-  .fab[popup] {
+  .fab[popover] {
     height: var(--fab-size);
     width: var(--fab-size);
     border-radius: 50%;
@@ -121,7 +121,7 @@
     font-family: "Google Sans", sans-serif, system-ui;
   }
 
-  :where([popup]) {
+  :where([popover]) {
     margin: auto;
     border-width: initial;
     border-style: solid;

@@ -64,7 +64,7 @@
     font-family: "Google Sans", sans-serif, system-ui;
   }
 
-  :where([popup]) {
+  :where([popover]) {
     margin: auto;
     border-width: 0;
     border-style: none;

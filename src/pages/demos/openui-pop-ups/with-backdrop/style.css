@@ -26,31 +26,31 @@
 
 
 @layer demo {
-  [popup] {
+  [popover] {
     padding: var(--size-4);
   }
-  [popup]::backdrop {
+  [popover]::backdrop {
     background: hsl(0 0% 10% / 0.5);
     opacity: 0;
     backdrop-filter: blur(2px);
     transition: opacity 0.5s;
   }
-  [popup] {
+  [popover] {
     transform:
       translateY(calc((1 - var(--open, 0)) * 100vh))
       scale(var(--open, 0));
     transition: transform 0.5s;
   }
-  [popup]:open {
+  [popover]:open {
     --open: 1;
   }
-  [popup]:open::backdrop {
+  [popover]:open::backdrop {
     opacity: 1;
   }
 }
 
 @layer base {
-  :where([popup]) {
+  :where([popover]) {
     margin: auto;
     border-width: initial;
     border-style: solid;

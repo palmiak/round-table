@@ -27,7 +27,7 @@
   }
 }
 @layer demo {
-  .fab[popup] {
+  .fab[popover] {
     height: var(--fab-size);
     width: var(--fab-size);
     border-radius: 50%;
@@ -42,7 +42,7 @@
     position: fixed;
   }
 
-  .fab[popup] i {
+  .fab[popover] i {
     transition: transform var(--transition);
     transform: rotate(calc(var(--twist, 0) * 45deg))
   }
@@ -120,7 +120,7 @@
     font-family: "Google Sans", sans-serif, system-ui;
   }
 
-  :where([popup]) {
+  :where([popover]) {
     margin: auto;
     border-width: initial;
     border-style: solid;

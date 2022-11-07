@@ -19,20 +19,20 @@ import './style.css';
     </main>
     <button
       class="fab secondary"
-      popup="manual"
+      popover="manual"
       defaultopen
-      popuptoggletarget="menu"
+      popovertoggletarget="menu"
     >
       <i class="material-icons">add</i>
     </button>
-    <div id="menu" class="fab__menu" popup="auto" style="--count: 3">
+    <div id="menu" class="fab__menu" popover="auto" style="--count: 3">
       <ul class="fab__menu-items">
         <li class="fab__menu-item">
           <button
             autofocus
             class="fab"
             style="--index: 0"
-            popuphidetarget="menu"
+            popoverhidetarget="menu"
           >
             <i class="material-icons">chat</i>
           </button>
@@ -42,8 +42,8 @@ import './style.css';
             autofocus
             class="fab"
             style="--index: 1"
-            popupshowtarget="cam"
-            popuphidetarget="menu"
+            popovershowtarget="cam"
+            popoverhidetarget="menu"
           >
             <i class="material-icons">photo_camera</i>
           </button>
@@ -53,14 +53,14 @@ import './style.css';
             autofocus
             class="fab"
             style="--index: 2"
-            popuphidetarget="menu"
+            popoverhidetarget="menu"
           >
             <i class="material-icons">pin_drop</i>
           </button>
         </li>
       </ul>
     </div>
-    <div id="cam" class="container" popup>
+    <div id="cam" class="container" popover>
       <div class="container__content">
         <div class="container__toolbar"></div>
         <div class="container__screen"></div>

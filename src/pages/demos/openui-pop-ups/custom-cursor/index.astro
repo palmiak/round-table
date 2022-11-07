@@ -13,19 +13,19 @@ import './style.css';
       </header>
       <article>
         <p>
-          Here, a <code>popup</code> displays a custom cursor. Using the top
+          Here, a <code>popover</code> displays a custom cursor. Using the top
           layer, we can put the cursor above everything else. If we need to
           display another pop-up, we can listen for the event and hide and
-          reshow the cursor popup. Try showing a pop-up above it.
+          reshow the cursor pop-up. Try showing a pop-up above it.
         </p>
         <div>
-          <button class="button ripple" popuptoggletarget="overlay-pop-up">
+          <button class="button ripple" popovertoggletarget="overlay-pop-up">
             Show Pop-up
           </button>
         </div>
       </article>
     </main>
-    <div id="overlay-pop-up" popup>
+    <div id="overlay-pop-up" popover>
       <div class="card elevated">
         You can still see the cursor above me and my <code>::backdrop</code>!
       </div>
@@ -33,7 +33,7 @@ import './style.css';
     <canvas
       id="custom-cursor"
       class="custom-cursor"
-      popup="manual"
+      popover="manual"
       defaultOpen
     ></canvas>
     <script>

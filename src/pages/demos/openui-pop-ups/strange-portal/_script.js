@@ -27,13 +27,14 @@ Draggable.create(PROXY, {
   },
   onClick: function() {
     if (PORTAL.matches(':open')) {
-      PORTAL.hidePopUp()
+      console.info('doing this?')
+      PORTAL.hidePopover()
     }
   },
   onDrag: function({ x, y })  {
-    if (oops) return
+    if (oops || active) return
     const diff = (Math.floor(Math.abs(this.rotation)) - angle)
-    if (diff <= 4 && diff >= 0) {
+    if (diff <= 10 && diff >= 0) {
       angle = Math.floor(Math.abs(this.rotation))
     } else {
       oops = true
@@ -51,7 +52,7 @@ Draggable.create(PROXY, {
       }
       document.documentElement.style.setProperty('--center-x', center.x)
       document.documentElement.style.setProperty('--center-y', center.y)
-      PORTAL.showPopUp()
+      PORTAL.showPopover()
       gsap.ticker.add(RENDER)
     }
     if (angle >= 5) {
@@ -82,7 +83,7 @@ Draggable.create(PROXY, {
 const tearDown = () => {
   CONTEXT.clearRect(0, 0, window.innerWidth, window.innerHeight)
   gsap.ticker.remove(RENDER)
-  if (PORTAL.matches(':open')) PORTAL.hidePopUp()
+  if (PORTAL.matches(':open')) PORTAL.hidePopover()
   for (let i = 0; i < SPOTS.length; i++) {
     SPOTS[i].active = false
   }
@@ -92,7 +93,7 @@ const tearDown = () => {
   })
 }
 
-PORTAL.addEventListener('popuphide', tearDown)
+PORTAL.addEventListener('popoverhide', tearDown)
 
 const CANVAS = document.querySelector('canvas')
 const CONTEXT = CANVAS.getContext('2d')

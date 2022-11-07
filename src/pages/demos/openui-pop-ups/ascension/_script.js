@@ -1,7 +1,7 @@
-const POPUP = document.querySelector("[popup]");
+const POPUP = document.querySelector("[popover]");
 
 POPUP.addEventListener(
-  "show",
+  "popovershow",
   () => (POPUP.innerHTML = "<del>Not</del> In top layer")
 );
-POPUP.addEventListener("popuphide", () => (POPUP.innerHTML = "Not in top layer"));
+POPUP.addEventListener("popoverhide", () => (POPUP.innerHTML = "Not in top layer"));

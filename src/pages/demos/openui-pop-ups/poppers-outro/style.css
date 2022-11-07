@@ -29,10 +29,10 @@
 
 
 @layer demo {
-  [popup] {
+  [popover] {
     padding: var(--size-4);
   }
-  [popup] {
+  [popover] {
     box-shadow: var(--shadow-5);
     position: fixed;
     top: 50%;
@@ -64,7 +64,7 @@
     background: hsl(var(--hue) 50% 50%);
   }
 
-  [popup]:hover {
+  [popover]:hover {
     --scale: 1.2;
     --brightness: 1.2;
   }
@@ -191,7 +191,7 @@
     overflow: hidden;
   }
 
-  :where([popup]) {
+  :where([popover]) {
     margin: auto;
     border-width: initial;
     border-style: solid;

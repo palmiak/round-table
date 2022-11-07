@@ -185,7 +185,7 @@ const removeSlice = (slice, boring, distance = 300) => () => {
     syncDrawer()
     // I mean, is there a penalty in having the :top-layer always open
     // if it doesn't obstruct?
-    if (DRAWER.children.length === 0 && TOASTS.matches(':open')) TOASTS.hidePopUp()
+    if (DRAWER.children.length === 0 && TOASTS.matches(':open')) TOASTS.hidePopover()
   })
 }
 
@@ -251,7 +251,7 @@ const makeToast = () => {
   syncDrawer()
   TOASTS.scrollTo({ left: 0, top: DRAWER.scrollHeight, behavior: 'smooth'})
   // Show the drawer
-  if (!TOASTS.matches(':open')) TOASTS.showPopUp()
+  if (!TOASTS.matches(':open')) TOASTS.showPopover()
   // Event Slicing
   const CONTROL = slice.querySelector('button')
   CONTROL.addEventListener('pointerdown', activateDrag(CONTROL))

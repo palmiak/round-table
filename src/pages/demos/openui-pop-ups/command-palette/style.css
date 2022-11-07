@@ -54,7 +54,7 @@
     font-family: "Google Sans", sans-serif, system-ui;
   }
 
-  :where([popup]) {
+  :where([popover]) {
     margin: auto;
     border-width: initial;
     border-style: solid;
@@ -217,7 +217,7 @@
     font-family: "Google Sans", sans-serif, system-ui;
   }
 
-  :where([popup]) {
+  :where([popover]) {
     margin: auto;
     border-width: initial;
     border-style: solid;

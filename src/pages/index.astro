@@ -4,22 +4,38 @@ import Layout from '../layouts/Layout.astro';
 
 const TALKS = [
   {
-    title: "CSS Anchoring – TPAC 2022",
+    title: "Supercharge your skills with creative coding Vol. I – All Day Hey! 2022",
+    link: "/all-day-hey-2022"
+  },
+  {
+    title: "Supercharge your skills with creative coding Vol. II – Pixel Pioneers 2022",
+    link: "/pixel-pioneers-2022"
+  },
+  {
+    title: "Supercharge your skills with creative coding Vol. II. a – Google Developers Group DevFest Ukraine 2022",
+    link: "/gdg-devfest-ukraine-2022"
+  },
+  {
+    title: "Supercharge your skills with creative coding Vol. III – Smashing Conf San Francisco 2022",
+    link: "/smashing-conf-sf-2022"
+  },
+  {
+    title: "CSS Anchoring – W3C TPAC 2022",
     link: "/tpac-2022"
   },
   {
-    title: "Supercharge your skills with creative coding – WDC 2022",
+    title: "Supercharge your skills with creative coding Vol. IV – Web Dev Conf 2022",
     link: "/wdc-2022"
   },
   {
-    title: "Speedy Dev Insights – SotB 2022",
+    title: "Speedy Dev Insights – State of the Browser 2022",
     link: "/sotb-2022"
   }
 ]
 ---
 
 <Layout>
-  <h1>Jhey Presents</h1>
+  <h1>Jhey Presents!</h1>
   <ul>
     {TALKS.map(({title, link}) => (
       <li>

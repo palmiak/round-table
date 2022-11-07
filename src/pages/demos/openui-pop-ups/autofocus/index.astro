@@ -7,7 +7,7 @@ import './style.css';
     <title>First Pop-up</title>
   </head>
   <body>
-    <div id="close-pop-up" popup>
+    <div id="close-pop-up" popover>
       <div class="card elevated">
         <p>See how this button is already focussed?</p>
         <p>Open the other pop-up to see the input focussed</p>
@@ -15,30 +15,30 @@ import './style.css';
           <button
             class="button ripple"
             autofocus
-            popuphidetarget="close-pop-up"
+            popoverhidetarget="close-pop-up"
           >
             Close
           </button>
-          <button class="button ripple" popupshowtarget="input-pop-up">
+          <button class="button ripple" popovershowtarget="input-pop-up">
             Show input
           </button>
         </div>
       </div>
     </div>
-    <div id="input-pop-up" popup>
+    <div id="input-pop-up" popover>
       <div class="card elevated">
         <label for="name">Name</label>
         <input id="name" autofocus type="text" />
-        <button class="button ripple" popuphidetarget="input-pop-up">
+        <button class="button ripple" popoverhidetarget="input-pop-up">
           Close
         </button>
       </div>
     </div>
     <div class="actions">
-      <button class="button ripple" popupshowtarget="close-pop-up">
+      <button class="button ripple" popovershowtarget="close-pop-up">
         Open me
       </button>
-      <button class="button ripple" popupshowtarget="input-pop-up">
+      <button class="button ripple" popovershowtarget="input-pop-up">
         Show input
       </button>
     </div>

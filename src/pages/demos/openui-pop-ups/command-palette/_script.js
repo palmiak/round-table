@@ -15,9 +15,9 @@ const handleActivation = (e) => {
 
   if (STATE.cmd && STATE.mod && !POPUP.matches(":open")) {
     STATE.cmd = STATE.mod = false;
-    POPUP.showPopUp();
+    POPUP.showPopover();
 
-    OPTIONS.showPopUp();
+    OPTIONS.showPopover();
   }
 };
 
@@ -84,7 +84,7 @@ const fireAction = (actionId) => {
   );
   if (actionId !== "toggle-theme") {
     SEARCH.value = "";
-    POPUP.hidePopUp();
+    POPUP.hidePopover();
   }
 };
 
@@ -168,7 +168,7 @@ const renderOptions = (value) => {
   buildOptions(options, value);
 
   if (!OPTIONS.matches(":open") && options.length) {
-    OPTIONS.showPopUp();
+    OPTIONS.showPopover();
   }
 };
 
@@ -204,17 +204,17 @@ const handleKeyboardInteraction = (e) => {
   }
 };
 
-POPUP.addEventListener("popupshow", onActivated);
+POPUP.addEventListener("popovershow", onActivated);
 window.addEventListener("keydown", handleKeyboardInteraction);
 window.addEventListener("keypress", handleKeyboardInteraction);
 window.addEventListener("keyup", handleKeyboardInteraction);
-OPTIONS.addEventListener("popupshow", onOptionsOpen);
-OPTIONS.addEventListener("popuphide", onOptionsHide);
+OPTIONS.addEventListener("popovershow", onOptionsOpen);
+OPTIONS.addEventListener("popoverhide", onOptionsHide);
 OPTIONS.addEventListener("pointermove", selectOption);
 OPTIONS.addEventListener("click", handleActionClick);
 
 // Catch case for clicking on the input
 SEARCH.addEventListener("click", (e) => {
   // Don't want the click on the input to close the popup
-  OPTIONS.showPopUp();
+  OPTIONS.showPopover();
 });

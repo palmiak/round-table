@@ -4,7 +4,7 @@ const START_INDEX = WORD.length / -2 + 0.5;
 
 for (let p = 0; p < WORD.length; p++) {
   const POPUP = Object.assign(document.createElement("button"), {
-    popUp: "manual",
+    popover: "manual",
     className: "balloon",
     id: WORD.charAt(p),
     defaultOpen: true,
@@ -26,7 +26,7 @@ for (let p = 0; p < WORD.length; p++) {
   POPUP.addEventListener("click", () => {
     AUDIO_POP.currentTime = 0;
     AUDIO_POP.play();
-    POPUP.hidePopUp();
+    POPUP.hidePopover();
     Object.assign(POPUP, {
       style: `
       --index: ${START_INDEX + p};
@@ -35,8 +35,8 @@ for (let p = 0; p < WORD.length; p++) {
       --float-speed: ${Math.random() + 0.5};
     `
     });
-    requestAnimationFrame(() => POPUP.showPopUp());
+    requestAnimationFrame(() => POPUP.showPopover());
   });
   // Because defaultopen does not work for some reason?
-  POPUP.showPopUp();
+  POPUP.showPopover();
 }

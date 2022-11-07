@@ -1,6 +1,7 @@
 const DING = new Audio('/shared/audio/windows-xp-error-noise.mp3')
 
 const ERRORS = [
+  'Impersonated Elon',
   'HTML.dll not found',
   '/System32/Libs/Languages/HTML not found',
   'Uncaught TypeError: cant convert null to object',
@@ -15,14 +16,14 @@ const generateError = id => {
   const newError = Object.assign(document.createElement('div'), {
     id: `pop-${id}`,
     defaultOpen: true,
-    popUp: 'manual',
+    popover: 'manual',
     style: `--x: ${Math.random() * window.innerWidth}; --y: ${Math.random() * window.innerHeight}`,
     innerHTML: `
       <div class="window">
         <div class="title-bar">
           <div class="title-bar-text">Error</div>
           <div class="title-bar-controls">
-            <button aria-label="Close" popuphidetarget="pop-${id}"></button>
+            <button aria-label="Close" popoverhidetarget="pop-${id}"></button>
           </div>
         </div>
         <div class="window-body">
@@ -32,13 +33,13 @@ const generateError = id => {
               Error: ${ERRORS[Math.floor(Math.random() * ERRORS.length)]}!
             </p>
           </div>
-          <button popuphidetarget="pop-${id}">Close</button>
+          <button popoverhidetarget="pop-${id}">Close</button>
         </div>
       </div>
     `
   })
   document.body.appendChild(newError)
-  newError.showPopUp()
+  newError.showPopover()
 }
 
 let count = 1
@@ -58,7 +59,7 @@ const showErrors = () => {
   }
 }
 
-document.body.addEventListener('popuphide', showErrors)
+document.body.addEventListener('popoverhide', showErrors)
 
 // Get that ball rolling
 // showErrors()

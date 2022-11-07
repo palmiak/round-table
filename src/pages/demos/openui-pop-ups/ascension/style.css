@@ -1,7 +1,5 @@
 @layer normalize, open-props, mdl, base, demo;
 
-
-
 @import "normalize.css" layer(normalize);
 @import "open-props/style" layer(open-props);
 @import "open-props/normalize" layer(open-props);
@@ -28,14 +26,14 @@
 
 
 @layer demo {
-  [popup] {
+  [popover] {
     display: block;
     transition: all 0.2s;
     box-shadow: var(--shadow-1);
     padding: var(--size-4);
   }
 
-  [popup]:open {
+  [popover]:open {
     transform: translateY(-100%) scale(1.5);
     box-shadow: var(--shadow-4);
   }
@@ -44,7 +42,7 @@
     transform: translateY(200%);
   }
 
-  [popup]::backdrop {
+  [popover]::backdrop {
     opacity: 0;
     transition: opacity 0.2s;
     background: url(/shared/images/cloud.svg) -100vw 0 / 100vw
@@ -64,13 +62,13 @@
     }
   }
 
-  [popup]:open::backdrop {
+  [popover]:open::backdrop {
     opacity: 1;
   }
 }
 
 @layer base {
-  :where([popup]) {
+  :where([popover]) {
     margin: auto;
     border-width: initial;
     border-style: solid;

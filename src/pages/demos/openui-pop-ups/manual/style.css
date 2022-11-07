@@ -44,7 +44,7 @@
     align-content: center;
   }
 
-  :where([popup]) {
+  :where([popover]) {
     margin: auto;
     border-width: initial;
     border-style: solid;
@@ -52,10 +52,10 @@
 }
 
 @layer demo {
-  [popup] {
+  [popover] {
     padding: var(--size-4);
   }
-  [popup] {
+  [popover] {
     transform: translate(-50%, -50%) translateX(calc(var(--offset-x, 0) * 50%))
       translate(calc(var(--x, 0) * 2vmin), calc(var(--y, 0) * 2vmin))
       translateX(calc(var(--slide-x, 0) * -10%));

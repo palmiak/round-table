@@ -28,11 +28,11 @@
 
 
 @layer demo {
-  [popup] {
+  [popover] {
     padding: var(--size-4);
     width: var(--size);
   }
-  [popup] {
+  [popover] {
     animation: exit-animation 250ms ease-out both;
     transform: translate(-50%, -50%) translateX(0) scale(1);
     box-shadow: var(--shadow-5);
@@ -42,7 +42,7 @@
     margin: 0;
   }
 
-  [popup]:open {
+  [popover]:open {
     animation: entry-animation 1s ease-in both;
   }
 
@@ -58,14 +58,14 @@
     }
   }
 
-  [popup]::backdrop {
+  [popover]::backdrop {
     background: hsl(0 10% 10%/ 0.35);
     opacity: 0;
     transition: all 1s;
     backdrop-filter: blur(2px);
   }
 
-  [popup]:open::backdrop {
+  [popover]:open::backdrop {
     opacity: 1;
     transition: all 1s;
   }
@@ -93,7 +93,7 @@
     align-content: center;
   }
 
-  :where([popup]) {
+  :where([popover]) {
     margin: auto;
     border-width: initial;
     border-style: solid;
