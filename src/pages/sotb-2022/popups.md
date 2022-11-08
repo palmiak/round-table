@@ -43,23 +43,23 @@
 ---
 <!-- .slide: data-background-color="var(--citric)" -->
 ```css [|17, 18, 19]
-[popup] {
+[popover] {
   left: 100%;
   width: var(--nav-width);
   transition: transform 0.2s;
   transform: translateX(calc(var(--open, 0) * -100%));
 }
 
-[popup]::backdrop {
+[popover]::backdrop {
   transition: opacity 0.2s;
   opacity: var(--open, 0);
 }
 
-[popup]:open,
-[popup]:open::backdrop {
+[popover]:open,
+[popover]:open::backdrop {
   --open: 1;
 }
-body:has([popup]:open) {
+body:has([popover]:open) {
   transform: translateX(calc(var(--nav-width) * -1));
 }
 ```
@@ -69,20 +69,20 @@ body:has([popup]:open) {
 <!-- .slide: style="--code-size: 0.325em;" data-background-color="var(--spearmint)" -->
 ```html []
 <button
-  popup="manual"
+  popover="manual"
   defaultopen
-  popuptoggletarget="menu"
+  popovertoggletarget="menu"
 >
   <i class="material-icons">add</i>
 </button>
-<div id="menu" class="fab__menu" popup="auto" style="--count: 3">
+<div id="menu" class="fab__menu" popover="auto" style="--count: 3">
   <ul class="fab__menu-items">
     <li class="fab__menu-item">
       <button
         autofocus
         class="fab"
         style="--index: 0"
-        popuphidetarget="menu"
+        popoverhidetarget="menu"
       >
         <i class="material-icons">chat</i>
       </button>
@@ -91,7 +91,7 @@ body:has([popup]:open) {
       <button
         class="fab"
         style="--index: 1"
-        popuphidetarget="menu"
+        popoverhidetarget="menu"
       >
         <i class="material-icons">photo_camera</i>
       </button>
@@ -100,7 +100,7 @@ body:has([popup]:open) {
       <button
         class="fab"
         style="--index: 2"
-        popuphidetarget="menu"
+        popoverhidetarget="menu"
       >
         <i class="material-icons">pin_drop</i>
       </button>

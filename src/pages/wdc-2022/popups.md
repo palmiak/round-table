@@ -75,10 +75,10 @@ Element.requestFullscreen();
   <body>
     <main>
       <!-- Throw all your z-index at me! -->
-      <button popuptoggletarget="my-first-pop-up">
+      <button popovertoggletarget="my-first-pop-up">
       </button>
       <!-- Don't care where this is to be honest -->
-      <div id="my-first-pop-up" popup>Pop-up content!</div>
+      <div id="my-first-pop-up" popover>Pop-up content!</div>
       <header>
         <h1>Awesome Website</h1>
       </header>
@@ -92,7 +92,7 @@ Element.requestFullscreen();
 ---
 <!-- .slide: data-background-color="var(--chateau)" -->
 ```css [|9]
-[popup] {
+[popover] {
   transform:
     translate(-50%, -50%)
     translateY(calc((1 - var(--open, 0)) * 100vh))
@@ -100,7 +100,7 @@ Element.requestFullscreen();
   transition: transform 0.5s;
 }
 
-[popup]:open {
+[popover]:open {
   --open: 1;
 }
 ```
@@ -114,14 +114,14 @@ Element.requestFullscreen();
 ---
 <!-- .slide: data-background-color="var(--blueberry)" -->
 ```html [|3,8]
-<div id="code-pop-up" class="balloon" popup>
+<div id="code-pop-up" class="balloon" popover>
   <div class="balloon__content">
-    <button class="button ripple" popuphidetarget="code-pop-up">
+    <button class="button ripple" popoverhidetarget="code-pop-up">
       Hide Code
     </button>
   </div>
 </div>
-<button class="button ripple" popupshowtarget="code-pop-up">
+<button class="button ripple" popovershowtarget="code-pop-up">
   Reveal Code
 </button>
 ```
@@ -130,11 +130,11 @@ Element.requestFullscreen();
 <!-- --- -->
 <!-- ```css []
 @media (prefers-reduced-motion: no-preference) {
-  [popup] {
+  [popover] {
     animation: exit-animation 250ms ease-out both;
   }
 
-  [popup]:open {
+  [popover]:open {
     animation: entry-animation 1s ease-in both;
   }
 
@@ -159,19 +159,16 @@ Element.requestFullscreen();
 ## Types && Behavior
 ```html []
 <!-- Nesting support -->
-<div popup=auto>
-
-<!-- Singleton -->
-<div popup=hint>
+<div popover=auto>
 
 <!-- Explicit dismiss -->
-<div popup=manual>
+<div popover=manual>
 
 <!-- Open on render, no "hint" -->
-<div popup defaultopen>
+<div popover defaultopen>
 
 <!-- Focus management -->
-<div popup>
+<div popover>
   <input autofocus type="text">
 </div>
 ```
@@ -183,18 +180,18 @@ Element.requestFullscreen();
 <!-- slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/auto" -->
 <!-- ---
 ```html [|3]
-<div id="blue-two" class="blue" popup>
+<div id="blue-two" class="blue" popover>
   <div class="card elevated">
-    <button popupshowtarget="red-one" class="button ripple">
+    <button popovershowtarget="red-one" class="button ripple">
       Take first red candy
     </button>
-    <button popupshowtarget="blue-three" class="button ripple">
+    <button popovershowtarget="blue-three" class="button ripple">
       Take another blue candy
     </button>
-    <button popuphidetarget="blue-two" class="button ripple">
+    <button popoverhidetarget="blue-two" class="button ripple">
       Put this candy back
     </button>
-    <button popuphidetarget="blue-one" class="button ripple">
+    <button popoverhidetarget="blue-one" class="button ripple">
       Put back blue candies
     </button>
   </div>
@@ -203,7 +200,7 @@ Element.requestFullscreen();
 <!-- --- -->
 <!-- ## Hint
 ```html []
-<div popup=hint>
+<div popover=hint>
 ```
 --- -->
 <!-- - Singleton
@@ -213,12 +210,12 @@ Element.requestFullscreen();
 <!-- slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/hint" -->
 <!-- ---
 ```html [|3]
-<div id="blue-pill" class="blue" popup="hint">
+<div id="blue-pill" class="blue" popover="hint">
   <div class="card elevated">
-    <button popupshowtarget="red-pill" class="button ripple">
+    <button popovershowtarget="red-pill" class="button ripple">
       Actually, take the red pill
     </button>
-    <button popuphidetarget="blue-pill" class="button ripple">
+    <button popoverhidetarget="blue-pill" class="button ripple">
       Still deciding
     </button>
   </div>
@@ -227,7 +224,7 @@ Element.requestFullscreen();
 --- -->
 <!-- ## Manual
 ```html []
-<div popup=manual>
+<div popover=manual>
 ```
 --- -->
 <!-- - Doesn't dismiss others
@@ -237,12 +234,12 @@ Element.requestFullscreen();
 <!-- slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/manual" -->
 <!-- ---
 ```html [|6,14]
-<div popup="manual" defaultopen id="window">
+<div popover="manual" defaultopen id="window">
   <div class="window">
     <div class="title-bar">
       <div class="title-bar-text">Manual Pop-up</div>
       <div class="title-bar-controls">
-        <button aria-label="Close" popuphidetarget="window"></button>
+        <button aria-label="Close" popoverhidetarget="window"></button>
       </div>
     </div>
     <div class="window-body">
@@ -250,7 +247,7 @@ Element.requestFullscreen();
         The only way to remove me is via a trigger element, or with
         JavaScript.
       </p>
-      <button popuphidetarget="window">Close</button>
+      <button popoverhidetarget="window">Close</button>
     </div>
   </div>
 </div>
@@ -260,21 +257,21 @@ Element.requestFullscreen();
 ## JS API
 ```js []
 /* Show a pop-up */
-popUpElement.showPopUp()
+popUpElement.showPopover()
 /* Hide a pop-up */
-popUpElement.hidePopUp()
+popUpElement.hidePopover()
 /* Is the pop-up in the top layer */
 popUpElement.matches(':open')
 /* Listen for pop-up events */
-popUpElement.addEventListener('show', doSomethingWhenPopUpShows)
-popUpElement.addEventListener('hide', doSomethingWhenPopUpHides)
+popUpElement.addEventListener('popovershow', doSomethingWhenPopUpShows)
+popUpElement.addEventListener('popoverhide', doSomethingWhenPopUpHides)
 /* You can cancel a show */
-popUpElement.addEventListener('show',event => {
+popUpElement.addEventListener('popovershow',event => {
   event.preventDefault();
   console.warn(‘We blocked a pop-up from being shown’);
 })
 /* You can't cancel a hide */
-popUpElement.addEventListener('hide',event => {
+popUpElement.addEventListener('popoverhide',event => {
   event.preventDefault();
   console.warn("You aren't allowed to cancel the hiding of a pop-up");
 })
@@ -284,7 +281,7 @@ popUpElement.addEventListener('hide',event => {
 ---
 <!-- ```html []
 <button
-  popup="manual"
+  popover="manual"
   class="balloon"
   id="P"
   defaultopen
@@ -304,7 +301,7 @@ popUpElement.addEventListener('hide',event => {
 POPUP.addEventListener("click", () => {
   AUDIO_POP.currentTime = 0;
   AUDIO_POP.play();
-  POPUP.hidePopUp();
+  POPUP.hidePopover();
   Object.assign(POPUP, {
     style: `
     --index: ${START_INDEX + p};
@@ -313,7 +310,7 @@ POPUP.addEventListener("click", () => {
     --float-speed: ${Math.random() + 0.5};
   `
   });
-  requestAnimationFrame(() => POPUP.showPopUp());
+  requestAnimationFrame(() => POPUP.showPopover());
 });
 ```
 
@@ -321,11 +318,11 @@ POPUP.addEventListener("click", () => {
 <!-- --- -->
 <!-- ## Accessibility && Focus
 ```html [|4]
-<div id="input-pop-up" popup>
+<div id="input-pop-up" popover>
   <div class="card elevated">
     <label for="name">Name</label>
     <input id="name" autofocus type="text">
-    <button class="button ripple" popuphidetarget="input-pop-up">Close</button>
+    <button class="button ripple" popoverhidetarget="input-pop-up">Close</button>
   </div>
 </div>
 ```
@@ -341,23 +338,23 @@ POPUP.addEventListener("click", () => {
 ---
 <!-- .slide: data-background-color="var(--citric)" -->
 ```css [|17, 18, 19]
-[popup] {
+[popover] {
   left: 100%;
   width: var(--nav-width);
   transition: transform 0.2s;
   transform: translateX(calc(var(--open, 0) * -100%));
 }
 
-[popup]::backdrop {
+[popover]::backdrop {
   transition: opacity 0.2s;
   opacity: var(--open, 0);
 }
 
-[popup]:open,
-[popup]:open::backdrop {
+[popover]:open,
+[popover]:open::backdrop {
   --open: 1;
 }
-body:has([popup]:open) {
+body:has([popover]:open) {
   transform: translateX(calc(var(--nav-width) * -1));
 }
 ```
@@ -372,7 +369,7 @@ body:has([popup]:open) {
 <canvas
   id="custom-cursor"
   class="custom-cursor"
-  popup="manual"
+  popover="manual"
   defaultOpen
 ></canvas>
 ```
@@ -380,11 +377,11 @@ body:has([popup]:open) {
 </div>
 
 ```js []
-document.body.addEventListener("show", (e) => {
+document.body.addEventListener("popovershow", (e) => {
   if (canvas.matches(":open") && e.target !== canvas) {
-    canvas.hidePopUp();
+    canvas.hidePopover();
     requestAnimationFrame(() => {
-      canvas.showPopUp();
+      canvas.showPopover();
     });
   }
 });
@@ -395,7 +392,7 @@ document.body.addEventListener("show", (e) => {
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/toasts" -->
 <!-- ---
 ```html []
-<div popup="manual" class="toasts">
+<div popover="manual" class="toasts">
   <ul class="toasts__drawer">
   </ul>
 </div>
@@ -407,7 +404,7 @@ document.body.addEventListener("show", (e) => {
 ---
 <!-- .slide: data-background-color="var(--selective)" -->
 ```html []
-<div id="spotlight" popup>
+<div id="spotlight" popover>
   <input
     autocomplete="off"
     role="combobox"
@@ -420,7 +417,7 @@ document.body.addEventListener("show", (e) => {
     type="text"
     placeholder="Pop-up search..."
   />
-  <div popup defaultopen id="spotlight-options" role="listbox">
+  <div popover defaultopen id="spotlight-options" role="listbox">
     <!-- "Options" get injected here -->
   </div>
 </div>
@@ -435,8 +432,8 @@ const handleActivation = (e) => {
 
   if (STATE.cmd && STATE.mod && !POPUP.matches(":open")) {
     STATE.cmd = STATE.mod = false;
-    POPUP.showPopUp();
-    OPTIONS.showPopUp();
+    POPUP.showPopover();
+    OPTIONS.showPopover();
   }
 };
 ``` -->
@@ -447,7 +444,7 @@ const handleActivation = (e) => {
 ---
 <!-- .slide: data-background-color="var(--fuschia)" -->
 ```html []
-<div id="screensaver" popup>
+<div id="screensaver" popover>
   <div class="dvd">
     <div class="dvd__scale">
       <div class="dvd__slide">
@@ -467,20 +464,20 @@ const handleActivation = (e) => {
 <!-- ```html []
 <button
   class="fab secondary"
-  popup="manual"
+  popover="manual"
   defaultopen
-  popuptoggletarget="menu"
+  popovertoggletarget="menu"
 >
   <i class="material-icons">add</i>
 </button>
-<div id="menu" class="fab__menu" popup="auto" style="--count: 3">
+<div id="menu" class="fab__menu" popover="auto" style="--count: 3">
   <ul class="fab__menu-items">
     <li class="fab__menu-item">
       <button
         autofocus
         class="fab"
         style="--index: 0"
-        popuphidetarget="menu"
+        popoverhidetarget="menu"
       >
         <i class="material-icons">chat</i>
       </button>
@@ -489,7 +486,7 @@ const handleActivation = (e) => {
       <button
         class="fab"
         style="--index: 1"
-        popuphidetarget="menu"
+        popoverhidetarget="menu"
       >
         <i class="material-icons">photo_camera</i>
       </button>
@@ -498,7 +495,7 @@ const handleActivation = (e) => {
       <button
         class="fab"
         style="--index: 2"
-        popuphidetarget="menu"
+        popoverhidetarget="menu"
       >
         <i class="material-icons">pin_drop</i>
       </button>
@@ -514,20 +511,20 @@ const handleActivation = (e) => {
 <!-- .slide: style="--code-size: 0.325em;" data-background-color="var(--spearmint)" -->
 ```html []
 <button
-  popup="manual"
+  popover="manual"
   defaultopen
-  popuptoggletarget="menu"
+  popovertoggletarget="menu"
 >
   <i class="material-icons">add</i>
 </button>
-<div id="menu" class="fab__menu" popup="auto" style="--count: 3">
+<div id="menu" class="fab__menu" popover="auto" style="--count: 3">
   <ul class="fab__menu-items">
     <li class="fab__menu-item">
       <button
         autofocus
         class="fab"
         style="--index: 0"
-        popuphidetarget="menu"
+        popoverhidetarget="menu"
       >
         <i class="material-icons">chat</i>
       </button>
@@ -536,7 +533,7 @@ const handleActivation = (e) => {
       <button
         class="fab"
         style="--index: 1"
-        popuphidetarget="menu"
+        popoverhidetarget="menu"
       >
         <i class="material-icons">photo_camera</i>
       </button>
@@ -545,7 +542,7 @@ const handleActivation = (e) => {
       <button
         class="fab"
         style="--index: 2"
-        popuphidetarget="menu"
+        popoverhidetarget="menu"
       >
         <i class="material-icons">pin_drop</i>
       </button>

@@ -1,0 +1,51 @@
+---
+import Deck from '../../components/Deck/Deck.astro';
+// Conf sections
+// Shared conf sections
+// import * as advisory from '../../shared/experimental-advisory/advisory.md'
+// import * as gooooo from '../../shared/here-we-go/here-we-go.md'
+// import * as who from '../../shared/who-am-i/who-am-i.md'
+// import * as cheers from '../../shared/cheers/cheers.md'
+// Conf specific sections
+// import * as title from './title.md'
+import * as intro from './intro.md'
+import * as houdini from './houdini.md'
+import * as draggable from './draggable.md'
+import * as deviceorientation from './deviceorientation-safe.md'
+import * as outro from './outro.md'
+// import * as has from './has.md'
+// import * as popups from './popups.md'
+// import * as scroll from './scroll.md'
+// import * as outro from './outro.md'
+// Conf specific styles
+import "./all-day-hey.css"
+// slide specific styles
+// import '../../shared/advisory/advisory.css'
+// import '../../shared/here-we-go/here-we-go.css'
+// import '../../shared/who-am-i/who-am-i.css'
+// import '../../shared/intro/intro.css'
+// import '../../shared/outro/outro.css'
+// import '../../shared/cheers/cheers.css'
+---
+<Deck
+  mod="all-day-hey-2022"
+  slides={
+    [
+      // advisory,
+      intro,
+      houdini,
+      draggable,
+      deviceorientation,
+      outro,
+      // who,
+      // intro,
+      // gooooo,
+      // has,
+      // popups,
+      // scroll,
+      // outro,
+      // cheers
+    ]
+  }
+  title="All Day Hey! 2022"
+/>

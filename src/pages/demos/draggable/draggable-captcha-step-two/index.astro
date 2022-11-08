@@ -1,0 +1,25 @@
+---
+import './style.css';
+---
+<html>
+  <head>
+    <title>Draggable Captcha</title>
+  </head>
+  <body>
+    <main>
+      <!--  The main element -->
+      <div class="captcha">
+        <!-- An element for layout -->
+        <div class="captcha__grid">
+          <!-- An element for displaying the image -->
+          <div class="captcha__img"></div>
+          <!-- Pieces && Slots would be added here? -->
+        </div>
+      </div>
+    </main>
+    <script is:global src="https://unpkg.com/mobile-drag-drop"></script>
+    <script>
+      import './_script.js';
+    </script>
+  </body>
+</html>
