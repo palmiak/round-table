@@ -1,5 +1,5 @@
 const AUDIO_POP = new Audio("/shared/audio/pop.mp3");
-const WORD = "Pop-up";
+const WORD = "Popover";
 const START_INDEX = WORD.length / -2 + 0.5;
 
 for (let p = 0; p < WORD.length; p++) {

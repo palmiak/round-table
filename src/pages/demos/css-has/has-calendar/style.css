@@ -86,10 +86,18 @@ tr {
   grid-auto-flow: column;
 }
 
+button:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
 
 /* By default, hide all the "to" radio */
 [id*=to], [for*=to] {
   display: none;
+}
+
+.calendar__cell:focus-within {
+  border: 4px dashed hsl(var(--primary));
 }
 
 .calendar:has([id*=from]:checked) tr:has([id*=from]:checked) ~ tr :is([id*=to], [for*=to]),

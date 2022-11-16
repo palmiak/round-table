@@ -169,6 +169,27 @@ iframe.demo-embed {
   left: 0%;
 }
 
+del {
+  opacity: 0.25;
+}
+
+.code-split {
+  display: grid !important;
+  grid-auto-flow: column;
+  align-items: center;
+  grid-template-columns: auto 1fr;
+}
+
+.code-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.code-stack > * {
+  width: 100% !important;
+}
+
 .volume-title {
   font-size: 10rem;
   position: absolute;

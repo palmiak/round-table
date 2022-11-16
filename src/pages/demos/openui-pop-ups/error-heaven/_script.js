@@ -59,6 +59,8 @@ const showErrors = () => {
   }
 }
 
+document.querySelector('[popover]').showPopover()
+
 document.body.addEventListener('popoverhide', showErrors)
 
 // Get that ball rolling

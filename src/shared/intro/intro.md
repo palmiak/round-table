@@ -39,7 +39,7 @@
 <!-- .slide: class="title-slide title-slide--right" .slide: data-background-color="var(--black)"-->
 ## It's a <span style="color: var(--chateau)">personal</span> journey. It's a <span style="color: var(--selective)">process</span>. Something you can <span style="color: var(--fuschia)">train over time</span>.
 ---
-<!-- .slide: data-background-color="var(--selective)" -->
+<!-- .slide: class="experimenting-slide" data-background-color="var(--selective)" -->
 <div class="content-warning">
   <div>Content</div>
   <div>Advisory</div>
