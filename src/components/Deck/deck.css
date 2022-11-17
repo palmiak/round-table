@@ -176,12 +176,13 @@ del {
 .code-split {
   display: grid !important;
   grid-auto-flow: column;
+  gap: 1rem;
   align-items: center;
   grid-template-columns: auto 1fr;
 }
 
 .code-stack {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   gap: 1rem;
 }

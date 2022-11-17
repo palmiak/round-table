@@ -1,0 +1,28 @@
+@import "open-props/style";
+@import "open-props/normalize";
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  background: transparent;
+  color-scheme: none;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 100vh;
+  gap: var(--size-6);
+  font-family:  'Google Sans', sans-serif, system-ui;
+  position: relative;
+  background: transparent;
+}
+
+[value=title] {
+  font-size: 2rem;
+}

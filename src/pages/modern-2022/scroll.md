@@ -39,7 +39,6 @@ section {
   view-timeline-axis: block;
 }
 img {
-  transform: translateY(100%);
   animation: parallax both linear;
   animation-timeline: --section;
   /* Likely to change */
@@ -48,7 +47,7 @@ img {
 }
 @keyframes parallax {
   to {
-    transform: translateY(0%);
+    transform: translateY(100%);
   }
 }
 /* ScrollTimeline */
@@ -74,17 +73,15 @@ img {
     <title>Scroll Linked Image Reveals</title>
   </head>
   <body>
-    <ul>
-      <li>
-        <h1>Scroll 👇</h1>
-      </li>
-      <li>
-        <img src="/shared/images/starry-night.jpeg">
-      </li>
-      <li>
-        <img src="/shared/images/night-mountain.jpeg">
-      </li>
-    </ul>
+    <section>
+      <h1>Scroll 👇</h1>
+    </section>
+    <section>
+      <img src="/shared/images/starry-night.jpeg">
+    </section>
+    <section>
+      <img src="/shared/images/night-mountain.jpeg">
+    </section>
   </body>
 </html>
 ```
@@ -177,7 +174,7 @@ IMG.animate(
 <!-- .slide: data-background-color="var(--cinnabar)" -->
 ```css []
 .scroller {
-  animation-timeline: --main;
+  animation-timeline: scroll(root);
   animation: progress both linear;
   animation-delay: cover 0%;
   animation-end-delay: cover 100%;
@@ -226,7 +223,9 @@ BACKDROPS.forEach((backdrop, index) => {
 ---
 <!-- .slide: data-background-color="hsl(0 0% 0%)" data-background-iframe="/demos/scroll-linked-animations/snap-directions" -->
 ---
-## Insert the criss cross grid here and the parallax grid
+<!-- .slide: data-background-iframe="/demos/scroll-linked-animations/criss-cross" -->
+---
+<!-- .slide: data-background-iframe="/demos/scroll-linked-animations/column-parallax" -->
 ---
 <!-- ## Micro interactions
 --- -->
@@ -234,11 +233,17 @@ BACKDROPS.forEach((backdrop, index) => {
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/avatar-micro" -->
 ---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/scalin-on-main" -->
+---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/dynamic-island" -->
 ---
-<!-- .slide: data-background-video="/shared/video/peter.mp4" data-background-video-loop="true" data-background-video-muted="true" data-background-size="contain" data-background-color="var(--spearmint)"-->
+<!-- .slide: data-background-iframe="/demos/scroll-linked-animations/scrolltrigger-book" -->
 ---
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/peters-blinds" -->
+<!-- .slide: data-background-iframe="/demos/scroll-linked-animations/prototype-book" -->
+---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/chrometober-2022/index.html" -->
+---
+<!-- .slide: data-background-video="/shared/video/peter.mp4" data-background-video-loop="true" data-background-video-muted="true" data-background-size="contain" data-background-color="var(--spearmint)"-->
 ---
 <!-- .slide: data-background-color="var(--fuschia)" -->
 ```css []
@@ -262,13 +267,7 @@ BACKDROPS.forEach((backdrop, index) => {
   }
 }
 ```
-<!-- ---
-## Sneaker Carousel -->
 ---
-<!-- .slide: data-background-iframe="/demos/scroll-linked-animations/scrolltrigger-book" -->
----
-<!-- .slide: data-background-iframe="/demos/scroll-linked-animations/prototype-book" -->
----
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/chrometober-2022/index.html" -->
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/peters-blinds-root" -->
 ---
 <!-- End Section

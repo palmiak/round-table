@@ -1,0 +1,62 @@
+---
+import './style.css';
+---
+<!doctype html>
+<html lang="en" class="anchoring-support">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0" />
+    <title>experimental-css-primitives/anchoring/anchor-compass</title>
+  </head>
+  <body>
+    <header class="top-app-bar elevation-1">
+      <nav>
+        <span class="title">Web Shop</span>
+        <span class="nav-links">
+          <a href="#">Home</a>
+          <button popovertoggletarget="products">
+            Products
+            <i class="material-icons">expand_more</i>
+          </button>
+          <a href="#">Pricing</a>
+        </span>
+        <div popover class="menu elevation-3" id="products">
+          <ul>
+            <li>
+              <a autofocus href="#">HTML</a>
+            </li>
+            <li>
+              <button popovertoggletarget="css">
+                CSS
+                <i class="material-icons">chevron_right</i>
+              </button>
+            </li>
+            <li>
+              <a href="#">JavaScript</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div popover class="menu elevation-3" id="css">
+      <ul>
+        <li>
+          <a autofocus href="#">:has()</a>
+        </li>
+        <li>
+          <a href="#">Anchoring</a>
+        </li>
+        <li>
+          <a href="#">Properties and Values API</a>
+        </li>
+      </ul>
+    </div>
+    <main>
+      <h1>Welcome to the Web Shop</h1>
+    </main>
+  </body>
+</html>
+<script>
+  import './_script.js'
+</script>

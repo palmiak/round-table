@@ -1,0 +1,120 @@
+@import "open-props/style";
+@import "open-props/normalize";
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: none;
+  background: transparent;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 100vh;
+  gap: var(--size-6);
+  color: var(--gray-9);
+  background: transparent;
+  font-family:  'Google Sans', sans-serif, system-ui;
+  position: relative;
+}
+
+
+/* selectmenu {
+  anchor-name: --menu;
+}
+
+[popover]:open {
+  top: anchor(--menu bottom);
+} */
+
+[behavior=button] {
+  padding: var(--size-2) var(--size-4);
+  width: 180px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: var(--radius-2);
+  border: 0;
+  box-shadow: var(--shadow-2);
+  background: var(--gray-1);
+}
+
+:where(span, option) {
+  font-size: var(--font-size, var(--font-size-1));
+  font-weight: var(--font-weight, var(--font-weight-4));
+}
+
+option {
+  display: flex;
+  gap: var(--size-4);
+  align-items: center;
+}
+
+option .👉 {
+  visibility: hidden;
+}
+
+.👆, .👉 {
+  font-size:  2rem;
+}
+
+.👆 {
+  transform: rotate(var(--rotate, var(--base-rotate, 0deg)));
+  transition: transform 0.35s var(--ease-elastic-1);
+}
+
+selectmenu:has([popover]:open) .👆 {
+  --rotate: 540deg;
+}
+
+[popover] {
+  box-shadow: var(--shadow-3);
+  opacity: var(--open, 0);
+  transform: translate(0, calc(var(--open, 0) * 5%));
+  transform-origin: 50% 0;
+  overflow: visible;
+}
+
+[popover] option + option {
+  border-top: 1px solid var(--gray-2);
+}
+
+option {
+  padding: var(--size-2) var(--size-4);
+}
+
+option:checked .👉 {
+  visibility: visible;
+}
+
+option:focus {
+  background: var(--gray-2);
+}
+
+option:hover {
+  background: var(--gray-4);
+}
+
+[popover]:open {
+  transition: transform 0.2s, opacity 0.2s;
+  --open: 1;
+}
+
+selectmenu:has([value=top]:checked) {
+  --base-rotate: 0deg;
+}
+selectmenu:has([value=right]:checked) {
+  --base-rotate: 90deg;
+}
+selectmenu:has([value=bottom]:checked) {
+  --base-rotate: 180deg;
+}
+selectmenu:has([value=left]:checked) {
+  --base-rotate: 270deg;
+}

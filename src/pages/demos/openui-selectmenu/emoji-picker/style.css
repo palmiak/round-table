@@ -1,0 +1,171 @@
+@import "open-props/style";
+@import "open-props/normalize";
+
+
+:root {
+  --lerp-0: 1;
+  --lerp-1: 0.5625;
+  --lerp-2: 0.25;
+  --lerp-3: 0.0625;
+  --lerp-4: 0;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 100vh;
+  gap: var(--size-6);
+  font-family:  'Google Sans', sans-serif, system-ui;
+  position: relative;
+  background: var(--surface-3);
+}
+
+[behavior=button] {
+  padding: var(--size-2) var(--size-2);
+  font-size: var(--font-size-2);
+  font-family: "Google Sans", sans-serif;
+  width: var(--size-10);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  place-items: center;
+  box-shadow: var(--shadow-5);
+  scale: var(--scale, 1);
+  transition: scale 0.2s var(--ease-elastic-2);
+}
+
+[behavior=button]:is(:hover,:focus-visible) {
+  --scale: 1.1;
+}
+
+[behavior=button]:active {
+  --scale: 0.9;
+}
+
+[popover]:is(:hover,:focus-within) option :is(picture, img) {
+  scale: calc(0.75 + (var(--lerp, 0) * 1));
+  transition: scale 0.2s;
+}
+
+[data-selected=false] [data-placeholder],
+[data-selected=true] .empty {
+  display: none;
+}
+
+
+:where(span, option) {
+  font-size: var(--font-size, var(--font-size-1));
+  font-weight: var(--font-weight, var(--font-weight-4));
+}
+
+:where(option, [data-placeholder]) {
+  --hovered: 0;
+  width: var(--size-10);
+  aspect-ratio: 1;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  gap: var(--size-4);
+  padding: var(--size-2) var(--size-2);
+  aspect-ratio: 1;
+  place-items: center;
+}
+
+:where(option, [data-placeholder]) :where(img, picture) {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+:where(option, [data-placeholder]) > img {
+  opacity: calc(1 - var(--hovered));
+}
+
+:where(option, [data-placeholder]):is(:hover,:focus-visible) {
+  --hovered: 1;
+}
+
+option:first-of-type {
+  border-radius: 50% 0 0 50%;
+}
+option:last-of-type {
+  border-radius: 0 50% 50% 0;
+}
+
+.empty {
+  padding: var(--size-2);
+  width: var(--size-10);
+  aspect-ratio: 1;
+}
+
+[data-selected-value=heart] [behavior=button] [data-placeholder] {
+  translate: 0 2%;
+}
+
+.empty svg {
+  fill: none;
+  stroke-width: 10px;
+  stroke: var(--gray-5);
+  scale: 0.9;
+  translate: 0 2%;
+}
+
+:where(option, [data-placeholder]) picture {
+  opacity: var(--hovered);
+}
+
+[popover] {
+  border-radius: var(--size-10);
+  box-shadow: var(--shadow-3);
+  transform: translate(0, 5%) scale(var(--open, 0));
+  transform-origin: 50% 0;
+  overflow: visible;
+  transform:
+    translateX(calc(var(--size-10) * 0.5))
+    translateX(-50%)
+    translate(0, calc(var(--open, 0) * 15%))
+    scale(var(--open, 0));
+}
+
+option:is(:hover, :focus-visible) {
+  background: var(--surface-2);
+}
+
+[popover]:open {
+  display: flex;
+  transition: transform 0.2s;
+  --open: 1;
+}
+
+:is(option:hover, option:focus-visible) {
+  --lerp: var(--lerp-0);
+  z-index: 5;
+}
+option:has( + :is(option:hover, option:focus-visible)),
+:is(option:hover, option:focus-visible) + option {
+  --lerp: var(--lerp-1);
+  z-index: 4;
+}
+option:has( + option + :is(option:hover, option:focus-visible)),
+:is(option:hover, option:focus-visible) + option + option {
+  --lerp: var(--lerp-2);
+  z-index: 3;
+}
+option:has( + option + option + :is(option:hover, option:focus-visible)),
+:is(option:hover, option:focus-visible) + option + option + option {
+  --lerp: var(--lerp-3);
+  z-index: 2;
+}
+option:has( + option + option + option + :is(option:hover, option:focus-visible)),
+:is(option:hover, option:focus-visible) + option + option + option + option {
+  --lerp: var(--lerp-4);
+  z-index: 1;
+}

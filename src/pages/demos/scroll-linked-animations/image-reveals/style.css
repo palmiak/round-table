@@ -6,24 +6,24 @@
   --size: 40vmin;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-/*   scroll-snap-type: y mandatory; */
-  height: 100vh;
-  width: 100vw;
-  overflow: auto;
+html {
+  scroll-snap-type: y mandatory;
 }
 
-li {
+section {
   height: 100vh;
   width: 100vw;
   padding: 0;
   display: grid;
   place-items: center;
   max-inline-size: 100%;
-/*   scroll-snap-align: center; */
+}
+
+h1 {
+  max-inline-size: 100%;
+  font-family: "Impact", sans-serif;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 12vmin, 8rem);
 }
 
 h1 {
@@ -31,7 +31,7 @@ h1 {
   font-size: 8rem;
   font-family: 'Impact', sans-serif;
   text-transform: uppercase;
-/*   white-space: nowrap; */
+  scroll-snap-align: center;
 }
 
 img {
@@ -39,15 +39,20 @@ img {
   width: var(--size);
   aspect-ratio: 1;
   object-fit: cover;
+  scroll-snap-align: center;
 }
 
 li:nth-of-type(2) {
   view-timeline-name: circle;
 }
 
-li:nth-of-type(2) img {
+img {
+  view-timeline: --in;
+}
+
+section:nth-of-type(2) img {
   animation: bloom both linear;
-  animation-timeline: circle;
+  animation-timeline: --in;
   animation-delay: cover 30%;
   animation-end-delay: cover 50%;
   clip-path: circle(0% at center);
@@ -59,14 +64,9 @@ li:nth-of-type(2) img {
   }
 }
 
-li:nth-of-type(3) {
-  view-timeline-name: curtain;
-  view-timeline-axis: block;
-}
-
-li:nth-of-type(3) img {
+section:nth-of-type(3) img {
   animation: curtains both linear;
-  animation-timeline: curtain;
+  animation-timeline: --in;
   animation-delay: cover 30%;
   animation-end-delay: cover 50%;
   mask: linear-gradient(45deg, transparent 50%, black 50%);
@@ -81,13 +81,9 @@ li:nth-of-type(3) img {
   }
 }
 
-li:nth-of-type(4) {
-  view-timeline-name: fader;
-}
-
-li:nth-of-type(4) img {
+section:nth-of-type(4) img {
   animation: fade-across both linear;
-  animation-timeline: fader;
+  animation-timeline: --in;
   animation-delay: cover 30%;
   animation-end-delay: cover 50%;
   mask: linear-gradient(transparent 50%, black 75%);
@@ -102,13 +98,9 @@ li:nth-of-type(4) img {
   }
 }
 
-li:nth-of-type(5) {
-  view-timeline-name: drape;
-}
-
-li:nth-of-type(5) img {
+section:nth-of-type(5) img {
   animation: drape-over both linear;
-  animation-timeline: drape;
+  animation-timeline: --in;
   animation-delay: cover 30%;
   animation-end-delay: cover 50%;
   mask: linear-gradient(45deg, transparent 50%, black 75%);
@@ -123,13 +115,9 @@ li:nth-of-type(5) img {
   }
 }
 
-li:nth-of-type(6) {
-  view-timeline-name: slide;
-}
-
-li:nth-of-type(6) img {
+section:nth-of-type(6) img {
   animation: slides both linear;
-  animation-timeline: slide;
+  animation-timeline: --in;
   animation-delay: cover 30%;
   animation-end-delay: cover 50%;
   mask:
@@ -159,13 +147,9 @@ li:nth-of-type(6) img {
   }
 }
 
-li:nth-of-type(7) {
-  view-timeline-name: box;
-}
-
-li:nth-of-type(7) img {
+section:nth-of-type(7) img {
   animation: box-fill both linear;
-  animation-timeline: box;
+  animation-timeline: --in;
   animation-delay: cover 30%;
   animation-end-delay: cover 50%;
   clip-path: inset(0 100% 100% 0 round var(--radius-3));

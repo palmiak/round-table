@@ -71,7 +71,7 @@ h1:last-of-type {
 }
 
 section {
-  border: 1vmin dashed hsl(0 0% 0% / 0.25);
+  border: 1vmin dashed var(--text-2);
   height: 100vh;
   width: 100vw;
   scroll-snap-align: center;

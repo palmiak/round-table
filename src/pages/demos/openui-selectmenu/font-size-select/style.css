@@ -1,0 +1,118 @@
+@import "open-props/style";
+@import "open-props/normalize";
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: none;
+  background: transparent;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 100vh;
+  gap: var(--size-6);
+  font-family:  'Google Sans', sans-serif, system-ui;
+  position: relative;
+  background: transparent;
+  color: var(--gray-9);
+}
+
+
+/* selectmenu {
+  anchor-name: --menu;
+}
+
+[popover]:open {
+  top: anchor(--menu bottom);
+} */
+
+selectmenu::part(button) {
+  padding: var(--size-2) var(--size-4);
+  font-size: var(--font-size-2);
+  font-family: "Google Sans", sans-serif;
+  min-width: 240px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: var(--shadow-4);
+}
+
+:where(span, option) {
+  font-size: var(--font-size, var(--font-size-1));
+  font-weight: var(--font-weight, var(--font-weight-4));
+}
+
+option {
+  display: flex;
+  gap: var(--size-4);
+}
+
+option svg {
+  width: var(--size-4);
+  fill: var(--text-1);
+  opacity: 0.6;
+  visibility: hidden;
+  display: none;
+}
+
+[popover] {
+  box-shadow: var(--shadow-3);
+  transform: translate(0, 5%) scale(var(--open, 0));
+  transform-origin: 80% 0;
+  overflow: visible;
+}
+
+[popover] option + option {
+  border-top: 1px solid var(--gray-2);
+}
+
+option {
+  padding: var(--size-2) var(--size-4);
+}
+
+option:checked svg{
+  visibility: visible;
+}
+
+option:focus {
+  background: var(--gray-3);
+}
+
+option:hover {
+  background: var(--gray-4);
+}
+
+[popover]:open {
+  transition: transform 0.2s;
+  --open: 1;
+}
+
+option[value=title],
+body:has([value=title]:checked) {
+  --font-size: var(--font-size-8);
+  --font-weight: var(--font-weight-9);
+}
+
+option[value=subtitle],
+body:has([value=subtitle]:checked) {
+  --font-size: var(--font-size-6);
+  --font-weight: var(--font-weight-5);
+}
+
+option[value=normal],
+body:has([value=normal]:checked) {
+  --font-size: var(--font-size-2);
+  --font-weight: var(--font-weight-4);
+}
+
+option[value=footnote],
+body:has([value=footnote]:checked) {
+  --font-size: var(--font-size-0);
+  --font-weight: var(--font-weight-2);
+}
