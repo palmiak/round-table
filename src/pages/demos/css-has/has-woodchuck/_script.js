@@ -1,3 +1,8 @@
+// Peter Piper picked a peck of pickled peppers,
+// A peck of pickled peppers Peter Piper picked;
+// If Peter Piper picked a peck of pickled peppers,
+// Where’s the peck of pickled peppers Peter Piper picked?
+
 if (typeof window !== 'undefined') {
   window.SpeechRecognition =
     window.SpeechRecognition || window.webkitSpeechRecognition

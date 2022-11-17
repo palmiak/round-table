@@ -557,6 +557,10 @@ const handleActivation = (e) => {
 </div>
 ```
 ---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/device/devicemotion-popover" -->
+---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/device/devicemotion-nostalgia" -->
+---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/strange-portal" -->
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/error-heaven" -->
