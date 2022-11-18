@@ -8,17 +8,114 @@
 body {
   accent-color: hsl(120 80% 50%);
   display: grid;
-  place-items: center;
   min-height: 100vh;
+  align-content: start;
   margin: 0;
-  background: #191919;
 }
 
 main {
   display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-template-rows: repeat(3, auto);
   grid-gap: 0.5rem;
+  justify-content: center;
+}
+
+.stamp {
+  width: 10vmin;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  rotate: 45deg;
+}
+
+fieldset {
+  width: 80%;
+  display: grid;
+  gap: 1rem;
+  place-items: center;
+  margin: 0 auto;
+}
+
+.activator {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--blue-6);
+}
+
+.buy {
+  width: 60%;
+  padding: var(--size-4);
+  font-size: var(--font-size-fluid-2);
+  font-weight: var(--font-weight-9);
+  background: var(--green-6);
+  margin: 0 auto;
+}
+
+.promo {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+button {
+  padding: var(--size-2) var(--size-4);
+}
+
+:where(h1, h2, h3, h4, h5) {
+  font-family: 'Lobster', cursive;
+  text-align: center;
+}
+
+header {
+  padding: var(--size-8);
+}
+
+header * {
+  color: var(--yellow-6);
+}
+
+.activator:open::backdrop {
+  background: hsl(0 0% 15% / 0.5);
+  filter: blur(4px);
+}
+
+.shake-it {
+  padding: var(--size-6);
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  gap: 1rem;
+  transform: translate(-50%, -50%) scale(var(--open, 0));
+}
+
+.shake-it h2 {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.sure {
+  background: var(--green-6);
+}
+
+.cancel {
+  background: var(--red-6);
+}
+
+.shake-it:open {
+  --open: 1;
+  transition: transform var(--ease-elastic-5) 0.2s;
+}
+
+.salt {
+  height: 25vmin;
 }
 
 label {

@@ -74,6 +74,18 @@ if (typeof window !== 'undefined') {
     {
       trigger: 'chuck',
       emoji: '🪓'
+    },
+    {
+      trigger: 'babies',
+      emoji: '👶'
+    },
+    {
+      trigger: 'king',
+      emoji: '🫄'
+    },
+    {
+      trigger: 'scientist',
+      emoji: '💉'
     }
     
   ]
@@ -89,9 +101,12 @@ if (typeof window !== 'undefined') {
           return WORD.indexOf(p.trigger) !== -1
         })[0]
         if (PARTICLE) {
+          if (PARTICLE.trigger === 'peter' && document.querySelector('.peter') !== null) return 
           const P = document.createElement('div')
-          P.innerText = PARTICLE.emoji
+          if (PARTICLE.trigger !== 'king' && PARTICLE.trigger !== 'babies') P.innerText = PARTICLE.emoji
+          if (PARTICLE.trigger === 'scientist') P.innerText = '👨🏻‍⚕️'
           P.className = PARTICLE.trigger
+          P.dataset.emoji = PARTICLE.emoji
           EMOJIS.appendChild(P)
           if (
             PARTICLE.trigger === 'wood' ||
@@ -103,6 +118,11 @@ if (typeof window !== 'undefined') {
             P.addEventListener('animationend', () => {
               console.info(PARTICLE.trigger)
               P.remove()
+            })
+          }
+          if (PARTICLE.trigger === 'king') {
+            P.addEventListener('animationend', () => {
+              P.dataset.emoji = '🤴'
             })
           }
           if (PARTICLE.trigger === 'boom') {

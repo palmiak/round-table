@@ -1,4 +1,4 @@
-const BUTTON = document.querySelector('button')
+const BUTTON = document.querySelector('body > button')
 const SHAKE_IT = document.querySelector('.shake-it')
 
 const mapRange = (inputLower, inputUpper, outputLower, outputUpper) => {
@@ -11,13 +11,26 @@ let start
 let count = 0
 let cancel
 
-const RYU = new Audio(new URL('/shared/audio/hadouken.mp3', import.meta.url))
+const PUSH_IT = new Audio(
+  new URL('/shared/audio/push-it.mp3', import.meta.url)
+)
 
 const RESET = () => {
   start = undefined
   count = 0
   if (cancel) clearTimeout(cancel)
 }
+
+SHAKE_IT.addEventListener('popovershow', () => {
+  PUSH_IT.pause()
+  PUSH_IT.currentTime = 0
+  PUSH_IT.play()
+})
+
+SHAKE_IT.addEventListener('popoverhide', () => {
+  PUSH_IT.pause()
+  PUSH_IT.currentTime = 0
+})
 
 const pushItRealGood = () => {
   if (!SHAKE_IT.matches(':open')) {

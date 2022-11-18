@@ -8,14 +8,35 @@ import './style.css';
     <meta charset="UTF-8">
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   </head>
   <body>
+    <img class=stamp src="/shared/images/circular-2022--black.png" alt="">
     <main>
-      <button popover=manual>Activate</button>
-      <div class=shake-it popover=manual>
-        <h2>Push it real good!</h2>
+      <header>
+        <h1>Compressed Bites</h1>
+        <h5>Tasty snacks from James && Amy</h5>
+      </header>
+      <img class=promo src="/shared/images/cheeseburger.png" alt="">
+      <fieldset>
+        <legend>A Tasty Burger</legend>
+        <p>Prepared with care by Amy, smashed by James</p>
+        <button class=buy>Buy now!</button>
+      </fieldset>
+      <div class=shake-it popover=manual id=shake>
+        <h2>
+          <img class="salt" src='/shared/images/salt.png' alt="">
+          ?
+        </h2>
+        <div class="actions">
+          <button class=cancel popoverhidetarget=shake>Nah</button>
+          <button class=sure popoverhidetarget=shake>Sure!</button>
+        </div>
       </div>
     </main>
+    <button class=activator popover=manual>Activate</button>
     <script>
       import "./_script.js";
     </script>

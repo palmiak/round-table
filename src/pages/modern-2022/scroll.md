@@ -144,9 +144,11 @@ IMG.animate(
 <!-- .slide: data-background-color="hsl(0 0% 0%)" data-background-iframe="/demos/scroll-linked-animations/dj-deck" -->
 ---
 <!-- .slide: data-background-color="hsl(0 0% 0%)" data-background-iframe="/demos/device/deviceorientation-dj" -->
-<h3 class="daniel-phiri">h/t Daniel Phiri @ strapi</h3>
+<h3 class="daniel-phiri">h/t <span style="color: var(--fuschia)">Daniel Phiri</span> @ strapi</h3>
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/this-is-a-box" -->
+---
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/scroll-linked-animations/stop-motion-apple" -->
 ---
 <!-- .slide: data-background-color="hsl(0 0% 0%)" data-background-iframe="/demos/scroll-linked-animations/snap-parallax" -->
 ---

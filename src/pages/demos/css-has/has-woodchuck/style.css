@@ -118,6 +118,58 @@ main {
   }
 }
 
+.king:after {
+  font-size: 10vmin;
+  position: relative;
+  content: attr(data-emoji);
+}
+
+.king:has(+ .babies) {
+  animation: grow 1s both;
+}
+
+@keyframes grow {
+  to {
+    scale: 1.5;
+  }
+}
+
+.scientist {
+  animation: inject 2 0.5s;
+}
+
+@keyframes inject {
+  50% {
+    transform: translateY(-50%);
+  }
+}
+
+.king:has(+ .scientist):after {
+  animation: angry 2s forwards steps(1);
+}
+
+.babies:has(+ .scientist):after {
+  animation: angry 2s forwards steps(1);
+}
+
+@keyframes angry {
+  to {
+    content: "🤬";
+  }
+}
+
+@keyframes sad {
+  to {
+    content: "😭";
+  }
+}
+
+.babies:after {
+  content: attr(data-emoji);
+  font-size: 10vmin;
+  position: relative;
+}
+
 .picked {
   transform: rotateY(180deg);
 }
