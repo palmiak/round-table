@@ -59,6 +59,11 @@ body {
   background: var(--gray-9);
   display: grid;
   padding: var(--size-6);
+  color: var(--text-1);
+}
+
+.intro :is(h1, p) {
+  color: var(--gray-0);
 }
 
 .intro-container {
@@ -105,6 +110,11 @@ body {
   aspect-ratio: 6 / 1;
   transform: translate3d(-50%, -50%, 100vmin) rotateX(-24deg) rotateY(-32deg);
   color: hsl(0 0% 15%);
+}
+
+.deck__body {
+  width: 100%;
+  height: 100%;
 }
 
 

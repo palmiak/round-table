@@ -61,7 +61,7 @@ main {
 .emojis {
   display: flex;
   gap: 1rem;
-  max-inline-size: var(--size-content-2);
+  flex-wrap: wrap;
 }
 
 .emojis div {
@@ -84,6 +84,63 @@ main {
 
 .wood {
   transform-origin: 50% 100%;
+}
+
+.peck {
+  transform: rotateY(180deg) translateX(-100%);
+  transform-origin: 0% 75%;
+}
+
+.peck:has(+ :is(.pickled, .peppers)) {
+  animation: peck 0.5s infinite;
+}
+
+@keyframes peck {
+  50% {
+    transform: rotateY(180deg) translateX(-100%) rotate(-45deg);
+  }
+}
+
+.peck:has(+.lit):after {
+  content: "🍗";
+  position: absolute;
+  inset: 0;
+} 
+
+.peck + :is(.pickled, .peppers) {
+  transform-origin: 50% 75%;
+  animation: pecked 1s both steps(4);
+}
+
+@keyframes pecked {
+  to {
+    scale: 1 0;
+  }
+}
+
+.picked {
+  transform: rotateY(180deg);
+}
+
+.picked:has(+ .peck):not(:has(~ :is(.pickled, .peppers))) {
+  animation: pick 0.5s infinite;
+}
+
+.picked:has(+ .peck) + .peck:not(:has(~ :is(.pickled, .peppers))) {
+  animation: picked 0.5s both;
+}
+
+@keyframes picked {
+  100% {
+    transform: rotateY(180deg) translateX(-100%) rotate(0deg) translate(-200%, -200%) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pick {
+  50% {
+    transform: rotateY(180deg) rotate(-45deg);
+  }
 }
 
 .wood:has(+ .chuck) {

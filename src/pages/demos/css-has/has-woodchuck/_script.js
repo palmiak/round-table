@@ -30,11 +30,34 @@ if (typeof window !== 'undefined') {
     // Only restart if state is still running.
     if (STATE.RUNNING) RECOG.start()
   }
-
+  // Peter Piper picked a peck of pickled peppers,
+  // A peck of pickled peppers Peter Piper picked;
+  // If Peter Piper picked a peck of pickled peppers,
+  // Where’s the peck of pickled peppers Peter Piper picked?
   const PARTICLES = [
     {
       trigger: 'cat',
       emoji: '😹'
+    },
+    {
+      trigger: 'peter',
+      emoji: '👷‍♂️'
+    },
+    {
+      trigger: 'picked',
+      emoji: '⛏'
+    },
+    {
+      trigger: 'peck',
+      emoji: '🐓'
+    },
+    {
+      trigger: 'pickled',
+      emoji: '🥒'
+    },
+    {
+      trigger: 'peppers',
+      emoji: '🌶'
     },
     {
       trigger: 'lit',
@@ -70,8 +93,15 @@ if (typeof window !== 'undefined') {
           P.innerText = PARTICLE.emoji
           P.className = PARTICLE.trigger
           EMOJIS.appendChild(P)
-          if (PARTICLE.trigger === 'wood' || PARTICLE.trigger === 'chuck') {
+          if (
+            PARTICLE.trigger === 'wood' ||
+            PARTICLE.trigger === 'pickled' ||
+            PARTICLE.trigger === 'peppers' ||
+            PARTICLE.trigger === 'peck' ||
+            PARTICLE.trigger === 'chuck'
+          ) {
             P.addEventListener('animationend', () => {
+              console.info(PARTICLE.trigger)
               P.remove()
             })
           }

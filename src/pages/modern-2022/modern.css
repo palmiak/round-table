@@ -36,3 +36,12 @@
 .experimenting-slide {
   background: var(--fuschia) !important;
 }
+
+.daniel-phiri {
+  padding: 1rem;
+  background: black;
+  position: fixed;
+  top: 0;
+  right: 0;
+  rotate: 35deg;
+}

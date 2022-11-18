@@ -116,7 +116,7 @@ body {
   counter-increment: flag -1;
 }
 .mine-count:after {
-  color: var(--text-1);
+  color: var(--gray-9);
   content: counter(flag);
 }
 .board__cell:has(:checked:not([id*="flag"])) label {
