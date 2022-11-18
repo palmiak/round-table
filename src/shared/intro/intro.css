@@ -50,18 +50,18 @@
 
 }
 @keyframes fuel-one {
-  0% {
-    mask-position: 0% -100%;
+  0%, 10% {
+    mask-position: 0% 0%;
   }
-  20% {
-    mask-position: 0 0;
+  40%, 90% {
+    mask-position: -0 -100%;
   }
-  40%, 100% {
-    mask-position: 0 -100%;
+  100% {
+    mask-position: 0 0%;
   }
 }
 @keyframes fuel-two {
-  0%, 20% {
+  0%, 10% {
     mask-position: 0% -100%;
   }
   40% {
@@ -75,10 +75,10 @@
   0%, 40% {
     mask-position: 0% -100%;
   }
-  60% {
+  60%, 90% {
     mask-position: 0 0;
   }
-  80%, 100% {
+  100% {
     mask-position: 0 -100%;
   }
 }
