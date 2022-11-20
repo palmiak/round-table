@@ -230,6 +230,38 @@ BACKDROPS.forEach((backdrop, index) => {
 ---
 <!-- .slide: data-background-iframe="/demos/scroll-linked-animations/criss-cross" -->
 ---
+<!-- .slide: data-background-color="var(--selective)" -->
+```css
+.photo:nth-of-type(7n + 1):nth-of-type(even),
+.photo:nth-of-type(7n + 3):nth-of-type(even),
+.photo:nth-of-type(7n + 5):nth-of-type(even),
+.photo:nth-of-type(7n + 7):nth-of-type(even) {
+  --vertical: -100%;
+  --horizontal: 100%;
+}
+
+.photo {
+  animation-name: travel;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+  animation-timeline: --collage;
+  animation-delay: enter 100%;
+  animation-end-delay: exit 0%;
+}
+
+@keyframes travel {
+  0% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 var(--vertical);
+  }
+  100% {
+    translate: var(--horizontal) var(--vertical);
+  }
+}
+```
+---
 <!-- .slide: data-background-iframe="/demos/scroll-linked-animations/column-parallax" -->
 ---
 <!-- ## Micro interactions
