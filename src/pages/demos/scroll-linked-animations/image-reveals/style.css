@@ -1,6 +1,6 @@
-@import 'https://unpkg.com/normalize.css';
-@import 'https://unpkg.com/open-props/normalize.min.css';
-@import 'https://unpkg.com/open-props/open-props.min.css';
+@import 'normalize.css';
+@import 'open-props/style';
+@import 'open-props/normalize';
 
 :root {
   --size: 40vmin;

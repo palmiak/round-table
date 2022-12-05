@@ -28,6 +28,7 @@ body {
 }
 
 [behavior=button] {
+  anchor-name: --button;
   padding: var(--size-2) var(--size-2);
   font-size: var(--font-size-2);
   font-family: "Google Sans", sans-serif;
@@ -41,11 +42,27 @@ body {
   transition: scale 0.2s var(--ease-elastic-2);
 }
 
-[behavior=button]:is(:hover,:focus-visible) {
+[behavior=button]:is(:hover,:focus-visible,:focus) {
   --scale: 1.1;
 }
 
-[behavior=button]:active {
+[behavior=button]:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: hsl(210 80% 50% / 0.5);
+  border-radius: 50%;
+  z-index: -1;
+  scale: var(--active, 0);
+  transition: scale 0.1s;
+}
+
+[behavior=button][data-active=true]:before {
+  --active: 1;
+  transition: scale 0.4s 0.1s;
+}
+
+[behavior=button][data-active=true] {
   --scale: 0.9;
 }
 
@@ -128,6 +145,8 @@ option:last-of-type {
   transform: translate(0, 5%) scale(var(--open, 0));
   transform-origin: 50% 0;
   overflow: visible;
+  top: anchor(--button bottom);
+  left: anchor(--button left);
   transform:
     translateX(calc(var(--size-10) * 0.5))
     translateX(-50%)
@@ -135,7 +154,7 @@ option:last-of-type {
     scale(var(--open, 0));
 }
 
-option:is(:hover, :focus-visible) {
+option:is(:hover, :focus-visible, :focus) {
   background: var(--surface-2);
 }
 

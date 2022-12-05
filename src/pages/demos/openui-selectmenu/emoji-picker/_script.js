@@ -1,10 +1,11 @@
+console.clear()
+
 const SELECT = document.querySelector('selectmenu')
 const POP = document.querySelector('[popover]')
 const BUTTON = SELECT.querySelector('[behavior=button]')
 const SELECTED_PLACEHOLDER = BUTTON.querySelector('[data-placeholder]')
 
 const CLONE = () => {
-  console.info('cloning', SELECT.dataset.selectedValue)
   if (SELECT.dataset.selectedValue) {
     SELECT.dataset.selected = true
     // Grab the option with the value and drop that into the placeholder.
@@ -27,28 +28,59 @@ SELECT.addEventListener('input', onInput)
 // Intercept the popover being shown.
 // If it's a click, then toggle the value.
 // If it's a hold, show the options.
-let down
-let up
 
-const handleDown = () => {
-  down = Date.now()
+const STATE = {
+  up: undefined,
+  down: undefined,
+  type: undefined,
+  active: false,
+  unlocked: false,
+}
+
+const handleDown = e => {
+  /* store the type, time, and state */
+  if (STATE.active || STATE.unlocked || (e.type === 'keydown' && e.code !== 'Space')) return
+  STATE.type = e.type
+  STATE.active = true
+  STATE.down = Date.now()
+  BUTTON.dataset.active = true
 }
 
 const handleUp = e => {
-  up = Date.now()
-  if (up - down < 500) {
-    e.preventDefault()
-    console.info('toggle the like and set the value to heart', SELECT.dataset.selectedValue)
+  STATE.up = Date.now()
+  if (STATE.up - STATE.down < 500) {
+    // Do a toggle
     if (!SELECT.dataset.selectedValue) {
       SELECT.dataset.selectedValue = 'heart'
     } else {
       delete SELECT.dataset.selectedValue
     }
     CLONE()
-  } else {
-    console.info('open the popover for selection')
+  } else if (STATE.active === true && ((STATE.up - STATE.down) > 500)) {
+    // Open the popover
+    STATE.unlocked = true
+    POP.showPopover()
+    const SELECTED = SELECT.querySelector(`[value=${SELECT.value}]`)
+    if (SELECTED) SELECTED.focus()
   }
+  // Reset the state
+  STATE.active = false
+  STATE.down = undefined
+  STATE.up = undefined
+  STATE.type = undefined
+  BUTTON.dataset.active = false
 }
 
+// BUTTON.addEventListener('pointerdown', handleDown)
+POP.addEventListener('popovershow', e => {
+  if (!STATE.unlocked) return e.preventDefault()
+})
+
+POP.addEventListener('popoverhide', e => {
+  STATE.unlocked = false
+})
+
+BUTTON.addEventListener('keydown', handleDown)
+BUTTON.addEventListener('keyup', handleUp)
 BUTTON.addEventListener('pointerdown', handleDown)
-POP.addEventListener('popovershow', handleUp)
+BUTTON.addEventListener('pointerup', handleUp)

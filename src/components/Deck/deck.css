@@ -9,6 +9,15 @@ iframe {
   border: 0;
 }
 
+html {
+  font-family: 'Google sans', sans-serif, system-ui;
+}
+
+body {
+  margin: 0;
+}
+
+
 .support-grid {
   display: inline-grid;
   gap: 1rem 2rem;

@@ -27,8 +27,7 @@ Draggable.create(PROXY, {
   },
   onClick: function() {
     if (PORTAL.matches(':open')) {
-      console.info('doing this?')
-      PORTAL.hidePopover()
+      tearDown()
     }
   },
   onDrag: function({ x, y })  {
@@ -42,11 +41,9 @@ Draggable.create(PROXY, {
     }
     if (angle >= 5 && center.x === null && center.y === null) {
       if (x > start.x) {
-        // console.info('vert from y')
         center.x = start.x
         center.y = start.y + 100
       } else if (x < start.x) {
-        // console.info('left from x')
         center.x = start.x - 100
         center.y = start.y
       }
@@ -69,13 +66,13 @@ Draggable.create(PROXY, {
     }
   },
   onDragEnd: () => {
-    if (!active) {
-      tearDown()
-    }
     if (active) {
       active = false
     }
-    if (oops) oops = false
+    if (oops) {
+      oops = false
+      tearDown()
+    }
     gsap.set(PROXY, { rotation: 0 })
   }
 })
@@ -92,8 +89,6 @@ const tearDown = () => {
     duration: 0.25,
   })
 }
-
-PORTAL.addEventListener('popoverhide', tearDown)
 
 const CANVAS = document.querySelector('canvas')
 const CONTEXT = CANVAS.getContext('2d')

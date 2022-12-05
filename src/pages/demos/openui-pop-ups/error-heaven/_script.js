@@ -47,15 +47,15 @@ const showErrors = () => {
   if (count === 0) count++
   else count += 1
   for (let i = 0; i < count; i++) {
-    try {
-      DING.pause()
-      DING.currentTime = 0
-      DING.play()
-    }
-    catch (err) {
-      console.info('can only play once')
-    }
     generateError(Date.now())      
+  }
+  try {
+    DING.pause()
+    DING.currentTime = 0
+    DING.play()
+  }
+  catch (err) {
+    console.info('can only play once')
   }
 }
 

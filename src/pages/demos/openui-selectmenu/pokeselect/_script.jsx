@@ -5,7 +5,7 @@ console.clear()
 
 const ROOT = createRoot(document.querySelector('#app'))
 
-const WAIT_TIME = 4000
+const WAIT_TIME = 100
 
 const App = () => {
   const selectMenuRef = React.useRef(null)

@@ -20,6 +20,8 @@ body {
 
 :where(h1, h2) {
   margin: 0;
+  font-family: 'Impact', sans-serif;
+  text-transform: uppercase;
 }
 
 main, footer, header {
