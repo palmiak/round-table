@@ -1,0 +1,107 @@
+@import "normalize.css" layer(normalize);
+@import "open-props/style" layer(open-props);
+@import "open-props/normalize" layer(open-props);
+@import "open-props/colors-hsl" layer(open-props);
+@import "../../../../../public/shared/css/mdl.css";
+
+:root {
+  --anchor-size: 5vmin;
+  --anchored-size: 25vmin;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: start;
+  align-content: start;
+  min-height: 100vh;
+  font-family:  'Google Sans', sans-serif, system-ui;
+  background: var(--surface-1);
+  position: relative;
+}
+
+a {
+  anchor-name: --link;
+  display: inline-block;
+  position: relative;
+  color: hotpink;
+  text-decoration: underline;
+}
+
+
+
+main > p {
+  position: relative;
+  display: inline-block;
+  font-size: var(--font-size-fluid-2);
+  width: 16ch;
+  text-align: center;
+  line-height: 1;
+  font-weight: var(--font-weight-9);
+  margin-top: 10vh;
+  animation: buff 5s infinite;
+}
+
+@keyframes buff {
+  50% {
+    margin-top: 50vh;
+  }
+}
+
+.preview {
+  --show-top: var(--on-top, 0);
+  inset: auto;
+  position: absolute;
+  margin: 0;
+  position-fallback: --viewport;
+  anchor-scroll: scroll;
+  width: 260px;
+  border-radius: 1rem;
+  border: 0;
+  box-shadow: var(--shadow-5);
+  padding: 0;
+  overflow: visible;
+}
+
+.preview:after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 1rem;
+  aspect-ratio: 1;
+  background: red;
+  opacity: var(--show-top, 0);
+}
+
+.preview img {
+  max-height: 100px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.preview p {
+  padding: 0.5rem;
+  font-size: var(--font-size-0);
+}
+
+@position-fallback --viewport {
+  @try {
+    --on-top: 1;
+    bottom: anchor(--link top);
+    left: anchor(--link left);
+  }
+
+  @try {
+    --on-bottom: 1;
+    top: anchor(--link bottom);
+    left: anchor(--link left);
+  }
+}
+

@@ -1,0 +1,136 @@
+@import "open-props/style";
+@import "open-props/normalize";
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: none;
+  background: transparent;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 100vh;
+  gap: var(--size-6);
+  font-family:  'Google Sans', sans-serif, system-ui;
+  position: relative;
+  background: var(--blue-6);
+  color: var(--text-1);
+}
+
+
+/* selectmenu {
+  anchor-name: --menu;
+}
+
+[popover]:open {
+  top: anchor(--menu bottom);
+} */
+
+:where(span, option) {
+  font-size: var(--font-size, var(--font-size-1));
+  font-weight: var(--font-weight, var(--font-weight-4));
+}
+
+option {
+  display: flex;
+  gap: var(--size-4);
+}
+
+option svg {
+  width: var(--size-4);
+  fill: var(--text-1);
+  opacity: 0.6;
+  visibility: hidden;
+  display: none;
+}
+
+[popover] {
+  overflow: visible;
+  border-radius: var(--radius-2);
+  top: anchor(--menu bottom);
+  opacity: var(--open, 0);
+  box-shadow: var(--shadow-5);
+  overflow: auto;
+  height: 30vh;
+  border: 0;
+  padding: 0;
+  width: 280px;
+  opacity: var(--open, 0);
+  transform: translateY(calc(var(--open, 0) * 5%));
+}
+
+[popover] option + option {
+  border-top: 1px solid var(--gray-2);
+}
+
+option {
+  padding: var(--size-2) var(--size-4);
+  display: flex;
+  align-items: center;
+}
+
+selectmenu span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+selectmenu img {
+  width: 44px;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+option:focus {
+  background: var(--surface-2);
+}
+
+option {
+  outline-offset: -2px;
+  background: var(--surface-1);
+  color: var(--text-1);
+}
+
+option:focus-within {
+  outline-color: var(--red-4);
+  outline-offset: -4px;
+}
+
+option:hover {
+  background: var(--surface-2);
+}
+
+[popover]:open {
+  transition: transform 0.2s, opacity 0.2s;
+  --open: 1;
+}
+
+[behavior=selected-value] {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--size-4);
+  justify-content: space-between;
+}
+
+[behavior=button] {
+  padding: var(--size-2) var(--size-4);
+  display: flex;
+  border-radius: var(--radius-2);
+  border: 0;
+  box-shadow: var(--shadow-5);
+  background: var(--surface-1);
+  align-items: center;
+  gap: var(--size-4);
+  text-align: left;
+  width: 280px;
+  outline-color: var(--red-4);
+  color: var(--text-1);
+}

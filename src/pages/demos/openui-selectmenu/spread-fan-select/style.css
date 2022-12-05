@@ -1,0 +1,155 @@
+@import "open-props/style";
+@import "open-props/normalize";
+
+
+:root {
+  --lerp-0: 1;
+  --lerp-1: 0.5625;
+  --lerp-2: 0.25;
+  --lerp-3: 0.0625;
+  --lerp-4: 0;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 100vh;
+  gap: var(--size-6);
+  font-family:  'Google Sans', sans-serif, system-ui;
+  position: relative;
+  background: var(--yellow-3);
+}
+
+selectmenu button {
+  padding: var(--size-2) var(--size-4);
+  border-radius: var(--radius-3);
+  background: var(--surface-1);
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-width: 140px;
+}
+
+selectmenu button .sun {
+  display: grid;
+  place-items: center;
+  position: relative;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+[value=Select] {
+  color: hsl(0 0% 0% / 0.25);
+}
+
+selectmenu button:hover {
+  background: var(--surface-4);
+}
+
+selectmenu button:focus-visible {
+  outline-color: var(--red-8);
+}
+
+[behavior=button]:is(:hover,:focus-visible,:focus) {
+  
+}
+
+selectmenu button {
+  anchor-name: --button;
+}
+
+selectmenu [popover] {
+  left: calc(anchor(--button right) + 1rem);
+  top: anchor(--button center);
+  transform: translate(0, -50%);
+}
+
+selectmenu [popover] {
+  background: none;
+  overflow: visible;
+  clip-path: inset(-50vmin -50vmin -50vmin 0);
+}
+selectmenu [popover]:open {
+  display: grid;
+}
+selectmenu option {
+  --angle: 45;
+  --distance: 40px;
+  --bg: var(--red-3);
+  --color: var(--text-1);
+  font-weight: bold;
+  cursor: pointer;
+  transform-origin: 0 50%;
+  /* Let's say rotation goes from -45deg to 45deg */
+  animation: fan-out 0.25s both;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: var(--color);
+  translate: 0 -50%;
+  rotate: calc(((var(--angle) * -1) + (((var(--angle) * 2) / var(--count, 9) * var(--index, 0)))) * 1deg);
+  transform: translateX(var(--distance));
+  z-index: calc(var(--count, 0) - var(--index, 0));
+}
+
+selectmenu option:after {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  width: var(--distance);
+  height: 2px;
+  background: var(--gray-9);
+}
+
+selectmenu option span {
+  background: var(--bg);
+  width: 180px;
+  padding: 0.5rem 1rem;
+  text-align: right;
+  clip-path: polygon(0 30%, 98% 0, 100% 100%, 0 70%);
+  display: inline-block;
+}
+
+selectmenu option:nth-of-type(odd) span {
+  clip-path: polygon(0 30%, 100% 0, 98% 100%, 0 70%);
+}
+
+selectmenu option:nth-of-type(odd) {
+  --bg: var(--red-2);
+}
+
+selectmenu option:is(:hover, :checked) {
+  --bg: var(--red-6);
+  --color: var(--surface-1);
+  background: transparent;
+}
+selectmenu option:focus-visible {
+  outline-color: var(--red-8);
+}
+
+@keyframes fan-out {
+  0% {
+    translate: 0 -50%;
+    rotate: 0deg;
+    transform: translateX(0px);
+  }
+  50% {
+    rotate: 0deg;
+    transform: translateX(var(--distance));
+  }
+  100% {
+    rotate: calc(((var(--angle) * -1) + (((var(--angle) * 2) / var(--count, 9) * var(--index, 0)))) * 1deg);
+  }
+}

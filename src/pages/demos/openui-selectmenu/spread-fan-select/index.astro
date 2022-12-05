@@ -1,0 +1,36 @@
+---
+import './style.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="selectmenu-support">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0"
+    />
+    <title>openui-initiative/selectmenu/heading-select</title>
+  </head>
+  <body>
+    <selectmenu id="reaction" data-selected=false>
+      <div slot="button">
+        <button>
+          <span behavior="selected-value"></span>
+          <span class="sun">🏙</span>
+        </button>
+      </div>
+      <div slot="listbox">
+        <div popover behavior="listbox" style="--count: 9;">
+          <option style="--index: 1;" value="Select">
+            <span>Select City</span>
+          </option>
+        </div>
+      </div>
+    </selectmenu>
+  </body>
+</html>
+<script>
+  import "./_script.js";
+</script>

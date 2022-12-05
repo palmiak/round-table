@@ -1,0 +1,44 @@
+---
+import Deck from '../../components/Deck/Deck.astro';
+// Conf sections
+// Shared conf sections
+import * as advisory from '../../shared/advisory/advisory.md'
+import * as gooooo from '../../shared/here-we-go/here-we-go.md'
+import * as who from '../../shared/who-am-i/who-am-i.md'
+import * as cheers from '../../shared/cheers/cheers.md'
+import * as intro from '../../shared/intro/intro.md'
+import * as outro from '../../shared/outro/outro.md'
+// Conf specific sections
+import * as title from './title.md'
+import * as anchoring from './anchoring.md'
+import * as popups from './popups.md'
+import * as selectmenu from './selectmenu.md'
+// Conf specific styles
+import "./devfest-tokyo.css"
+// slide specific styles
+import '../../shared/advisory/advisory.css'
+import '../../shared/here-we-go/here-we-go.css'
+import '../../shared/who-am-i/who-am-i.css'
+import '../../shared/intro/intro.css'
+import '../../shared/outro/outro.css'
+import '../../shared/cheers/cheers.css'
+
+
+---
+<Deck
+  slides={
+    [
+      advisory,
+      gooooo,
+      title,
+      who,
+      intro,
+      anchoring,
+      popups,
+      selectmenu,
+      outro,
+      cheers
+    ]
+  }
+  title="GDG Tokyo DevFest 2022"
+/>
