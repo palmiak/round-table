@@ -1,5 +1,5 @@
 .demo-row video {
-  width: 30vmin;
+  width: 20vmin;
   aspect-ratio: 1;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .word-waterfall {
-  --base-size: 11vmin;
+  --base-size: 10vmin;
   display: grid;
   gap: 0rem;
   text-transform: uppercase;
@@ -32,67 +32,46 @@
   color: var(--base);
 }
 
-.word-waterfall:last-of-type {
-  /* mask: linear-gradient(black var(--base-size), transparent var(--base-size));
-  mask-repeat: no-repeat;
-  mask-size: 100% 10vmin;
-  mask-position: 50% 200%;
-  animation: fuel 4s infinite linear; */
-}
-
-@keyframes fuel {
-  0% {
-    mask-position: 0% -100%;
-  }
-  100% {
-    mask-position: 0% 200%;
-  }
-
-}
 @keyframes fuel-one {
   0%, 10% {
-    mask-position: 0% 0%;
+    clip-path: inset(-5% 0 0 0);
   }
   40%, 90% {
-    mask-position: -0 -100%;
+    clip-path: inset(105% 0 0 0);
   }
   100% {
-    mask-position: 0 0%;
+    clip-path: inset(-5% 0 0 0);
   }
 }
 @keyframes fuel-two {
   0%, 10% {
-    mask-position: 0% -100%;
+    clip-path: inset(105% 0 0 0);
   }
-  40% {
-    mask-position: 0 0;
+  40%, 50% {
+    clip-path: inset(-5% 0 0 0);
   }
-  60%, 100% {
-    mask-position: 0 -100%;
+  80%, 100% {
+    clip-path: inset(105% 0 0 0);
   }
 }
 @keyframes fuel-three {
-  0%, 40% {
-    mask-position: 0% -100%;
+  0%, 50% {
+    clip-path: inset(105% 0 0 0);
   }
-  60%, 90% {
-    mask-position: 0 0;
+  80%, 90% {
+    clip-path: inset(-5% 0 0 0);
   }
   100% {
-    mask-position: 0 -100%;
+    clip-path: inset(105% 0 0 0);
   }
 }
-
 .word-waterfall:last-of-type > div {
   --speed: 8s;
-  mask: linear-gradient(black 50%, transparent 51%);
-  mask-repeat: no-repeat;
-  mask-size: 100% 200%;
-  mask-position: 0% -100%;
 }
 
 .word-waterfall:last-of-type div:nth-of-type(1) {
   animation: fuel-one var(--speed) infinite linear;
+  clip-path: inset(100% 0 0 0);
 }
 
 .word-waterfall:last-of-type div:nth-of-type(2) {
