@@ -208,6 +208,9 @@ form:focus-within .indicator-arm__paw {
 :root:has(form:hover) {
   --show-bear: 0.45;
 }
+:root:has(form:valid:hover) {
+  --show-bear: 0.55;
+}
 :root:has([type=text]) {
   --reveal: 1;
 }

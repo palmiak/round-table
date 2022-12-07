@@ -120,37 +120,20 @@
 
 </div>
 ---
-<!-- .slide: data-background-color="var(--fuschia)" -->
-<div class="code-split">
-
-<div class="code-stack">
-
+<!-- .slide: data-background-color="var(--chateau)" -->
 ```css
-.anchor {
-  anchor-name: --anchor;
+.bear__paw {
+  top: anchor(var(--anchor-name) center);
+  left: anchor(--form right);
 }
-
-.boat {
-  position-fallback: --top-to-bottom;
+#password {
+  anchor-name: --password;
 }
-
-@position-fallback --top-to-bottom {
-  @try {
-    bottom: anchor(--anchor top);
-    right: anchor(--anchor left);
-  }
-  @try {
-    top: anchor(--anchor bottom);
-    right: anchor(--anchor left);
-  }
-}
+:root:has(#password:focus) {
+  --anchor-name: var(--password)
+} 
 ```
-
-</div>
-
-<iframe class="demo-embed" src="/demos/css-anchoring/position-fallback-boat"></iframe>
-
-</div>
-
+---
+<!-- .slide: data-background-iframe="/demos/css-anchoring/bear-form" -->
 ---
 <!-- End Section
