@@ -1,0 +1,98 @@
+@import "open-props/style";
+@import "open-props/normalize";
+
+
+:root {
+  --lerp-0: 1;
+  --lerp-1: 0.5625;
+  --lerp-2: 0.25;
+  --lerp-3: 0.0625;
+  --lerp-4: 0;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  background: none;
+}
+
+body {
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: var(--size-6);
+  font-family:  'Google Sans', sans-serif, system-ui;
+  position: relative;
+  background: none;
+}
+
+button {
+  background: var(--surface-1);
+  padding: var(--size-2) var(--size-4);
+  border: 1px solid var(--text-1);
+  width: 190px;
+}
+
+[role=listbox] {
+  box-shadow: var(--shadow-3);
+  overflow: visible;
+  background: var(--surface-1);
+  width: 190px;
+}
+
+[role=listbox] option + option {
+  border-top: 1px solid var(--gray-2);
+}
+
+.selectmenu {
+  position: relative;
+}
+
+[role=listbox] {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+option {
+  padding: var(--size-2) var(--size-4);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+}
+
+option:checked svg{
+  visibility: visible;
+}
+
+option:focus {
+  background: var(--gray-3);
+}
+
+option:hover {
+  background: var(--gray-4);
+}
+
+option[value=title] {
+  --font-size: var(--font-size-8);
+  --font-weight: var(--font-weight-9);
+}
+
+option[value=subtitle] {
+  --font-size: var(--font-size-6);
+  --font-weight: var(--font-weight-5);
+}
+
+option[value=normal] {
+  --font-size: var(--font-size-2);
+  --font-weight: var(--font-weight-4);
+}
+
+option[value=footnote] {
+  --font-size: var(--font-size-0);
+  --font-weight: var(--font-weight-2);
+}

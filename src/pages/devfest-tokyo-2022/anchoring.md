@@ -4,52 +4,102 @@
 <!-- .slide: data-background-color="var(--citric)" -->
 <img src="/tpac-2022/assets/tooltip-anatomy.png" />
 ---
-<!-- .slide: data-background-color="var(--selective)" class="code-grid-with-header" style="--code-size: 0.65rem;"-->
-
-<div style="display:inline-grid; grid-auto-flow:column; align-items:center; align-content:center;">
-<div style="display:grid; gap:1rem; align-items:center; align-content:center;">
-
-  ```html
-  <!-- Markup obfuscated  -->
-  <header style="position: relative;">
-    <nav style="position: relative;">
-      <span class="nav-links">
-        <button id="products-btn">Products</button>
-      </span>
-      <div popover id="products">
-        <button id="css-btn">CSS</button>
-      </div>
-    </nav>
-    <div popover id="css"></div>
-  </header>
-  ```
-
-  ```css
-  #products-btn {
-    anchor-name: --products;
-  }
-  #products {
-    position: absolute;
-    left: anchor(--products left);
-    top: anchor(--products bottom);
-  }
-  #css-btn {
-    anchor-name: --css;
-  }
-  #css {
-    position: absolute;
-    top: anchor(--css top);
-    left: anchor(--css right);
-  }
-  ```
-
-</div>
-
-<video loop autoplay controls muted src="/tpac-2022/assets/nested-menu.mp4"></video>
-</div>
----
 <!-- .slide: data-background-color="var(--off-white)" -->
 <div class="code-split">
+
+<div class="code-stack">
+
+```html
+<div class="boat"></div>
+<div class="anchor"></div>
+```
+
+```css
+.anchor {
+  anchor-name: --anchor;
+}
+
+.boat {
+  top: anchor(--anchor bottom);
+  left: anchor(--anchor right);
+}
+```
+</div>
+
+<iframe class="demo-embed" src="/demos/css-anchoring/basic-boat"></iframe>
+
+</div>
+---
+<!-- .slide: data-background-color="var(--selective)" -->
+<div class="code-split">
+
+<div class="code-stack">
+
+```css
+.anchor {
+  anchor-name: --anchor;
+}
+.boat {
+  position-fallback: --compass;
+}
+@position-fallback --compass {
+  @try {
+    bottom: anchor(--anchor top);
+    right: anchor(--anchor left);
+  }
+  @try {
+    bottom: anchor(--anchor top);
+    left: anchor(--anchor right);
+  }
+}
+```
+</div>
+
+<iframe class="demo-embed" src="/demos/css-anchoring/fallback-boat"></iframe>
+
+</div>
+---
+<!-- .slide: data-background-color="var(--fuschia)" -->
+<div class="code-split">
+
+<div class="code-stack">
+
+```html
+<!-- Caveat -->
+<div class="ice-cream-wrapper">
+  <div class="ice-creame-cone"></div>
+</div>
+<div class="ice-cream"></div>
+```
+
+```css
+.ice-cream-cone {
+  anchor-name: --cone;
+}
+.ice-cream {
+  position-fallback: --sundae;
+}
+@position-fallback --sundae {
+  @try {
+    bottom: anchor(--cone top);
+    left: anchor(--cone center);
+  }
+  @try {
+    bottom: anchor(--floor top);
+    left: anchor(--floor center);
+  }
+}
+```
+</div>
+
+<iframe class="demo-embed" src="/demos/css-anchoring/fallback-ice-cream"></iframe>
+
+</div>
+---
+<!-- .slide: data-background-color="var(--fuschia)" -->
+<div class="code-split code-split--inverted">
+
+<iframe class="demo-embed" src="/demos/css-anchoring/sushi-charts"></iframe>
 
 <div class="code-stack">
 
@@ -65,9 +115,8 @@
   translate: 0 50%;
 }
 ```
-</div>
 
-<iframe style="min-height: 65vh;" class="demo-embed" src="/demos/css-anchoring/anchor-charts"></iframe>
+</div>
 
 </div>
 ---

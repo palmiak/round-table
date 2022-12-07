@@ -1,0 +1,115 @@
+@import "normalize.css" layer(normalize);
+@import "open-props/style" layer(open-props);
+@import "open-props/normalize" layer(open-props);
+@import "open-props/colors-hsl" layer(open-props);
+@import "../../../../../public/shared/css/mdl.css";
+
+:root {
+  --anchor-size: 5vmin;
+  --anchored-size: 25vmin;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family:  'Google Sans', sans-serif, system-ui;
+  background: var(--gradient-7);
+  position: relative;
+  overflow: hidden;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s ease;
+}
+
+.anchor {
+  anchor-name: --anchor;
+  width: var(--anchor-size);
+  aspect-ratio: 1;
+  transition: all 0.2s ease;
+  position: absolute;
+  top: var(--y, 0);
+  left: var(--x, 0);
+  background: var(--blue-8);
+}
+
+.anchor-wrap {
+  width: var(--anchor-size);
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.anchored {
+  background: var(--blue-7);
+  position: absolute;
+  top: anchor(--anchor bottom);
+  left: anchor(--anchor right);
+  width: var(--anchored-size);
+  aspect-ratio: 1;
+  transition: all 0.2s ease;
+  animation: bob 1s infinite ease-in-out;
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(-2%);
+  }
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.blinker {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: blink 6s -2s infinite;
+}
+
+@keyframes blink {
+  0%, 46%, 48%, 50%, 100% {
+    scale: 1 1;
+  }
+  47%, 49% {
+    scale: 1 0.01;
+  }
+}
+
+.anchored--sad .face__smile {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  rotate: 180deg;
+}
+
+.face__joy {
+  display: none;
+}
+
+
+.boat-anchor {
+  fill: var(--gray-5);
+}
+.boat {
+  fill: none;
+}
+.boat__sail {
+  fill: var(--gray-0);
+}
+.boat__wave {
+  fill: var(--blue-3);
+}
+.boat__body {
+  fill: #954a01;
+}

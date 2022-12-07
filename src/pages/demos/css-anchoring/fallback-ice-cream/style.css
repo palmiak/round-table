@@ -1,0 +1,142 @@
+@import "normalize.css" layer(normalize);
+@import "open-props/style" layer(open-props);
+@import "open-props/normalize" layer(open-props);
+@import "open-props/colors-hsl" layer(open-props);
+@import "../../../../../public/shared/css/mdl.css";
+
+:root {
+  --anchor-size: 25vmin;
+  --anchored-size: 25vmin;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family:  'Google Sans', sans-serif, system-ui;
+  background: var(--yellow-4);
+  position: relative;
+  overflow: hidden;
+}
+
+body:has(.anchored--sad) {
+  background: hsl(40 24% 32%);
+}
+
+main {
+  height: 90vh;
+  width: 100vw;
+  place-items: center;
+  display: grid;
+  position: relative;
+  inset: 0;
+}
+
+.anchored .face__smile {
+  display: none;
+}
+
+.anchor {
+  anchor-name: --anchor;
+  width: var(--anchor-size);
+  aspect-ratio: 1;
+  position: absolute;
+  top: var(--y, 0);
+  left: var(--x, 0);
+  transition: all 0.2s;
+}
+
+.anchor-wrap {
+  width: var(--anchor-size);
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.anchored {
+  position: absolute;
+  position-fallback: --sundae;
+  width: var(--anchored-size);
+  transform: translate(-50%, 0);
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.blinker {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: blink 6s -2s infinite;
+}
+
+@keyframes blink {
+  0%, 46%, 48%, 50%, 100% {
+    scale: 1 1;
+  }
+  47%, 49% {
+    scale: 1 0.01;
+  }
+}
+
+.floor {
+  anchor-name: --floor;
+  width: 100vw;
+  height: 40vh;
+  background: var(--gray-6);
+}
+
+.anchor {
+  anchor-name: --anchor;
+}
+.anchored {
+  position-fallback: --sundae;
+}
+
+.anchored--happy .face__smile {
+  display: none;
+}
+
+.anchored--sad .face__joy {
+  display: none;
+}
+
+.anchored--sad .face__smile {
+  display: block;
+  fill: none;
+}
+
+.anchored--sad svg .face {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  rotate: 180deg;
+}
+
+.cream__splat {
+  display: none;
+}
+
+.anchored--happy .cream__splat {
+  display: none;
+}
+
+.anchored--sad .cream__splat {
+  display: block;
+}
+
+@position-fallback --sundae {
+  @try {
+    bottom: calc(anchor(--anchor top) - (var(--anchored-size) * 0.15));
+    left: anchor(--anchor center);
+  }
+  @try {
+    bottom: calc(anchor(--floor bottom) - 5vh);
+    left: anchor(--anchor center);
+  }
+}

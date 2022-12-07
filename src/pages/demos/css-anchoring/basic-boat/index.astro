@@ -1,0 +1,96 @@
+---
+import './style.css';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="anchoring-support">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0"
+    />
+    <title>experimental-css-primitives/anchoring/anchor-compass</title>
+  </head>
+  <body>
+    <div class="anchored">
+      <svg
+        viewBox="0 0 197 196"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g>
+          <path
+            class="boat__body"
+            d="M196 138C191.5 154 185.846 161.888 178.502 169.5C164.514 184 146.547 180.5 98 180.5C45.5 180.5 30.5 183.5 16.845 169.5C9.56521 162.036 0 146 0 138C0 138 43.8761 138 98 138C152.124 138 196 138 196 138Z"
+            fill="#AF7128"
+          />
+          <path
+            class="boat__wave"
+            d="M186.44 195.5C176.017 195.5 166.183 193.042 156.94 188.125C138.847 197.958 116.132 197.958 98.0383 188.125C79.945 197.958 57.23 197.958 39.3333 188.125C27.2383 194.91 13.3733 195.992 0 195.5V175.833C13.865 176.325 27.2383 174.85 39.3333 166C56.4433 178.292 80.7317 178.292 98.0383 166C115.443 178.292 139.633 178.292 156.94 166C168.838 174.85 182.31 176.325 196.077 175.833V195.5H186.44Z"
+            fill="#D2E4FF"
+          />
+          <g class="face">
+            <g class="face__eyes" clip-path="url(#eye-clip)">              
+              <circle cx="99" cy="149" r="6" fill="black" />
+              <circle cx="97" cy="147" r="2" fill="white" />
+              <circle cx="151" cy="149" r="6" fill="black" />
+              <circle cx="149" cy="147" r="2" fill="white" />
+            </g>
+            <circle cx="89" cy="159" r="4" fill="#FEA9A9" />
+            <circle cx="161" cy="159" r="4" fill="#FEA9A9" />
+            <path
+              class="face__smile"
+              d="M132 155C132 158.866 128.866 162 125 162C121.134 162 118 158.866 118 155"
+              stroke="black"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <g class="face__joy">
+              <path
+                d="M133 155C133 159.418 129.418 163 125 163C120.582 163 117 159.418 117 155C117 155 120.582 155 125 155C129.418 155 133 155 133 155Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M131.401 159.8C129.941 161.743 127.617 163 125 163C125 163 125 163 125 163C125 160.791 126.791 159 129 159C129.901 159 130.732 159.298 131.401 159.8Z"
+                fill="#FF1515"
+              />
+            </g>
+          </g>
+          <path
+            class="boat__sail"
+            d="M10 122.917L88.6667 10.1283V122.917H10ZM103.417 122.917C116.692 86.0417 114.922 36.4817 103.417 0C150.223 15.1433 186.017 72.7667 186.607 122.917H103.417Z"
+            fill="#EEEEEE"
+          />
+        </g>
+        <defs>
+          <clipPath id="clip0_1_2">
+            <rect width="197" height="196" fill="white" />
+          </clipPath>
+          <clipPath id="eye-clip">
+            <rect class="blinker" x="93" y="143" width="200" height="12"></rect>
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+    <main>
+      <div class="anchor-wrap">
+        <div class="anchor">
+          <svg class="boat-anchor" viewBox="0 0 576 512" title="anchor">
+            <path
+              d="M12.971 352h32.394C67.172 454.735 181.944 512 288 512c106.229 0 220.853-57.38 242.635-160h32.394c10.691 0 16.045-12.926 8.485-20.485l-67.029-67.029c-4.686-4.686-12.284-4.686-16.971 0l-67.029 67.029c-7.56 7.56-2.206 20.485 8.485 20.485h35.146c-20.29 54.317-84.963 86.588-144.117 94.015V256h52c6.627 0 12-5.373 12-12v-40c0-6.627-5.373-12-12-12h-52v-5.47c37.281-13.178 63.995-48.725 64-90.518C384.005 43.772 341.605.738 289.37.01 235.723-.739 192 42.525 192 96c0 41.798 26.716 77.35 64 90.53V192h-52c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h52v190.015c-58.936-7.399-123.82-39.679-144.117-94.015h35.146c10.691 0 16.045-12.926 8.485-20.485l-67.029-67.029c-4.686-4.686-12.284-4.686-16.971 0L4.485 331.515C-3.074 339.074 2.28 352 12.971 352zM288 64c17.645 0 32 14.355 32 32s-14.355 32-32 32-32-14.355-32-32 14.355-32 32-32z"
+            />
+          </svg>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script is:inline src="/licensed/InertiaPlugin.min.js"></script>
+</html>
+<script>
+  import "./_script.js";
+</script>
