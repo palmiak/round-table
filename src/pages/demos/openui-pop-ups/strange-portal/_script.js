@@ -66,13 +66,17 @@ Draggable.create(PROXY, {
     }
   },
   onDragEnd: () => {
+    if (!active) tearDown()
+    
     if (active) {
       active = false
     }
+    
     if (oops) {
       oops = false
       tearDown()
     }
+    
     gsap.set(PROXY, { rotation: 0 })
   }
 })
