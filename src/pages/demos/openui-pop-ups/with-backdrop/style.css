@@ -28,6 +28,9 @@
 @layer demo {
   [popover] {
     padding: var(--size-4);
+    font-size: var(--font-size-fluid-3);
+    font-weight: var(--font-weight-9);
+    color: var(--gray-8);
   }
   [popover]::backdrop {
     background: hsl(0 0% 10% / 0.5);

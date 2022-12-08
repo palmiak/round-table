@@ -8,14 +8,54 @@ import './style.css';
   </head>
   <body>
     <main>
-      <button popovertoggletarget="my-first-pop-up" class="button fab ripple">
+      <button popovertoggletarget="my-first-popover" popover=manual class="button fab ripple">
         <svg viewBox="0 0 512 512" title="comment-alt">
           <path
             d="M448 0H64C28.7 0 0 28.7 0 64v288c0 35.3 28.7 64 64 64h96v84c0 9.8 11.2 15.5 19.1 9.7L304 416h144c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64z"
           />
         </svg>
       </button>
-      <div id="my-first-pop-up" popover>Kon'nichiwa! 👋</div>
+      <div id="my-first-popover" popover=auto class=popup>
+        <div class="cuboid">
+          <div class="cuboid__side"></div>
+          <div class="cuboid__side"></div>
+          <div class="cuboid__side">
+            <div class="popup__tail">
+              <div class="cuboid">
+                <div class="cuboid__side"></div>
+                <div class="cuboid__side"></div>
+                <div class="cuboid__side"></div>
+                <div class="cuboid__side"></div>
+                <div class="cuboid__side"></div>
+                <div class="cuboid__side"></div>
+              </div>
+            </div>
+          </div>
+          <div class="cuboid__side"></div>
+          <div class="cuboid__side">
+            <svg class="sushi-face" viewBox="0 0 80 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g class="eyes" clip-path="url(#eye-clip-one)">
+                <ellipse cx="14" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
+                <ellipse cx="12" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
+                <ellipse cx="66" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
+                <ellipse cx="64" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
+              </g>
+              <circle cx="4" cy="20.1189" r="4" fill="#FEA9A9"/>
+              <circle cx="76" cy="20.1189" r="4" fill="#FEA9A9"/>
+              <g class="joy-mouth">
+                <path d="M48 16.1189C48 20.5372 44.4183 24.1189 40 24.1189C35.5817 24.1189 32 20.5372 32 16.1189C32 16.1189 35.5817 16.1189 40 16.1189C44.4183 16.1189 48 16.1189 48 16.1189Z" fill="black"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4005 20.919C44.941 22.8621 42.6173 24.1189 40 24.1189C40 24.1189 40 24.1189 40 24.1189C40 21.9098 41.7909 20.1189 44 20.1189C44.9007 20.1189 45.7319 20.4166 46.4005 20.919Z" fill="#FF1515"/>
+              </g>
+              <defs>
+                <clipPath id="eye-clip-one">
+                  <rect class="blinker" x="8" y="0" width="200" height="12"></rect>
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="cuboid__side"></div>
+        </div>
+      </div>
       <header>
         <h1>Awesome Website</h1>
       </header>
@@ -84,3 +124,6 @@ import './style.css';
     </main>
   </body>
 </html>
+<script>
+  import "./_script.js"
+</script>

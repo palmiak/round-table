@@ -32,7 +32,8 @@ const draggable = new Draggable(CONTAINER, {
   },
 });
 
-
+const FAB = document.querySelector('[popovertoggletarget=menu]')
+FAB.showPopover()
 const MENU_POP = document.querySelector('#menu')
 CONTAINER.addEventListener('popovershow', () => {
   MENU_POP.hidePopover()

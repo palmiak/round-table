@@ -21,8 +21,6 @@
   <span class="browser-version">&times;</span>
 </div>
 ---
-<!-- .slide: data-background-video="/shared/video/pop-up-stack.mp4" data-background-video-loop="true" data-background-video-muted="true" data-background-video-size="cover" -->
----
 <!-- .slide: class="title-slide title-slide--bottom" data-background-color="var(--black)" -->
 ## The goal of the <span style="color: var(--citric);">Open UI</span> initiative is to make it <span style="color: var(--blueberry)">easier</span> for developers to make <span style="color: var(--fuschia);">great user experiences</span>
 ---
@@ -75,10 +73,10 @@ Element.requestFullscreen();
   <body>
     <main>
       <!-- Throw all your z-index at me! -->
-      <button popovertoggletarget="my-first-pop-up">
+      <button popovertoggletarget="my-first-popover">
       </button>
       <!-- Don't care where this is to be honest -->
-      <div id="my-first-pop-up" popover>Pop-up content!</div>
+      <div id="my-first-popover" popover>Kon'nichiwa! 👋</div>
       <header>
         <h1>Awesome Website</h1>
       </header>
@@ -94,14 +92,17 @@ Element.requestFullscreen();
 ## <span style="color:var(--fuschia)">popovertoggletarget</span> attribute is looong.
 <h3 style="text-align:right;">– <span style="opacity: 0.5; color: var(--selective);">Someone, no doubt.</span></h3>
 ---
-<!-- .slide: data-background-color="var(--chateau)" -->
+<!-- .slide: class="title-slide title-slide--top" data-background-color="var(--black)" -->
+## <span style="color: var(--fuschia)">Better developer experience</span> leads to less opportunity for poor <span style="color: var(--citric)">user experience</span>
+---
+<!-- .slide: data-background-color="var(--citric)" -->
 ```css [|9]
 [popover] {
   transform:
     translate(-50%, -50%)
     translateY(calc((1 - var(--open, 0)) * 100vh))
     scale(var(--open, 0));
-  transition: transform 0.5s;
+  transition: transform 0.25s var(--ease-elastic-4);
 }
 
 [popover]:open {
@@ -109,26 +110,7 @@ Element.requestFullscreen();
 }
 ```
 ---
-<!-- .slide: class="title-slide title-slide--top" data-background-color="var(--black)" -->
-## <span style="color: var(--fuschia)">Better developer experience</span> leads to less opportunity for poor <span style="color: var(--citric)">user experience</span>
----
-<!-- slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/ascension" -->
-<!-- --- -->
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/balloon-animation" -->
----
-<!-- .slide: data-background-color="var(--blueberry)" -->
-```html [|3,8]
-<div id="code-pop-up" class="balloon" popover>
-  <div class="balloon__content">
-    <button class="button ripple" popoverhidetarget="code-pop-up">
-      Hide Code
-    </button>
-  </div>
-</div>
-<button class="button ripple" popovershowtarget="code-pop-up">
-  Reveal Code
-</button>
-```
+<!-- .slide: data-background-iframe="/demos/openui-pop-ups/3d-popover" -->
 ---
 <!-- slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/balloon-animation" -->
 <!-- --- -->
@@ -167,6 +149,11 @@ Element.requestFullscreen();
 
 <!-- Explicit dismiss -->
 <div popover=manual>
+
+<!-- Triggers -->
+<button popovertoggletarget=pop>
+<button popovershowtarget=pop>
+<button popoverhidetarget=pop>
 
 <!-- Open on render -->
 <!-- ~~<div popover defaultopen>~~ 🥲 -->
@@ -423,7 +410,7 @@ document.body.addEventListener("popovershow", (e) => {
     type="text"
     placeholder="Pop-up search..."
   />
-  <div popover defaultopen id="spotlight-options" role="listbox">
+  <div popover id="spotlight-options" role="listbox">
     <!-- "Options" get injected here -->
   </div>
 </div>
@@ -518,7 +505,6 @@ const handleActivation = (e) => {
 ```html []
 <button
   popover="manual"
-  defaultopen
   popovertoggletarget="menu"
 >
   <i class="material-icons">add</i>

@@ -6,6 +6,7 @@
 :root {
   --anchor-size: 5vmin;
   --anchored-size: 25vmin;
+  --bear: hsl(35 65% 50%);
 }
 
 *,
@@ -19,7 +20,7 @@ body {
   place-items: center;
   min-height: 100vh;
   font-family:  'Google Sans', sans-serif, system-ui;
-  background: var(--surface-2);
+  background: var(--gray-2);
   position: relative;
   overflow: hidden;
 }
@@ -49,7 +50,7 @@ form {
   background: var(--surface-1);
   display: grid;
   gap: var(--size-5);
-  border: 1px solid var(--gray-4);
+  border: 2px solid var(--surface-3);
   box-shadow: var(--shadow-5);
   position: relative;
   z-index: 2;
@@ -86,7 +87,7 @@ form:has(#email:focus) {
   --anchor-name: --email;
 }
 
-form:has(#password:focus, #reveal:focus, [type=submit]:focus) {
+form:has(:is(#password:focus, #reveal:focus, [type=submit]:focus)) {
   --anchor-name: --password;
 }
 
@@ -201,7 +202,7 @@ form:focus-within .indicator-arm__paw {
   }
 }
 
-:root:has(#password:focus, #reveal:focus) .bear__arm {
+:root:has(:is(#password:focus, #reveal:focus)) .bear__arm {
   transition: translate var(--step) var(--step), rotate var(--step) var(--step);
 }
 
@@ -217,7 +218,7 @@ form:focus-within .indicator-arm__paw {
 :root:has(form:focus-within) {
   --show-bear: 0.55;
 }
-:root:has(#password:focus, #reveal:focus) {
+:root:has(:is(#password:focus, #reveal:focus)) {
   --password-focus: 1;
 }
 

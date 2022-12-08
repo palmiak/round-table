@@ -52,7 +52,7 @@ body {
   font-size: var(--font-size-4);
 }
 
-.calendar__cell:has([for*="-09-"], [for*="-11-"]) {
+.calendar__cell:has(:is([for*="-09-"], [for*="-11-"])) {
   --alpha: 0.5;
 }
 

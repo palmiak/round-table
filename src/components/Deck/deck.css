@@ -110,7 +110,7 @@ iframe.demo-embed {
   max-width: 100%;
   min-height: 50vh;
   /* display: none; */
-  overflow: hidden;  
+  overflow: hidden;
 }
 
 .reveal .present iframe.demo-embed {

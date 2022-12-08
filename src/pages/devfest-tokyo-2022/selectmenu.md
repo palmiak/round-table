@@ -61,7 +61,7 @@
 ---
 <!-- .slide: data-background-color="var(--fuschia)" -->
 
-```html [|2,3,8,9]
+```html [|2,3,4,8,9]
 <selectmenu id=position>
   <div slot=button>
     <button behavior=button>
@@ -71,6 +71,7 @@
   </div>
   <div slot=listbox>
     <div popover behavior=listbox>
+      <!-- Could it be a dynamic anchor? 👀 -->
       <option value=top>
         <span class=👉>👉</span>
         <span>Top</span>
@@ -98,7 +99,7 @@
 ---
 <!-- .slide: data-background-color="var(--citric)" -->
 
-```html
+```html [|3,5,6,7,9,10]
 <selectmenu>
   <div slot="button">
     <button behavior="button" disabled={loading}>
