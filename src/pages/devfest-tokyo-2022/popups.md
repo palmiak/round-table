@@ -56,7 +56,7 @@ Element.requestFullscreen();
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/with-backdrop" -->
 ---
-<!-- .slide: data-background-color="var(--white)" -->
+<!-- .slide: data-background-color="var(--off-white)" -->
 <ul class="bullets">
   <li>Hidden by default</li>
   <li>No JavaScript</li>
@@ -382,7 +382,7 @@ document.body.addEventListener("popovershow", (e) => {
 --- -->
 <!-- ### Toasts
 --- -->
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/toasts" -->
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/real-toast" -->
 <!-- ---
 ```html []
 <div popover="manual" class="toasts">

@@ -20,6 +20,7 @@ const clamp = (min, max, value) => Math.min(Math.max(value, min), max)
 const vmin = () => Math.min(window.innerHeight, window.innerWidth) / 100
 
 const deactivateDrag = el => ({ type, x, y, movementX, movementY }) => {
+  DRAWER.dataset.dragging = false
   const slice = el.closest('.toasts__slice')
   const spinner = el.closest('.toasts__slice-spinner')
   // Reset things before deciding on the removal method
@@ -37,10 +38,10 @@ const deactivateDrag = el => ({ type, x, y, movementX, movementY }) => {
     // Remove the slice if the dismiss threshold is met.  
     if (velocity > VELOCITY_THRESHOLD) {
       spinner.style.setProperty('--speed', 0)
-      removeSlice(slice, false, 300)()
+      removeSlice(slice, false, 500)()
     } else if (distance.y >= height * 0.4) {
       spinner.style.setProperty('--speed', 0)
-      removeSlice(slice, false, 400)()
+      removeSlice(slice, false, 500)()
     } else {
       // Else zip it back to where it came from
       spinner.velocity = false
@@ -76,6 +77,7 @@ const handleDrag = el => ({ x, y, movementX, movementY }) => {
 }
 
 const activateDrag = el => ({ y }) => {
+  DRAWER.dataset.dragging = true
   const spinner = el.closest('.toasts__slice-spinner')
   const NOTIFICATION = el.closest('.toasts__slice').querySelector('[popover]')
   if (NOTIFICATION.matches(':open')) NOTIFICATION.hidePopover()
@@ -126,8 +128,8 @@ const removeSlice = (slice, boring, distance = 300) => () => {
         transform: `
           translate3d(
             0,
-            ${index * -5}%,
-            ${index * -4}px
+            ${index * -10}px,
+            ${index * -10}px
           )
           scale(${Math.max(0, 1 - (index * 0.02))})
           translateY(-75%)
@@ -138,8 +140,8 @@ const removeSlice = (slice, boring, distance = 300) => () => {
         transform: `
           translate3d(
             0,
-            ${index * -5}%,
-            ${DRAWER.children.length * -10}px
+            ${index * -10}px,
+            ${DRAWER.children.length * -20}px
           )
           scale(${Math.max(0, 1 - (DRAWER.children.length * 0.02))})
           translateY(0%)
@@ -237,14 +239,16 @@ const makeToast = () => {
   const id = Date.now()
   const slice = Object.assign(document.createElement('li'), {
     className: `toasts__slice toasts__slice--${type}`,
-    // style: `anchor-name: --slice;`,
+    style: `--delay: ${Math.random() * -8}s;`,
     innerHTML: `
       <div class="toasts__slice-jumper">
         <div class="toasts__slice-spinner">
           <button class="toasts__slice-control" style="anchor-name: --slice;">
             <div class="toasts__slice-notification" id="${id}" popover>
               <div class="popover__content">
-                ${typeof text === 'function' ? text() : text}
+                <div class="popover__bubble">
+                  ${typeof text === 'function' ? text() : text}
+                </div>
               </div>
             </div>
             <div class="toasts__slice-dimension">
@@ -253,7 +257,27 @@ const makeToast = () => {
                 <div class="cuboid__side"></div>
                 <div class="cuboid__side"></div>
                 <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
+                <div class="cuboid__side">
+                  <svg class="toast__face" viewBox="0 0 80 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g class="eyes" clip-path="url(#eye-clip-one)">
+                      <ellipse cx="14" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
+                      <ellipse cx="12" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
+                      <ellipse cx="66" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
+                      <ellipse cx="64" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
+                    </g>
+                    <circle cx="4" cy="20.1189" r="4" fill="#FEA9A9"/>
+                    <circle cx="76" cy="20.1189" r="4" fill="#FEA9A9"/>
+                    <g class="joy-mouth">
+                      <path d="M48 16.1189C48 20.5372 44.4183 24.1189 40 24.1189C35.5817 24.1189 32 20.5372 32 16.1189C32 16.1189 35.5817 16.1189 40 16.1189C44.4183 16.1189 48 16.1189 48 16.1189Z" fill="black"/>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4005 20.919C44.941 22.8621 42.6173 24.1189 40 24.1189C40 24.1189 40 24.1189 40 24.1189C40 21.9098 41.7909 20.1189 44 20.1189C44.9007 20.1189 45.7319 20.4166 46.4005 20.919Z" fill="#FF1515"/>
+                    </g>
+                    <defs>
+                      <clipPath id="eye-clip-one">
+                        <rect class="blinker" x="8" y="0" width="200" height="12"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
                 <div class="cuboid__side"></div>
               </div>
             </div>
@@ -272,7 +296,16 @@ const makeToast = () => {
   const CONTROL = slice.querySelector('button')
   const NOTIFICATION = slice.querySelector('[popover]')
   CONTROL.addEventListener('pointerenter', () => {
-    if (!NOTIFICATION.matches(':open')) NOTIFICATION.showPopover()
+    if (!NOTIFICATION.matches(':open') && DRAWER.dataset.dragging != true) NOTIFICATION.showPopover()
+  })
+  CONTROL.addEventListener('focus', () => {
+    if (!NOTIFICATION.matches(':open') && DRAWER.dataset.dragging != true) NOTIFICATION.showPopover()
+  })
+  CONTROL.addEventListener('pointerleave', () => {
+    if (NOTIFICATION.matches(':open')) NOTIFICATION.hidePopover()
+  })
+  CONTROL.addEventListener('blur', () => {
+    if (NOTIFICATION.matches(':open')) NOTIFICATION.hidePopover()
   })
   CONTROL.addEventListener('pointerdown', activateDrag(CONTROL))
   CONTROL.addEventListener('keydown', ({ keyCode }) => {

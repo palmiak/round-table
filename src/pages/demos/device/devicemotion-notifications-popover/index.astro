@@ -1,0 +1,59 @@
+---
+import './style.css';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Detecting Orientation</title>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class="top-app-bar center-aligned">
+      <span class="title">Gestures</span>
+      <div class="actions">
+        <button class="icon button button--notifications">
+          <i class="material-icons">notifications</i>
+        </button>
+        <button class="icon leading" popovertoggletarget="menu">
+          <i class="material-icons">menu</i>
+        </button>
+      </div>
+    </header>
+    <main>
+      <h1>Triggering [popover]</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi magnam voluptas doloribus alias beatae architecto, deserunt, optio eveniet, sapiente nemo sint ipsa dolorem ea! Vel similique facilis iusto recusandae labore.</p>
+      <img src="/shared/images/forest.jpg" alt=""/>
+      <p>Temporibus nihil mollitia, neque animi autem quisquam iste ipsam, accusantium itaque facilis saepe? Autem accusantium deserunt sunt dicta sequi esse tempora natus porro, fuga cupiditate nesciunt quis et quas alias!</p>
+      <p>Id, placeat dolorum! Similique velit nobis repellat id ea, dolores nihil laudantium tempore omnis odio debitis dolorem alias totam saepe incidunt corporis at amet, cupiditate ab sint quia minima quae!</p>
+      <img src="/shared/images/woman-hadouks.gif" alt=""/>
+      <p>Tempore minus consequuntur amet quasi fugiat aperiam earum omnis saepe assumenda officia, quae harum at quibusdam modi ex temporibus commodi recusandae ducimus numquam explicabo veritatis totam iusto ipsam. Magnam, dicta.</p>
+      <p>Quod, libero eligendi! Neque impedit maxime unde corrupti aliquid ullam id possimus quaerat ipsam sequi ex saepe similique esse, vitae minima? Optio quisquam, rem reiciendis, dolores nemo eos ratione eaque!</p>
+      <p>Possimus aut in ratione facilis hic fugit rerum maiores distinctio, sunt autem accusamus ullam iusto tempora aliquam? Fuga, dicta sint, amet dolorem fugiat facilis libero nam est repellat voluptas aut!</p>
+      <p>Quisquam illo suscipit ullam nemo, neque autem, harum repudiandae quos facilis quam molestiae eveniet unde quas minus possimus sequi beatae sit distinctio numquam corporis veritatis, tempora ducimus eaque eum. Laboriosam!</p>
+      <p>Facilis soluta debitis quasi vitae consectetur maxime est ea obcaecati distinctio mollitia quas in rem magnam, quibusdam beatae dolorum adipisci necessitatibus doloremque officiis ipsa laboriosam quod modi ipsam minus. Vero!</p>
+      <p>Accusamus beatae dolores repellendus, dolorum perferendis, reprehenderit nobis illum magni deleniti fugit fugiat explicabo numquam, repudiandae eligendi sunt? Doloribus molestiae facilis consequuntur distinctio molestias cum vitae expedita quis unde corrupti.</p>
+      <p>Eligendi commodi beatae, quibusdam, accusamus hic tempora delectus quasi. Perspiciatis at, a unde doloribus dolorum, tempora, fugit ab ad adipisci pariatur, deleniti? Facere corrupti facilis mollitia nesciunt asperiores, error delectus.</p>
+      <img popover=manual id=fireball class="fireball" src="/shared/images/fireball.png" />
+      <div class=notifications popover=manual id=notifications>
+        <h2>
+          Notifications
+        </h2>
+        <div class="notifications__list">
+          <ul>
+            <li>Thank you for coming to my talk! 🙏</li>
+          </ul>
+        </div>
+        <button popoverhidetarget=notifications>Close</button>
+      </div>
+    </main>
+    <button class=activator popover=manual>Activate</button>
+    <script>
+      import "./_script.js";
+    </script>
+  </body>
+</html>

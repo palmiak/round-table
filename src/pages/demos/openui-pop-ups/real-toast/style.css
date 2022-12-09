@@ -82,15 +82,17 @@
     width: 100%;
     height: 100%;
     transform: rotateX(-6deg) rotateY(0deg);
+
   }
 
   .toasts__slice {
-    --translate-step: -5%;
-    --depth-step: -20px;
+    --translate-step: 10px;
+    --depth-step: -30px;
     --cursor: grab;
-    --color: red;
-    --depth: 10px;
+    --color: hsl(30 50% 40%);
+    --depth: 6px;
     cursor: var(--cursor);
+    box-shadow: none;
     transform-style: preserve-3d;
     position: absolute;
     bottom: var(--size-4);
@@ -101,12 +103,30 @@
         calc(var(--index, 0) * var(--depth-step))
       )
       scale(max(0, calc(1 - (var(--index) * 0.02))))
-      translateY(calc(var(--select, 0) * -75%))
+      translateY(calc(var(--select, 0) * -70%))
       rotate(calc(var(--select, 0) * 5deg));
   }
 
+  .toasts__slice .cuboid__side:is(:nth-of-type(5)) {
+    --color: hsl(40 50% 90%);
+    border: 4px solid hsl(30 50% 40%);
+  }
+
+  .toasts__slice--success {
+    --accent: var(--green-4);
+  }
+  .toasts__slice--info {
+    --accent: var(--red-4);
+  }
+  .toasts__slice--warning {
+    --accent: var(--yellow-4);
+  }
+  .toasts__slice--destructive {
+    --accent: var(--red-4);
+  }
+
   .toasts__slice-notification {
-    --translate-step: -10px;
+    --translate-step: 10px;
     position: fixed;
     margin: 0;
     inset: auto;
@@ -115,7 +135,6 @@
     top: anchor(--slice center);
     perspective: 600px;
     perspective-origin: 100% -600px;
-    perspective-origin: ;
     translate: -1rem -50%;
     overflow: visible;
     width: 200px;
@@ -123,25 +142,35 @@
     background: none;
     border: 0;
     place-items: center;
+    transform-origin: 100% 0%;
   }
 
   .toasts__slice-notification:open {
     display: grid;
+    --open: 1;
+  }
+
+  .popover__bubble {
+    background: var(--gray-0);
+    border: 4px solid var(--accent, var(--gray-9));
+    padding: var(--size-4);
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-6);
   }
 
   .popover__content {
-    background: var(--gray-0);
-    border: 2px solid var(--gray-9);
-    padding: var(--size-4);
     width: 200px;
     aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    justify-content: end;
     transform: translate3d(
         calc(var(--index) * 10px),
         calc(var(--index) * var(--translate-step)),
         calc(var(--index, 0) * var(--depth-step))
       )
       scale(max(0, calc(1 - (var(--index) * 0.02))))
-      translateY(calc(var(--select, 0) * -75%))
+      translateY(calc(var(--select, 0) * -70%))
       rotate(calc(var(--select, 0) * 5deg));
   }
 
@@ -159,20 +188,43 @@
     cursor: var(--cursor);
     background: transparent;
     white-space: nowrap;
-    box-shadow: var(--shadow-3);
+    box-shadow: none;
     border: 0;
-    color: var(--gray-9);
     border-radius: var(--radius-3);
     text-align: left;
     width: 200px;
     aspect-ratio: 1;
     position: relative;
-    outline-color: var(--secondary);
+    outline-color: var(--accent);
     height: auto;
     padding: 0;
     animation: toast 0.25s;
     display: block;
   }
+
+  .eyes {
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    animation: blink 6s var(--delay, -2s) infinite;
+  }
+
+  @keyframes blink {
+    0%, 46%, 48%, 50%, 100% {
+      scale: 1 1;
+    }
+    47%, 49% {
+      scale: 1 0.01;
+    }
+  }
+
+  .toast__face {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% 0%;
+  }
+
   .toasts__slice-spinner {
     transition: transform calc(var(--speed, 0.2) * 1s) var(--ease-elastic-2);
     transform: translate(
@@ -198,21 +250,6 @@
     --green-accent: hsl(53, 26%, 67%);
   }
 
-  .toast__close {
-    width: 1ch;
-    aspect-ratio: 1;
-    min-width: 1ch;
-  }
-
-  .toast__text {
-    background: var(--secondary);
-    height: 12%;
-    aspect-ratio: 5 / 1;
-    position: absolute;
-    bottom: var(--size-4);
-    left: var(--size-4);
-    z-index: 2;
-  }
 }
 
 @layer cuboid {
