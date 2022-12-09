@@ -1,0 +1,299 @@
+@layer normalize, open-props, mdl, base, cuboid, demo;
+
+
+
+@import "normalize.css" layer(normalize);
+@import "open-props/style" layer(open-props);
+@import "open-props/normalize" layer(open-props);
+
+@import url("../../../../../public/shared/css/mdl.css") layer(mdl);
+@import url("../../../../../public/shared/css/icons.css") layer(mdl);
+
+@layer base {
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: "Google Sans", sans-serif, system-ui;
+    position: relative;
+    overflow: hidden;
+  }
+
+  body > button {
+    transform: scale(1.25);
+  }
+}
+
+@layer demo {
+  * {
+    touch-action: none;
+  }
+  .toasts {
+    /* You can't use these as you need to use top and left...*/
+    /*   bottom: 0;
+    right: 0; */
+    left: calc(100% - (200px + 4rem));
+    top: calc(100% - (200px + 6rem));
+/*     transform: translate(-250%, -250%); */
+    padding: var(--size-4);
+    border: 0;
+    overflow: auto;
+    margin: 0;
+    max-height: 100vh;
+    background: 0;
+    overflow: visible;
+    width: 200px;
+    height: 200px;
+/*     background: blue; */
+  }
+
+  .toasts__drawer {
+    transform-style: preserve-3d;
+    perspective: 600px;
+    perspective-origin: 100% -600px;
+    display: grid;
+    gap: var(--size-4);
+    padding: 0;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    anchor-name: --drawer;
+  }
+
+  .toasts__slice * {
+    transform-style: preserve-3d;
+  }
+
+  .toasts__slice {
+    list-style-type: none;
+    margin: 0;
+    transition: transform 0.2s;
+    padding: 0;
+  }
+
+  .toasts__slice-dimension {
+    width: 100%;
+    height: 100%;
+    transform: rotateX(-6deg) rotateY(0deg);
+  }
+
+  .toasts__slice {
+    --translate-step: -5%;
+    --depth-step: -20px;
+    --cursor: grab;
+    --color: red;
+    --depth: 10px;
+    cursor: var(--cursor);
+    transform-style: preserve-3d;
+    position: absolute;
+    bottom: var(--size-4);
+    right: var(--size-4);
+    transform: translate3d(
+        0,
+        calc(var(--index, 0) * var(--translate-step)),
+        calc(var(--index, 0) * var(--depth-step))
+      )
+      scale(max(0, calc(1 - (var(--index) * 0.02))))
+      translateY(calc(var(--select, 0) * -75%))
+      rotate(calc(var(--select, 0) * 5deg));
+  }
+
+  .toasts__slice-notification {
+    --translate-step: -10px;
+    position: fixed;
+    margin: 0;
+    inset: auto;
+    transform-style: preserve-3d;
+    right: anchor(--slice left);
+    top: anchor(--slice center);
+    perspective: 600px;
+    perspective-origin: 100% -600px;
+    perspective-origin: ;
+    translate: -1rem -50%;
+    overflow: visible;
+    width: 200px;
+    aspect-ratio: 1;
+    background: none;
+    border: 0;
+    place-items: center;
+  }
+
+  .toasts__slice-notification:open {
+    display: grid;
+  }
+
+  .popover__content {
+    background: var(--gray-0);
+    border: 2px solid var(--gray-9);
+    padding: var(--size-4);
+    width: 200px;
+    aspect-ratio: 1;
+    transform: translate3d(
+        calc(var(--index) * 10px),
+        calc(var(--index) * var(--translate-step)),
+        calc(var(--index, 0) * var(--depth-step))
+      )
+      scale(max(0, calc(1 - (var(--index) * 0.02))))
+      translateY(calc(var(--select, 0) * -75%))
+      rotate(calc(var(--select, 0) * 5deg));
+  }
+
+  .toasts:not(.toasts--animating)
+    .toasts__slice:not(:last-of-type):is(:hover, :has(button:focus)) {
+    --select: 1;
+  }
+  
+  .toasts__slice:has(button:active) ~ .toasts__slice {
+    pointer-events: none;
+  }
+
+  .toasts__slice-control {
+    --tint-color: transparent;
+    cursor: var(--cursor);
+    background: transparent;
+    white-space: nowrap;
+    box-shadow: var(--shadow-3);
+    border: 0;
+    color: var(--gray-9);
+    border-radius: var(--radius-3);
+    text-align: left;
+    width: 200px;
+    aspect-ratio: 1;
+    position: relative;
+    outline-color: var(--secondary);
+    height: auto;
+    padding: 0;
+    animation: toast 0.25s;
+    display: block;
+  }
+  .toasts__slice-spinner {
+    transition: transform calc(var(--speed, 0.2) * 1s) var(--ease-elastic-2);
+    transform: translate(
+      calc(var(--translate-x, 0) * 1px),
+      calc(var(--translate-y, 0) * 1px)
+    );
+  }
+
+  @keyframes toast {
+    0% {
+      transform: translateY(200%);
+    }
+  }
+
+  :root {
+    --blue: hsl(216, 89%, 69%);
+    --blue-accent: hsl(215, 69%, 59%);
+    --indigo: hsl(237, 44%, 88%);
+    --indigo-accent: hsl(242, 29%, 72%);
+    --pink: hsl(334, 68%, 72%);
+    --pink-accent: hsl(333, 54%, 66%);
+    --green: hsl(54, 40%, 79%);
+    --green-accent: hsl(53, 26%, 67%);
+  }
+
+  .toast__close {
+    width: 1ch;
+    aspect-ratio: 1;
+    min-width: 1ch;
+  }
+
+  .toast__text {
+    background: var(--secondary);
+    height: 12%;
+    aspect-ratio: 5 / 1;
+    position: absolute;
+    bottom: var(--size-4);
+    left: var(--size-4);
+    z-index: 2;
+  }
+}
+
+@layer cuboid {
+   /* Cuboid boilerplate code */
+  .cuboid {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .cuboid__side {
+    background: var(--color);
+    position: absolute;
+    filter: brightness(var(--b));
+  }
+  .cuboid__side:nth-of-type(1) {
+    --b: 1.1;
+    height: var(--depth, 20vmin);
+    width: 100%;
+    top: 0;
+    transform: translate(0, -50%) rotateX(90deg);
+  }
+  .cuboid__side:nth-of-type(2) {
+    --b: 0.9;
+    height: 100%;
+    width: var(--depth, 20vmin);
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%) rotateY(90deg);
+  }
+  .cuboid__side:nth-of-type(3) {
+    --b: 0.5;
+    width: 100%;
+    height: var(--depth, 20vmin);
+    bottom: 0;
+    transform: translate(0%, 50%) rotateX(90deg);
+  }
+  .cuboid__side:nth-of-type(6) {
+    --b: 1;
+    height: 100%;
+    width: var(--depth, 20vmin);
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%) rotateY(90deg);
+  }
+  .cuboid__side:nth-of-type(5) {
+    --b: 0.8;
+    height: 100%;
+    width: 100%;
+    transform: translate3d(0, 0, calc(var(--depth, 20vmin) * 0.5));
+    top: 0;
+    left: 0;
+  }
+  .cuboid__side:nth-of-type(4) {
+    --b: 1.2;
+    height: 100%;
+    width: 100%;
+    transform: translate3d(0, 0, calc(var(--depth, 20vmin) * -0.5))
+      rotateY(180deg);
+    top: 0;
+    left: 0;
+  }
+}
+
+@layer base {
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+
+  :where([popover]) {
+    margin: auto;
+    border-width: initial;
+    border-style: solid;
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: "Google Sans", sans-serif, system-ui;
+    background: var(--surface-2);
+  }
+}

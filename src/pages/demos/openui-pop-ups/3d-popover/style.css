@@ -37,6 +37,11 @@
   [popover=auto] {
     padding: var(--size-4);
   }
+
+  :where([popover]) {
+    border: 0;
+  }
+
   [popover=auto]::backdrop {
     background: hsl(0 0% 10% / 0.5);
     opacity: 0;
@@ -126,7 +131,7 @@
 
   .popup__tail .cuboid__side:nth-of-type(2):after {
     content: "";
-    background: hsl(280 80% 50% / 1);
+    background: var(--pink-4);
     position: absolute;
     top: 0;
     left: 0;
@@ -285,6 +290,6 @@
 
 @layer button {
   .fab svg {
-    fill: var(--md-sys-color-on-primary-container);
+    fill: var(--gray-7);
   }
 }

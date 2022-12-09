@@ -270,7 +270,7 @@ popoverElement.addEventListener('popoverhide',event => {
 })
 ```
 ---
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/poppers" -->
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/retro-poppers" -->
 ---
 <!-- ```html []
 <button

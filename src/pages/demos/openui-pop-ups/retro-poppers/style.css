@@ -1,0 +1,141 @@
+@layer normalize, open-props, mdl, base, demo;
+
+
+
+@import "normalize.css" layer(normalize);
+@import "open-props/style" layer(open-props);
+@import "open-props/normalize" layer(open-props);
+
+/* @import url("../../../../../public/shared/css/mdl.css") layer(mdl);
+@import url("../../../../../public/shared/css/icons.css") layer(mdl); */
+
+@layer base {
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: "Google Sans", sans-serif, system-ui;
+    position: relative;
+    overflow: auto;
+    padding-top: var(--size-12);
+  }
+}
+
+
+@layer demo {
+  [popover] {
+    padding: var(--size-4);
+  }
+  [popover] {
+    box-shadow: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .balloon {
+    cursor: pointer;
+    font-size: var(--font-size-fluid-1);
+    font-weight: var(--font-weight-9);
+    color: var(--gray-0);
+    overflow: visible;
+    width: 12vmin;
+    aspect-ratio: 1 / 1.2;
+    height: auto;
+    background: none;
+    filter: brightness(var(--brightness, 1));
+    transition: filter 0.2s, transform 0.2s;
+    transform: translate(-50%, -50%) translateX(calc(var(--index, 0) * 110%))
+      translateY(0) scale(var(--scale, 1));
+    /*animation: float calc(var(--d, 1) * 1s) calc(var(--delay, 0) * -1s) infinite linear both;*/
+  }
+
+  .balloon__body {
+    width: 100%;
+  }
+
+  .balloon__text {
+    text-align: center;
+    position: absolute;
+    inset: 0 0 50% 0;
+    display: grid;
+    place-items: center;
+    font-size: 6vmin;
+  }
+
+  .balloon__rubber {
+    fill: hsl(var(--hue) 90% 50% / 0.45);
+  }
+
+  [popover]:hover {
+    --scale: 1.2;
+    --brightness: 1.2;
+  }
+
+  [popover]:open {
+    animation: float calc(var(--float-speed) * 10s) forwards,
+      bob calc(var(--bob-speed) * 10s) infinite ease-in-out;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translate(-50%, -50%) translateX(calc(var(--index, 0) * 110%))
+        translateY(100vh) translateY(0vh);
+    }
+  }
+
+  @keyframes bob {
+    50% {
+      transform: translate(-50%, -50%) translateX(calc(var(--index, 0) * 110%))
+        translateY(0) translateY(-25%);
+    }
+  }
+
+  p + p {
+    margin-top: var(--size-4);
+  }
+
+  @keyframes float-up {
+    from {
+      transform: translate(-50%, -50%) translateX(calc(var(--index) * 125%))
+        scale(calc(1 + var(--scale, 0))) translateY(100vh);
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --shine: hsl(0 0% 100% / 0.75);
+    --speed: 1s;
+  }
+
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: "Google Sans", sans-serif, system-ui;
+    align-content: center;
+    overflow: hidden;
+  }
+
+  :where([popover]) {
+    margin: auto;
+    border-width: initial;
+    border-style: solid;
+  }
+}
