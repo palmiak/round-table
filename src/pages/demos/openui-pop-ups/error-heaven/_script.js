@@ -43,7 +43,8 @@ const generateError = id => {
 }
 
 let count = 1
-const showErrors = () => {
+const showErrors = e => {
+  if (e.newState !== 'closed') return
   if (count === 0) count++
   else count += 1
   for (let i = 0; i < count; i++) {
@@ -61,7 +62,7 @@ const showErrors = () => {
 
 document.querySelector('[popover]').showPopover()
 
-document.body.addEventListener('popoverhide', showErrors)
+document.body.addEventListener('beforetoggle', showErrors)
 
 // Get that ball rolling
 // showErrors()

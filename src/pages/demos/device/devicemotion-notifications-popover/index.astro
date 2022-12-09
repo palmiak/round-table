@@ -16,7 +16,7 @@ import './style.css';
     <header class="top-app-bar center-aligned">
       <span class="title">Gestures</span>
       <div class="actions">
-        <button class="icon button button--notifications">
+        <button class="icon button button--notifications" popovershowtarget=notifications>
           <i class="material-icons">notifications</i>
         </button>
         <button class="icon leading" popovertoggletarget="menu">
@@ -40,15 +40,34 @@ import './style.css';
       <p>Eligendi commodi beatae, quibusdam, accusamus hic tempora delectus quasi. Perspiciatis at, a unde doloribus dolorum, tempora, fugit ab ad adipisci pariatur, deleniti? Facere corrupti facilis mollitia nesciunt asperiores, error delectus.</p>
       <img popover=manual id=fireball class="fireball" src="/shared/images/fireball.png" />
       <div class=notifications popover=manual id=notifications>
-        <h2>
-          Notifications
-        </h2>
-        <div class="notifications__list">
-          <ul>
-            <li>Thank you for coming to my talk! 🙏</li>
-          </ul>
+        <div class="notifications__content">
+          <svg class="notifications__bell" viewBox="0 0 240 261" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle class="notifications__ding" cx="120" cy="236" r="23" fill="#DAAB06" stroke="black" stroke-width="4"/>
+            <circle cx="120" cy="17" r="15" fill="#FAD34C" stroke="black" stroke-width="4"/>
+            <path d="M32 117C32 62.6726 71.5919 19 120 19C168.408 19 208 62.6726 208 117V186C208 192.627 213.373 198 220 198C229.941 198 238 206.059 238 216C238 225.941 229.941 234 220 234H20C10.0589 234 2 225.941 2 216C2 206.059 10.0589 198 20 198C26.6274 198 32 192.627 32 186V117Z" fill="#FAD34C" stroke="black" stroke-width="4"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M120 17C70.2943 17 30 61.7715 30 117V186C30 191.523 25.5228 196 20 196C8.95435 196 0 204.954 0 216C0 227.046 8.95435 236 20 236H62C50.9543 236 42 227.046 42 216C42 204.954 50.9543 196 62 196C67.5229 196 72 191.523 72 186V117C72 69.8058 101.424 30.2474 141 19.7368C134.263 17.9475 127.231 17 120 17Z" fill="#FFFAE8"/>
+            <path d="M32 117C32 62.6726 71.5919 19 120 19C168.408 19 208 62.6726 208 117V186C208 192.627 213.373 198 220 198C229.941 198 238 206.059 238 216C238 225.941 229.941 234 220 234H20C10.0589 234 2 225.941 2 216C2 206.059 10.0589 198 20 198C26.6274 198 32 192.627 32 186V117Z" stroke="black" stroke-width="4" fill="none" />
+            <g class="eyes">
+              <ellipse cx="77.7068" cy="146.016" rx="9.73151" ry="9.01573" fill="black"/>
+              <ellipse cx="74.4631" cy="143.01" rx="3.24384" ry="3.00524" fill="white"/>
+              <ellipse cx="162.047" cy="146.016" rx="9.73151" ry="9.01573" fill="black"/>
+              <ellipse cx="158.803" cy="143.01" rx="3.24384" ry="3.00524" fill="white"/>
+            </g>
+            <circle cx="61.4877" cy="169.631" r="6.48767" fill="#D9D9D9"/>
+            <circle cx="61.4877" cy="169.631" r="6.48767" fill="#FEA9A9"/>
+            <circle cx="178.266" cy="169.631" r="6.48767" fill="#FEA9A9"/>
+            <path d="M131.23 163.144C131.23 169.414 126.147 174.497 119.877 174.497C113.606 174.497 108.523 169.414 108.523 163.144" stroke="black" stroke-width="4" stroke-linecap="round" fill="none" />
+          </svg>
+          <h3>
+            Notifications
+          </h3>
+          <div class="notifications__list">
+            <ul>
+              <li>Thank you for coming to my talk! 🙏</li>
+            </ul>
+          </div>
+          <button popoverhidetarget=notifications>Close</button>
         </div>
-        <button popoverhidetarget=notifications>Close</button>
       </div>
     </main>
     <button class=activator popover=manual>Activate</button>

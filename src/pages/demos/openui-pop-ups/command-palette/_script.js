@@ -204,12 +204,16 @@ const handleKeyboardInteraction = (e) => {
   }
 };
 
-POPUP.addEventListener("popovershow", onActivated);
+POPUP.addEventListener('beforetoggle', e => {
+  if (e.newState === 'open') onActivated(e)
+})
 window.addEventListener("keydown", handleKeyboardInteraction);
 window.addEventListener("keypress", handleKeyboardInteraction);
 window.addEventListener("keyup", handleKeyboardInteraction);
-OPTIONS.addEventListener("popovershow", onOptionsOpen);
-OPTIONS.addEventListener("popoverhide", onOptionsHide);
+OPTIONS.addEventListener("beforetoggle", e => {
+  if (e.newState === "open") onOptionsOpen(e)
+  else onOptionsHide(e)
+})
 OPTIONS.addEventListener("pointermove", selectOption);
 OPTIONS.addEventListener("click", handleActionClick);
 

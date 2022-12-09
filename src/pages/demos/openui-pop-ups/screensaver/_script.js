@@ -56,20 +56,20 @@ const handleBounce = (e) => {
   if (diff <= BOUNCE_THRESHOLD) CHEER.play();
 };
 
-POPUP.addEventListener("popoverhide", () => {
-  setSaverTimer();
-});
-
-POPUP.addEventListener("popovershow", () => {
-  DVD.style.setProperty("--hue", randomInRange(0, 359));
-  MOVERS.forEach((el) => {
-    const duration = randomInRange(2, 6);
-    el.style = `
-      --duration: ${duration};
-      --delay: ${duration * Math.random()};
-    `;
-  });
-});
+POPUP.addEventListener("beforetoggle", e => {
+  if (e.newState === "closed") {
+    setSaverTimer();
+  } else {
+    DVD.style.setProperty("--hue", randomInRange(0, 359));
+    MOVERS.forEach((el) => {
+      const duration = randomInRange(2, 6);
+      el.style = `
+        --duration: ${duration};
+        --delay: ${duration * Math.random()};
+      `;
+    });
+  }
+})
 
 MOVERS.forEach((mover) =>
   mover.addEventListener("animationiteration", handleBounce)

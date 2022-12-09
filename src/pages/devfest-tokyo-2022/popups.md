@@ -256,17 +256,10 @@ popoverElement.hidePopover()
 /* Is the popover in the top layer */
 popoverElement.matches(':open')
 /* Listen for popover events */
-popoverElement.addEventListener('popovershow', doSomethingWhenPopoverShows)
-popoverElement.addEventListener('popoverhide', doSomethingWhenPopoverHides)
-/* You can cancel a show */
-popoverElement.addEventListener('popovershow',event => {
-  event.preventDefault();
-  console.warn(‘We blocked a pop-up from being shown’);
-})
-/* You can't cancel a hide */
-popoverElement.addEventListener('popoverhide',event => {
-  event.preventDefault();
-  console.warn("You aren't allowed to cancel the hiding of a popover");
+popoverElement.addEventListener('beforetoggle', ({ preventDefault, currentState, newState }) => {
+  /* You can cancel a show */
+  if (newState === "open") preventDefault()
+  else if (newState === "closed") console.warn("You can't cancel hiding a popover")
 })
 ```
 ---
@@ -543,9 +536,8 @@ const handleActivation = (e) => {
 </div>
 ```
 ---
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/device/devicemotion-popover" -->
----
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/device/devicemotion-nostalgia" -->
+<!-- .slide: data-background-color="var(--citric)" -->
+<h2 style="text-align:left;"><a style="color: var(--black);"target="_blank" href="/demos/device/devicemotion-notifications-popover">Let's look at<br>gestures! 👈</a></h2>
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/strange-portal" -->
 ---

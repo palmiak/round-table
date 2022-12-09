@@ -8,6 +8,53 @@ const mapRange = (inputLower, inputUpper, outputLower, outputUpper) => {
   return value => outputLower + (((value - inputLower) / INPUT_RANGE) * OUTPUT_RANGE || 0)
 }
 
+/**
+ * Hadouken specific things
+ * */
+let currentRotation
+let currentRotationRateAlpha
+let currentRotationRateBeta
+
+const FIREBALL_MAP = mapRange(800, 1400, 1, 4)
+
+// Use Z plane to catch the jump
+const ROTATION_RATE_THRESHOLD_ALPHA = -800
+const ROTATION_RATE_THRESHOLD_BETA = -100
+// The Y axis rotation threshold
+const ROTATION_THRESHOLD = 80
+const FLEX = 20
+
+let flicked = false
+let flickTimer
+
+const RYU = new Audio(new URL('/shared/audio/hadouken.mp3', import.meta.url))
+
+const resetHadouken = () => {
+  RYU.currentTime = 0
+  RYU.removeEventListener('ended', resetHadouken)
+  flicked = false
+  FIREBALL.hidePopover()
+  FIREBALL.removeEventListener('animationend', resetHadouken)
+  FIREBALL.classList.remove('fireball--firing')
+}
+
+
+const detectHadouken = () => {
+  console.info('Detecting..', currentRotationRateAlpha, currentRotationRateBeta)
+  if (currentRotationRateAlpha <= ROTATION_RATE_THRESHOLD_ALPHA &&
+      currentRotationRateBeta <= ROTATION_RATE_THRESHOLD_BETA) {
+    flicked = true
+    console.info('active')
+    RYU.play()
+    FIREBALL.showPopover()
+    document.documentElement.style.setProperty('--scale', FIREBALL_MAP(Math.abs(currentRotationRateAlpha)))
+    FIREBALL.classList.add('fireball--firing')
+    FIREBALL.addEventListener('animationend', resetHadouken)
+  }
+}
+
+/* Finish Hadouken specific things */
+
 let start
 let count = 0
 let cancel
@@ -28,20 +75,15 @@ const pushItRealGood = () => {
   }
 }
 
-NOTIFICATIONS.addEventListener('popovershow', () => {
-  console.info('Hello there???')
-  PUSH_IT.pause()
-  PUSH_IT.currentTime = 0
-  PUSH_IT.play()
+// States can be "open" or "closed"
+NOTIFICATIONS.addEventListener('beforetoggle', ({ currentState, newState }) => {
+  BELL.pause()
+  BELL.currentTime = 0
+  if (newState === 'open') BELL.play()
 })
 
-NOTIFICATIONS.addEventListener('popoverhide', () => {
-  console.info('hiding')
-  PUSH_IT.pause()
-  PUSH_IT.currentTime = 0
-})
-
-const handleMotion = ({ acceleration: { x }}) => {
+const handleMotion = ({ acceleration: { x, y }, rotationRate: { alpha, beta }}) => {
+  // Shake detection
   const shakeTime = Date.now()
   if (Math.abs(x) > 50) {
     if (cancel) clearTimeout(cancel)
@@ -60,6 +102,16 @@ const handleMotion = ({ acceleration: { x }}) => {
     }
     cancel = setTimeout(RESET, 1000)
   }
+  // Flick Detection
+  currentRotationRateAlpha = alpha
+  currentRotationRateBeta = beta
+}
+
+/* Hadouks specific handling */
+const handleOrientation = ({ beta }) => {
+  currentRotation = Math.round(beta)
+  if ((currentRotation <= ROTATION_THRESHOLD + FLEX) && 
+      (currentRotation >= ROTATION_THRESHOLD - FLEX) && !flicked) detectHadouken()
 }
 
 /**
@@ -74,10 +126,12 @@ const START = () => {
       DeviceMotionEvent.requestPermission(),
     ]).then(results => {
       if (results.every(result => result === 'granted')) {
+        window.addEventListener('deviceorientation', handleOrientation)
         window.addEventListener('devicemotion', handleMotion, true) 
       }
     })
   } else {
+    window.addEventListener('deviceorientation', handleOrientation)
     window.addEventListener('devicemotion', handleMotion, true)
   }
 }

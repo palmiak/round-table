@@ -52,6 +52,119 @@ h1 {
   translate: -100% 0;
 }
 
+.fireball {
+  background: transparent;
+  border: 0;
+  position: absolute;
+  width: 50vmin;
+  transform-origin: 100% 50%;
+  right: 50%;
+  top: 100%;
+  transform: translate(0, -50%) rotate(-90deg) scale(1) translateX(-100%);
+  filter: brightness(1.2) drop-shadow(0 0 1vmin blue);
+}
+
+.fireball:open {
+  animation: fire 2s ease-out;
+}
+
+@keyframes fire {
+  to {
+    transform: translate(0, -50%) rotate(-90deg) scale(var(--scale, 1)) translateX(calc(-100% + 100vh));   
+  }
+}
+
+#notifications {
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  padding: var(--size-4);
+  width: min(90vw, 300px);
+  box-shadow: var(--shadow-5);
+  background: var(--surface-1);
+}
+
+#notifications::backdrop {
+  background: hsl(0 0% 0% / 0.75);
+  backdrop-filter: blur(4px);
+}
+
+.notifications__bell {
+  transform-box: fill-box;
+  transform-origin: 50% 10%;
+  animation: swing 0.25s 2 linear;
+}
+
+.notifications__ding {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: ding 0.25s linear 2;
+}
+
+@keyframes swing {
+  0%, 50%, 100% {
+    rotate: 0deg;
+  }
+  25% {
+    rotate: -35deg;
+  }
+  75% {
+    rotate: 35deg;
+  }
+}
+@keyframes ding {
+  0%, 50%, 100% {
+    translate: 0 0;
+  }
+  25% {
+    translate: -100% 0;
+  }
+  75% {
+    translate: 100% 0;
+  }
+}
+
+.eyes {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: blink 6s var(--delay, -2s) infinite;
+}
+
+@keyframes blink {
+  0%, 46%, 48%, 50%, 100% {
+    scale: 1 1;
+  }
+  47%, 49% {
+    scale: 1 0.01;
+  }
+}
+
+.notifications__content {
+  display: grid;
+  place-items: center;
+  gap: var(--size-4);
+}
+
+.notifications__content ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.notifications__content button {
+  background: var(--surface-3);
+  border-radius: 0;
+  font-weight: var(--font-weight-9);
+}
+
+.notifications__content li {
+  border: var(--size-1) solid var(--indigo-4);
+  padding: var(--size-2);
+}
+
+[popover] h3 {
+  font-size: var(--font-size-2);
+}
+
 main {
   max-inline-size: var(--size-content-3);
   padding: 1rem;

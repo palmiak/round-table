@@ -33,5 +33,9 @@ const ACTIVATE_PARALLAX = () => {
   document.body.addEventListener('pointermove', UPDATE_PARALLAX)
 }
 
-POPUP.addEventListener('popovershow', ACTIVATE_PARALLAX)
-POPUP.addEventListener('popoverhide', DEACTIVATE_PARALLAX)
+const HANDLE_PARALLAX = ({ newState }) => {
+  if (newState === 'open') ACTIVATE_PARALLAX()
+  else DEACTIVATE_PARALLAX()
+}
+
+POPUP.addEventListener('beforetoggle', HANDLE_PARALLAX)

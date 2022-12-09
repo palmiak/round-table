@@ -35,12 +35,13 @@ const draggable = new Draggable(CONTAINER, {
 const FAB = document.querySelector('[popovertoggletarget=menu]')
 FAB.showPopover()
 const MENU_POP = document.querySelector('#menu')
-CONTAINER.addEventListener('popovershow', () => {
-  MENU_POP.hidePopover()
-  createCapture()
-})
-CONTAINER.addEventListener('popoverhide', () => {
-  capture.remove()
-  screenCast.clear()
-  screenCast.remove()
+CONTAINER.addEventListener('beforetoggle', e => {
+  if (e.newState === "open") {
+    MENU_POP.hidePopover()
+    createCapture()
+  } else {
+    capture.remove()
+    screenCast.clear()
+    screenCast.remove()
+  }
 })

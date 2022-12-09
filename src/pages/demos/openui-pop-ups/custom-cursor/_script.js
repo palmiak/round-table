@@ -57,8 +57,8 @@ const init = () => {
   wandFrame = requestAnimationFrame(drawBlocks)
   document.body.addEventListener("pointermove", createBlock);
   // Listen for any pop-ups that are opened and make sure the canvas sits higher
-  document.body.addEventListener("popovershow", (e) => {
-    if (canvas.matches(":open") && e.target !== canvas) {
+  document.body.addEventListener("beforetoggle", (e) => {
+    if (e.newState === "open" && canvas.matches(":open") && e.target !== canvas) {
       canvas.hidePopover();
       requestAnimationFrame(() => {
         canvas.showPopover();
