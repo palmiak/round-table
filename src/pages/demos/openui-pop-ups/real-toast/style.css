@@ -26,8 +26,14 @@
     overflow: hidden;
   }
 
-  body > button {
+  main > button {
     transform: scale(1.25);
+    max-width: 200px;
+  }
+  main {
+    display: grid;
+    place-items: center;
+    gap: 1rem;
   }
 }
 
@@ -109,6 +115,7 @@
 
   .toasts__slice .cuboid__side:is(:nth-of-type(5)) {
     --color: hsl(40 50% 90%);
+    filter: none;
     border: 4px solid hsl(30 50% 40%);
   }
 

@@ -347,7 +347,7 @@ body:has([popover]:open) {
 ---
 <!-- ### Custom Cursor
 --- -->
-<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/custom-cursor" -->
+<!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/cursor-cloud" -->
 ---
 <!-- <div>
 
