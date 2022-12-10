@@ -82,23 +82,32 @@ h1 {
   width: min(90vw, 300px);
   box-shadow: var(--shadow-5);
   background: var(--surface-1);
+  transition: scale 0.2s;
+  scale: var(--open, 0);
+}
+
+#notifications:open,
+#notifications:open::backdrop {
+  --open: 1;
 }
 
 #notifications::backdrop {
   background: hsl(0 0% 0% / 0.75);
   backdrop-filter: blur(4px);
+  opacity: var(--open, 0);
+  transition: opacity 0.2s;
 }
 
 .notifications__bell {
   transform-box: fill-box;
   transform-origin: 50% 10%;
-  animation: swing 0.25s 2 linear;
+  animation: swing 0.25s 0.25s 2 linear;
 }
 
 .notifications__ding {
   transform-box: fill-box;
   transform-origin: 50% 50%;
-  animation: ding 0.25s linear 2;
+  animation: ding 0.25s 0.25s linear 2;
 }
 
 @keyframes swing {

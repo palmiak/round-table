@@ -68,7 +68,6 @@ const RESET = () => {
   if (cancel) clearTimeout(cancel)
 }
 
-
 const pushItRealGood = () => {
   if (!NOTIFICATIONS.matches(':open')) {
     NOTIFICATIONS.showPopover()
@@ -79,7 +78,7 @@ const pushItRealGood = () => {
 NOTIFICATIONS.addEventListener('beforetoggle', ({ currentState, newState }) => {
   BELL.pause()
   BELL.currentTime = 0
-  if (newState === 'open') BELL.play()
+  if (newState === 'open') setTimeout(() => BELL.play(), 250)
 })
 
 const handleMotion = ({ acceleration: { x, y }, rotationRate: { alpha, beta }}) => {
@@ -94,9 +93,6 @@ const handleMotion = ({ acceleration: { x, y }, rotationRate: { alpha, beta }}) 
       count++
       if (count > 5) {
         RESET()
-        BELL.pause()
-        BELL.currentTime = 0
-        BELL.play()
         pushItRealGood()
       }
     }
