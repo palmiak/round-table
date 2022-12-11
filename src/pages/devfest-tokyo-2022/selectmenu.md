@@ -48,7 +48,7 @@
 ---
 <!-- .slide: data-background-color="var(--citric)" -->
 
-```html[|1,6]
+```html [|1,6]
 <selectmenu name=font-size id=size>
   <option value=normal>Normal</option>
   <option value=title>Title</option>

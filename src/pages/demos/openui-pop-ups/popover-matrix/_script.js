@@ -1,7 +1,5 @@
 import gsap from "gsap";
 
-const OVERLAY = document.querySelector('#overlay-popover')
-
 console.clear()
 
 const CANVAS = document.querySelector('#rain')
@@ -17,6 +15,8 @@ const CONFIG = {
   ALPHA_DROP: 0.04,
 }
 
+const RATIO = window.devicePixelRatio || 1;
+
 const GLYPHS = 'ラドクリフマラソンわたしワタシんょンョたばこタバコとうきょうトウキョウ'.split('')
 
 /* Rain Stream Class */
@@ -25,10 +25,10 @@ const RainStream = function({ id, hue, size, index, x }) {
   // Now you need to make some kind of structure that maps out
   self.id = id
   self.index = index
-  self.size = Math.floor((Math.min(window.innerWidth, window.innerHeight) / 100) * size)
+  self.size = size
   // Generate a random x position
   self.x = x
-  self.y = -self.size
+  self.y = self.size * -10
   // Create a canvas and context to be updated too
   self.canvas = document.createElement('canvas')
   self.context = self.canvas.getContext('2d')
@@ -95,7 +95,7 @@ DigitalRain.prototype.start = function() {
   self.ticker = () => self.tick()
   self.adapter = () => self.size()
   gsap.ticker.add(self.ticker);
-  // gsap.ticker.fps(CONFIG.FPS)
+  gsap.ticker.fps(self.config.FPS)
   window.addEventListener("resize", self.adapter);
 }
 
@@ -110,19 +110,20 @@ DigitalRain.prototype.stop = function() {
 DigitalRain.prototype.size = function () {
   const self = this
   const { height, width } = self.canvas.getBoundingClientRect();
-  self.highlightCanvas.height = self.trailCanvas.height = self.canvas.height = window.innerHeight;
-  self.highlightCanvas.width = self.trailCanvas.width = self.canvas.width = window.innerWidth;
+  self.highlightCanvas.height = self.trailCanvas.height = self.canvas.height = window.innerHeight * RATIO;
+  self.highlightCanvas.width = self.trailCanvas.width = self.canvas.width = window.innerWidth * RATIO;
 }
 
 DigitalRain.prototype.tick = function () {
   const self = this
   // Generate a new stream if we need to
   if ((Math.random() > self.config.PROBABILITY) && self.streams.length <= self.config.STREAM_LIMIT) {
+    const cMin = Math.min(self.canvas.width, self.canvas.height) / 100
     const size = gsap.utils.random(self.config.SIZE[0], self.config.SIZE[1])
     const NEW_STREAM = new RainStream({
       id: Date.now(),
-      size,
-      x: gsap.utils.random(window.innerWidth * self.config.WINDOW[0], window.innerWidth * self.config.WINDOW[1], 1),
+      size: Math.floor(cMin * size),
+      x: gsap.utils.random(self.canvas.width * self.config.WINDOW[0], self.canvas.width * self.config.WINDOW[1], 1),
       hue: 120,
       index: gsap.utils.random(0, GLYPHS.length, 1)
     })
@@ -136,7 +137,7 @@ DigitalRain.prototype.tick = function () {
   self.trailContext.fillRect(0, 0, self.canvas.width, self.canvas.height)
   // Loop through the stacks and render them
   self.streams.forEach(stream => {
-    if (stream.y > window.innerHeight) self.streams.splice(self.streams.findIndex(currentStream => currentStream.id === stream.id), 1)
+    if (stream.y > self.canvas.height) self.streams.splice(self.streams.findIndex(currentStream => currentStream.id === stream.id), 1)
     stream.index = gsap.utils.wrap(0, GLYPHS.length, stream.index - 1)
     stream.y += stream.size
     stream.render(self.trailContext, self.highlightContext)

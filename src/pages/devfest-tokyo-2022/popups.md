@@ -537,7 +537,7 @@ const handleActivation = (e) => {
 ```
 ---
 <!-- .slide: data-background-color="var(--citric)" -->
-<h2 style="text-align:left;"><a style="color: var(--black);"target="_blank" href="/demos/device/devicemotion-notifications-popover">Let's look at<br>gestures! 👈</a></h2>
+<h2 style="text-align:left;"><a style="color: var(--black);"target="_blank" href="/demos/device/devicemotion-notifications-popover">Let's look at<br>gestures! 👈 <span style="opacity: 0.25;">(Click this!)</span></a></h2>
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/strange-portal" -->
 ---

@@ -20,7 +20,7 @@
 ---
 <!-- Slide 3 -->
 <!-- .slide: class="multi-column" -->
-```html[]
+```html []
 <label
   for="alpha"
   class="control__label"

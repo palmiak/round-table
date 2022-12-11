@@ -21,7 +21,7 @@
 
 ---
 <!-- Slide 2 -->
-```html[1-100]
+```html [1-100]
 <!--  The main element -->
 <div class="captcha">
   <!-- An element for layout -->
