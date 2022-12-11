@@ -426,7 +426,7 @@ const handleActivation = (e) => {
 <!-- ---
 ### Screensaver
 --- -->
-<!-- .slide: data-background-color="var(--white)" data-background-iframe="/demos/openui-pop-ups/screensaver" -->
+<!-- .slide: data-background-color="var(--white)" data-background-iframe="/demos/openui-pop-ups/popover-matrix" -->
 ---
 <!-- .slide: data-background-color="var(--fuschia)" -->
 ```html []

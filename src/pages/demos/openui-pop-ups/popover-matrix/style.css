@@ -1,0 +1,129 @@
+@layer normalize, open-props, mdl, base, demo;
+
+@import "normalize.css" layer(normalize);
+@import "open-props/style" layer(open-props);
+@import "open-props/normalize" layer(open-props);
+
+@layer base {
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: "Google Sans", sans-serif, system-ui;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+@layer demo {
+
+  button {
+    padding: var(--size-2) var(--size-4);
+    border: 1px solid var(--text-2);
+  }
+}
+
+@layer base {
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+    /*cursor: none;*/
+  }
+
+  body {
+    min-height: 100vh;
+    background: var(--surface-1);
+    display: block;
+    padding: 0;
+    font-family: "Google Sans", sans-serif, system-ui;
+  }
+
+  :where([popover]) {
+    margin: auto;
+    border-width: 0;
+    border-style: none;
+    background: transparent;
+  }
+
+  canvas {
+    height: 100vh;
+    width: 100vw;
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+    display: none;
+/*     background: hsl(0 0% 0% / 0.95); */
+  }
+
+  canvas:open {
+    display: block;
+  }
+
+  h1 {
+    margin: 0;
+    color: var(--gray-0);
+  }
+
+  header {
+    height: 25vmin;
+    min-height: 200px;
+    background: var(--gradient-23);
+    display: grid;
+    place-items: center;
+    color: var(--gray-0);
+    padding: var(--size-4);
+  }
+
+  main {
+    margin: 0 auto;
+  }
+
+  article {
+    padding: var(--size-4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  article > * + * {
+    margin-top: var(--size-4);
+  }
+
+  /* Inactivity ring */
+  .inactivity-ring {
+    fill: none;
+    position: fixed;
+    top: var(--size-4);
+    right: var(--size-4);
+    color: var(--gray-0);
+    width: 40px;
+    aspect-ratio: 1;
+    stroke-dasharray: 130;
+    stroke-dashoffset: 130;
+    transform: rotate(-90deg);
+  }
+
+  .inactivity-ring circle {
+    stroke: currentColor;
+  }
+
+  .timing .inactivity-ring {
+    animation: load calc(var(--threshold) * 1ms) linear;
+  }
+
+  @keyframes load {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
