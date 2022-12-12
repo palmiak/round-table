@@ -1,0 +1,20 @@
+<svg width="250" height="250" viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M50 175L84.5 155L70 195.5H50V175Z" fill="#AF7128"/>
+  <path d="M200 175L165.5 155L180.5 195.5H200V175Z" fill="#AF7128"/>
+  <rect x="25" y="156" width="200" height="20" fill="#DAAB06"/>
+  <path d="M50 136H200L225 156H25L50 136Z" fill="#C7A325"/>
+  <rect x="50" y="176" width="20" height="20" fill="#C7A325"/>
+  <rect x="180" y="176" width="20" height="20" fill="#C7A325"/>
+  <ellipse cx="75" cy="146" rx="22" ry="7" fill="#515151"/>
+  <rect x="53" y="104" width="44" height="42" fill="#515151"/>
+  <ellipse cx="75" cy="105" rx="22" ry="7" fill="white"/>
+  <ellipse cx="75" cy="105" rx="12" ry="4" fill="#FEAF2A"/>
+  <ellipse cx="125" cy="145" rx="22" ry="7" fill="#515151"/>
+  <rect x="103" y="103" width="44" height="42" fill="#515151"/>
+  <ellipse cx="125" cy="104" rx="22" ry="7" fill="white"/>
+  <ellipse cx="125" cy="104" rx="12" ry="4" fill="#FEAF2A"/>
+  <ellipse cx="175" cy="146" rx="22" ry="7" fill="#515151"/>
+  <rect x="153" y="104" width="44" height="42" fill="#515151"/>
+  <ellipse cx="175" cy="105" rx="22" ry="7" fill="white"/>
+  <ellipse cx="175" cy="105" rx="12" ry="4" fill="#FEAF2A"/>
+</svg>

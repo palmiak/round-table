@@ -1,0 +1,153 @@
+@import "open-props/style";
+@import "open-props/normalize";
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: none;
+  background: transparent;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  min-height: 100vh;
+  gap: var(--size-6);
+  color: var(--gray-9);
+  background: transparent;
+  font-family:  'Google Sans', sans-serif, system-ui;
+  position: relative;
+  background: var(--pink-6);
+}
+
+:root {
+  --width: 300px;
+}
+
+[behavior=button] {
+  padding: var(--size-2) var(--size-4);
+  width: var(--width);
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--size-4);
+  align-items: center;
+  border-radius: var(--radius-2);
+  border: 0;
+  box-shadow: var(--shadow-5);
+  background: var(--bg, var(--gray-1));
+  transform: scale(var(--scale, 1)) translateY(var(--translate, 0));
+  transition: transform 0.2s, background 0.2s;
+  font-weight: var(--font-weight-9);
+  font-size: var(--font-size-3);
+  will-change: transform;
+}
+
+
+[behavior=button]:hover {
+  --scale: 1.05;
+  --translate: -2%;
+  --bg: var(--gray-0);
+}
+
+selectmenu:has([popover]:open) [behavior=button],
+[behavior=button]:active {
+  --scale: 0.9;
+  --translate: 2%;
+}
+
+[popover] {
+  box-shadow: var(--shadow-3);
+  opacity: var(--open, 0);
+  transform: translate(0, calc(var(--open, 0) * 5%));
+  transform-origin: 50% 0;
+  overflow: visible;
+  width: var(--width);
+  padding: 0;
+  aspect-ratio: 1;
+  display: grid;
+  grid-auto-flow: column;
+  overflow: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  padding: 0 calc(var(--width) * 0.125);
+  background: url('/shared/images/sushi/backdrop.svg') 0px -20px / 100% 100%;
+  animation-timeline: scroll() inline;
+  animation: bg 1s both;
+  background-color: hsl(215 40% 45%);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@keyframes bg {
+  0% {
+    background-position: 0px -20px;
+  }
+  100% {
+    background-position: calc(var(--width) * -1) -20px;
+  }
+}
+
+[role=selected-img] {
+  width: 80px;
+  aspect-ratio: 1;
+}
+
+option {
+  display: grid;
+  place-items: center;
+  width: calc(var(--width) * 0.75);
+  scroll-snap-align: center;
+  outline-offset: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+option:after {
+  content: "";
+  width: 80%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background: hsl(var(--accent, 10) 100% 50%);
+  z-index: -1;
+  scale: var(--active, 0);
+  transition: scale 0.2s var(--ease-elastic-3);
+}
+
+option:is(:hover, :focus-visible) {
+  --active: 1;
+  background: transparent;
+  outline-offset: 0;
+}
+
+option img {
+  width: 100%;
+  object-position: bottom;
+  scale: calc(1 + (var(--active, 0) * 0.25));
+  rotate: calc(var(--active, 0) * 4deg);
+  translate: 0 calc(var(--active, 0) * -5%);
+  transition: scale 0.2s var(--ease-elastic-3), rotate 0.2s var(--ease-elastic-3), translate 0.2s var(--ease-elastic-3);
+}
+
+[popover]:open {
+  transition: transform 0.2s, opacity 0.2s;
+  --open: 1;
+}
