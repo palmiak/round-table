@@ -100,6 +100,7 @@ selectmenu button {
 selectmenu [popover] {
   left: calc(anchor(--button right) + 0.5rem);
   top: anchor(--button center);
+  position-fallback: none;
   transform: translate(0, -50%) rotate(-25deg);
   transform-origin: 0 50%;
 }
@@ -124,7 +125,7 @@ selectmenu option {
   animation: fan-out 0.25s both;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 0%;
   color: var(--color);
   translate: 0 -50%;
   rotate: calc(((var(--angle) * -1) + (((var(--angle) * 2) / var(--count, 9) * var(--index, 0)))) * 1deg);

@@ -72,12 +72,12 @@ const handleUp = e => {
 }
 
 // BUTTON.addEventListener('pointerdown', handleDown)
-POP.addEventListener('popovershow', e => {
-  if (!STATE.unlocked) return e.preventDefault()
-})
-
-POP.addEventListener('popoverhide', e => {
-  STATE.unlocked = false
+POP.addEventListener('beforetoggle', e => {
+  if (e.newState === "open") {
+    if (!STATE.unlocked) return e.preventDefault()
+  } else {
+    STATE.unlocked = false
+  }
 })
 
 BUTTON.addEventListener('keydown', handleDown)

@@ -61,41 +61,30 @@
 ---
 <!-- .slide: data-background-color="var(--fuschia)" -->
 
-```html [|2,3,4,8,9]
-<selectmenu id=position>
-  <div slot=button>
-    <button behavior=button>
-      <span behavior=selected-value slot=selected-value></span>
-      <span role=img class=👆>👆</span>
+```html [|4,5,6,7,12,13,14,15]
+<selectmenu id="country">
+  <div slot="button">
+    <button behavior="button">
+      <span behavior="selected-value" slot="selected-value">
+        <span>Japan</span>
+        <img src="./jp.png" alt="">
+      </span>
     </button>
   </div>
   <div slot=listbox>
     <div popover behavior=listbox>
-      <!-- Could it be a dynamic anchor? 👀 -->
-      <option value=top>
-        <span class=👉>👉</span>
-        <span>Top</span>
-      </option>
-      <option value=right>
-        <span class=👉>👉</span>
-        <span>Right</span>
-      </option>
-      <option value=bottom>
-        <span class=👉>👉</span>
-        <span>Bottom</span>
-      </option>
-      <option value=left>
-        <span class=👉>👉</span>
-        <span>Left</span>
+      <option value=Japan>
+        <img src="./jp.png" alt="">
+        <span>Japan</span>
       </option>
     </div>
   </div>
 </selectmenu>
 ```
 ---
-<!-- .slide: data-background-iframe="/demos/openui-selectmenu/finger-select" data-background-color="var(--blueberry)" -->
+<!-- .slide: data-background-iframe="/demos/openui-selectmenu/country-select" data-background-color="var(--blueberry)" -->
 ---
-<!-- .slide: data-background-iframe="/demos/openui-selectmenu/radial-select" data-background-color="var(--off-white)" -->
+<!-- .slide: data-background-iframe="/demos/openui-selectmenu/spread-fan-select" data-background-color="var(--off-white)" -->
 ---
 <!-- .slide: data-background-color="var(--citric)" -->
 
@@ -124,5 +113,9 @@
 <!-- .slide: data-background-iframe="/demos/openui-selectmenu/pokeselect" -->
 ---
 <!-- .slide: data-background-iframe="/demos/openui-selectmenu/emoji-picker" -->
+---
+<!-- .slide: data-background-iframe="/demos/openui-selectmenu/sushi-picker" -->
+---
+<!-- .slide: data-background-iframe="/demos/openui-selectmenu/3d-sushi" -->
 ---
 <!-- End Section
