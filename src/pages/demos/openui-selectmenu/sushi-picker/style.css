@@ -77,9 +77,10 @@ selectmenu:has([popover]:open) [behavior=button],
   scroll-snap-type: x mandatory;
   padding: 0 calc(var(--width) * 0.125);
   background: url('/shared/images/sushi/backdrop.svg') 0px -20px / 100% 100%;
-  animation-timeline: scroll() inline;
+  animation-timeline: scroll(inline);
   animation: bg 1s both;
   background-color: hsl(215 40% 45%);
+  transition: transform 0.2s, opacity 0.2s;
 }
 
 .sr-only {
@@ -149,6 +150,5 @@ option img {
 }
 
 [popover]:open {
-  transition: transform 0.2s, opacity 0.2s;
   --open: 1;
 }

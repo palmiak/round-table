@@ -19,23 +19,23 @@ selectmenu {
   anchor-name: --menu;
 }
 
-[data-type=grass], optgroup[label=Grass] { --accent: var(--green-4); }
-[data-type=poison], optgroup[label=Poison] { --accent: var(--violet-4); }
-[data-type=normal], optgroup[label=Normal] { --accent: var(--gray-0); }
-[data-type=flying], optgroup[label=Flying] { --accent: var(--pink-4); }
-[data-type=electric], optgroup[label=Electric] { --accent: var(--yellow-4); }
-[data-type=ground], optgroup[label=Ground] { --accent: var(--gray-8); }
-[data-type=fire], optgroup[label=Fire] { --accent: var(--orange-4); }
-[data-type=water], optgroup[label=Water] { --accent: var(--blue-4); }
-[data-type=bug], optgroup[label=Bug] { --accent: var(--green-6); }
-[data-type=fairy], optgroup[label=Fairy] { --accent: var(--pink-4); }
-[data-type=fighting], optgroup[label=Fighting] { --accent: var(--red-4); }
-[data-type=psychic], optgroup[label=Psychic] { --accent: var(--indigo-4); }
-[data-type=rock], optgroup[label=Rock] { --accent: var(--gray-8); }
-[data-type=steel], optgroup[label=Steel] { --accent: var(--gray-2); }
-[data-type=ice], optgroup[label=Ice] { --accent: var(--blue-2); }
-[data-type=ghost], optgroup[label=Ghost] { --accent: var(--grape-4); }
-[data-type=dragon], optgroup[label=Dragon] { --accent: var(--lime-4); }
+[data-type=grass], [label=Grass] { --accent: var(--green-4); }
+[data-type=poison], [label=Poison] { --accent: var(--violet-4); }
+[data-type=normal], [label=Normal] { --accent: var(--gray-2); }
+[data-type=flying], [label=Flying] { --accent: var(--pink-4); }
+[data-type=electric], [label=Electric] { --accent: var(--yellow-4); }
+[data-type=ground], [label=Ground] { --accent: var(--gray-6); }
+[data-type=fire], [label=Fire] { --accent: var(--orange-4); }
+[data-type=water], [label=Water] { --accent: var(--blue-4); }
+[data-type=bug], [label=Bug] { --accent: var(--green-6); }
+[data-type=fairy], [label=Fairy] { --accent: var(--pink-4); }
+[data-type=fighting], [label=Fighting] { --accent: var(--red-4); }
+[data-type=psychic], [label=Psychic] { --accent: var(--indigo-4); }
+[data-type=rock], [label=Rock] { --accent: var(--gray-6); }
+[data-type=steel], [label=Steel] { --accent: var(--gray-2); }
+[data-type=ice], [label=Ice] { --accent: var(--blue-2); }
+[data-type=ghost], [label=Ghost] { --accent: var(--grape-4); }
+[data-type=dragon], [label=Dragon] { --accent: var(--lime-4); }
 
 [behavior=button] {
   padding: var(--size-4);
@@ -77,6 +77,7 @@ selectmenu [popover] {
   height: 30vh;
   border: 0;
   padding: 0;
+  transition: opacity 0.2s, translate 0.2s;
 }
 
 .pokeselect__image-placeholder {
@@ -114,7 +115,6 @@ selectmenu [popover] {
 }
 
 selectmenu [popover]:open {
-  transition: opacity 0.2s, translate 0.2s;
   --open: 1;
 }
 
@@ -137,11 +137,13 @@ selectmenu [popover] option + option {
 }
 
 legend {
-  background: canvas;
+  background: var(--accent);
   width: 100%;
-  padding: var(--size-2);
+  padding: var(--size-2) var(--size-4);
   position: sticky;
   top: 0;
+  font-weight: var(--font-weight-9);
+
 }
 
 selectmenu option {
@@ -153,6 +155,7 @@ selectmenu option {
   grid-template-columns: auto 1fr;
   align-items: center;
   justify-content: center;
+  outline-offset: -2px;
 }
 
 selectmenu option:focus-visible {

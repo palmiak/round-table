@@ -66,6 +66,7 @@ option svg {
   transform: translate(0, 5%) scale(var(--open, 0));
   transform-origin: 80% 0;
   overflow: visible;
+  transition: transform 0.2s;
 }
 
 [popover] option + option {
@@ -89,7 +90,6 @@ option:hover {
 }
 
 [popover]:open {
-  transition: transform 0.2s;
   --open: 1;
 }
 

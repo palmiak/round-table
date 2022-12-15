@@ -52,6 +52,7 @@ option svg {
 }
 
 [popover] {
+  transition: transform 0.2s, opacity 0.2s;
   overflow: visible;
   border-radius: var(--radius-2);
   top: anchor(--menu bottom);
@@ -108,7 +109,6 @@ option:hover {
 }
 
 [popover]:open {
-  transition: transform 0.2s, opacity 0.2s;
   --open: 1;
 }
 

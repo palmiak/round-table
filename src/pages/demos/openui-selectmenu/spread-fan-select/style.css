@@ -39,7 +39,7 @@ selectmenu button {
   justify-content: space-between;
   gap: 0.5rem;
   min-width: 140px;
-  box-shadow: var(--shadow-5);
+  box-shadow: var(--shadow-3);
 }
 
 selectmenu button .sun {
