@@ -191,7 +191,8 @@ selectmenu {
 :root:has([value=tomago]:is(:hover, :focus-visible)) [data-sushi=tomago],
 :root:has([value=tuna]:is(:hover, :focus-visible)) [data-sushi=tuna],
 :root:has([value=salmon]:is(:hover, :focus-visible)) [data-sushi=salmon],
-:root:has([value=cucumber]:is(:hover, :focus-visible)) [data-sushi=cucumber] {
+:root:has([value=cucumber]:is(:hover, :focus-visible)) [data-sushi=cucumber],
+option:is(:hover, :focus-visible) {
   --elevate: 1;
 }
 
@@ -222,7 +223,7 @@ selectmenu {
   height: 120%;
   position: absolute;
   bottom: 50%;
-  transform: scaleZ(var(--open, 0)) rotateX(-90deg);
+  transform: scaleZ(var(--open, 0)) rotateX(-90deg) translateY(calc(var(--elevate, 0) * -50%));
   transform-origin: 50% 100%;
 }
 [data-sushi] .sushi-slot {

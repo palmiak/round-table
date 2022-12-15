@@ -56,14 +56,6 @@ Element.requestFullscreen();
 ---
 <!-- .slide: data-background-color="hsl(0 0% 100%)" data-background-iframe="/demos/openui-pop-ups/with-backdrop" -->
 ---
-<!-- .slide: data-background-color="var(--off-white)" -->
-<ul class="bullets">
-  <li>Hidden by default</li>
-  <li>No JavaScript</li>
-  <li>No z-index fighting</li>
-  <li>Light dismiss</li>
-</ul>
----
 <!-- .slide: data-background-color="var(--fuschia)" -->
 ```html [8,9,11]
 <html>
@@ -91,6 +83,15 @@ Element.requestFullscreen();
 <!-- .slide: data-background-color="var(--black)" class="title-slide slide--top" -->
 ## <span style="color:var(--fuschia)">popovertoggletarget</span> attribute is looong.
 <h3 style="text-align:right;">– <span style="opacity: 0.5; color: var(--selective);">Someone, no doubt.</span></h3>
+---
+<!-- .slide: data-background-color="var(--off-white)" -->
+<ul class="bullets">
+  <li>Hidden by default</li>
+  <li>No JavaScript</li>
+  <li>No z-index fighting</li>
+  <li>Light dismiss</li>
+  <li>Anywhere in the DOM</li>
+</ul>
 ---
 <!-- .slide: class="title-slide title-slide--top" data-background-color="var(--black)" -->
 ## <span style="color: var(--fuschia)">Better developer experience</span> leads to less opportunity for poor <span style="color: var(--citric)">user experience</span>
@@ -428,19 +429,30 @@ const handleActivation = (e) => {
 --- -->
 <!-- .slide: data-background-color="var(--white)" data-background-iframe="/demos/openui-pop-ups/popover-matrix" -->
 ---
-<!-- .slide: data-background-color="var(--fuschia)" -->
+<!-- .slide: class="code-stack" data-background-color="var(--fuschia)" -->
+
+<div>
+
 ```html []
-<div id="screensaver" popover>
-  <div class="dvd">
-    <div class="dvd__scale">
-      <div class="dvd__slide">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="8 44 178 104">
-        </svg>
-      </div>
-    </div>
-  </div>
-</div>
+<canvas
+  id="rain"
+  class="rain"
+  popover="auto"
+></canvas>
 ```
+
+</div>
+<div>
+
+```js []
+// General idea! 💡
+if (!SCREENSAVER.matches(":open")) {
+  screensaverTimeout = setTimeout(() => {
+    SCREENSAVER.showPopover();
+  }, SCREENSAVER_THRESHOLD);
+}
+```
+</div>
 ---
 <!-- ### Floating Actions
 --- -->

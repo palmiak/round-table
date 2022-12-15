@@ -68,7 +68,7 @@ button {
 <div class="code-stack">
 
 
-## Uh oh.<br>Wrapping elements<br>aren't the problem.
+<h2 style="text-align: left;">Uh oh.<br>Wrapping elements<br>aren't the problem.</h2>
 
 </div>
 

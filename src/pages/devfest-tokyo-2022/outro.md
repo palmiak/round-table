@@ -1,5 +1,5 @@
  <!-- .slide: class="title-slide title-slide--top" data-background-color="var(--chateau)" -->
-## That's it.
+## That's it.<br>Styleable &lt;select&gt;s are coming.
 ---
 <!-- .slide: class="title-slide title-slide--right" -->
 ## If you haven't, <span style="color: var(--fuschia)">start</span> your journey. <span style="color: var(--selective)">Supercharge</span> yourself. It's <span style="color: var(--blueberry)">just pixels</span>.

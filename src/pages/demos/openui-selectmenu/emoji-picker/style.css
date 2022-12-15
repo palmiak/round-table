@@ -24,7 +24,7 @@ body {
   gap: var(--size-6);
   font-family:  'Google Sans', sans-serif, system-ui;
   position: relative;
-  background: var(--surface-3);
+  background: var(--yellow-4);
 }
 
 [behavior=button] {
@@ -50,7 +50,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: hsl(210 80% 50% / 0.5);
+  background: hsl(210 10% 70% / 0.35);
   border-radius: 50%;
   z-index: -1;
   scale: var(--active, 0);
@@ -67,7 +67,7 @@ body {
 }
 
 [popover]:is(:hover,:focus-within) option :is(picture, img) {
-  scale: calc(0.75 + (var(--lerp, 0) * 1));
+  scale: calc(1 + (var(--lerp, 0) * 0.75));
   transition: scale 0.2s;
 }
 
@@ -147,6 +147,7 @@ option:last-of-type {
   overflow: visible;
   top: anchor(--button bottom);
   left: anchor(--button left);
+  min-height: 88px;
   transform:
     translateX(calc(var(--size-10) * 0.5))
     translateX(-50%)

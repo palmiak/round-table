@@ -21,7 +21,8 @@ const draggable = new Draggable(ANCHOR, {
 });
 
 const RESET = document.querySelector('.reset')
-
+const CENTER = document.querySelector('#c')
 RESET.addEventListener('click', () => {
+  CENTER.checked = true
   ANCHOR.removeAttribute('style')
 })

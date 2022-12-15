@@ -13,6 +13,8 @@ const IMG_MAP = {
 
 const CLONE = () => {
   IMG.src = IMG_MAP[MENU.value]
+  const SELECTED = MENU.querySelector(':checked')
+  SELECTED.scrollIntoView()
 }
 
 MENU.addEventListener('input', CLONE)

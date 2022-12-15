@@ -61,7 +61,7 @@
 ---
 <!-- .slide: data-background-color="var(--fuschia)" -->
 
-```html [|4,5,6,7,12,13,14,15]
+```html [|3,4,5,6,7,8,11,12,13,14,15,16|2,9,10,17]
 <selectmenu id="country">
   <div slot="button">
     <button behavior="button">

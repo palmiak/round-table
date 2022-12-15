@@ -24,7 +24,7 @@ body {
   gap: var(--size-6);
   font-family:  'Google Sans', sans-serif, system-ui;
   position: relative;
-  background: var(--yellow-3);
+  background: var(--green-4);
 }
 
 selectmenu button {
@@ -39,6 +39,7 @@ selectmenu button {
   justify-content: space-between;
   gap: 0.5rem;
   min-width: 140px;
+  box-shadow: var(--shadow-5);
 }
 
 selectmenu button .sun {

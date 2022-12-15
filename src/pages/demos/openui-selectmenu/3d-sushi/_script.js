@@ -4,7 +4,7 @@ const POPOVER = MENU.querySelector('[popover]')
 
 
 const CLONE = () => {
-  LABEL.innerText = MENU.matches('[data-dirty=false') ? 'Choose Maki' : MENU.value
+  LABEL.innerText = MENU.matches('[data-dirty=false') ? 'choose maki' : MENU.value
 }
 
 MENU.addEventListener('input', CLONE)
