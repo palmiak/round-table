@@ -1,12 +1,13 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig } from 'astro/config';
+import react from "@astrojs/react";
+const cert = './localhost.pem';
+const key = './localhost-key.pem';
 
-const cert = './localhost.pem'
-const key = './localhost-key.pem'
-
+// https://astro.build/config
 export default defineConfig({
   server: {
     host: true,
-    port: 1987,
+    port: 1987
   },
   vite: {
     server: {
@@ -15,5 +16,6 @@ export default defineConfig({
         cert
       }
     }
-  }
-})
+  },
+  integrations: [react()]
+});

@@ -16,8 +16,11 @@
   "browserslist": "> 0.5%, chrome 95, last 2 versions, not dead",
   "dependencies": {
     "@astrojs/mdx": "^0.11.2",
+    "@astrojs/react": "^1.2.2",
     "@svgdotjs/svg.filter.js": "^3.0.8",
     "@svgdotjs/svg.js": "^3.1.2",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
     "astro": "^1.2.4",
     "autoprefixer": "^10.4.12",
     "canvas-confetti": "^1.5.1",
@@ -34,8 +37,8 @@
     "prettier-plugin-astro": "^0.5.4",
     "prism-themes": "^1.9.0",
     "prismjs": "^1.29.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "reveal.js": "^4.3.1",
     "splitting": "^1.0.6",
     "xp.css": "^0.3.0"

@@ -76,16 +76,20 @@ selectmenu:has([popover]:open) [behavior=button],
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   padding: 0 calc(var(--width) * 0.125);
-  background: url('/shared/images/sushi/backdrop.svg') 0px -20px / 100% 100%;
-  animation-timeline: scroll(inline);
-  animation: bg 1s both;
+  background: url('/shared/images/sushi/backdrop.svg') 0px -20px / 200% 100%;
+  background: linear-gradient(90deg, red, blue) 0 0 / 200% 100%; 
+  background: url('/shared/images/sushi/backdrop.svg') 0 0 / 200% 100%,
+    url('/shared/images/sushi/backdrop.svg') 100% 0 / 200% 100%;
+  scroll-timeline: --scroll;
+  scroll-timeline-axis: inline;
+  animation-timeline: --scroll;
+  animation: bg-scale both linear;
   background-color: hsl(215 40% 45%);
   transition: transform 0.2s, opacity 0.2s;
 }
 
 .sr-only {
   position: absolute;
-  width: 1px;
   height: 1px;
   padding: 0;
   margin: -1px;
@@ -95,12 +99,9 @@ selectmenu:has([popover]:open) [behavior=button],
   border-width: 0;
 }
 
-@keyframes bg {
-  0% {
-    background-position: 0px -20px;
-  }
+@keyframes bg-scale {
   100% {
-    background-position: calc(var(--width) * -1) -20px;
+    background-position: -200% 0, -100% 0;
   }
 }
 
@@ -117,6 +118,11 @@ option {
   outline-offset: 0;
   overflow: hidden;
   position: relative;
+}
+
+option:focus-visible {
+  outline-color: transparent;
+  outline-width: 0;
 }
 
 option:after {
