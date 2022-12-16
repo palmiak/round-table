@@ -12,17 +12,9 @@ import './style.css';
   </head>
   <body>
     <main>      
-      <div class="scene">
-        <div class="plate">
-          <div class="cuboid">
-            <div class="cuboid__side"></div>
-            <div class="cuboid__side"></div>
-            <div class="cuboid__side"></div>
-            <div class="cuboid__side"></div>
-            <div class="cuboid__side"></div>
-            <div class="cuboid__side"></div>
-          </div>
-          <div class="plate__inner">
+      <selectmenu id=maki-select data-dirty=false>
+        <div class="scene" slot=button>
+          <div class="plate">
             <div class="cuboid">
               <div class="cuboid__side"></div>
               <div class="cuboid__side"></div>
@@ -31,9 +23,7 @@ import './style.css';
               <div class="cuboid__side"></div>
               <div class="cuboid__side"></div>
             </div>
-          </div>
-          <div class="plate__sticks">
-            <div class="plate__stick">
+            <div class="plate__inner">
               <div class="cuboid">
                 <div class="cuboid__side"></div>
                 <div class="cuboid__side"></div>
@@ -43,233 +33,241 @@ import './style.css';
                 <div class="cuboid__side"></div>
               </div>
             </div>
-            <div class="plate__stick">
-              <div class="cuboid">
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="sushi__slots">
-          <div data-sushi=tuna>
-            <div class="sushi-slot">
-              <div class="cuboid">
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side">
-                  <svg class="sushi-face" viewBox="0 0 80 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g class="eyes" clip-path="url(#eye-clip-one)">
-                      <ellipse cx="14" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
-                      <ellipse cx="12" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
-                      <ellipse cx="66" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
-                      <ellipse cx="64" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
-                    </g>
-                    <circle cx="4" cy="20.1189" r="4" fill="#FEA9A9"/>
-                    <circle cx="76" cy="20.1189" r="4" fill="#FEA9A9"/>
-                    <g class="joy-mouth">
-                      <path d="M48 16.1189C48 20.5372 44.4183 24.1189 40 24.1189C35.5817 24.1189 32 20.5372 32 16.1189C32 16.1189 35.5817 16.1189 40 16.1189C44.4183 16.1189 48 16.1189 48 16.1189Z" fill="black"/>
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4005 20.919C44.941 22.8621 42.6173 24.1189 40 24.1189C40 24.1189 40 24.1189 40 24.1189C40 21.9098 41.7909 20.1189 44 20.1189C44.9007 20.1189 45.7319 20.4166 46.4005 20.919Z" fill="#FF1515"/>
-                    </g>
-                    <circle class="shock-mouth" cx="40" cy="20" r="4" fill="black"/>
-                    <defs>
-                      <clipPath id="eye-clip-one">
-                        <rect class="blinker" x="8" y="0" width="200" height="12"></rect>
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <span class="sr-only">Tuna</span>
-          </div>
-          <div data-sushi=salmon>
-            <div class="sushi-slot">
-              <div class="cuboid">
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side">
-                  <svg class="sushi-face" viewBox="0 0 80 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g class="eyes" clip-path="url(#eye-clip-two)">
-                      <ellipse cx="14" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
-                      <ellipse cx="12" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
-                      <ellipse cx="66" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
-                      <ellipse cx="64" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
-                    </g>
-                    <circle cx="4" cy="20.1189" r="4" fill="#FEA9A9"/>
-                    <circle cx="76" cy="20.1189" r="4" fill="#FEA9A9"/>
-                    <g class="joy-mouth">
-                      <path d="M48 16.1189C48 20.5372 44.4183 24.1189 40 24.1189C35.5817 24.1189 32 20.5372 32 16.1189C32 16.1189 35.5817 16.1189 40 16.1189C44.4183 16.1189 48 16.1189 48 16.1189Z" fill="black"/>
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4005 20.919C44.941 22.8621 42.6173 24.1189 40 24.1189C40 24.1189 40 24.1189 40 24.1189C40 21.9098 41.7909 20.1189 44 20.1189C44.9007 20.1189 45.7319 20.4166 46.4005 20.919Z" fill="#FF1515"/>
-                    </g>
-                    <circle class="shock-mouth" cx="40" cy="20" r="4" fill="black"/>
-                    <defs>
-                      <clipPath id="eye-clip-two">
-                        <rect class="blinker" x="8" y="0" width="200" height="12"></rect>
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <span class="sr-only">Salmon</span>
-          </div>
-          <div data-sushi=cucumber>
-            <div class="sushi-slot">
-              <div class="cuboid">
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side">
-                  <svg class="sushi-face" viewBox="0 0 80 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g class="eyes" clip-path="url(#eye-clip-three)">
-                      <ellipse cx="14" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
-                      <ellipse cx="12" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
-                      <ellipse cx="66" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
-                      <ellipse cx="64" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
-                    </g>
-                    <circle cx="4" cy="20.1189" r="4" fill="#FEA9A9"/>
-                    <circle cx="76" cy="20.1189" r="4" fill="#FEA9A9"/>
-                    <g class="joy-mouth">
-                      <path d="M48 16.1189C48 20.5372 44.4183 24.1189 40 24.1189C35.5817 24.1189 32 20.5372 32 16.1189C32 16.1189 35.5817 16.1189 40 16.1189C44.4183 16.1189 48 16.1189 48 16.1189Z" fill="black"/>
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4005 20.919C44.941 22.8621 42.6173 24.1189 40 24.1189C40 24.1189 40 24.1189 40 24.1189C40 21.9098 41.7909 20.1189 44 20.1189C44.9007 20.1189 45.7319 20.4166 46.4005 20.919Z" fill="#FF1515"/>
-                    </g>
-                    <circle class="shock-mouth" cx="40" cy="20" r="4" fill="black"/>
-                    <defs>
-                      <clipPath id="eye-clip-three">
-                        <rect class="blinker" x="8" y="0" width="200" height="12"></rect>
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <span class="sr-only">Cucumber</span>
-          </div>
-          <div data-sushi=tomago>
-            <div class="sushi-slot">
-              <div class="cuboid">
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side"></div>
-                <div class="cuboid__side">
-                  <svg class="sushi-face" viewBox="0 0 80 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g class="eyes" clip-path="url(#eye-clip-four)">
-                      <ellipse cx="14" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
-                      <ellipse cx="12" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
-                      <ellipse cx="66" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
-                      <ellipse cx="64" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
-                    </g>
-                    <circle cx="4" cy="20.1189" r="4" fill="#FEA9A9"/>
-                    <circle cx="76" cy="20.1189" r="4" fill="#FEA9A9"/>
-                    <g class="joy-mouth">
-                      <path d="M48 16.1189C48 20.5372 44.4183 24.1189 40 24.1189C35.5817 24.1189 32 20.5372 32 16.1189C32 16.1189 35.5817 16.1189 40 16.1189C44.4183 16.1189 48 16.1189 48 16.1189Z" fill="black"/>
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4005 20.919C44.941 22.8621 42.6173 24.1189 40 24.1189C40 24.1189 40 24.1189 40 24.1189C40 21.9098 41.7909 20.1189 44 20.1189C44.9007 20.1189 45.7319 20.4166 46.4005 20.919Z" fill="#FF1515"/>
-                    </g>
-                    <circle class="shock-mouth" cx="40" cy="20" r="4" fill="black"/>
-                    <defs>
-                      <clipPath id="eye-clip-four">
-                        <rect class="blinker" x="8" y="0" width="200" height="12"></rect>
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <span class="sr-only">Tomago</span>
-          </div>
-        </div>
-        <div class="controls">
-          <selectmenu id=maki-select data-dirty=false>
-            <div slot="button">
-              <button behavior="button">
-                <div behavior="selected-value" slot="selected-value"></div>
+            <div class="plate__sticks">
+              <div class="plate__stick">
                 <div class="cuboid">
                   <div class="cuboid__side"></div>
                   <div class="cuboid__side"></div>
                   <div class="cuboid__side"></div>
                   <div class="cuboid__side"></div>
-                  <div class="cuboid__side">
-                  </div>
-                  <div class="cuboid__side">
-                    <div class="cuboid__value"></div>
-                  </div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
                 </div>
-              </button>
-            </div>
-            <div slot="listbox">
-              <div popover behavior="listbox">
-                <option value=tuna title="Tuna">
-                  <div class="sushi-slot">
-                    <div class="cuboid">
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                    </div>
-                  </div>
-                  <span class="sr-only">Tuna</span>
-                </option>
-                <option value=salmon title="Salmon">
-                  <div class="sushi-slot">
-                    <div class="cuboid">
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                    </div>
-                  </div>
-                  <span class="sr-only">Salmon</span>
-                </option>
-                <option value=cucumber title="Cucumber">
-                  <div class="sushi-slot">
-                    <div class="cuboid">
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                    </div>
-                  </div>
-                  <span class="sr-only">Cucumber</span>
-                </option>
-                <option value=tomago title="Tomago">
-                  <div class="sushi-slot">
-                    <div class="cuboid">
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                      <div class="cuboid__side"></div>
-                    </div>
-                  </div>
-                  <span class="sr-only">Tomago</span>
-                </option>
+              </div>
+              <div class="plate__stick">
+                <div class="cuboid">
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                </div>
               </div>
             </div>
-          </selectmenu>
+          </div>
+          <div class="sushi__slots">
+            <div data-sushi=tuna>
+              <div class="sushi-slot">
+                <div class="cuboid">
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side">
+                    <svg class="sushi-face" viewBox="0 0 80 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g class="eyes" clip-path="url(#eye-clip-one)">
+                        <ellipse cx="14" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
+                        <ellipse cx="12" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
+                        <ellipse cx="66" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
+                        <ellipse cx="64" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
+                      </g>
+                      <circle cx="4" cy="20.1189" r="4" fill="#FEA9A9"/>
+                      <circle cx="76" cy="20.1189" r="4" fill="#FEA9A9"/>
+                      <g class="joy-mouth">
+                        <path d="M48 16.1189C48 20.5372 44.4183 24.1189 40 24.1189C35.5817 24.1189 32 20.5372 32 16.1189C32 16.1189 35.5817 16.1189 40 16.1189C44.4183 16.1189 48 16.1189 48 16.1189Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4005 20.919C44.941 22.8621 42.6173 24.1189 40 24.1189C40 24.1189 40 24.1189 40 24.1189C40 21.9098 41.7909 20.1189 44 20.1189C44.9007 20.1189 45.7319 20.4166 46.4005 20.919Z" fill="#FF1515"/>
+                      </g>
+                      <circle class="shock-mouth" cx="40" cy="20" r="4" fill="black"/>
+                      <defs>
+                        <clipPath id="eye-clip-one">
+                          <rect class="blinker" x="8" y="0" width="200" height="12"></rect>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <span class="sr-only">Tuna</span>
+            </div>
+            <div data-sushi=salmon>
+              <div class="sushi-slot">
+                <div class="cuboid">
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side">
+                    <svg class="sushi-face" viewBox="0 0 80 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g class="eyes" clip-path="url(#eye-clip-two)">
+                        <ellipse cx="14" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
+                        <ellipse cx="12" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
+                        <ellipse cx="66" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
+                        <ellipse cx="64" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
+                      </g>
+                      <circle cx="4" cy="20.1189" r="4" fill="#FEA9A9"/>
+                      <circle cx="76" cy="20.1189" r="4" fill="#FEA9A9"/>
+                      <g class="joy-mouth">
+                        <path d="M48 16.1189C48 20.5372 44.4183 24.1189 40 24.1189C35.5817 24.1189 32 20.5372 32 16.1189C32 16.1189 35.5817 16.1189 40 16.1189C44.4183 16.1189 48 16.1189 48 16.1189Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4005 20.919C44.941 22.8621 42.6173 24.1189 40 24.1189C40 24.1189 40 24.1189 40 24.1189C40 21.9098 41.7909 20.1189 44 20.1189C44.9007 20.1189 45.7319 20.4166 46.4005 20.919Z" fill="#FF1515"/>
+                      </g>
+                      <circle class="shock-mouth" cx="40" cy="20" r="4" fill="black"/>
+                      <defs>
+                        <clipPath id="eye-clip-two">
+                          <rect class="blinker" x="8" y="0" width="200" height="12"></rect>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <span class="sr-only">Salmon</span>
+            </div>
+            <div data-sushi=cucumber>
+              <div class="sushi-slot">
+                <div class="cuboid">
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side">
+                    <svg class="sushi-face" viewBox="0 0 80 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g class="eyes" clip-path="url(#eye-clip-three)">
+                        <ellipse cx="14" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
+                        <ellipse cx="12" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
+                        <ellipse cx="66" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
+                        <ellipse cx="64" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
+                      </g>
+                      <circle cx="4" cy="20.1189" r="4" fill="#FEA9A9"/>
+                      <circle cx="76" cy="20.1189" r="4" fill="#FEA9A9"/>
+                      <g class="joy-mouth">
+                        <path d="M48 16.1189C48 20.5372 44.4183 24.1189 40 24.1189C35.5817 24.1189 32 20.5372 32 16.1189C32 16.1189 35.5817 16.1189 40 16.1189C44.4183 16.1189 48 16.1189 48 16.1189Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4005 20.919C44.941 22.8621 42.6173 24.1189 40 24.1189C40 24.1189 40 24.1189 40 24.1189C40 21.9098 41.7909 20.1189 44 20.1189C44.9007 20.1189 45.7319 20.4166 46.4005 20.919Z" fill="#FF1515"/>
+                      </g>
+                      <circle class="shock-mouth" cx="40" cy="20" r="4" fill="black"/>
+                      <defs>
+                        <clipPath id="eye-clip-three">
+                          <rect class="blinker" x="8" y="0" width="200" height="12"></rect>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <span class="sr-only">Cucumber</span>
+            </div>
+            <div data-sushi=tomago>
+              <div class="sushi-slot">
+                <div class="cuboid">
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side">
+                    <svg class="sushi-face" viewBox="0 0 80 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g class="eyes" clip-path="url(#eye-clip-four)">
+                        <ellipse cx="14" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
+                        <ellipse cx="12" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
+                        <ellipse cx="66" cy="5.55869" rx="6" ry="5.55869" fill="black"/>
+                        <ellipse cx="64" cy="3.70579" rx="2" ry="1.8529" fill="white"/>
+                      </g>
+                      <circle cx="4" cy="20.1189" r="4" fill="#FEA9A9"/>
+                      <circle cx="76" cy="20.1189" r="4" fill="#FEA9A9"/>
+                      <g class="joy-mouth">
+                        <path d="M48 16.1189C48 20.5372 44.4183 24.1189 40 24.1189C35.5817 24.1189 32 20.5372 32 16.1189C32 16.1189 35.5817 16.1189 40 16.1189C44.4183 16.1189 48 16.1189 48 16.1189Z" fill="black"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M46.4005 20.919C44.941 22.8621 42.6173 24.1189 40 24.1189C40 24.1189 40 24.1189 40 24.1189C40 21.9098 41.7909 20.1189 44 20.1189C44.9007 20.1189 45.7319 20.4166 46.4005 20.919Z" fill="#FF1515"/>
+                      </g>
+                      <circle class="shock-mouth" cx="40" cy="20" r="4" fill="black"/>
+                      <defs>
+                        <clipPath id="eye-clip-four">
+                          <rect class="blinker" x="8" y="0" width="200" height="12"></rect>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <span class="sr-only">Tomago</span>
+            </div>
+          </div>
+          <div class="controls">
+            <button behavior="button">
+              <div behavior="selected-value" slot="selected-value"></div>
+              <div class="cuboid">
+                <div class="cuboid__side"></div>
+                <div class="cuboid__side"></div>
+                <div class="cuboid__side"></div>
+                <div class="cuboid__side"></div>
+                <div class="cuboid__side">
+                </div>
+                <div class="cuboid__side">
+                  <div class="cuboid__value"></div>
+                </div>
+              </div>
+            </button>
+          </div>
         </div>
-      </div>
+        <div slot="listbox" class=scene>
+          <div popover behavior="listbox">
+            <option value=tuna title="Tuna">
+              <div class="sushi-slot">
+                <div class="cuboid">
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                </div>
+              </div>
+              <span class="sr-only">Tuna</span>
+            </option>
+            <option value=salmon title="Salmon">
+              <div class="sushi-slot">
+                <div class="cuboid">
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                </div>
+              </div>
+              <span class="sr-only">Salmon</span>
+            </option>
+            <option value=cucumber title="Cucumber">
+              <div class="sushi-slot">
+                <div class="cuboid">
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                </div>
+              </div>
+              <span class="sr-only">Cucumber</span>
+            </option>
+            <option value=tomago title="Tomago">
+              <div class="sushi-slot">
+                <div class="cuboid">
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                </div>
+              </div>
+              <span class="sr-only">Tomago</span>
+            </option>
+          </div>
+        </div>
+      </selectmenu>
     </main>
   </body>
 </html>

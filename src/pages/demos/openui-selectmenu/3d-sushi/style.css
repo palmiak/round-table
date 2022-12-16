@@ -10,7 +10,13 @@
 }
 
 :root {
-  --size: 70vmin;
+  --plate: hsl(260 14% 14%);
+  --button: hsl(260 14% 30%);
+  --sushi: hsl(130 18% 25%);
+  --sticks: hsl(40 80% 80%);
+  --bg: hsl(260 60% 50%);
+  --size: 60vmin;
+  --hover: hsl(260 14% 40%);
 }
 
 html {
@@ -28,7 +34,7 @@ body {
   background: transparent;
   position: relative;
   overflow: hidden;
-  background: hsl(280 100% 50%);
+  background: var(--bg);
 }
 
 
@@ -48,7 +54,7 @@ body {
 }
 
 .plate {
-  color: var(--gray-8);
+  color: var(--plate);
   height: 100%;
   width: 100%;
   position: relative;
@@ -98,12 +104,12 @@ body {
 selectmenu {
   display: grid;
   place-items: center;
-  height: 100%;
-  width: 100%;
+  width: var(--size);
+  aspect-ratio: 1;
   padding: 0;
 }
 
-#maki-select [slot=button] {
+#maki-select :is([slot=button], [slot=listbox]) {
   width: 100%;
   height: 100%;
   display: grid;
@@ -113,7 +119,7 @@ selectmenu {
 #maki-select [behavior=button] {
   font-size: calc(var(--size) * 0.06);
   padding: 0;
-  color: var(--gray-8);
+  color: var(--button);
   width: 80%;
   font-weight: var(--font-weight-1);
   padding: var(--size-2);
@@ -124,54 +130,59 @@ selectmenu {
   --open: 1;
 }
 
-#maki-select [popover]:open {
-  top: 50%;
-  left: 50%;
-  display: grid;
-  transform: translate(-50%, -50%) rotateX(-24deg) rotateY(-32deg) rotateX(90deg) translateZ(1.1vmin);
-}
-
 .cuboid__value {
   color: var(--gray-2);
 }
 
 #maki-select [slot=listbox] {
-  height: calc(var(--size) * 0.6);
-  width: calc(var(--size) * 0.6);
-  max-height: calc(var(--size) * 0.6);
   position: fixed;
-  bottom: 100%;
-  left: 0%;
-  overflow: visible;
-  display: grid;
 }
 
 #maki-select [behavior=button] .cuboid {
-  color: var(--gray-7);
+  color: var(--button);
   --depth: 2vmin;
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  transition: transform 0.2s var(--ease-elastic-2);
+  transition: transform 0.2s var(--ease-elastic-2), color 0.2s var(--ease-elastic-2);
   transform: translateZ(calc((1 - (var(--open, 0) * 1.25)) * 1vmin));
 }
 
+#maki-select [behavior=button]:hover,
+#maki-select:has([popover]:open) [behavior=button] {
+  --button: var(--hover);
+}
+
+#maki-select {
+  anchor-name: --selectmenu;
+}
+
 #maki-select [popover] {
+  --size: 60vmin;
   margin: 0;
   overflow: visible;
   border: 0;
   background: transparent;
   height: calc(var(--size) * 0.6);
   max-height: calc(var(--size) * 0.6);
+  max-width: calc(var(--size) * 0.6);
   width: calc(var(--size) * 0.6);
-  display: grid;
   padding: calc(var(--size) * 0.1);
+  aspect-ratio: 1;
   gap: calc(var(--size) * 0.05);
   grid-template: 1fr 1fr / 1fr 1fr;
-  transform: translateZ(0vmin);
   position-fallback: none;
+  top: anchor(--selectmenu center);
+  left: anchor(--selectmenu center);
+  /* Important trick here */
+  min-inline-size: 0;
+  transform: translate(-50%, -50%) rotateX(-24deg) rotateY(-32deg) rotateX(90deg) translateZ(1.1vmin);
+}
+
+#maki-select [popover]:open {
+  display: grid;
 }
 
 #maki-select option {
@@ -181,6 +192,24 @@ selectmenu {
   padding: 0;
   outline-color: transparent;
   outline-width: 0;
+  cursor: grab;
+}
+
+/* #maki-select option:nth-of-type(1) {
+  color: hsl(280 80% 50% / 0.1);
+}
+#maki-select option:nth-of-type(2) {
+  color: hsl(10 80% 50% / 0.1);
+}
+#maki-select option:nth-of-type(3) {
+  color: hsl(120 80% 50% / 0.1);
+}
+#maki-select option:nth-of-type(4) {
+  color: hsl(320 80% 50% / 0.1);
+} */
+
+#maki-select option:active {
+  cursor: grabbing;
 }
 
 #maki-select option:is(:hover, :focus-visible) {
@@ -188,16 +217,16 @@ selectmenu {
   outline-color: transparent;
 }
 
-:root:has([value=tomago]:is(:hover, :focus-visible)) [data-sushi=tomago],
-:root:has([value=tuna]:is(:hover, :focus-visible)) [data-sushi=tuna],
-:root:has([value=salmon]:is(:hover, :focus-visible)) [data-sushi=salmon],
-:root:has([value=cucumber]:is(:hover, :focus-visible)) [data-sushi=cucumber],
-option:is(:hover, :focus-visible) {
+:root:has([popover]:open):has([value=tomago]:is(:hover, :focus-visible)) [data-sushi=tomago],
+:root:has([popover]:open):has([value=tuna]:is(:hover, :focus-visible)) [data-sushi=tuna],
+:root:has([popover]:open):has([value=salmon]:is(:hover, :focus-visible)) [data-sushi=salmon],
+:root:has([popover]:open):has([value=cucumber]:is(:hover, :focus-visible)) [data-sushi=cucumber],
+:root:has([popover]:open) option:is(:hover, :focus-visible) {
   --elevate: 1;
 }
 
 [data-sushi] {
-  color: var(--gray-9);
+  color: var(--sushi);
   position: relative;
   transform: translateZ(-1.1vmin);
 }
@@ -256,7 +285,7 @@ option:is(:hover, :focus-visible) {
 }
 
 .plate__stick {
-  color: hsl(40 80% 80%);
+  color: var(--sticks);
   --depth: calc(var(--size) * 0.025);
   width: calc(var(--size) * 0.025);
   transform: translateZ(calc(var(--size) * 0.0125));

@@ -11,5 +11,8 @@ MENU.addEventListener('input', CLONE)
 CLONE()
 
 POPOVER.addEventListener('beforetoggle', ({ newState }) => {
-  MENU.removeAttribute('data-dirty')
+  if (newState === "open" && MENU.matches('[data-dirty=false]')) {
+    MENU.removeAttribute('data-dirty')
+    CLONE()
+  }
 })
